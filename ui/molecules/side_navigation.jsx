@@ -34,13 +34,13 @@ module.exports = React.createClass({
   displayName: 'SideNavigation',
   render: function() {
     var props = this.props;
-    var classes = mixClass(this.props.className,'sidebar');
+    var classes = mixClass(this.props.className,'sidebarNavi');
     var sideNavigationStyles = [Styles.normalSideNavStyle];
     if (props.show) {
         sideNavigationStyles.push(Styles.showSideNavStyle);
     }
     var width=(props.width || null===props.width)?props.width:'240px'; 
-    if(width){
+    if(width && !isNaN(width)){
         sideNavigationStyles.push(ReactStyle({
             width:width,
             transform: 'translateX(-'+(width++)+'px)',

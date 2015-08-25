@@ -10,6 +10,7 @@ module.exports = {
     inputUi: require('../ui/molecules/input_ui'),
     inputBox: require('../ui/molecules/inputbox'),
     sideNavigation: require('../ui/molecules/side_navigation'),
+    sidebar: require('../ui/molecules/sidebar'),
     semantic: require('../ui/molecules/semantic_ui'),
     x: require('../ui/molecules/x'),
     styles: require('./lib/styles/index'),

@@ -1,12 +1,14 @@
 var React = require('react');
-var Classable = require('../mixins/classable');
 var Menu = require('../molecules/menu');
+var mixClass = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'Sidebar',
-  mixins: [Classable],
   render: function() {
-    var classes = this.getClasses('sidebar');
+    var classes = mixClass(
+        this.props.className
+        ,'sidebar'
+    );
     return (
       <Menu {...this.props} className={classes}>{this.props.children}</Menu>
     );
