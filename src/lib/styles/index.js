@@ -6,7 +6,7 @@ var Store                  = require('./store.js');
 
 function genClassName() {
   Store.counter += 1;
-  return 'c' + Store.counter + '_';
+  return 'c'+ Store.counter+ '_';
 }
 
 function createStyle(props, selector, className) {
@@ -28,4 +28,3 @@ function createStyle(props, selector, className) {
 }
 
 module.exports = createStyle;
-

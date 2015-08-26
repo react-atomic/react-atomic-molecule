@@ -1,7 +1,6 @@
 /* jshint esnext: true */
 var React = require('react');
 var Atoms = require('react-atomic-atom');
-var ReactStyle = require('../../src/lib/styles/index');
 var mixStyle = require('../../src/lib/styles/mixin');
 var assign = require("react/lib/Object.assign");
 var mixClass = require('classnames');
