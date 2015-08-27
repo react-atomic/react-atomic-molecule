@@ -88,13 +88,17 @@ module.exports = React.createClass({
         return React.Children.map(
             this.props.children,
             function (child) {
-                var newProps=mixStyle.bindStyles(child.props);
+                if('object' !== typeof child || !child){
+                    return child;
+                }
+                var childProps = child.props;
+                var newProps=mixStyle.bindStyles(childProps);
                 if('undefined' !== typeof newProps ){
                     return React.cloneElement(
                         child, 
                         assign(
                             {},
-                            child.props,
+                            childProps,
                             {
                                 className:newProps.className,
                                 styles:newProps.styles,

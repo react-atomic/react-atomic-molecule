@@ -5,9 +5,6 @@ var stylesToCSS            = require('./stylesToCSS');
 var ExecutionEnvironment   = require('react/lib/ExecutionEnvironment');
 var assign                 = require("react/lib/Object.assign");
 function buildProps(props){
-    if( 'undefined' === typeof props ){
-        return;
-    }
     var myClass;
     var myStyle;
     if( 'undefined' !== typeof props.className ){
