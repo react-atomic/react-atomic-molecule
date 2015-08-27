@@ -1,24 +1,44 @@
 /*jslint browser: true*/
 'use strict';
 
-var Style                  = require('./Style');
-var Store                  = require('./store.js');
+var Style    = require('./Style');
+var Store    = require('./store.js');
+var isArray  = Array.isArray;
+var keys     = Object.keys;
 
-function genClassName() {
+var Browser = {
+    webkit: 'Webkit',
+    ms: 'ms',
+    moz: 'Moz'
+};
+
+function ucfirst(str)
+{
+    return str.charAt(0).toUpperCase() + str.substr(1);
+}
+
+function genClassName()
+{
   Store.counter += 1;
   return 'c'+ Store.counter+ '_';
 }
 
-function createStyle(props, selector, className) {
+function createStyle(css, selector, className)
+{
   className = className || genClassName();
 
   var style = {};
-
-  for (var key in props) {
-    if (!props.hasOwnProperty(key)) {
-      continue;
+  var cssKeys = keys(css);
+  for (var i = 0, l = cssKeys.length; i < l; i++) {
+    var key = cssKeys[i];
+    if (isArray(css[key])) {
+        style[Browser.webkit+ucfirst(key)] = 
+        style[Browser.ms+ucfirst(key)]     = 
+        style[Browser.moz+ucfirst(key)]    = 
+        style[key]                         = css[key][0];
+    } else {
+        style[key] = css[key];
     }
-    style[key] = props[key];
   }
 
   var styleDecl = new Style(style, className, selector);
