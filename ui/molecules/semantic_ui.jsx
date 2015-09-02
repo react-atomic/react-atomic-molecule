@@ -68,6 +68,9 @@ module.exports = React.createClass({
         case 'svg':
             SemanticUI = Atoms.svg;
             break;
+        case 'i':
+            SemanticUI = Atoms.i;
+            break;
         default:
             SemanticUI = Atoms.div;
             break;
