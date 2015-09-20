@@ -1,18 +1,18 @@
-var React = require('react');
-var SemanticUI = require('../molecules/semantic_ui.jsx');
-var Classable = require('../mixins/classable');
+let React = require('react');
+let SemanticUI = require('../molecules/semantic_ui.jsx');
+let mixClass = require('classnames');
 
-module.exports = React.createClass({
-  displayName: 'Segment',
 
-  mixins: [Classable],
+export default class Segment extends React.Component
+{
 
-  render: function() {
-    var classes = this.getClasses('segment');
-    return (
-      <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
-    );
+  render()
+  {
+      var classes = mixClass(this.props.className,'segment');
+      return (
+              <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
+             );
   }
 
-});
+}
 

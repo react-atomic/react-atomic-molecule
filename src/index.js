@@ -14,11 +14,13 @@ module.exports = {
     sideNavigation: require('../ui/molecules/side_navigation'),
     sidebar: require('../ui/molecules/sidebar'),
     semantic: require('../ui/molecules/semantic_ui'),
-    x: require('../ui/molecules/x'),
+    segment: require('../ui/molecules/segment'),
+//libs
     styles: require('./lib/styles/index'),
     styleStore: require('./lib/styles/store'),
-
+//icons
     icons: {
+        x: require('../ui/icons/x'),
         facebook: require('../ui/icons/facebook')
     }
 }
