@@ -1,27 +1,26 @@
-module.exports = {
-    avatar: require('../ui/molecules/avatar'),
-    button: require('../ui/molecules/button'),
-    cdn: require('../ui/molecules/cdn'),
-    description: require('../ui/molecules/description'),
-    dividerHorizontal: require('../ui/molecules/divider_horizontal'),
-    dividingHeader: require('../ui/molecules/dividing_header'),
-    facebookButton: require('../ui/molecules/facebook_button'),
-    list: require('../ui/molecules/list'),
-    item: require('../ui/molecules/item'),
-    itemContent: require('../ui/molecules/item_content'),
-    itemHeader: require('../ui/molecules/item_header'),
-    inputUi: require('../ui/molecules/input_ui'),
-    inputBox: require('../ui/molecules/inputbox'),
-    sideNavigation: require('../ui/molecules/side_navigation'),
-    sidebar: require('../ui/molecules/sidebar'),
-    semantic: require('../ui/molecules/semantic_ui'),
-    segment: require('../ui/molecules/segment'),
-//libs
-    styles: require('./lib/styles/index'),
-    styleStore: require('./lib/styles/store'),
-//icons
-    icons: {
-        x: require('../ui/icons/x'),
-        facebook: require('../ui/icons/facebook')
-    }
-}
+// ui
+export { default as Avatar } from '../ui/molecules/avatar';
+export { default as Button } from '../ui/molecules/button';
+export { default as Cdn } from '../ui/molecules/cdn';
+export { default as Description } from '../ui/molecules/description';
+export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
+export { default as DividingHeader } from '../ui/molecules/dividing_header';
+export { default as FacebookButton } from '../ui/molecules/facebook_button';
+export { default as List } from '../ui/molecules/list';
+export { default as Item } from '../ui/molecules/item';
+export { default as ItemContent } from '../ui/molecules/item_content';
+export { default as ItemHeader } from '../ui/molecules/item_header';
+export { default as InputUI } from '../ui/molecules/input_ui';
+export { default as InputBox } from '../ui/molecules/inputbox';
+export { default as SideNavigation } from '../ui/molecules/side_navigation';
+export { default as Sidebar } from '../ui/molecules/sidebar';
+export { default as SemanticUI } from '../ui/molecules/semantic_ui';
+export { default as Segment } from '../ui/molecules/segment';
+
+// libs
+export { default as reactStyle } from './lib/styles/index';
+export { default as styleStore } from './lib/styles/store';
+
+// icons
+export { default as XIco } from '../ui/icons/x';
+export { default as FacebookIco } from '../ui/icons/facebook';

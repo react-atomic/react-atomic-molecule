@@ -1,8 +1,7 @@
 /* jshint esnext: true */
 var React = require('react');
-var ReactStyle = require('../../src/lib/styles/index');
+var reactStyle = require('../../src/lib/styles/index');
 var SemanticUI = require('../molecules/semantic_ui.jsx');
-var AtomInput = require('react-atomic-atom').input;
 var mixClass = require('classnames');
 
     var Styles = {
@@ -35,11 +34,11 @@ module.exports = React.createClass({
   render: function() {
     var props=this.props;
     var classes=mixClass('input');
-    var inputboxStyle=ReactStyle(Styles.inputbox,'.ui.input input');
-    ReactStyle(Styles.myAction,'.ui.action.input:not([class*="left action"])>div input');
+    var inputboxStyle=reactStyle(Styles.inputbox,'.ui.input input');
+    reactStyle(Styles.myAction,'.ui.action.input:not([class*="left action"])>div input');
     return (
       <SemanticUI className={classes} style={{width:"100%"}}>
-        <AtomInput styles={inputboxStyle} {...props} ui=""  />
+        <SemanticUI atom='input' styles={inputboxStyle} {...props} ui=""  />
       </SemanticUI>
     );
   }

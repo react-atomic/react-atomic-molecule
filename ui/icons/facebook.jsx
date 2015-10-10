@@ -1,11 +1,10 @@
-const React = require('react');
-const ReactStyle = require('../../src/lib/styles/index');
-const mixClass = require('classnames');
-const Touch = require('../molecules/tappable.jsx');
-const SemanticUI = require('../molecules/semantic_ui.jsx');
-const Path = require('react-atomic-atom').path;
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import Touch from '../molecules/tappable';
+import SemanticUI from '../molecules/semantic_ui';
+import {Path} from 'react-atomic-atom';
 
-export default class FacebookIcon extends React.Component
+export default class FacebookIcon extends Component
 {
     render() {
         var classes = mixClass(

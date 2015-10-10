@@ -1,17 +1,17 @@
-var React = require('react');
-var AtomDiv = require('react-atomic-atom').div;
-var mixClass = require('classnames');
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import SemanticUI from '../molecules/semantic_ui';
 
-module.exports = React.createClass({
-    displayName: 'Header',
-    render: function() {
+export default class ItemHeader extends Component
+{
+    render()
+    {
         var classes = mixClass(
             this.props.className
             ,'header'
         );
         return (
-          <AtomDiv {...this.props} className={classes}>{this.props.children}</AtomDiv>
+          <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
         );
     }
-});
-
+}

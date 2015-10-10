@@ -13,6 +13,7 @@
     "react": "0.14.0",
     "react-atomic-atom": "*",
     "exenv": "^1.2.0",
+    "hyphenate-style-name": "1.0.0",
     "classnames": "*"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 /* jshint esnext: true */
+import * as Atoms from 'react-atomic-atom';
 var React = require('react');
-var Atoms = require('react-atomic-atom');
 var mixStyle = require('../../src/lib/styles/mixin');
 var assign = require("react/lib/Object.assign");
 var mixClass = require('classnames');
@@ -23,56 +23,57 @@ module.exports = React.createClass({
     }
     switch (this.props.atom){
         case 'h1':
-            SemanticUI = Atoms.h1;
+            SemanticUI = Atoms.H1;
             break;
         case 'h2':
-            SemanticUI = Atoms.h2;
+            SemanticUI = Atoms.H2;
             break;
         case 'h3':
-            SemanticUI = Atoms.h3;
+            SemanticUI = Atoms.H3;
             break;
         case 'h4':
-            SemanticUI = Atoms.h4;
+            SemanticUI = Atoms.H4;
             break;
         case 'h5':
-            SemanticUI = Atoms.h5;
+            SemanticUI = Atoms.H5;
             break;
         case 'h6':
-            SemanticUI = Atoms.h6;
+            SemanticUI = Atoms.H6;
             break;
         case 'ol':
-            SemanticUI = Atoms.ol;
+            SemanticUI = Atoms.Ol;
             break;
         case 'ul':
-            SemanticUI = Atoms.ul;
+            SemanticUI = Atoms.Ul;
             break;
         case 'nav':
-            SemanticUI = Atoms.nav;
+            SemanticUI = Atoms.Nav;
             break;
         case 'button':
-            SemanticUI = Atoms.button;
+            SemanticUI = Atoms.Button;
             break;
         case 'form':
-            SemanticUI = Atoms.form;
+            SemanticUI = Atoms.Form;
             break;
         case 'input':
-            SemanticUI = Atoms.input;
+            SemanticUI = Atoms.Input;
             renderChildren=false;
             break;
         case 'img':
-            SemanticUI = Atoms.img;
+            SemanticUI = Atoms.Img;
+            renderChildren=false;
             break;
         case 'a':
-            SemanticUI = Atoms.a;
+            SemanticUI = Atoms.A;
             break;
         case 'svg':
-            SemanticUI = Atoms.svg;
+            SemanticUI = Atoms.Svg;
             break;
         case 'i':
-            SemanticUI = Atoms.i;
+            SemanticUI = Atoms.I;
             break;
         default:
-            SemanticUI = Atoms.div;
+            SemanticUI = Atoms.Div;
             break;
     }
     mixStyle.injectStyle();

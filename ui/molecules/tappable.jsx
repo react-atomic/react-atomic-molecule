@@ -4,8 +4,6 @@ var SemanticUI = require('../molecules/semantic_ui.jsx');
 var mixClass = require('classnames');
 var _blockMouseEvents;
 
-// Enable React Touch Events
-React.initializeTouchEvents(true);
 
 var styles = ReactStyle({
     WebkitTapHighlightColor: 'rgba(0,0,0,0)',
