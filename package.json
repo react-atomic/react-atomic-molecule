@@ -10,8 +10,9 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=0.12.0 <=0.13.x",
+    "react": "0.14.0",
     "react-atomic-atom": "*",
+    "exenv": "^1.2.0",
     "classnames": "*"
   },
   "devDependencies": {

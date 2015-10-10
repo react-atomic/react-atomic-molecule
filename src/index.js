@@ -4,6 +4,7 @@ module.exports = {
     cdn: require('../ui/molecules/cdn'),
     description: require('../ui/molecules/description'),
     dividerHorizontal: require('../ui/molecules/divider_horizontal'),
+    dividingHeader: require('../ui/molecules/dividing_header'),
     facebookButton: require('../ui/molecules/facebook_button'),
     list: require('../ui/molecules/list'),
     item: require('../ui/molecules/item'),

@@ -2,7 +2,7 @@ var React                  = require('react');
 var Store                  = require('./store.js');
 var ApplyStyle             = require('./applyStyles');
 var stylesToCSS            = require('./stylesToCSS');
-var ExecutionEnvironment   = require('react/lib/ExecutionEnvironment');
+var ExecutionEnvironment   = require('exenv');
 var assign                 = require("react/lib/Object.assign");
 function buildProps(props){
     var myClass;

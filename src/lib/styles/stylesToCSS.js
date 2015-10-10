@@ -1,7 +1,6 @@
 'use strict';
 
 var CSSProperty = require('react/lib/CSSProperty');
-var hyphenateStyleName = require('react/lib/hyphenateStyleName');
 var unsupportedPseudoClasses = require('./unsupportedPseudoClasses');
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
@@ -24,7 +23,7 @@ function buildRule(result, key, value) {
   }
 
   // TODO: escape value
-  result.css += '  ' + hyphenateStyleName(key) + ': ' + value + ';\n';
+  result.css += '  ' + key + ': ' + value + ';\n';
 }
 
 

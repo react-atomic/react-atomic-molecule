@@ -1,16 +1,17 @@
-var React = require('react');
-var SemanticUI = require('../molecules/semantic_ui.jsx');
-var Classable = require('../mixins/classable');
+let React = require('react');
+let SemanticUI = require('../molecules/semantic_ui');
+let mixClass = require('classnames');
 
-module.exports = React.createClass({
-    displayName: 'DividingHeader',
-    mixins: [Classable],
-
-    render: function() {
-        var classes = this.getClasses('dividing header');
+export default class DividingHeader extends React.Component
+{
+    render()
+    { 
+        let classes = mixClass(
+                this.props.className,
+                'dividing header'
+        );
         return (
             <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
-        );
+        );  
     }
-});
-
+}
