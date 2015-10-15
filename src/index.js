@@ -6,6 +6,7 @@ export { default as Description } from '../ui/molecules/description';
 export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
 export { default as DividingHeader } from '../ui/molecules/dividing_header';
 export { default as FacebookButton } from '../ui/molecules/facebook_button';
+export { default as Field } from '../ui/molecules/field';
 export { default as List } from '../ui/molecules/list';
 export { default as Item } from '../ui/molecules/item';
 export { default as ItemContent } from '../ui/molecules/item_content';
@@ -20,6 +21,9 @@ export { default as Segment } from '../ui/molecules/segment';
 // libs
 export { default as reactStyle } from './lib/styles/index';
 export { default as styleStore } from './lib/styles/store';
+export { default as assign } from 'object-assign';
+export { default as mixClass } from 'classnames';
+export { default as executionEnvironment } from 'exenv';
 
 // icons
 export { default as XIco } from '../ui/icons/x';

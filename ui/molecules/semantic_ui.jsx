@@ -59,6 +59,9 @@ module.exports = React.createClass({
             SemanticUI = Atoms.Input;
             renderChildren=false;
             break;
+        case 'textarea':
+            SemanticUI = Atoms.Textarea;
+            break;
         case 'img':
             SemanticUI = Atoms.Img;
             renderChildren=false;
