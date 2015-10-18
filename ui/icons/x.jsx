@@ -7,7 +7,6 @@ var Touch = require('../molecules/tappable.jsx');
 
 var Common = {
     closeBeforeAfter:{
-        content:'',
         position:'absolute',
         left:'50%',
         transformOrigin:['center']
