@@ -8,7 +8,7 @@ var unsupportedPseudoClasses = require('./unsupportedPseudoClasses');
 var unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
 var counter = 1;
 
-function buildRule(result, key, value) {
+function buildRule(key, value) {
   var toCSS = value.toCSS;
   if (typeof toCSS === 'function') {
     value = toCSS();
@@ -21,51 +21,63 @@ function buildRule(result, key, value) {
   if (key === 'content' && !unquotedContentValueRegex.test(value)) {
     value = "'" + value.replace(/'/g, "\\'") + "'";
   }
-
   // TODO: escape value
-  result.css += '  ' + hyphenateStyleName(key) + ': ' + value + ';\n';
+  return hyphenateStyleName(key) + ': ' + value + ';\n';
 }
-
 
 function buildRules(result, rules, selector) {
   if (Object.keys(rules).length === 0) {
     return result;
   }
-  var bMedia=false;
-  if(Array.isArray(selector)){
-       selector = selector[0] + ' {\n' +  selector[1];
-       bMedia = true;
+  var mycss = '';
+  var parentSelector='';
+  if (Array.isArray(selector)) {
+       parentSelector = selector[0].trim(); 
+       selector.shift();
+  } else {
+       selector = [selector];
   }
-
-  result.css += selector + ' {\n';
-  var styleKeys = Object.keys(rules);
-  for (var j = 0, l = styleKeys.length; j < l; j++) {
-    var styleKey = styleKeys[j];
-    var value = rules[styleKey];
-
-    if (unsupportedPseudoClasses[styleKey.split('(')[0].trim()]) {
-      if ("production" !== process.env.NODE_ENV) {
-        console.warn('You are trying to use pseudo class ' + styleKey +
-        ', which we don\'t support as this is better implemented using ' +
-        'JavaScript.');
+  
+  var styleKeys;
+  var styleKey;
+  var value;
+  var j;
+  var jlen;
+  for (var i = 0, ilen = rules.length; i < ilen; i++ ) {
+      styleKeys = Object.keys(rules[i]);
+      mycss += selector[i] + ' {\n';
+      for (j = 0, jlen = styleKeys.length; j < jlen; j++) {
+        styleKey = styleKeys[j];
+        value = rules[i][styleKey];
+        if (unsupportedPseudoClasses[styleKey.split('(')[0].trim()]) {
+          if ("production" !== process.env.NODE_ENV) {
+            console.warn('You are trying to use pseudo class ' + styleKey +
+            ', which we don\'t support as this is better implemented using ' +
+            'JavaScript.');
+          }
+          continue;
+        }
+        mycss += buildRule(styleKey, value);
       }
+      mycss += '}\n';
+  }
 
-      continue;
-    }
-
-    if (Array.isArray(value)) {
-      for (var i = 0, len = value.length; i < len; i++) {
-        buildRule(result, styleKey, value[i]);
+  if (parentSelector) {
+      var keyframesString = '@keyframes';
+      if (0===parentSelector.indexOf(keyframesString)) {
+        result.css += parentSelector.replace(
+                keyframesString,
+                '@-webkit-keyframes'
+        ) + ' {\n'+ mycss+ '}\n';
+        result.css += parentSelector.replace(
+                keyframesString,
+                '@-moz-keyframes'
+        ) + ' {\n'+ mycss+ '}\n';
       }
-    }
-    else {
-      buildRule(result, styleKey, value);
-    }
+      result.css += parentSelector+ ' {\n'+ mycss+ '}\n';
+  } else {
+      result.css += mycss;
   }
-  if(bMedia){
-       result.css += '}\n';
-  }
-  result.css += '}\n';
   return result;
 }
 
@@ -85,23 +97,23 @@ function replicateSelector(s) {
 }
 
 function buildStyle(result, style, selector) {
-  if (!style.className) {
+  if (!style.styleId) {
     return;
   }
 
-  if (!selector && result.classNames[style.className]) {
+  if (!selector && result.styleIds[style.styleId]) {
     return;
   }
 
   if(style.selector){
       selector=style.selector;
       if (Array.isArray(selector) && !selector[1]) {
-        selector[1] = replicateSelector('.' + style.className);
+        selector[1] = replicateSelector('.' + style.styleId);
       }
   } else {
-      selector = replicateSelector('.' + style.className);
+      selector = replicateSelector('.' + style.styleId);
   }
-  result.classNames[style.className] = counter++; //for check already inject
+  result.styleIds[style.styleId] = counter++; //for check already inject
   buildRules(result, style.style, selector);
 }
 
@@ -109,8 +121,7 @@ function stylesToCSS(styles) {
   if (!Array.isArray(styles)) {
     styles = [styles];
   }
-
-  var result = {css: '', classNames: {}};
+  var result = {css: '', styleIds: {}};
   for (var i = 0, len = styles.length; i < len; i++) {
     if(false !== styles[i].selector){
         buildStyle(result, styles[i]);

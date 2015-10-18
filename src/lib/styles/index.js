@@ -17,31 +17,40 @@ function ucfirst(str)
     return str.charAt(0).toUpperCase() + str.substr(1);
 }
 
-function genClassName()
+function genStyleId()
 {
   Store.counter += 1;
   return 'c'+ Store.counter+ '_';
 }
 
-function createStyle(css, selector, className)
+function createStyle(css, selector, styleId)
 {
-  className = className || genClassName();
-
-  var style = {};
-  var cssKeys = keys(css);
-  for (var i = 0, l = cssKeys.length; i < l; i++) {
-    var key = cssKeys[i];
-    if (isArray(css[key])) {
-        style[Browser.webkit+ucfirst(key)] = 
-        style[Browser.ms+ucfirst(key)]     = 
-        style[Browser.moz+ucfirst(key)]    = 
-        style[key]                         = css[key][0];
-    } else {
-        style[key] = css[key];
-    }
+  styleId = styleId || genStyleId();
+  if (!isArray(css)) {
+        css = [css];
+  } 
+  var style = [];
+  var cssKeys;
+  var key;
+  var j;
+  var jlen;
+  for (var i=0, len=css.length; i < len; i++) { 
+      cssKeys = keys(css[i]);
+      style[i] = {};
+      for (j = 0, jlen = cssKeys.length; j < jlen; j++) {
+        key = cssKeys[j];
+        if (isArray(css[i][key])) {
+            style[i][Browser.webkit+ucfirst(key)] = 
+            style[i][Browser.ms+ucfirst(key)]     = 
+            style[i][Browser.moz+ucfirst(key)]    = 
+            style[i][key]                         = css[i][key][0];
+        } else {
+            style[i][key] = css[i][key];
+        }
+      }
   }
 
-  var styleDecl = new Style(style, className, selector);
+  var styleDecl = new Style(style, styleId, selector);
   Store.styles.push(styleDecl);
   Store.newStyles.push(styleDecl);
   return styleDecl;

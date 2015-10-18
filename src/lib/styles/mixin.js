@@ -1,9 +1,9 @@
-var React                  = require('react');
 var Store                  = require('./store.js');
 var ApplyStyle             = require('./applyStyles');
 var stylesToCSS            = require('./stylesToCSS');
 var ExecutionEnvironment   = require('exenv');
-var assign                 = require("react/lib/Object.assign");
+var assign                 = require("object-assign");
+
 function buildProps(props){
     var myClass;
     var myStyle;
@@ -38,7 +38,7 @@ var ReactStyle = {
     }
     var compiled = stylesToCSS(Store.newStyles);
     Store.newStyles=[];
-    Store.registry=assign(Store.registry,compiled.classNames);
+    Store.registry=assign(Store.registry,compiled.styleIds);
     if(compiled.css){
         if(ExecutionEnvironment.canUseDOM){
             var tag = document.createElement('style');
