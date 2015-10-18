@@ -10,9 +10,7 @@ var Common = {
         content:'',
         position:'absolute',
         left:'50%',
-        marginLeft:'-.15em',
-        transformOrigin:'center',
-        webkitTransformOrigin:'center'
+        transformOrigin:['center']
     }
 };
 
@@ -27,8 +25,7 @@ var Styles = {
         assign(
             Common.closeBeforeAfter,
             {
-                transform:'rotate(-40deg)',
-                WebkitTransform:'rotate(-40deg)'
+                transform:['rotate(-40deg)']
             }
         )
     ),
@@ -36,8 +33,7 @@ var Styles = {
         assign(
             Common.closeBeforeAfter,
             {
-                transform:'rotate(40deg)',
-                WebkitTransform:'rotate(40deg)'
+                transform:['rotate(40deg)']
             }
         )
     )
@@ -54,7 +50,7 @@ export default class ICON_X extends React.Component
             ,'x'
         );
         return (
-            <Touch {...this.props} className={classes} styles={Styles.close} style={
+            <Touch {...this.props} className={classes} styles={[Styles.close,this.props.styles]} style={
                 assign(
                     this.props.style,
                     {
@@ -82,7 +78,7 @@ ICON_X.defaultProps = {
     style: {},
     backgroud: '#fff',
     size: '1em',
-    width: '.3em',
+    width: '.2em',
     color: '#333'
 };
 

@@ -5,21 +5,20 @@ var SemanticUI = require('../molecules/semantic_ui.jsx');
 var mixClass = require('classnames');
 
     var Styles = {
-        inputbox:{
+        inputbox: reactStyle({
             webkitTapHighlightColor:'rgba(255,255,255,0)',
             padding:'.67861em 1em',
             background:'#fff',
             border:'1px solid rgba(0,0,0,.15)',
             color:'rgba(0,0,0,.8)',
-            transition:'background-color .2s ease,box-shadow .2s ease,border-color .2s ease',
-            webkitTransition:'background-color .2s ease,box-shadow .2s ease,border-color .2s ease',
+            transition:['background-color .2s ease,box-shadow .2s ease,border-color .2s ease'],
             boxShadow:'none'
-        },
-        myAction:{
+        },'.ui.input input'),
+        myAction: reactStyle({
             borderRight:'none',
             borderTopRightRadius:'0!important',
             borderBottomRightRadius:'0!important'
-        }
+        },'.ui.action.input:not([class*="left action"])>div input')
     };
 
 module.exports = React.createClass({
@@ -34,11 +33,9 @@ module.exports = React.createClass({
   render: function() {
     var props=this.props;
     var classes=mixClass('input');
-    var inputboxStyle=reactStyle(Styles.inputbox,'.ui.input input');
-    reactStyle(Styles.myAction,'.ui.action.input:not([class*="left action"])>div input');
     return (
       <SemanticUI className={classes} style={{width:"100%"}}>
-        <SemanticUI atom='input' styles={inputboxStyle} {...props} ui=""  />
+        <SemanticUI atom='input' styles={Styles.inputbox} {...props} ui=""  />
       </SemanticUI>
     );
   }

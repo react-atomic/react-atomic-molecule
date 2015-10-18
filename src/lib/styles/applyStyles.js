@@ -14,7 +14,7 @@ function applyClassName(props, style, order)
       props.className = '';
     }
     for (var j = 0; j < order + 1; j++) {
-      props.className += ' ' + style.className + (j === 0 ? '' : j);
+      props.className += ' ' + style.styleId + (j === 0 ? '' : j);
     }
     return order + 1;
 }
@@ -27,11 +27,17 @@ function applyInlineStyle(props, style, order)
   if (!props.style) {
     props.style = {};
   }
-  var styleKeys = keys(style.style);
-  for (var i = 0, l = styleKeys.length; i < l; i++) {
-    var key = styleKeys[i];
-    props.style[key] = style.style[key];
-    applyOverrides(props, key);
+  var key;
+  var j;
+  var jlen;
+  var styleKeys;
+  for (var i = 0, len = style.style.length; i < len; i++) {
+      styleKeys = keys(style.style[i]);
+      for (var j = 0, jlen = styleKeys.length; j < jlen; j++) {
+        key = styleKeys[j];
+        props.style[key] = style.style[i][key];
+        applyOverrides(props, key);
+      }
   }
 
   return order;
