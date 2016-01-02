@@ -9,7 +9,8 @@ var Common = {
     closeBeforeAfter:{
         position:'absolute',
         left:'50%',
-        transformOrigin:['center']
+        top:'50%',
+        transform: ['translate(-50%,-50%)']
     }
 };
 
@@ -18,22 +19,19 @@ var Styles = {
         position:'absolute',
         right:'5px',
         top:'5px',
-        cursor:'pointer'
+        cursor:'pointer',
+        transform:['rotate(45deg)']
     }),
     closeBefore: ReactStyle(
         assign(
             Common.closeBeforeAfter,
-            {
-                transform:['rotate(-40deg)']
-            }
+            { }
         )
     ),
     closeAfter: ReactStyle(
         assign(
             Common.closeBeforeAfter,
-            {
-                transform:['rotate(40deg)']
-            }
+            { }
         )
     )
     
@@ -65,8 +63,8 @@ export default class ICON_X extends React.Component
                     background: this.props.color
                 }}></div>
                 <div styles={Styles.closeAfter} style={{
-                    width: this.props.width,
-                    height: this.props.size,
+                    width: this.props.size,
+                    height: this.props.width,
                     background: this.props.color
                 }}></div>
             </Touch>
