@@ -13,6 +13,7 @@ export { default as ItemContent } from '../ui/molecules/item_content';
 export { default as ItemHeader } from '../ui/molecules/item_header';
 export { default as InputUI } from '../ui/molecules/input_ui';
 export { default as InputBox } from '../ui/molecules/inputbox';
+export { default as Rail } from '../ui/molecules/rail';
 export { default as SideNavigation } from '../ui/molecules/side_navigation';
 export { default as Sidebar } from '../ui/molecules/sidebar';
 export { default as SemanticUI } from '../ui/molecules/semantic_ui';
