@@ -7,13 +7,17 @@ export default class Field extends Component
 {
     render()
     {
-        var classes = mixClass(
+        let classes = mixClass(
             this.props.className
             ,'field'
         );
+        let label = null;
+        if (this.props.label) {
+            label = <label>{this.props.label}</label>;
+        }
         return (
             <SemanticUI className={classes}>
-                <label>{this.props.label}</label>
+                {label}
                 <SemanticUI {...this.props}>{this.props.children}</SemanticUI>
             </SemanticUI>
         );

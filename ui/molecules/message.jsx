@@ -8,8 +8,13 @@ export default class Message extends Component
     render()
     {
         let classes = mixClass(
-            this.props.className
-            ,'message'
+            this.props.className,
+            {
+                error: (this.props.error === 'error'),
+                success: (this.props.error === 'success'),
+                warning: (this.props.error === 'warning')
+            },
+            'message'
         );
         let header = null;
         if (this.props.header) {

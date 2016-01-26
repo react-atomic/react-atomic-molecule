@@ -1,13 +1,18 @@
-var React = require('react');
-var SemanticUI = require('../molecules/semantic_ui.jsx');
-var mixClass = require('classnames');
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import SemanticUI from '../molecules/semantic_ui';
 
-module.exports = React.createClass({
-    displayName: 'Button',
-    render: function() {
-        var classes = mixClass(this.props.className,'button');
+export default class Button extends Component
+{
+    render()
+    {
+        let classes = mixClass (
+            this.props.className,
+            'button'
+        );
         return (
-            <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
+          <SemanticUI atom="button" {...this.props} className={classes}>{this.props.children}</SemanticUI>
         );
     }
-});
+}
+

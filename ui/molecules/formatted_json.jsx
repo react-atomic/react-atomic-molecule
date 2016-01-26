@@ -1,5 +1,7 @@
 import React, {Component} from 'react'; 
 import mixClass from 'classnames';
+import Field from '../molecules/field';
+import Form from '../molecules/form';
 import SemanticUI from '../molecules/semantic_ui';
 
 export default class FormattedJSON extends Component
@@ -10,39 +12,60 @@ export default class FormattedJSON extends Component
         let outputClass;
 
       try {
-        let indent = this.props.indent;
-        let space = (indent === 'TAB') ? '\t' : parseInt(indent);
-
-        outputText = this.formatJSON(this.props.inputText, space);
+        if (this.props.indent) {
+            let indent = this.props.indent;
+            let space = (indent === 'TAB') ? '\t' : parseInt(indent);
+            outputText = this.formatJSON(this.props.children, space);
+        } else {
+            outputText = this.props.children;
+        }
         outputClass = 'output-good';
       }
       catch (err) {
         // JSON.parse threw an exception
         outputText = err.message;
-        outputClass = 'output-error';
+        outputClass = 'error';
       }
 
+        let classes = mixClass(
+            this.props.className
+            ,outputClass
+        );
+        let Parent;
+        if ('form' === this.props.atom) {
+            Parent = Form;
+        } else {
+            Parent = SemanticUI;
+        }
       return (
-        <SemanticUI
+        <Parent atom={this.props.atom}>
+        <Field
+          readOnly={true}
+          {...this.props}
+          atom="textarea"
           value={outputText}
-          className={outputClass}
-          readOnly="true"
-          placeholder="Reformatted JSON will appear here"         />
+          className={classes}
+          children={null}
+        />
+        </Parent>
       );
     }
 
     formatJSON(input, space)
     {
-      if (input.length == 0) {
+      let parsedData;
+      if (typeof input === 'string') {
+          if (input.length === 0) {
+            return '';
+          }
+          parsedData = JSON.parse(input);
+      } else {
+          parsedData = input;
+      }
+      if (!parsedData) {
         return '';
       }
-      else {
-        var parsedData = JSON.parse(input);
-        return JSON.stringify(parsedData, null, space);
-      }
+      return JSON.stringify(parsedData, null, space);
     }
 }
-FormattedJSON.propTypes = {
-    inputText: React.PropTypes.string.isRequired,
-    indent: React.Proptypes.string.isRequired
-};
+FormattedJSON.defaultProps = { atom: 'form' };
