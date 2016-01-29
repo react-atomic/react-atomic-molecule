@@ -7,7 +7,6 @@ export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal
 export { default as DividingHeader } from '../ui/molecules/dividing_header';
 export { default as FacebookButton } from '../ui/molecules/facebook_button';
 export { default as Form } from '../ui/molecules/form';
-export { default as FormattedJson } from '../ui/molecules/formatted_json';
 export { default as Field } from '../ui/molecules/field';
 export { default as Item } from '../ui/molecules/item';
 export { default as Content } from '../ui/molecules/content';
