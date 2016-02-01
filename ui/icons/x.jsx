@@ -3,7 +3,7 @@ var ReactStyle = require('../../src/lib/styles/index');
 var AtomDiv = require('react-atomic-atom').span;
 var mixClass = require('classnames');
 var assign = require("react/lib/Object.assign");
-var Touch = require('../molecules/tappable.jsx');
+var SemanticUI = require('../molecules/semantic_ui');
 
 var Common = {
     closeBeforeAfter:{
@@ -47,7 +47,7 @@ export default class ICON_X extends React.Component
             ,'x'
         );
         return (
-            <Touch {...this.props} className={classes} styles={[Styles.close,this.props.styles]} style={
+            <SemanticUI {...this.props} className={classes} styles={[Styles.close,this.props.styles]} style={
                 assign(
                     this.props.style,
                     {
@@ -67,7 +67,7 @@ export default class ICON_X extends React.Component
                     height: this.props.width,
                     background: this.props.color
                 }}></div>
-            </Touch>
+            </SemanticUI>
         );
   }
 }
