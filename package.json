@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Atomic design in React (molecules)",
   "main": "./src/index.js",
   "repository": "pmvc/react-atomic-molecule",
@@ -13,11 +13,11 @@
     "classnames": "*",
     "exenv": "^1.2.0",
     "hyphenate-style-name": "1.0.0",
-    "object-assign": "^4.0.1"
+    "object-assign": "^4.0.1",
+    "react-atomic-atom": "*"
   },
   "devDependencies": {
     "react": "^0.14.3",
-    "react-atomic-atom": "*",
     "webpack": "^1.4.5",
     "babel-core": "^5.x",
     "babel-loader": "^5.x"
