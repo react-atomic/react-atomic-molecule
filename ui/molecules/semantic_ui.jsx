@@ -1,19 +1,14 @@
 /* jshint esnext: true */
 import * as Atoms from 'react-atomic-atom';
-var React = require('react');
-var mixStyle = require('../../src/lib/styles/mixin');
-var assign = require("react/lib/Object.assign");
-var mixClass = require('classnames');
+import React, {Component} from 'react'; 
+import assign from 'object-assign';
+import mixClass from 'classnames';
+import mixStyle from '../../src/lib/styles/mixin';
 
-module.exports = React.createClass({
-  displayName: 'SemanticUI',
-  getDefaultProps: function() {
-    return ({
-        ui:true,
-        renderChildren:true
-    });
-  },
-  render: function() {
+export default class SemanticUI extends Component
+{
+  render() 
+  {
     var ui=this.props.ui;
     var renderChildren=this.props.renderChildren;
     var SemanticUI;
@@ -75,6 +70,15 @@ module.exports = React.createClass({
         case 'i':
             SemanticUI = Atoms.I;
             break;
+        case 'table':
+            SemanticUI = Atoms.Table;
+            break;
+        case 'th':
+            SemanticUI = Atoms.Th;
+            break;
+        case 'td':
+            SemanticUI = Atoms.Td;
+            break;
         default:
             SemanticUI = Atoms.Div;
             break;
@@ -87,8 +91,10 @@ module.exports = React.createClass({
     return (
         <SemanticUI {...newProps}>{this.renderChildren(renderChildren)}</SemanticUI>
     );
-  },
-  renderChildren:function(render){
+  }
+
+  renderChildren(render)
+  {
         if(!render){
             return null;
         }
@@ -118,5 +124,8 @@ module.exports = React.createClass({
             }.bind(this)
         );
     }
-    
-});
+}
+SemanticUI.defaultProps = {
+    ui:true,
+    renderChildren:true
+};
