@@ -1,7 +1,7 @@
 // ui
 export { default as Avatar } from '../ui/molecules/avatar';
 export { default as Button } from '../ui/molecules/button';
-export { default as Cdn } from '../ui/molecules/cdn';
+export { default as Buttons } from '../ui/molecules/buttons';
 export { default as Description } from '../ui/molecules/description';
 export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
 export { default as DividingHeader } from '../ui/molecules/dividing_header';
