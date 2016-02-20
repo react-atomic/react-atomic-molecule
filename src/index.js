@@ -11,6 +11,7 @@ export { default as Field } from '../ui/molecules/field';
 export { default as Item } from '../ui/molecules/item';
 export { default as Content } from '../ui/molecules/content';
 export { default as Header } from '../ui/molecules/header';
+export { default as Image } from '../ui/molecules/image';
 export { default as InputUI } from '../ui/molecules/input_ui';
 export { default as InputBox } from '../ui/molecules/inputbox';
 export { default as List } from '../ui/molecules/list';
