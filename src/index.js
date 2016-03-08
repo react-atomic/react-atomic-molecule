@@ -2,6 +2,8 @@
 export { default as Avatar } from '../ui/molecules/avatar';
 export { default as Button } from '../ui/molecules/button';
 export { default as Buttons } from '../ui/molecules/buttons';
+export { default as Card } from '../ui/molecules/card';
+export { default as Cards } from '../ui/molecules/cards';
 export { default as Description } from '../ui/molecules/description';
 export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
 export { default as DividingHeader } from '../ui/molecules/dividing_header';
@@ -17,6 +19,7 @@ export { default as InputBox } from '../ui/molecules/inputbox';
 export { default as List } from '../ui/molecules/list';
 export { default as Menu } from '../ui/molecules/menu';
 export { default as Message } from '../ui/molecules/message';
+export { default as Meta } from '../ui/molecules/meta';
 export { default as Rail } from '../ui/molecules/rail';
 export { default as SideNavigation } from '../ui/molecules/side_navigation';
 export { default as Sidebar } from '../ui/molecules/sidebar';

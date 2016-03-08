@@ -12,7 +12,10 @@ export default class Description extends Component
             ,'description'
         );
         return (
-            <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
+          <SemanticUI {...this.props}
+            ui={false}
+            className={classes}
+          />
         );
     }
 }

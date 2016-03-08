@@ -7,23 +7,28 @@ export default class Field extends Component
 {
     render()
     {
+        let isGroup = (1<React.Children.count(this.props.children)); 
         let classes = mixClass(
-            this.props.className
-            ,'field'
+            this.props.className,
+            {
+                field: !isGroup,
+                fields: isGroup
+            }
         );
         let label = null;
         if (this.props.label) {
             label = <label>{this.props.label}</label>;
         }
-        let childrenClasses = null;
-
-        if (1<React.Children.count(this.props.children)) {
-            childrenClasses = 'fields';
+        let children; 
+        if (isGroup) {
+            children = this.props.children; 
+        } else {
+            children = <SemanticUI atom="input" {...this.props} />;
         }
         return (
             <SemanticUI className={classes}>
                 {label}
-                <SemanticUI {...this.props} className={childrenClasses}>{this.props.children}</SemanticUI>
+                {children}
             </SemanticUI>
         );
     }

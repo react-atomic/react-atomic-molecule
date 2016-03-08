@@ -12,7 +12,9 @@ export default class Item extends Component
             ,'item'
         );
         return (
-            <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
+            <SemanticUI {...this.props}
+                className={classes}
+            />
         );
     }
 }
