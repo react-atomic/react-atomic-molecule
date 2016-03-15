@@ -8,7 +8,10 @@ export default class Image extends Component
     {
         let classes = mixClass (
             this.props.className,
-            {image:this.props.ui}
+            {
+                image:this.props.ui,
+                ui:this.props.ui
+            }
         );
         return (
           <SemanticUI atom="img"
@@ -17,4 +20,5 @@ export default class Image extends Component
         );
     }
 }
+Image.defaultProps = { ui: true };
 
