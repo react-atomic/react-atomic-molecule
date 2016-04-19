@@ -36,3 +36,4 @@ export { default as executionEnvironment } from 'exenv';
 // icons
 export { default as XIco } from '../ui/icons/x';
 export { default as FacebookIco } from '../ui/icons/facebook';
+export { default as FullscreenIco } from '../ui/icons/fullscreen';
