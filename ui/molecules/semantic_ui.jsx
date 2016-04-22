@@ -41,6 +41,9 @@ export default class SemanticUI extends Component
         case 'ul':
             SemanticUI = Atoms.Ul;
             break;
+        case 'li':
+            SemanticUI = Atoms.Li;
+            break;
         case 'nav':
             SemanticUI = Atoms.Nav;
             break;
