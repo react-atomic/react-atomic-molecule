@@ -1,16 +1,17 @@
-var React = require('react');
-var AtomDiv = require('../atoms/div.jsx');
-var Classable = require('../mixins/classable');
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import SemanticUI from '../molecules/semantic_ui';
 
-module.exports = React.createClass({
-    displayName: 'Title',
-    mixins: [Classable],
-
-    render: function() {
-        var classes = this.getClasses('title');
+export default class Title extends Component
+{
+    render()
+    {
+        let classes = mixClass (
+            this.props.className,
+            'title'
+        );
         return (
-          <AtomDiv {...this.props} className={classes}>{this.props.children}</AtomDiv>
+          <SemanticUI {...this.props} className={classes} />
         );
     }
-
-});
+}

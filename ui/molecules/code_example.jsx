@@ -1,18 +1,14 @@
-var React = require('react');
-var Segment = require('../molecules/segment.jsx');
-var AtomDiv = require('../atoms/div.jsx');
-var DivingHeader = require('../molecules/dividing_header.jsx');
-var Ribbon = require('../molecules/ribbon.jsx');
-var CodeBlock = require('../molecules/code_block.jsx');
+import React, {Component} from 'react'; 
+import SemanticUI from '../molecules/semantic_ui';
+import Segment from '../molecules/segment';
+import DivingHeader from '../molecules/dividing_header';
+import Ribbon from '../molecules/ribbon';
+import CodeBlock from '../molecules/code_block';
 
-module.exports = React.createClass({
-    displayName: 'CodeExample',
-
-    propTypes: {
-      code: React.PropTypes.string.isRequired
-    },
-
-    render: function() {
+export default class CodeExample extends Component
+{
+    render()
+    {
         var title = this.props.title;
         return (
             <Segment>
@@ -20,14 +16,14 @@ module.exports = React.createClass({
                     {title}
                 </DivingHeader>
                 <Ribbon style={{marginBottom:'10px'}}>Example</Ribbon>
-                <AtomDiv style={{marginBottom:'10px'}}>
+                <SemanticUI style={{marginBottom:'10px'}}>
                         {this.props.children}
-                </AtomDiv>
+                </SemanticUI>
                 <Ribbon>Source Code</Ribbon>
                 <CodeBlock>{this.props.code}</CodeBlock>
             </Segment>
         );
     }
-
-});
+}
+CodeExample.propTypes = { code: React.PropTypes.string.isRequired };
 

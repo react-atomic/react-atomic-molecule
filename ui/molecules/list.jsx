@@ -1,7 +1,7 @@
 import React, {Component} from 'react'; 
 import mixClass from 'classnames';
 import SemanticUI from '../molecules/semantic_ui';
-import assign from 'object-assign';
+import assign from 'object-assign-sorted';
 
 export default class List extends Component
 {

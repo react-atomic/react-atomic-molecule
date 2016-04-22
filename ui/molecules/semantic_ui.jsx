@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 import * as Atoms from 'react-atomic-atom';
 import React, {Component} from 'react'; 
-import assign from 'object-assign';
+import assign from 'object-assign-sorted';
 import mixClass from 'classnames';
 import mixStyle from '../../src/lib/styles/mixin';
 

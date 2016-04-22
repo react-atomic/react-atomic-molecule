@@ -1,14 +1,17 @@
-var React = require('react');
-var AtomPre = require('../atoms/pre.jsx');
-var AtomCode = require('../atoms/code.jsx');
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import SemanticUI from '../molecules/semantic_ui';
 
-module.exports = React.createClass({
-    displayName: 'CodeBlock',
-    render: function() {
+export default class CodeBlock extends Component
+{
+    render()
+    {
         return (
-            <AtomPre className="code-block">
-                <AtomCode>{this.props.children}</AtomCode>
-            </AtomPre>
+            <SemanticUI atom="pre" className="code-block">
+                <SemanticUI atom="code">
+                    {this.props.children}
+                </SemanticUI>
+            </SemanticUI>
         );
     }
-});
+}

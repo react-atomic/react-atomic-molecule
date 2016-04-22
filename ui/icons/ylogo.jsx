@@ -1,5 +1,5 @@
 var React = require('react');
-var SemanticUI = require('../molecules/semantic_ui.jsx');
+var SemanticUI = require('../molecules/semantic_ui');
 var Classable = require('../mixins/classable');
 
 module.exports = React.createClass({

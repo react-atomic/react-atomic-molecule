@@ -1,9 +1,9 @@
-const React = require('react');
-const Button = require('../molecules/button.jsx');
-const FacebookIcon = require('../icons/facebook.jsx');
-const mixClass = require('classnames');
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import Button from '../molecules/button';
+import FacebookIcon from '../icons/facebook';
 
-export default class FacebookButton extends React.Component
+export default class FacebookButton extends Component
 {
     render() {
         var classes = mixClass(

@@ -1,17 +1,17 @@
 var React = require('react');
-var AtomDiv = require('../atoms/div.jsx');
-var Label = require('../molecules/label.jsx');
-var Icon = require('../molecules/icon.jsx');
+var Label = require('../molecules/label');
+var Icon = require('../molecules/icon');
 var Classable = require('../mixins/classable');
+var SemanticUI = require('../molecules/semantic_ui');
 
 module.exports = React.createClass({
   mixins: [Classable],
 
   render: function() {
     return (
-      <AtomDiv {...this.props}>
+      <SemanticUI {...this.props}>
         {this.getLabels()}
-      </AtomDiv>
+      </SemanticUI>
     );
   },
   getLabels: function(){

@@ -1,5 +1,5 @@
 var React = require('react');
-var Button = require('../molecules/button.jsx');
+var Button = require('../molecules/button');
 var Classable = require('../mixins/classable');
 var ReactStyle = require('../mixins/styles/index');
 

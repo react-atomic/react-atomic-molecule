@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 var React = require('react');
 var ReactStyle = require('../mixins/styles/index');
-var SemanticUI = require('../molecules/semantic_ui.jsx');
+var SemanticUI = require('../molecules/semantic_ui');
 var mixClass = require('classnames');
 module.exports = React.createClass({
     displayName: 'Dimmer',

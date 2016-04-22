@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 var React = require('react');
 var reactStyle = require('../../src/lib/styles/index');
-var SemanticUI = require('../molecules/semantic_ui.jsx');
+var SemanticUI = require('../molecules/semantic_ui');
 var mixClass = require('classnames');
 
     var Styles = {

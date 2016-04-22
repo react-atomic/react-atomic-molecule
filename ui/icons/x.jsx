@@ -2,7 +2,7 @@ var React = require('react');
 var ReactStyle = require('../../src/lib/styles/index');
 var AtomDiv = require('react-atomic-atom').span;
 var mixClass = require('classnames');
-var assign = require("object-assign");
+var assign = require("object-assign-sorted");
 var SemanticUI = require('../molecules/semantic_ui');
 
 var Common = {

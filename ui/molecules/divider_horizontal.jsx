@@ -1,5 +1,5 @@
 const React = require('react');
-const SemanticUI = require('../molecules/semantic_ui.jsx');
+const SemanticUI = require('../molecules/semantic_ui');
 const mixClass = require('classnames');
 const ReactStyle = require('../../src/lib/styles/index');
 

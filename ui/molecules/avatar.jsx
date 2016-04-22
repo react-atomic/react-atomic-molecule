@@ -1,5 +1,5 @@
 var React = require('react');
-var Image = require('../molecules/image.jsx');
+var Image = require('../molecules/image');
 var mixClass = require('classnames');
 
 module.exports = React.createClass({

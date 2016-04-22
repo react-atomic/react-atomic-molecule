@@ -1,5 +1,5 @@
 var React = require('react');
-var Label = require('../molecules/label.jsx');
+var Label = require('../molecules/label');
 var Classable = require('../mixins/classable');
 
 module.exports = React.createClass({

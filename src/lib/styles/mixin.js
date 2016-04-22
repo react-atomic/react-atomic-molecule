@@ -2,7 +2,7 @@ var Store                  = require('./store.js');
 var ApplyStyle             = require('./applyStyles');
 var stylesToCSS            = require('./stylesToCSS');
 var ExecutionEnvironment   = require('exenv');
-var assign                 = require("object-assign");
+var assign                 = require("object-assign-sorted");
 
 function buildProps(props){
     var myClass;
