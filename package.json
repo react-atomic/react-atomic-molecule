@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Atomic design in React (molecules)",
   "main": "./build/src/index.js",
   "repository": "pmvc/react-atomic-molecule",
