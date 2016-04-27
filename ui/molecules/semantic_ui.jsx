@@ -1,9 +1,8 @@
 /* jshint esnext: true */
 import * as Atoms from 'react-atomic-atom';
 import React, {Component} from 'react'; 
-import assign from 'object-assign-sorted';
-import mixClass from 'classnames';
 import mixStyle from '../../src/lib/styles/mixin';
+import {assign, mixClass} from '../../src/index';
 
 export default class SemanticUI extends Component
 {
@@ -88,11 +87,16 @@ export default class SemanticUI extends Component
     }
     mixStyle.injectStyle();
     // bindStyles need after inject
-    var newProps=mixStyle.bindStyles(this.props);
-    newProps.className=mixClass(newProps.className,classes);
-    newProps=assign({},this.props,newProps);
-    return (
-        <SemanticUI {...newProps}>{this.renderChildren(renderChildren)}</SemanticUI>
+    let props = this.props;
+    let newProps=mixStyle.bindStyles(assign(
+        {},
+        props,
+        { className: mixClass(props.className,classes) }
+    ));
+    return React.createElement(
+        SemanticUI,
+        assign({}, props, newProps),
+        this.renderChildren(renderChildren)
     );
   }
 

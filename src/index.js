@@ -25,9 +25,9 @@ export { default as SemanticUI } from '../ui/molecules/semantic_ui';
 export { default as Segment } from '../ui/molecules/segment';
 
 // libs
+export { default as assign } from 'object-assign';
 export { default as reactStyle } from './lib/styles/index';
 export { default as styleStore } from './lib/styles/store';
-export { default as assign } from 'object-assign-sorted';
 export { default as mixClass } from 'classnames';
 export { default as executionEnvironment } from 'exenv';
 

@@ -1,43 +1,12 @@
-var React = require('react');
-var ReactStyle = require('../../src/lib/styles/index');
-var AtomDiv = require('react-atomic-atom').span;
-var mixClass = require('classnames');
-var assign = require("object-assign-sorted");
-var SemanticUI = require('../molecules/semantic_ui');
+import React, {Component} from 'react'; 
+import {
+    assign,
+    mixClass,
+    reactStyle,
+    SemanticUI
+} from '../../src/index';
 
-var Common = {
-    closeBeforeAfter:{
-        position:'absolute',
-        left:'50%',
-        top:'50%',
-        transform: ['translate(-50%,-50%)']
-    }
-};
-
-var Styles = {
-    close: ReactStyle({
-        position:'absolute',
-        right:'5px',
-        top:'5px',
-        cursor:'pointer',
-        transform:['rotate(45deg)']
-    }),
-    closeBefore: ReactStyle(
-        assign(
-            Common.closeBeforeAfter,
-            { }
-        )
-    ),
-    closeAfter: ReactStyle(
-        assign(
-            Common.closeBeforeAfter,
-            { }
-        )
-    )
-    
-};
-
-export default class ICON_X extends React.Component
+export default class ICON_X extends Component
 {
   render()
   {
@@ -79,3 +48,34 @@ ICON_X.defaultProps = {
     color: '#333'
 };
 
+const Common = {
+    closeBeforeAfter:{
+        position:'absolute',
+        left:'50%',
+        top:'50%',
+        transform: ['translate(-50%,-50%)']
+    }
+};
+
+const Styles = {
+    close: reactStyle({
+        position:'absolute',
+        right:'5px',
+        top:'5px',
+        cursor:'pointer',
+        transform:['rotate(45deg)']
+    }),
+    closeBefore: reactStyle(
+        assign(
+            Common.closeBeforeAfter,
+            { }
+        )
+    ),
+    closeAfter: reactStyle(
+        assign(
+            Common.closeBeforeAfter,
+            { }
+        )
+    )
+    
+};

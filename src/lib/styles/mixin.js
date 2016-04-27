@@ -1,8 +1,10 @@
 var Store                  = require('./store.js');
 var ApplyStyle             = require('./applyStyles');
 var stylesToCSS            = require('./stylesToCSS');
-var ExecutionEnvironment   = require('exenv');
-var assign                 = require("object-assign-sorted");
+import {
+    assign,
+    executionEnvironment
+} from '../../index';
 
 function buildProps(props){
     var myClass;
@@ -40,7 +42,7 @@ var ReactStyle = {
     Store.newStyles=[];
     Store.registry=assign(Store.registry,compiled.styleIds);
     if(compiled.css){
-        if(ExecutionEnvironment.canUseDOM){
+        if(executionEnvironment.canUseDOM){
             var tag = document.createElement('style');
             tag.innerHTML = compiled.css;
             document.getElementsByTagName('head')[0].appendChild(tag);
