@@ -6,18 +6,31 @@ export default class Image extends Component
 {
     render()
     {
+        let props = this.props;
         let classes = mixClass (
-            this.props.className,
+            props.className,
             {
-                image:this.props.ui,
-                ui:this.props.ui
+                image: props.ui,
+                ui: props.ui
             }
         );
-        return (
-          <SemanticUI atom="img"
-            {...this.props} 
-            className={classes} />
-        );
+        if (props.atom && 'img' !== props.atom) {
+            return (
+                <SemanticUI
+                    {...props}
+                    className={classes}
+                >
+                    <SemanticUI atom="img" src={props.src}/>
+                    {props.children}
+                </SemanticUI>
+            );
+        } else {
+            return (
+              <SemanticUI atom="img"
+                {...props} 
+                className={classes} />
+            );
+        }
     }
 }
 Image.defaultProps = { ui: true };

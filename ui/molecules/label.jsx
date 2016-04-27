@@ -1,15 +1,17 @@
-var React = require('react');
-var SemanticUI = require('../molecules/semantic_ui');
-var Classable = require('../mixins/classable');
+import React, {Component} from 'react'; 
+import mixClass from 'classnames';
+import SemanticUI from '../molecules/semantic_ui';
 
-module.exports = React.createClass({
-  displayName: 'Label',
-  mixins: [Classable],
-  render: function() {
-    var classes = this.getClasses('label');
-    return (
-      <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
-    );
-  }
-});
-
+export default class Label extends Component
+{
+    render()
+    {
+        let classes = mixClass (
+            this.props.className,
+            'label'
+        );
+        return (
+            <SemanticUI {...this.props} className={classes} />
+        );
+    }
+}

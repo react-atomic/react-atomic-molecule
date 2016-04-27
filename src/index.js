@@ -1,9 +1,7 @@
 // ui
 export { default as Avatar } from '../ui/molecules/avatar';
 export { default as Button } from '../ui/molecules/button';
-export { default as Buttons } from '../ui/molecules/buttons';
 export { default as Card } from '../ui/molecules/card';
-export { default as Cards } from '../ui/molecules/cards';
 export { default as Content } from '../ui/molecules/content';
 export { default as Description } from '../ui/molecules/description';
 export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';

@@ -7,9 +7,27 @@ export default class List extends Component
 {
     render()
     {
+        let props = this.props;
+        let typeClass;
+        switch (props.type) {
+            case 'button':
+                typeClass = 'buttons'; 
+                break;
+            case 'card':
+                typeClass = 'cards'; 
+                break;
+            case 'item':
+                typeClass = 'items'; 
+                break;
+            case 'list':
+            default:
+                typeClass = 'list'; 
+                break;
+            
+        }
         let classes = mixClass (
             this.props.className,
-            'list'
+            typeClass
         );
         return (
           <SemanticUI {...this.props} className={classes}>{this.renderChildren()}</SemanticUI>
