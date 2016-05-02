@@ -40,6 +40,9 @@ export default class List extends Component
         return React.Children.map(
             this.props.children,
             function (child) {
+                if (!child) {
+                    return null;
+                }
                 if( 'ul'===this.props.atom || 
                     'ol'===this.props.atom 
                   ) {
