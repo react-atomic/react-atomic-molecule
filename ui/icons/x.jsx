@@ -42,7 +42,7 @@ export default class ICON_X extends Component
 }
 ICON_X.defaultProps = { 
     style: {},
-    backgroud: '#fff',
+    backgroud: 'transparent',
     size: '1em',
     width: '.2em',
     color: '#333'

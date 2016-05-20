@@ -10,9 +10,10 @@ export default class Message extends Component
         let classes = mixClass(
             this.props.className,
             {
-                error: (this.props.error === 'error'),
-                success: (this.props.error === 'success'),
-                warning: (this.props.error === 'warning')
+                info: (this.props.type === 'info'),
+                error: (this.props.type === 'error'),
+                success: (this.props.type === 'success'),
+                warning: (this.props.type === 'warning')
             },
             'message'
         );
