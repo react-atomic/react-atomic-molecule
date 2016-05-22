@@ -1,8 +1,12 @@
 /* jshint esnext: true */
 import * as Atoms from 'react-atomic-atom';
-import React, {Component} from 'react'; 
 import mixStyle from '../../src/lib/styles/mixin';
-import {assign, mixClass} from '../../src/index';
+import {
+    React,
+    Component,
+    assign,
+    mixClass
+} from '../../src/index';
 
 export default class SemanticUI extends Component
 {
@@ -113,18 +117,11 @@ export default class SemanticUI extends Component
                 }
                 var childProps = child.props;
                 var newProps=mixStyle.bindStyles(childProps);
+                childProps = assign( {}, childProps, newProps);
                 if('undefined' !== typeof newProps ){
-                    return React.cloneElement(
+                    child = React.cloneElement(
                         child, 
-                        assign(
-                            {},
-                            childProps,
-                            {
-                                className:newProps.className,
-                                styles:newProps.styles,
-                                style:newProps.style,
-                            }
-                        )
+                        childProps
                     );
                 }
                 return child;

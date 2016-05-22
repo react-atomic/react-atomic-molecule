@@ -76,10 +76,9 @@ function applyStyles(props, styles, order)
     for (var i = 0, len = styles.length; i < len; i++) {
       order = applyStyles(props, styles[i], order);
     }
-    return order;
   }
   else {
-    return applyStyle(props, styles, order);
+    applyStyle(props, styles, order);
   }
 }
 

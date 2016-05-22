@@ -6,6 +6,12 @@ import {
     executionEnvironment
 } from '../../index';
 
+/**
+ *  props.className
+ *  props.style
+ *  props.styles
+ *  props.styleOrder
+ */
 function buildProps(props){
     var myClass;
     var myStyle;
@@ -17,14 +23,17 @@ function buildProps(props){
     }
     var newStyleProps = {
         className: myClass,
-        style: myStyle,
-        styles: undefined
+        style: myStyle
     };
     var order=0;
     if('undefined'!==typeof props.styleOrder){
         order=props.styleOrder;
     }
-    ApplyStyle(newStyleProps,props.styles,order);
+    ApplyStyle(
+        newStyleProps,
+        props.styles,
+        order
+    );
     return newStyleProps;
 }
 
