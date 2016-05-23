@@ -34,6 +34,12 @@ function buildProps(props){
         props.styles,
         order
     );
+    if( !newStyleProps.className ){
+        delete newStyleProps.className;
+    }
+    if( !newStyleProps.style ){
+        delete newStyleProps.style;
+    }
     return newStyleProps;
 }
 

@@ -5,15 +5,14 @@ import SemanticUI from '../molecules/semantic_ui';
 
 export default class Segment extends Component
 {
-
   render()
   {
-      var classes = mixClass(
+      let classes = mixClass(
         this.props.className,
         'segment'
        );
       return (
-              <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
+              <SemanticUI {...this.props} className={classes} />
       );
   }
 

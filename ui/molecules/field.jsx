@@ -34,6 +34,7 @@ export default class Field extends Component
             <SemanticUI
                 className={classes}
                 styles={fieldStyles}
+                styleOrder={this.props.styleOrder}
             >
                 {label}
                 {input}

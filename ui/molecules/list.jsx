@@ -12,6 +12,9 @@ export default class List extends Component
         let props = this.props;
         let typeClass;
         switch (props.type) {
+            case 'segments':
+                typeClass = 'segments'; 
+                break;
             case 'button':
                 typeClass = 'buttons'; 
                 break;
