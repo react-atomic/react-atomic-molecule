@@ -38,3 +38,7 @@ export { default as executionEnvironment } from 'exenv';
 export { default as XIco } from '../ui/icons/x';
 export { default as FacebookIco } from '../ui/icons/facebook';
 export { default as FullscreenIco } from '../ui/icons/fullscreen';
+export { default as SearchIco } from '../ui/icons/search';
+export { default as MyLocationIco } from '../ui/icons/my_location';
+export { default as CalendarIco } from '../ui/icons/calendar';
+export { default as PinIco } from '../ui/icons/pin';
