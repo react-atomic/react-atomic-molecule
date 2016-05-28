@@ -41,4 +41,6 @@ export { default as FullscreenIco } from '../ui/icons/fullscreen';
 export { default as SearchIco } from '../ui/icons/search';
 export { default as MyLocationIco } from '../ui/icons/my_location';
 export { default as CalendarIco } from '../ui/icons/calendar';
+export { default as PulseIco } from '../ui/icons/pulse';
 export { default as PinIco } from '../ui/icons/pin';
+

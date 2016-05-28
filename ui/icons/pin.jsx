@@ -1,77 +1,80 @@
 import {
     React,
+    Card,
+    Content,
     Component,
     SemanticUI,
+    Header,
+    XIco,
     reactStyle
 } from '../../src/index';
 
-const PIN = (props) =>
-<div></div>
-
-const PULSE = (props) =>
-<SemanticUI style={Styles.pulse}>
-    <div styles={Styles.pulsePoint}></div>
-    <div styles={Styles.pulseRing}></div>
-</SemanticUI>
 
 export default class PinIcon extends Component
 {
     render()
     {
+        let pinStyles = [Styles.pin];
+        let pinContent = null;
+        let pinOpenStyle = {
+        };
+        if (this.props.open) {
+            pinStyles=[Styles.pin,Styles.pinOpen];
+            let header = null;
+            if (this.props.header) {
+                header = <Header style={Styles.header}>{this.props.header}</Header> 
+            }
+            pinContent = <Card style={{
+                background: pinOpenBackground
+            }}>
+                <Content>
+                    {header}
+                    {this.props.children}
+                    <XIco style={{bottom:'5px',top:null}} />
+                </Content>
+            </Card>;
+        }
         return (
-            <PULSE />
-        );
+            <SemanticUI style={Styles.container} {...this.props}>
+                <div styles={pinStyles} >
+                    {pinContent}
+                </div>
+                <div styles={Styles.point} />
+            </SemanticUI>
+        )
     }
 }
 
+const pinOpenBackground = '#c4c1cd';
 const Styles = {
-    pulse: {
-        position: 'absolute',
-        top:'50%',
-        left:'50%'
+    container: {
+        position: 'relative'
     },
-    pulsePoint: reactStyle({
-        background: 'rgba(0,0,0,0.2)',
-        borderRadius: ['50%'],
-        transform: ['rotateX(55deg)'],
-        height: '14px',
-        width: '14px',
-        margin: '11px 0px 0px -12px',
-        position: 'absolute',
-        top: '-10px',
-        left: '12px'
+    header: {
+        marginLeft: '20px'
+    },
+    pin: reactStyle({
+        width: '30px',
+        height: '30px',
+        borderRadius: ['50% 50% 50% 0'],
+        background: '#89849b',
+        transform: ['rotate(-45deg)'],
+        margin: '-20px 0 0 -20px',
+        transition: ['all 0.25s ease-in-out']
     }),
-    pulseRing: reactStyle({
-        borderRadius: ['50%'],
-        width: '40px',
-        height: '40px',
-        position: 'absolute',
-        margin: '-13px 0 0 -13px',
-        animation: ['pulsate 1s ease-out'],
-        animationIterationCount: ['infinite'],
-        opacity: 0,
-        filter: 'alpha(opacity=0)',
-        msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)',
-        boxShadow: ['0 0 1px 2px #89849b'],
-        animationDelay: ['1.1s']
+    pinOpen: reactStyle({
+        width: '250px',
+        borderRadius: ['5px'],
+        transform: ['rotate(0)'],
     }),
-    pulsate: reactStyle([
-        {
-            transform: ['scale(0.1, 0.1)'],
-            opacity: 0,
-            filter: 'alpha(opacity=0)',
-            msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'
-        },
-        {
-            opacity: 1,
-            filter: 'none',
-            msFilter: 'none',
-        },
-        {
-            transform: ['scale(1.2, 1.2)'],
-            filter: 'alpha(opacity=0)',
-            msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'
-        }
-    ],['@keyframes pulsate', '0%', '50%', '100%']) 
-
+    point: reactStyle({
+        width:'14px',
+        height:'14px',
+        margin: '8px 0 0 8px',
+        background: '#2f2f2f',
+        position: 'absolute',
+        top:0,
+        left:'-20px',
+        borderRadius: ['50%']
+    })
 };

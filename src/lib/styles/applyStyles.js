@@ -74,7 +74,7 @@ function applyStyles(props, styles, order)
   }
   if (isArray(styles)) {
     for (var i = 0, len = styles.length; i < len; i++) {
-      order = applyStyles(props, styles[i], order);
+      order = applyStyle(props, styles[i], order);
     }
   }
   else {
