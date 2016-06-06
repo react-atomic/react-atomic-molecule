@@ -5,10 +5,8 @@ import {
     Component,
     SemanticUI,
     Header,
-    XIco,
     reactStyle
 } from '../../src/index';
-
 
 export default class PinIcon extends Component
 {
@@ -30,16 +28,19 @@ export default class PinIcon extends Component
                 <Content>
                     {header}
                     {this.props.children}
-                    <XIco style={{bottom:'5px',top:null}} />
                 </Content>
             </Card>;
         }
+        let label = (this.props.label) ?
+            <div style={Styles.label}>{this.props.label}</div>:
+            <div styles={Styles.point} />;
+
         return (
             <SemanticUI style={Styles.container} {...this.props}>
                 <div styles={pinStyles} >
                     {pinContent}
                 </div>
-                <div styles={Styles.point} />
+                {label}     
             </SemanticUI>
         )
     }
@@ -64,6 +65,7 @@ const Styles = {
     }),
     pinOpen: reactStyle({
         width: '250px',
+        height: 'auto',
         borderRadius: ['5px'],
         transform: ['rotate(0)'],
     }),
@@ -76,5 +78,10 @@ const Styles = {
         top:0,
         left:'-20px',
         borderRadius: ['50%']
-    })
+    }),
+    label: {
+        position: 'absolute',
+        top:'7px',
+        left:'-16px'
+    }
 };

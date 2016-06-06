@@ -15,20 +15,20 @@ import {
 function buildProps(props){
     var myClass;
     var myStyle;
+    var order=0;
     if( 'undefined' !== typeof props.className ){
         myClass=props.className;
     }
     if( 'undefined' !== typeof props.style ){
         myStyle=props.style;
     }
+    if('undefined'!==typeof props.styleOrder){
+        order=props.styleOrder;
+    }
     var newStyleProps = {
         className: myClass,
         style: myStyle
     };
-    var order=0;
-    if('undefined'!==typeof props.styleOrder){
-        order=props.styleOrder;
-    }
     ApplyStyle(
         newStyleProps,
         props.styles,

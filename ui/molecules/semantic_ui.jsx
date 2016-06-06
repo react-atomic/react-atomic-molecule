@@ -91,15 +91,21 @@ export default class SemanticUI extends Component
     }
     mixStyle.injectStyle();
     // bindStyles need after inject
-    let props = this.props;
-    let newProps=mixStyle.bindStyles(assign(
+    let props = assign(
         {},
-        props,
-        { className: mixClass(props.className,classes) }
-    ));
-    return React.createElement(
+        this.props,
+        { 
+            className: mixClass(
+                this.props.className,
+                classes
+            )
+        }
+    );
+    let newProps = mixStyle.bindStyles(props);
+    newProps = assign(props, newProps);
+    return React.createElement (
         SemanticUI,
-        assign({}, props, newProps),
+        newProps,
         this.renderChildren(renderChildren)
     );
   }
