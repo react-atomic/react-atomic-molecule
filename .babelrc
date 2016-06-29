@@ -8,7 +8,6 @@
             ],
             "plugins": [
               "add-module-exports",
-              "transform-runtime",
               "transform-react-inline-elements",
               "transform-react-constant-elements"
             ]
