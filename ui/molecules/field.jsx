@@ -1,7 +1,10 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import {
+    React,
+    Component,
+    SemanticUI,
+    mixClass
+} from '../../src/index';
 
 export default class Field extends Component
 {
@@ -18,9 +21,9 @@ export default class Field extends Component
         let label = null;
         if (this.props.label) {
             label = 
-                <label htmlFor={this.props.id} styles={this.props.labelStyles}>
+                <SemanticUI atom="label" htmlFor={this.props.id} styles={this.props.labelStyles}>
                     {this.props.label}
-                </label>;
+                </SemanticUI>;
         }
         let input = null;
         let fieldStyles = null;

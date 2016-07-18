@@ -1,13 +1,17 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import {
+    React,
+    Component,
+    SemanticUI, 
+    assign,
+    mixClass
+} from '../../src/index';
 
 export default class Form extends Component
 {
     render()
     {
-        var classes = mixClass(
+        let classes = mixClass(
             this.props.className,
             {
                 error: (this.props.error === 'error'),
@@ -16,9 +20,11 @@ export default class Form extends Component
             },
             'form'
         );
+        let props = assign({},this.props);
+        delete props.error;
         return (
-            <SemanticUI atom="form" {...this.props} className={classes}>
-                {this.props.children}
+            <SemanticUI atom="form" {...props} className={classes}>
+                {props.children}
             </SemanticUI>
         );
     }

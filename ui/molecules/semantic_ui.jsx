@@ -60,6 +60,9 @@ export default class SemanticUI extends Component
             SemanticUI = Atoms.Input;
             renderChildren=false;
             break;
+        case 'label':
+            SemanticUI = Atoms.Label;
+            break;
         case 'textarea':
             SemanticUI = Atoms.Textarea;
             break;
@@ -103,11 +106,21 @@ export default class SemanticUI extends Component
     );
     let newProps = mixStyle.bindStyles(props);
     newProps = assign(props, newProps);
+    this.cleanProps(newProps);
     return React.createElement (
         SemanticUI,
         newProps,
         this.renderChildren(renderChildren)
     );
+  }
+
+  cleanProps(props)
+  {
+    delete props.atom;
+    delete props.renderChildren;
+    delete props.styles;
+    delete props.styleOrder;
+    delete props.ui;
   }
 
   renderChildren(render)
@@ -121,9 +134,10 @@ export default class SemanticUI extends Component
                 if('object' !== typeof child || !child){
                     return child;
                 }
-                var childProps = child.props;
-                var newProps=mixStyle.bindStyles(childProps);
+                let childProps = child.props;
+                let newProps=mixStyle.bindStyles(childProps);
                 childProps = assign( {}, childProps, newProps);
+                this.cleanProps(childProps);
                 if('undefined' !== typeof newProps ){
                     child = React.cloneElement(
                         child, 
