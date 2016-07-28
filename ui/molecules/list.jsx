@@ -9,9 +9,9 @@ export default class List extends Component
 {
     render()
     {
-        let props = this.props;
         let typeClass;
-        switch (props.type) {
+        const {type, className, ...props} = this.props;
+        switch (type) {
             case 'segments':
                 typeClass = 'segments'; 
                 break;
@@ -31,11 +31,11 @@ export default class List extends Component
             
         }
         let classes = mixClass (
-            this.props.className,
+            className,
             typeClass
         );
         return (
-          <SemanticUI {...this.props} className={classes}>{this.renderChildren()}</SemanticUI>
+          <SemanticUI {...props} className={classes}>{this.renderChildren()}</SemanticUI>
         );
     }
 

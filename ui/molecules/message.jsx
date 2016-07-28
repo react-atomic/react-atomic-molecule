@@ -17,12 +17,12 @@ export default class Message extends Component
             },
             'message'
         );
-        let header = null;
-        if (this.props.header) {
-            header = <Header>{this.props.header}</Header>;
+        let {header, ...reset} = this.props;
+        if (header) {
+            header = <Header>{header}</Header>;
         }
         return (
-          <SemanticUI {...this.props} className={classes}>
+          <SemanticUI {...reset} className={classes}>
           {header}
           {this.props.children}
           </SemanticUI>
