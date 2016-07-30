@@ -1,20 +1,15 @@
 {
-  "name": "react-atomic-molecule",
-  "version": "0.0.24",
-  "description": "Atomic design in React (molecules)",
-  "main": "./build/src/index.js",
-  "repository": "pmvc/react-atomic-molecule",
+  "name": "ra-icon-fb-message",
+  "version": "0.0.1",
+  "description": "Facebook Message Icon",
+  "main": "./build/src/fb-message.js",
+  "repository": "pmvc/react-atomic-molecule/icons/fb-message",
   "keywords": [
     "reactjs"
   ],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
-    "classnames": "*",
-    "exenv": "^1.2.0",
-    "hyphenate-style-name": "1.0.0",
-    "object-assign": "^4.0.1",
-    "react-atomic-atom": "^0.0.13"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
@@ -28,7 +23,7 @@
     "react": "^15.0.1"
   },
   "scripts": {
-    "build": "rm -rf build && BABEL_ENV=build babel ui -d build/ui && BABEL_ENV=build babel src -d build/src",
+    "build": "rm -rf build && BABEL_ENV=build babel src -d build/src",
     "prepublish": "npm run build"
   },
   "files": [

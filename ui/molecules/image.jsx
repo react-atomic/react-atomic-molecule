@@ -10,8 +10,7 @@ export default class Image extends Component
         let classes = mixClass (
             props.className,
             {
-                image: props.ui,
-                ui: props.ui
+                image: props.ui
             }
         );
         if (props.atom && 'img' !== props.atom) {

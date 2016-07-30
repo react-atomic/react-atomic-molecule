@@ -88,6 +88,9 @@ export default class SemanticUI extends Component
         case 'td':
             SemanticUI = Atoms.Td;
             break;
+        case 'section':
+            SemanticUI = Atoms.Section;
+            break;
         default:
             SemanticUI = Atoms.Div;
             break;

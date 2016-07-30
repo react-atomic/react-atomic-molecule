@@ -6,6 +6,7 @@ export { default as Avatar } from '../ui/molecules/avatar';
 export { default as Button } from '../ui/molecules/button';
 export { default as Card } from '../ui/molecules/card';
 export { default as Content } from '../ui/molecules/content';
+export { default as CircularImage } from '../ui/molecules/circular_image';
 export { default as Description } from '../ui/molecules/description';
 export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
 export { default as DividingHeader } from '../ui/molecules/dividing_header';

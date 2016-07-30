@@ -12,7 +12,6 @@ export default class Header extends Component
         );
         return (
           <SemanticUI {...this.props}
-            ui={false}
             className={classes}
           />
         );
