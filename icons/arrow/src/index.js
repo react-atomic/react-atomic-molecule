@@ -1,3 +1,3 @@
 //drop
-export { default as DropDown} from './DropDown'; 
+export { default as DropDownIcon} from './DropDownIcon'; 
 //export { default as DropUp} from './DropUp'; 
