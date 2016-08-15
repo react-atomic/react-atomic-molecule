@@ -1,6 +1,9 @@
-import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import {
+    React,
+    Component,
+    SemanticUI,
+    mixClass
+} from '../../src/index';
 
 export default class Image extends Component
 {

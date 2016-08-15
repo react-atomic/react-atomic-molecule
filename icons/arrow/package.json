@@ -1,9 +1,9 @@
 {
-  "name": "ra-icon-fb-message",
-  "version": "0.0.1",
-  "description": "Facebook Message Icon",
-  "main": "./build/src/fb-message.js",
-  "repository": "react-atomic/react-atomic-molecule/icons/fb-message",
+  "name": "ra-icon-arrow",
+  "version": "0.0.2",
+  "description": "Arrow Icon",
+  "main": "./build/src/index.js",
+  "repository": "react-atomic/react-atomic-molecule/icons/arrow",
   "keywords": [
     "reactjs"
   ],
