@@ -9,6 +9,9 @@ var unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|
 var counter = 1;
 
 function buildRule(key, value) {
+  if (null === value) {
+    return '';
+  }
   var toCSS = value.toCSS;
   if (typeof toCSS === 'function') {
     value = toCSS();

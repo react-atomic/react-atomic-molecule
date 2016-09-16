@@ -1,8 +1,8 @@
 /*jslint browser: true*/
 'use strict';
 
-var Style    = require('./Style');
-var Store    = require('./store.js');
+import style from './style';
+import store from './store';
 var isArray  = Array.isArray;
 var keys     = Object.keys;
 
@@ -19,41 +19,41 @@ function ucfirst(str)
 
 function genStyleId()
 {
-  Store.counter += 1;
-  return 'c'+ Store.counter+ '_';
+  store.counter += 1;
+  return 'c'+ store.counter+ '_';
 }
 
-function createStyle(css, selector, styleId)
+const createStyle = (css, selector, styleId) =>
 {
   styleId = styleId || genStyleId();
   if (!isArray(css)) {
         css = [css];
   } 
-  var style = [];
+  var styles = [];
   var cssKeys;
   var key;
   var j;
   var jlen;
   for (var i=0, len=css.length; i < len; i++) { 
       cssKeys = keys(css[i]);
-      style[i] = {};
+      styles[i] = {};
       for (j = 0, jlen = cssKeys.length; j < jlen; j++) {
         key = cssKeys[j];
         if (isArray(css[i][key])) {
-            style[i][Browser.webkit+ucfirst(key)] = 
-            style[i][Browser.ms+ucfirst(key)]     = 
-            style[i][Browser.moz+ucfirst(key)]    = 
-            style[i][key]                         = css[i][key][0];
+            styles[i][Browser.webkit+ucfirst(key)] = 
+            styles[i][Browser.ms+ucfirst(key)]     = 
+            styles[i][Browser.moz+ucfirst(key)]    = 
+            styles[i][key]                         = css[i][key][0];
         } else {
-            style[i][key] = css[i][key];
+            styles[i][key] = css[i][key];
         }
       }
   }
 
-  var styleDecl = new Style(style, styleId, selector);
-  Store.styles.push(styleDecl);
-  Store.newStyles.push(styleDecl);
+  var styleDecl = new style(styles, styleId, selector);
+  store.styles.push(styleDecl);
+  store.newStyles.push(styleDecl);
   return styleDecl;
 }
 
-module.exports = createStyle;
+export default createStyle;

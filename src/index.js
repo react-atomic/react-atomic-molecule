@@ -1,6 +1,3 @@
-// react
-export { default as React, Component} from 'react'; 
-
 // ui
 export { default as Avatar } from '../ui/molecules/avatar';
 export { default as Button } from '../ui/molecules/button';
