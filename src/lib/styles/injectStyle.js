@@ -12,7 +12,7 @@ import {
  *  props.styles
  *  props.styleOrder
  */
-function buildProps(props){
+const bindStyles = (props) => {
     var myClass;
     var myStyle;
     var order=0;
@@ -41,14 +41,14 @@ function buildProps(props){
         delete newStyleProps.style;
     }
     return newStyleProps;
-}
+};
 
-var ReactStyle = {
-  bindStyles: buildProps,
-  newStyleInject: function(){
+const reInjectStyle = () => {
     Store.newStyles=Store.styles;
-  },
-  injectStyle: function() {
+    injectStyle();
+};
+
+const injectStyle = () => {
     if (!Store.newStyles.length){
       // We are in Node or Styles are already injected
       return null;
@@ -65,6 +65,7 @@ var ReactStyle = {
             console.log(compiled.css);
         }
     }
-  }
 };
-module.exports = ReactStyle;
+
+export {bindStyles, reInjectStyle};
+export default injectStyle;

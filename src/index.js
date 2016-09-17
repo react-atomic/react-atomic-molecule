@@ -28,7 +28,7 @@ export { default as Segment } from '../ui/molecules/segment';
 // libs
 export { default as assign } from 'object-assign';
 export { default as reactStyle } from './lib/styles/index';
-export { default as styleStore } from './lib/styles/store';
+export { default as injectStyle } from './lib/styles/injectStyle';
 export { default as mixClass } from 'classnames';
 export { default as executionEnvironment } from 'exenv';
 

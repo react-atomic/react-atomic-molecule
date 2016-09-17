@@ -1,9 +1,8 @@
 /* jshint esnext: true */
 import * as Atoms from 'react-atomic-atom';
-import mixStyle from '../../src/lib/styles/mixin';
+import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
+import React, {Component} from 'react'; 
 import {
-    React,
-    Component,
     assign,
     mixClass
 } from '../../src/index';
@@ -95,7 +94,7 @@ export default class SemanticUI extends Component
             SemanticUI = Atoms.Div;
             break;
     }
-    mixStyle.injectStyle();
+    injectStyle();
     // bindStyles need after inject
     let props = assign(
         {},
@@ -107,7 +106,7 @@ export default class SemanticUI extends Component
             )
         }
     );
-    let newProps = mixStyle.bindStyles(props);
+    let newProps = bindStyles(props);
     newProps = assign(props, newProps);
     this.cleanProps(newProps);
     return React.createElement (
@@ -138,7 +137,7 @@ export default class SemanticUI extends Component
                     return child;
                 }
                 let childProps = child.props;
-                let newProps=mixStyle.bindStyles(childProps);
+                let newProps = bindStyles(childProps);
                 childProps = assign( {}, childProps, newProps);
                 this.cleanProps(childProps);
                 if('undefined' !== typeof newProps ){

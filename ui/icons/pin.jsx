@@ -1,8 +1,7 @@
+import React, {Component} from 'react'; 
 import {
-    React,
     Card,
     Content,
-    Component,
     SemanticUI,
     Header,
     reactStyle

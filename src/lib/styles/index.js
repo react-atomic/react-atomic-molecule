@@ -25,6 +25,9 @@ function genStyleId()
 
 const createStyle = (css, selector, styleId) =>
 {
+  if (!css) {
+    return;
+  }
   styleId = styleId || genStyleId();
   if (!isArray(css)) {
         css = [css];

@@ -1,6 +1,5 @@
+import React, {Component} from 'react'; 
 import {
-    React,
-    Component,
     SemanticUI,
     reactStyle,
 } from '../../src/index';
@@ -16,6 +15,14 @@ const Fixed = (props) =>
 
 
 class MyLocation extends Component {
+    static defaultProps = {
+        width: 24,
+        height: 24,
+        viewBox: '0 0 24 24',
+        fill: '#000000',
+        type: 'fixed'
+    }
+
     render()
     {
         let props = this.props;
@@ -43,14 +50,6 @@ class MyLocation extends Component {
         );
     }
 }
-
-MyLocation.defaultProps = {
-    width: 24,
-    height: 24,
-    viewBox: '0 0 24 24',
-    fill: '#000000',
-    type: 'fixed'
-};
 
 const Styles = {
     loading: reactStyle({
