@@ -1,8 +1,8 @@
 {
-  "name": "ra-icon-fb-message",
-  "version": "0.0.1",
-  "description": "Facebook Message Icon",
-  "main": "./build/src/fb-message.js",
+  "name": "ra-icon-magnifier",
+  "version": "0.0.0",
+  "description": "Magnifier Icon",
+  "main": "./build/src/index.js",
   "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
     "reactjs"

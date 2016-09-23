@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Arrow Icon",
   "main": "./build/src/index.js",
-  "repository": "react-atomic/react-atomic-molecule/icons/arrow",
+  "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
     "reactjs"
   ],
