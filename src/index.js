@@ -7,6 +7,7 @@ export { default as CircularImage } from '../ui/molecules/circular_image';
 export { default as Description } from '../ui/molecules/description';
 export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
 export { default as DividingHeader } from '../ui/molecules/dividing_header';
+export { default as Dimmer } from '../ui/molecules/Dimmer';
 export { default as FacebookButton } from '../ui/molecules/facebook_button';
 export { default as Form } from '../ui/molecules/form';
 export { default as Field } from '../ui/molecules/field';
