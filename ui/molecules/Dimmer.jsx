@@ -46,10 +46,8 @@ const Dimmer = (props) => {
             hidden:  cssHidden
         }
     );
-    let content;
-    
-    console.log(isDimmer(children));
 
+    let content;
     if (children && !isDimmer(children)) {
         content = <Content style={{boxSizing: 'inherit'}}>
             <div className="center">{children}</div>
