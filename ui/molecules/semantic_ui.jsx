@@ -120,6 +120,7 @@ export default class SemanticUI extends Component
     delete props.styles;
     delete props.styleOrder;
     delete props.ui;
+    return props;
   }
 
   renderChildren(render)
@@ -127,26 +128,8 @@ export default class SemanticUI extends Component
         if(!render){
             return null;
         }
-        return React.Children.map(
-            this.props.children,
-            function (child) {
-                if('object' !== typeof child || !child){
-                    return child;
-                }
-                let childProps = child.props;
-                let newProps = bindStyles(childProps);
-                childProps = assign( {}, childProps, newProps);
-                this.cleanProps(childProps);
-                if('undefined' !== typeof newProps ){
-                    child = React.cloneElement(
-                        child, 
-                        childProps
-                    );
-                }
-                return child;
-            }.bind(this)
-        );
-    }
+        return this.props.children;
+  }
 }
 SemanticUI.defaultProps = {
     ui:true,

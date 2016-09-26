@@ -6,8 +6,26 @@ import {
     SemanticUI
 } from '../../src/index';
 
+let injects;
+
 export default class ICON_X extends Component
 {
+    constructor(props) 
+    {
+        super(props);
+        if (!injects) {
+            injects = {};
+            const keys = Object.keys(InjectStyles);
+            keys.forEach((key)=>{
+                let item = InjectStyles[key];
+                injects[key] = reactStyle.apply(
+                    null,
+                    item
+                );
+            });
+        }
+    }
+
   render()
   {
         var classes = mixClass(
@@ -15,60 +33,74 @@ export default class ICON_X extends Component
             ,'icon'
             ,'x'
         );
+        const {weight, size, ...props} = this.props;
         return (
             <SemanticUI
-                {...this.props}
                 className={classes}
-                styles={[Styles.close,this.props.styles]} 
+                {...props}
                 style={assign(
-                    {
-                        background: this.props.backgroud,
-                        width: this.props.size,
-                        height: this.props.size,
-                        top: '5px',
-                        right: '5px'
-                    },
+                    { },
+                    Styles.container,
                     this.props.style
                 )}
             >
-                <div 
-                    styles={Styles.line}
-                    style={ {
-                        width: this.props.width,
-                        height: this.props.size,
-                        background: this.props.color
-                    } }
-                ></div>
-                <div 
-                    styles={Styles.line}
+                <SemanticUI
+                    styles={injects.box} 
                     style={{
                         width: this.props.size,
-                        height: this.props.width,
-                        background: this.props.color
+                        height: this.props.size,
                     }}
-                ></div>
+                >
+                    <SemanticUI
+                        styles={injects.line}
+                        style={{
+                            width: weight,
+                            height: size,
+                            background: this.props.color,
+                            fontSize:0,
+                            lineHeight:0
+                        }}
+                    />
+                    <SemanticUI 
+                        styles={injects.line}
+                        style={{
+                            width: size,
+                            height: weight,
+                            background: this.props.color,
+                            fontSize:0,
+                            lineHeight:0
+                        }}
+                    />
+                </SemanticUI>
             </SemanticUI>
         );
   }
 }
 ICON_X.defaultProps = { 
     style: {},
-    backgroud: 'transparent',
-    size: '1em',
-    width: '.2em',
+    size: '1rem',
+    weight: '.2rem',
     color: '#333'
 };
 
 const Styles = {
-    close: reactStyle({
-        position:'absolute',
+    container: {
+        background: 'transparent',
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+    }
+};
+
+const InjectStyles = {
+    box: [{
         cursor:'pointer',
         transform:['rotate(45deg)']
-    }),
-    line: reactStyle({
+    }],
+    line: [{
         position:'absolute',
         left:'50%',
         top:'50%',
         transform: ['translate(-50%,-50%)']
-    })
+    }]
 };
