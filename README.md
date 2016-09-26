@@ -1,9 +1,9 @@
 react atomic molecule 
 ===============
    * GIT
-      * https://github.com/pmvc/react-atomic-molecule 
+      * https://github.com/react-atomic/react-atomic-molecule  
    * NPM
-      * https://www.npmjs.com/package/react-atomic-molecule 
+      * https://npm.im/react-atomic-molecule 
 
 ## Example Usage
 Demo Url:
