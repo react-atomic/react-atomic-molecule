@@ -1,6 +1,6 @@
 'use strict';
 
-var CSSProperty = require('react/lib/CSSProperty');
+var CSSProperty = require('./CSSProperty');
 var isArray     = Array.isArray;
 var keys        = Object.keys;
 

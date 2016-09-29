@@ -1,6 +1,6 @@
 'use strict';
 let hyphenateStyleName = require('hyphenate-style-name');
-var CSSProperty = require('react/lib/CSSProperty');
+var CSSProperty = require('./CSSProperty');
 var unsupportedPseudoClasses = require('./unsupportedPseudoClasses');
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,

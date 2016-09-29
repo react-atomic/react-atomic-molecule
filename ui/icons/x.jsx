@@ -34,6 +34,11 @@ export default class ICON_X extends Component
             ,'x'
         );
         const {weight, size, ...props} = this.props;
+        const lineStyle = {
+            width: weight,
+            height: size,
+            background: this.props.color
+        };
         return (
             <SemanticUI
                 className={classes}
@@ -45,31 +50,12 @@ export default class ICON_X extends Component
                 )}
             >
                 <SemanticUI
-                    styles={injects.box} 
-                    style={{
-                        width: this.props.size,
-                        height: this.props.size,
-                    }}
+                    styles={injects.line}
+                    style={lineStyle}
                 >
-                    <SemanticUI
-                        styles={injects.line}
-                        style={{
-                            width: weight,
-                            height: size,
-                            background: this.props.color,
-                            fontSize:0,
-                            lineHeight:0
-                        }}
-                    />
                     <SemanticUI 
-                        styles={injects.line}
-                        style={{
-                            width: size,
-                            height: weight,
-                            background: this.props.color,
-                            fontSize:0,
-                            lineHeight:0
-                        }}
+                        styles={injects.line2}
+                        style={lineStyle}
                     />
                 </SemanticUI>
             </SemanticUI>
@@ -89,18 +75,18 @@ const Styles = {
         position: 'absolute',
         top: '5px',
         right: '5px',
+        cursor:'pointer',
     }
 };
 
 const InjectStyles = {
-    box: [{
-        cursor:'pointer',
-        transform:['rotate(45deg)']
-    }],
     line: [{
         position:'absolute',
         left:'50%',
         top:'50%',
-        transform: ['translate(-50%,-50%)']
+        transform: ['translate(-50%,-50%) rotate(45deg)']
+    }],
+    line2: [{
+        transform:['rotate(90deg)']
     }]
 };
