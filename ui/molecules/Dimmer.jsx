@@ -8,21 +8,8 @@ import {
     mixClass
 } from '../../src/index';
 
-const isDimmer = (el) =>
-{
-    if (React.isValidElement(el)){
-        let type = el.type;
-        if (type.name
-            && -1 !== type.name.indexOf('Dimmer')
-        ) {
-            return true;
-        }
-    }
-    return false;
-}
-
 const Dimmer = (props) => {
-    const { opacity, zIndex, show, children, fullScreen, ...others } = props;
+    const { opacity, zIndex, show, children, center, fullScreen, ...others } = props;
     let cssVisible;
     let cssActive;
     let cssHidden;
@@ -48,7 +35,7 @@ const Dimmer = (props) => {
     );
 
     let content;
-    if (children && !isDimmer(children)) {
+    if (center) {
         content = <Content style={{boxSizing: 'inherit'}}>
             <div className="center">{children}</div>
         </Content>;
@@ -69,7 +56,8 @@ const Dimmer = (props) => {
 
 Dimmer.defaultProps = {
     show: false,
-    fullScreen: false
+    fullScreen: false,
+    center: true
 };
 
 export default Dimmer; 
