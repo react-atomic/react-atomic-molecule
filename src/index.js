@@ -5,7 +5,7 @@ export { default as Card } from '../ui/molecules/card';
 export { default as Content } from '../ui/molecules/content';
 export { default as CircularImage } from '../ui/molecules/circular_image';
 export { default as Description } from '../ui/molecules/description';
-export { default as DividerHorizontal } from '../ui/molecules/divider_horizontal';
+export { default as Divider } from '../ui/molecules/Divider';
 export { default as DividingHeader } from '../ui/molecules/dividing_header';
 export { default as Dimmer } from '../ui/molecules/Dimmer';
 export { default as FacebookButton } from '../ui/molecules/facebook_button';
@@ -30,6 +30,7 @@ export { default as Segment } from '../ui/molecules/segment';
 export { default as assign } from 'object-assign';
 export { default as reactStyle } from './lib/styles/index';
 export { default as injectStyle } from './lib/styles/injectStyle';
+export { default as lazyInject } from './lib/styles/lazyInject';
 export { default as mixClass } from 'classnames';
 export { default as executionEnvironment } from 'exenv';
 

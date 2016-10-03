@@ -3,21 +3,20 @@
 
 import style from './style';
 import store from './store';
-var isArray  = Array.isArray;
-var keys     = Object.keys;
-
-var Browser = {
+const isArray = Array.isArray;
+const keys    = Object.keys;
+const Browser = {
     webkit: 'Webkit',
     ms: 'ms',
     moz: 'Moz'
 };
 
-function ucfirst(str)
+const ucfirst = (str)=>
 {
     return str.charAt(0).toUpperCase() + str.substr(1);
 }
 
-function genStyleId()
+const genStyleId = ()=>
 {
   store.counter += 1;
   return 'c'+ store.counter+ '_';

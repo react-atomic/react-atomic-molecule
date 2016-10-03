@@ -1,6 +1,6 @@
-var Store                  = require('./store.js');
-var ApplyStyle             = require('./applyStyles');
-var stylesToCSS            = require('./stylesToCSS');
+import Store from './store.js';
+import ApplyStyle from './applyStyles';
+import stylesToCSS from './stylesToCSS';
 import {
     assign,
     executionEnvironment
