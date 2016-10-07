@@ -17423,7 +17423,9 @@ webpackJsonp([0],[
 	}
 
 	var Index = function Index(props) {
-	  return _jsx(_index.HamburgerIcon, {});
+	  return _jsx(_index.HamburgerIcon, {
+	    style: { width: 35, height: 35 }
+	  });
 	};
 
 	exports.default = Index;
@@ -17522,8 +17524,6 @@ webpackJsonp([0],[
 	};
 
 	HamburgerIcon.defaultProps = {
-	    width: 24,
-	    height: 24,
 	    viewBox: '0 0 24 24'
 	};
 

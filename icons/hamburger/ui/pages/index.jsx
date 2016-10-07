@@ -7,7 +7,7 @@ import React from 'react';
 import {HamburgerIcon}  from "../../src/index"
 
 const Index = (props) => (
-    <HamburgerIcon />
+    <HamburgerIcon style={{width:35, height:35}}/>
 );
 
 export default Index;
