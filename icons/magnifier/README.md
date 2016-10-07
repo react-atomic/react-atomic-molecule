@@ -1,2 +1,2 @@
-Arrow Icon
+Magnifier Icon
 ===============
