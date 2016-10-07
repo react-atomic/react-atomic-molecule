@@ -11,8 +11,9 @@ export default class SemanticUI extends Component
 {
   render() 
   {
-    let renderChildren=this.props.renderChildren;
+    let renderChildren = this.props.renderChildren;
     let SemanticUI;
+    let ui = this.props.ui;
     switch (this.props.atom){
         case 'h1':
             SemanticUI = Atoms.H1;
@@ -76,6 +77,10 @@ export default class SemanticUI extends Component
         case 'svg':
             SemanticUI = Atoms.Svg;
             break;
+        case 'path':
+            SemanticUI = Atoms.Path;
+            ui = false;
+            break;
         case 'i':
             SemanticUI = Atoms.I;
             break;
@@ -101,7 +106,7 @@ export default class SemanticUI extends Component
             className: mixClass(
                 this.props.className,
                 {
-                    ui:this.props.ui 
+                    ui: ui
                 }
             )
         }
@@ -123,6 +128,9 @@ export default class SemanticUI extends Component
     delete props.styles;
     delete props.styleOrder;
     delete props.ui;
+    if (!props.className) {
+        delete props.className;
+    }
     return props;
   }
 
@@ -135,6 +143,6 @@ export default class SemanticUI extends Component
   }
 }
 SemanticUI.defaultProps = {
-    ui:true,
-    renderChildren:true
+    ui: true,
+    renderChildren: true
 };
