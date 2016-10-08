@@ -1,6 +1,6 @@
 {
   "name": "ra-icon-hamburger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hamburger Icon",
   "main": "./build/src/index.js",
   "repository": "react-atomic/react-atomic-molecule",

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 /**
  * Production please use
- * import GeometryAngle from 'organism-react-geometryangle';
+ * import {xxx} from 'ra-icon-hamburger';
  */
 import {HamburgerIcon, ArrowIcon, XIcon}  from "../../src/index";
 
