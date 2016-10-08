@@ -1,15 +1,15 @@
 /*jslint browser: true*/
 'use strict';
-var Store = require('./store.js');
+import store from './store';
 
-function Style(style, styleId, selector) {
+function Style(style, selector, styleId) {
   this.style = style;
-  this.styleId = styleId;
   this.selector = selector;
+  this.styleId = styleId;
 }
 
 Style.prototype.isCompiled = function() {
-    var registry = Store.registry;
+    const registry = store.registry;
     return registry && registry[this.styleId];
 };
 

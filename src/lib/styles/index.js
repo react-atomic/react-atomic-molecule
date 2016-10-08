@@ -27,19 +27,19 @@ const createStyle = (css, selector, styleId) =>
   if (!css) {
     return;
   }
-  styleId = styleId || genStyleId();
+  if ('undefined' === typeof styleId) {
+    styleId = genStyleId();
+  }
   if (!isArray(css)) {
         css = [css];
   } 
-  var styles = [];
-  var cssKeys;
-  var key;
-  var j;
-  var jlen;
-  for (var i=0, len=css.length; i < len; i++) { 
+  let styles = [];
+  let cssKeys;
+  let key;
+  for (let i=0, len=css.length; i < len; i++) { 
       cssKeys = keys(css[i]);
       styles[i] = {};
-      for (j = 0, jlen = cssKeys.length; j < jlen; j++) {
+      for (let j = 0, jlen = cssKeys.length; j < jlen; j++) {
         key = cssKeys[j];
         if (isArray(css[i][key])) {
             styles[i][Browser.webkit+ucfirst(key)] = 
@@ -52,7 +52,7 @@ const createStyle = (css, selector, styleId) =>
       }
   }
 
-  var styleDecl = new style(styles, styleId, selector);
+  let styleDecl = new style(styles, selector, styleId);
   store.styles.push(styleDecl);
   store.newStyles.push(styleDecl);
   return styleDecl;
