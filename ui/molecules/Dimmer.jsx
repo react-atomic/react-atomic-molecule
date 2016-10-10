@@ -10,27 +10,23 @@ import {
 
 const Dimmer = (props) => {
     const { opacity, zIndex, show, children, center, fullScreen, ...others } = props;
-    let cssVisible;
-    let cssActive;
-    let cssHidden;
-    let oStyle = assign({}, props.style); 
-    if (show) {
-        cssVisible = true;
-        cssActive = true;
-        oStyle.opacity = opacity;
-        oStyle.zIndex = zIndex;
-    } else {
-        cssHidden = true;
+    if (!show) {
+        return null;
     }
+    let oStyle = assign(
+        {}, 
+        props.style,
+        {
+            opacity: opacity,
+            zIndex: zIndex
+        }
+    ); 
     let classes = mixClass(
         props.className,
-        'transition',
+        'transition visible active',
         {
             dimmer: !fullScreen,
-            modal: fullScreen,
-            visible: cssVisible,
-            active:  cssActive,
-            hidden:  cssHidden
+            modal: fullScreen
         }
     );
 
