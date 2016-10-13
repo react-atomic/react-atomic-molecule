@@ -139,7 +139,16 @@ export default class SemanticUI extends Component
         if(!render){
             return null;
         }
-        return this.props.children;
+        /**
+         * Hack for https://fb.me/react-warning-keys
+         * Each child in an array or iterator should have a unique "key"
+         */
+        return React.Children.map(
+            this.props.children,
+            (child) => {
+                return child;
+            }
+        );
   }
 }
 SemanticUI.defaultProps = {

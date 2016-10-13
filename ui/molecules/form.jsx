@@ -1,30 +1,26 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
+import React from 'react'; 
 import {
-    SemanticUI, 
-    assign,
-    mixClass
+    mixClass,
+    SemanticUI 
 } from '../../src/index';
-
-export default class Form extends Component
-{
-    render()
-    {
-        let classes = mixClass(
-            this.props.className,
-            {
-                error: (this.props.error === 'error'),
-                success: (this.props.error === 'success'),
-                warning: (this.props.error === 'warning')
-            },
-            'form'
-        );
-        let props = assign({},this.props);
-        delete props.error;
-        return (
-            <SemanticUI atom="form" {...props} className={classes}>
-                {props.children}
-            </SemanticUI>
-        );
-    }
-}
+const Form = (props) => {
+    const {message, className, ...others} = props; 
+    const classes = mixClass(
+        className,
+        {
+            error: (message === 'error'),
+            success: (message === 'success'),
+            warning: (message === 'warning')
+        },
+        'form'
+    );
+    return (
+        <SemanticUI 
+            atom="form"
+            {...others}
+            className={classes}
+        />
+    );
+};
+export default Form;
