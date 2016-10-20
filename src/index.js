@@ -17,6 +17,7 @@ export { default as Image } from '../ui/molecules/image';
 export { default as InputUI } from '../ui/molecules/input_ui';
 export { default as InputBox } from '../ui/molecules/inputbox';
 export { default as List } from '../ui/molecules/list';
+export { default as Label } from '../ui/molecules/Label';
 export { default as Menu } from '../ui/molecules/menu';
 export { default as Message } from '../ui/molecules/message';
 export { default as Meta } from '../ui/molecules/meta';
