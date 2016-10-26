@@ -1,22 +1,26 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
+import React from 'react'; 
 import mixClass from 'classnames';
 import SemanticUI from '../molecules/semantic_ui';
 
-export default class Description extends Component
-{
-    render()
-    {
-        let classes = mixClass(
-            this.props.className
-            ,'description'
-        );
-        return (
-          <SemanticUI {...this.props}
-            ui={false}
-            className={classes}
-          />
-        );
-    }
-}
+const Description = (props) => {
+    const {children, className, ...others} = props;
+    const classes = mixClass(
+        className
+        ,'description'
+    );
+    return (
+      <SemanticUI {...others}
+        ui={false}
+        className={classes}
+      >
+        {
+            (children && children.map) ? 
+            children.map((v, k)=> <SemanticUI key={k}>{v}</SemanticUI>) : 
+            children
+        }
+      </SemanticUI>
+    );
+};
 
+export default Description;

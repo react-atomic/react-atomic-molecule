@@ -22,7 +22,6 @@ export { default as Menu } from '../ui/molecules/menu';
 export { default as Message } from '../ui/molecules/message';
 export { default as Meta } from '../ui/molecules/meta';
 export { default as Rail } from '../ui/molecules/rail';
-export { default as SideNavigation } from '../ui/molecules/side_navigation';
 export { default as Sidebar } from '../ui/molecules/sidebar';
 export { default as SemanticUI } from '../ui/molecules/semantic_ui';
 export { default as Segment } from '../ui/molecules/segment';
@@ -34,6 +33,12 @@ export { default as injectStyle } from './lib/styles/injectStyle';
 export { default as lazyInject } from './lib/styles/lazyInject';
 export { default as mixClass } from 'classnames';
 export { default as executionEnvironment } from 'exenv';
+
+// config
+export {
+    min, 
+    max
+} from './config/styles/rwd';
 
 // icons
 export { default as XIco } from '../ui/icons/x';

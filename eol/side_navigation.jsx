@@ -3,7 +3,7 @@
 var React = require('react');
 var mixClass = require('classnames');
 var Menu = require('../molecules/menu');
-var Colors = require('../../src/config/style/Colors');
+var Colors = require('../../src/config/styles/Colors');
 var ReactStyle = require('../../src/lib/styles/index');
 
 var Styles = {
