@@ -1,7 +1,8 @@
 /* jshint esnext: true */
-import * as Atoms from 'react-atomic-atom';
-import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
 import React, {Component} from 'react'; 
+import * as Atoms from 'react-atomic-atom';
+
+import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
 import {
     assign,
     mixClass
