@@ -10,7 +10,7 @@ export { default as DividingHeader } from '../ui/molecules/DividingHeader';
 export { default as Dimmer } from '../ui/molecules/Dimmer';
 export { default as FacebookButton } from '../ui/molecules/facebook_button';
 export { default as Form } from '../ui/molecules/form';
-export { default as Field } from '../ui/molecules/field';
+export { default as Field } from '../ui/molecules/Field';
 export { default as Item } from '../ui/molecules/item';
 export { default as Header } from '../ui/molecules/header';
 export { default as Image } from '../ui/molecules/image';
@@ -39,13 +39,4 @@ export {
     min, 
     max
 } from './config/styles/rwd';
-
-// icons
-export { default as XIco } from '../ui/icons/x';
-export { default as FacebookIco } from '../ui/icons/facebook';
-export { default as FullscreenIco } from '../ui/icons/fullscreen';
-export { default as MyLocationIco } from '../ui/icons/my_location';
-export { default as CalendarIco } from '../ui/icons/calendar';
-export { default as PulseIco } from '../ui/icons/pulse';
-export { default as PinIco } from '../ui/icons/pin';
 
