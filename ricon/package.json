@@ -22,7 +22,7 @@
     "react": "^15.0.1"
   },
   "scripts": {
-    "copy": "rm -rf build && BABEL_ENV=build babel ui -d build && cp package.json.build ./build/package.json", 
+    "copy": "rm -rf build && BABEL_ENV=build babel ui -d build && cp package.json.build ./build/package.json && cp README.md ./build/", 
     "build": "npm run copy && cd build && yarn install",
     "prepublish": "npm run build"
   },
