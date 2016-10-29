@@ -1,6 +1,6 @@
 // ui
 export { default as Avatar } from '../ui/molecules/avatar';
-export { default as Button } from '../ui/molecules/button';
+export Button from '../ui/molecules/Button';
 export { default as Card } from '../ui/molecules/card';
 export { default as Content } from '../ui/molecules/content';
 export { default as CircularImage } from '../ui/molecules/circular_image';
@@ -8,9 +8,9 @@ export { default as Description } from '../ui/molecules/description';
 export { default as Divider } from '../ui/molecules/Divider';
 export { default as DividingHeader } from '../ui/molecules/DividingHeader';
 export { default as Dimmer } from '../ui/molecules/Dimmer';
-export { default as FacebookButton } from '../ui/molecules/FacebookButton';
 export { default as Form } from '../ui/molecules/form';
 export { default as Field } from '../ui/molecules/Field';
+export Icon from '../ui/molecules/Icon';
 export { default as Item } from '../ui/molecules/item';
 export { default as Header } from '../ui/molecules/header';
 export { default as Image } from '../ui/molecules/image';
