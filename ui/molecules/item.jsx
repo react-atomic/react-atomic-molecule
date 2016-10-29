@@ -1,5 +1,5 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
+import React from 'react'; 
 import {
     mixClass,
     SemanticUI
