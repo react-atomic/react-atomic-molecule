@@ -1,31 +1,31 @@
-import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
-import Header from '../molecules/header';
+import React from 'react'; 
+import {
+    mixClass,
+    Header,
+    SemanticUI
+} from '../../src/index';
 
-export default class Message extends Component
+const Message = (props) =>
 {
-    render()
-    {
-        let classes = mixClass(
-            this.props.className,
-            {
-                info: (this.props.type === 'info'),
-                error: (this.props.type === 'error'),
-                success: (this.props.type === 'success'),
-                warning: (this.props.type === 'warning')
-            },
-            'message'
-        );
-        let {header, ...reset} = this.props;
-        if (header) {
-            header = <Header>{header}</Header>;
-        }
-        return (
-          <SemanticUI {...reset} className={classes}>
-          {header}
-          {this.props.children}
-          </SemanticUI>
-        );
+    let {header, className, children, type, ...reset} = props;
+    let classes = mixClass(
+        className,
+        {
+            info: (type === 'info'),
+            error: (type === 'error'),
+            success: (type === 'success'),
+            warning: (type === 'warning')
+        },
+        'message'
+    );
+    if (header) {
+        header = <Header>{header}</Header>;
     }
-}
+    return (
+      <SemanticUI {...reset} className={classes}>
+          {header}
+          {children}
+      </SemanticUI>
+    );
+};
+export default Message;

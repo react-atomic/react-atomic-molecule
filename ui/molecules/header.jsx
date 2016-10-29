@@ -1,19 +1,20 @@
-import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import React from 'react'; 
+import {
+    mixClass,
+    SemanticUI
+} from '../../src/index';
 
-export default class Header extends Component
+const Header = (props) =>
 {
-    render()
-    {
-        let classes = mixClass(
-            this.props.className
-            ,'header'
-        );
-        return (
-          <SemanticUI {...this.props}
-            className={classes}
-          />
-        );
-    }
+    const classes = mixClass (
+        props.className,
+        'header'
+    );
+    return (
+      <SemanticUI {...props}
+        className={classes}
+      />
+    );
 }
+
+export default Header;

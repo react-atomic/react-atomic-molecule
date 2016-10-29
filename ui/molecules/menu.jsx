@@ -1,18 +1,20 @@
 import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import {
+    mixClass,
+    SemanticUI
+} from '../../src/index';
 
-export default class Menu extends Component
+const Menu = (props) =>
 {
-    render()
-    {
-        var classes = mixClass(
-            this.props.className
-            ,'menu'
-        );
-        return (
-            <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
-        );
-    }
+    const classes = mixClass (
+        props.className,
+        'menu'
+    );
+    return (
+      <SemanticUI {...props}
+        className={classes}
+      />
+    );
 }
 
+export default Menu;

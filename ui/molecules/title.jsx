@@ -1,17 +1,19 @@
 import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
-
-export default class Title extends Component
+import {
+    mixClass,
+    SemanticUI
+} from '../../src/index';
+const Title = (props) =>
 {
-    render()
-    {
-        let classes = mixClass (
-            this.props.className,
-            'title'
-        );
-        return (
-          <SemanticUI {...this.props} className={classes} />
-        );
-    }
+    const classes = mixClass (
+        props.className,
+        'title'
+    );
+    return (
+      <SemanticUI {...props}
+        className={classes}
+      />
+    );
 }
+
+export default Title;

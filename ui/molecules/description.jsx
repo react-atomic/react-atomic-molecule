@@ -1,7 +1,9 @@
 /* jshint esnext: true */
 import React from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import {
+    mixClass,
+    SemanticUI
+} from '../../src/index';
 
 const Description = (props) => {
     const {children, className, ...others} = props;

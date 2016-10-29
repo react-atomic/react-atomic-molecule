@@ -1,6 +1,6 @@
 import React, {Component} from 'react'; 
 import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import SemanticUI from '../molecules/SemanticUI';
 
 export default class CodeBlock extends Component
 {

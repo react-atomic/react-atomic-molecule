@@ -1,26 +1,19 @@
-var React = require('react');
-var SemanticUI = require('../molecules/semantic_ui');
-var Classable = require('../mixins/classable');
+import React from 'react'; 
+import {
+    SemanticUI
+} from '../../src/index';
 
-var UnSafeWrapper=React.createClass({
-  render: function() {
-    return React.createElement('div', {
-        dangerouslySetInnerHTML:{
-            __html: this.props.children 
-        }}); 
-  }
-});
-
-module.exports = React.createClass({
-  displayName: 'UnSafe',
-
-  mixins: [Classable],
-
-  render: function() {
+const UnSafe = (props) =>
+{
+    const {children, ...others} = props; 
     return (
-        <SemanticUI><UnSafeWrapper>{this.props.children}</UnSafeWrapper></SemanticUI>
+        <SemanticUI
+            {...others}
+            dangerouslySetInnerHTML={{
+                __html: children
+            }}
+        />
     );
-  }
+};
 
-});
-
+export default UnSafe;

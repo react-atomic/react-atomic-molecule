@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "Atomic design in React (molecules)",
   "main": "./build/src/index.js",
   "repository": "react-atomic/react-atomic-molecule",
@@ -14,8 +14,7 @@
     "exenv": ">=1.2.0",
     "hyphenate-style-name": "1.0.0",
     "object-assign": ">=4.0.1",
-    "react-atomic-atom": ">=0.0.14",
-    "ricon": "*"
+    "react-atomic-atom": ">=0.0.14"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",

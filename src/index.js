@@ -23,7 +23,7 @@ export { default as Message } from '../ui/molecules/message';
 export { default as Meta } from '../ui/molecules/meta';
 export { default as Rail } from '../ui/molecules/rail';
 export { default as Sidebar } from '../ui/molecules/sidebar';
-export { default as SemanticUI } from '../ui/molecules/semantic_ui';
+export SemanticUI from '../ui/molecules/SemanticUI';
 export { default as Segment } from '../ui/molecules/segment';
 
 // libs

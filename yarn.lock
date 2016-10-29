@@ -1350,10 +1350,6 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-js-tokens@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-1.0.3.tgz#14e56eb68c8f1a92c43d59f5014ec29dc20f2ae1"
-
 js-tokens@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
@@ -1405,10 +1401,10 @@ lodash@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.4.tgz#01ce306b9bad1319f2a5528674f88297aeb70127"
 
 loose-envify@^1.0.0, loose-envify@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.2.0.tgz#69a65aad3de542cf4ee0f4fe74e8e33c709ccb0f"
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.0.tgz#6b26248c42f6d4fa4b0d8542f78edfcde35642a8"
   dependencies:
-    js-tokens "^1.0.1"
+    js-tokens "^2.0.0"
 
 micromatch@^2.1.5:
   version "2.3.11"
@@ -1626,16 +1622,6 @@ react-atomic-atom@>=0.0.14:
   version "0.0.15"
   resolved "https://registry.yarnpkg.com/react-atomic-atom/-/react-atomic-atom-0.0.15.tgz#a389fd60104c650ac4f64febdcc7c4c303d84f4f"
 
-react-atomic-molecule@*:
-  version "0.0.49"
-  resolved "https://registry.yarnpkg.com/react-atomic-molecule/-/react-atomic-molecule-0.0.49.tgz#98740a382a9f5f17b14b39bc54e783530ebbbd41"
-  dependencies:
-    classnames "*"
-    exenv ">=1.2.0"
-    hyphenate-style-name "1.0.0"
-    object-assign ">=4.0.1"
-    react-atomic-atom ">=0.0.14"
-
 react@^15.0.1:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
@@ -1736,12 +1722,6 @@ request@^2.75.0:
     stringstream "~0.0.4"
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
-
-ricon@*:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/ricon/-/ricon-0.0.0.tgz#5164ab8ce5d15be7adcca0cc32633ef4bbcc8677"
-  dependencies:
-    react-atomic-molecule "*"
 
 rimraf@~2.5.1, rimraf@~2.5.4, rimraf@2:
   version "2.5.4"

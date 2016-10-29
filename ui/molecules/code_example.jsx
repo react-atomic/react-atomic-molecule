@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; 
-import SemanticUI from '../molecules/semantic_ui';
+import SemanticUI from '../molecules/SemanticUI';
 import Segment from '../molecules/segment';
 import DivingHeader from '../molecules/dividing_header';
 import Ribbon from '../molecules/ribbon';

@@ -1,21 +1,28 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import React from 'react'; 
+import {
+    mixClass,
+    SemanticUI
+} from '../../src/index';
 
-export default class Rail extends Component
+const Rail = (props) =>
 {
-    render()
-    {
-        var classes = mixClass(
-            this.props.className,
-            {
-                left: true
-            },
-            'rail'
-        );
-        return (
-            <SemanticUI {...this.props} className={classes}>{this.props.children}</SemanticUI>
-        );
-    }
+    const {left, ...others} = props;
+    const classes = mixClass (
+        props.className,
+        'card',
+        {
+            left: left
+        }
+    );
+    return (
+      <SemanticUI {...others}
+        className={classes}
+      />
+    );
 }
+
+Rail.defaultProps = {left: true};
+
+export default Rail;
+

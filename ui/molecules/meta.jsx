@@ -1,21 +1,22 @@
 import React, {Component} from 'react'; 
-import mixClass from 'classnames';
-import SemanticUI from '../molecules/semantic_ui';
+import {
+    mixClass,
+    SemanticUI
+} from '../../src/index';
 
-export default class Meta extends Component
+const Meta = (props) =>
 {
-    render()
-    {
-        let classes = mixClass (
-            this.props.className,
-            'meta'
-        );
-        return (
-          <SemanticUI {...this.props}
-            ui={false}
-            className={classes}
-          />
-        );
-    }
+    const classes = mixClass (
+        props.className,
+        'meta'
+    );
+    return (
+      <SemanticUI {...props}
+        ui={false}
+        className={classes}
+      />
+    );
 }
+
+export default Meta;
 

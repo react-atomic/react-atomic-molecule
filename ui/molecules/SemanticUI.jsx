@@ -1,5 +1,5 @@
 /* jshint esnext: true */
-import React, {Component} from 'react'; 
+import React from 'react'; 
 import * as Atoms from 'react-atomic-atom';
 
 import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
@@ -8,14 +8,29 @@ import {
     mixClass
 } from '../../src/index';
 
-export default class SemanticUI extends Component
+const getChildren = (render, props) =>
 {
-  render() 
-  {
-    let renderChildren = this.props.renderChildren;
+    if(!render){
+        return null;
+    }
+    /**
+     * Hack for https://fb.me/react-warning-keys
+     * Each child in an array or iterator should have a unique "key"
+     */
+    return React.Children.map(
+        props.children,
+        (child) => {
+            return child;
+        }
+    );
+};
+
+const SemanticUI = (props) =>
+{
+    injectStyle();
+    let {atom, className, renderChildren, styles, styleOrder, ui, ...others} = props;
     let SemanticUI;
-    let ui = this.props.ui;
-    switch (this.props.atom){
+    switch (atom){
         case 'h1':
             SemanticUI = Atoms.H1;
             break;
@@ -98,61 +113,25 @@ export default class SemanticUI extends Component
             SemanticUI = Atoms.Div;
             break;
     }
-    injectStyle();
     // bindStyles need after inject
-    let props = assign(
-        {},
-        this.props,
-        { 
-            className: mixClass(
-                this.props.className,
-                {
-                    ui: ui
-                }
-            )
-        }
-    );
-    let newProps = bindStyles(props);
-    newProps = assign(props, newProps);
-    this.cleanProps(newProps);
+    const bindProps = bindStyles(props);
+    others = assign(others, bindProps); 
+    if (others.className && ui) {
+        others.className = mixClass(
+            others.className,
+            'ui' 
+        );
+    }
     return React.createElement (
         SemanticUI,
-        newProps,
-        this.renderChildren(renderChildren)
+        others,
+        getChildren(renderChildren, props)
     );
-  }
+};
 
-  cleanProps(props)
-  {
-    delete props.atom;
-    delete props.renderChildren;
-    delete props.styles;
-    delete props.styleOrder;
-    delete props.ui;
-    if (!props.className) {
-        delete props.className;
-    }
-    return props;
-  }
-
-  renderChildren(render)
-  {
-        if(!render){
-            return null;
-        }
-        /**
-         * Hack for https://fb.me/react-warning-keys
-         * Each child in an array or iterator should have a unique "key"
-         */
-        return React.Children.map(
-            this.props.children,
-            (child) => {
-                return child;
-            }
-        );
-  }
-}
 SemanticUI.defaultProps = {
     ui: true,
     renderChildren: true
 };
+
+export default SemanticUI;
