@@ -1,10 +1,10 @@
 import React from 'react'; 
 import {
-    lazyInject,
     assign,
+    lazyInject,
     mixClass,
     SemanticUI
-} from '../../src/index';
+} from 'react-atomic-molecule';
 
 let injects;
 
