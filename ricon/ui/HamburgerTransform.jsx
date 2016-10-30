@@ -3,9 +3,9 @@ import {
     assign,
     reactStyle
 } from 'react-atomic-molecule';
-import HamburgerIcon from '../molecules/HamburgerIcon';
+import HamburgerIcon from './Hamburger';
 
-const TransformParent = (Styles) => 
+const HamburgerTransform = (Styles) => 
 {
     const Transform = (props) =>
     {
@@ -42,4 +42,4 @@ const TransformParent = (Styles) =>
     return Transform;
 }
 
-export default TransformParent;
+export default HamburgerTransform;

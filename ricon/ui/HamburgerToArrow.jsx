@@ -1,4 +1,4 @@
-import Transform  from '../molecules/Transform';
+import Transform  from './HamburgerTransform';
 
 const Styles = {
     line: {
@@ -16,6 +16,4 @@ const Styles = {
     }
 };
 
-const ArrowIcon = Transform(Styles);
-
-export default ArrowIcon;
+export default Transform(Styles);

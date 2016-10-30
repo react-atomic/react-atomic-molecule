@@ -1,4 +1,4 @@
-import Transform  from '../molecules/Transform';
+import Transform  from './HamburgerTransform';
 
 const Styles = {
     line: {
@@ -15,6 +15,4 @@ const Styles = {
     }
 };
 
-const XIcon = Transform(Styles);
-
-export default XIcon;
+export default Transform(Styles);
