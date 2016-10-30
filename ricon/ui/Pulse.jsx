@@ -1,33 +1,35 @@
 import React, {Component} from 'react'; 
 import {
+    lazyInject,
+    reactStyle,
     SemanticUI,
-    reactStyle
-} from '../../src/index';
+} from 'react-atomic-molecule';
 
 const Pulse = (props) =>
 <SemanticUI style={Styles.pulse}>
-    <div styles={[Styles.pulsePoint, props.pointStyle]} />
-    <div styles={[Styles.pulseRing, props.ringStyle]} />
+    <SemanticUI styles={[injects.pulsePoint, props.pointStyle]} />
+    <SemanticUI styles={[injects.pulseRing, props.ringStyle]} />
 </SemanticUI>
 
-export default class PulseIcon extends Component
+const PulseIcon = (props) =>
 {
-    render()
-    {
-        let pointStyle=reactStyle({
-            background: this.props.pointColor,
-            transform: ['rotateX('+this.props.pointRotateX+'deg)']
-        });
-        let ringStyle=reactStyle({
-            boxShadow: ['0 0 1px 2px '+this.props.ringColor]
-        });
-        return (
-            <Pulse
-                pointStyle={pointStyle}
-                ringStyle={ringStyle}
-            />
-        );
-    }
+    let pointStyle=reactStyle({
+        background: props.pointColor,
+        transform: ['rotateX('+props.pointRotateX+'deg)']
+    },null,false);
+    let ringStyle=reactStyle({
+        boxShadow: ['0 0 1px 2px '+props.ringColor]
+    },null,false);
+    injects = lazyInject (
+        injects,
+        InjectStyles
+    );
+    return (
+        <Pulse
+            pointStyle={pointStyle}
+            ringStyle={ringStyle}
+        />
+    );
 }
 
 PulseIcon.defaultProps = {
@@ -36,12 +38,19 @@ PulseIcon.defaultProps = {
     ringColor: '#89849b'
 };
 
+export default PulseIcon;
+
 const Styles = {
     pulse: {
         position: 'relative',
-        zIndex: 1
+        zIndex: 1,
+        display: 'inline-block'
     },
-    pulsePoint: reactStyle({
+};
+
+let injects;
+const InjectStyles = {
+    pulsePoint: [{
         borderRadius: ['50%'],
         height: '14px',
         width: '14px',
@@ -49,8 +58,8 @@ const Styles = {
         position: 'absolute',
         top: '-10px',
         left: '12px'
-    }),
-    pulseRing: reactStyle({
+    }],
+    pulseRing: [{
         borderRadius: ['50%'],
         width: '40px',
         height: '40px',
@@ -62,8 +71,8 @@ const Styles = {
         filter: 'alpha(opacity=0)',
         msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)',
         animationDelay: ['1.1s']
-    }),
-    pulsate: reactStyle([
+    }],
+    pulsate: [[
         {
             transform: ['scale(0.1, 0.1)'],
             opacity: 0,
@@ -80,6 +89,5 @@ const Styles = {
             filter: 'alpha(opacity=0)',
             msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'
         }
-    ],['@keyframes pulsate', '0%', '50%', '100%']) 
-
+    ],['@keyframes pulsate', '0%', '50%', '100%']]
 };
