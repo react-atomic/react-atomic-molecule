@@ -1,0 +1,15 @@
+{
+  "name": "keyframe-css",
+  "version": "0.0.0",
+  "main": "./index.js",
+  "description": "Keyframes CSS Centralized",
+  "repository": "react-atomic/react-atomic-molecule",
+  "keywords": [
+    "reactjs"
+  ],
+  "author": "Hill <hill@kimo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "react-atomic-molecule": "*"
+  }
+}

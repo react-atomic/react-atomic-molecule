@@ -1,5 +1,5 @@
 {
-  "name": "ricon-dev",
+  "name": "keyframe-css-dev",
   "version": "0.0.0",
   "description": "Atomic Icon Sets",
   "repository": "react-atomic/react-atomic-molecule",
@@ -20,13 +20,8 @@
     "react": "^15.0.1"
   },
   "scripts": {
-    "copy": "rm -rf build && BABEL_ENV=build babel ui -d build && cp package.json.build ./build/package.json && cp README.md ./build/",
+    "copy": "rm -rf build && BABEL_ENV=build babel src -d build && cp package.json.build ./build/package.json && cp README.md ./build/",
     "build": "npm run copy && cd build && yarn install",
     "prepublish": "npm run build"
-  },
-  "files": [
-    "build",
-    "package.json",
-    "README.md"
-  ]
+  }
 }
