@@ -9,6 +9,7 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "devDependencies": {
-    "react-atomic-molecule": "*"
+    "react-atomic-molecule": "*",
+    "keyframe-css": "*"
   }
 }

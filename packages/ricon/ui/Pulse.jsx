@@ -4,6 +4,7 @@ import {
     reactStyle,
     SemanticUI,
 } from 'react-atomic-molecule';
+import getKeyframe from 'keyframe-css';
 
 const Pulse = (props) =>
 <SemanticUI style={Styles.pulse}>
@@ -20,6 +21,7 @@ const PulseIcon = (props) =>
     let ringStyle=reactStyle({
         boxShadow: ['0 0 1px 2px '+props.ringColor]
     },null,false);
+    getKeyframe('pulsate');
     injects = lazyInject (
         injects,
         InjectStyles
@@ -71,23 +73,5 @@ const InjectStyles = {
         filter: 'alpha(opacity=0)',
         msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)',
         animationDelay: ['1.1s']
-    }],
-    pulsate: [[
-        {
-            transform: ['scale(0.1, 0.1)'],
-            opacity: 0,
-            filter: 'alpha(opacity=0)',
-            msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'
-        },
-        {
-            opacity: 1,
-            filter: 'none',
-            msFilter: 'none',
-        },
-        {
-            transform: ['scale(1.2, 1.2)'],
-            filter: 'alpha(opacity=0)',
-            msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'
-        }
-    ],['@keyframes pulsate', '0%', '50%', '100%']]
+    }]
 };
