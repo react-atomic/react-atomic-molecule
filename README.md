@@ -1,4 +1,4 @@
-react atomic molecule 
+React Atomic Molecule 
 ===============
    * GIT
       * https://github.com/react-atomic/react-atomic-molecule  
@@ -6,8 +6,8 @@ react atomic molecule
       * https://npm.im/react-atomic-molecule 
 
 ## Example Usage
-Demo Url:
-https://dl.dropboxusercontent.com/u/3396570/list/index.html
+   * Demo Url:
+   * http://react-atomic.github.io/react-atomic-ui/
 
 ## Documentation:
 ### Props
