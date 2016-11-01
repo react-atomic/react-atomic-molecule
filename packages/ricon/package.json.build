@@ -1,6 +1,6 @@
 {
   "name": "ricon",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Atomic Icon Sets",
   "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
@@ -8,8 +8,10 @@
   ],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
-  "devDependencies": {
-    "react-atomic-molecule": "*",
+  "dependencies": {
     "keyframe-css": "*"
+  },
+  "devDependencies": {
+    "react-atomic-molecule": "*"
   }
 }
