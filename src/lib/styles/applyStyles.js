@@ -1,12 +1,7 @@
 'use strict';
 
-var CSSProperty = require('./CSSProperty');
-var isArray     = Array.isArray;
-var keys        = Object.keys;
-
-// TODO: Is this enough?
-var COMPLEX_OVERRIDES = CSSProperty.shorthandPropertyExpansions;
-
+const isArray = Array.isArray;
+const keys    = Object.keys;
 
 function applyClassName(props, style, order)
 {
@@ -36,23 +31,10 @@ function applyInlineStyle(props, style, order)
       for (var j = 0, jlen = styleKeys.length; j < jlen; j++) {
         key = styleKeys[j];
         props.style[key] = style.style[i][key];
-        applyOverrides(props, key);
       }
   }
 
   return order;
-}
-
-function applyOverrides(props, key)
-{
-  var overrides = COMPLEX_OVERRIDES[key];
-  if (overrides) {
-    var overridesKeys = keys(overrides);
-    for (var i = 0, l = overridesKeys.length; i < l; i++) {
-      var overrideKey = overridesKeys[i];
-      props.style[overrideKey] = '';
-    }
-  }
 }
 
 function applyStyle(props, style, order)

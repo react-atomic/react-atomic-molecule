@@ -1,12 +1,10 @@
 'use strict';
-let hyphenateStyleName = require('hyphenate-style-name');
-var CSSProperty = require('./CSSProperty');
-var unsupportedPseudoClasses = require('./unsupportedPseudoClasses');
+import hyphenateStyleName from 'hyphenate-style-name';
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
-var unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
-var counter = 1;
+const unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
+let counter = 1;
 
 function buildRule(key, value) {
   if (null === value) {
@@ -16,11 +14,6 @@ function buildRule(key, value) {
   if (typeof toCSS === 'function') {
     value = toCSS();
   }
-
-  if (!CSSProperty.isUnitlessNumber[key] && typeof value === 'number') {
-    value = '' + value + 'px';
-  }
-
   if (key === 'content' && !unquotedContentValueRegex.test(value)) {
     value = "'" + value.replace(/'/g, "\\'") + "'";
   }
@@ -44,22 +37,12 @@ function buildRules(result, rules, selector) {
   var styleKeys;
   var styleKey;
   var value;
-  var j;
-  var jlen;
-  for (var i = 0, ilen = rules.length; i < ilen; i++ ) {
+  for (let i = 0, ilen = rules.length; i < ilen; i++ ) {
       styleKeys = Object.keys(rules[i]);
       mycss += selector[i] + ' {\n';
-      for (j = 0, jlen = styleKeys.length; j < jlen; j++) {
+      for (let j = 0, jlen = styleKeys.length; j < jlen; j++) {
         styleKey = styleKeys[j];
         value = rules[i][styleKey];
-        if (unsupportedPseudoClasses[styleKey.split('(')[0].trim()]) {
-          if ("production" !== process.env.NODE_ENV) {
-            console.warn('You are trying to use pseudo class ' + styleKey +
-            ', which we don\'t support as this is better implemented using ' +
-            'JavaScript.');
-          }
-          continue;
-        }
         mycss += buildRule(styleKey, value);
       }
       mycss += '}\n';
