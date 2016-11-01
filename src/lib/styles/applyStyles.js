@@ -23,12 +23,10 @@ function applyInlineStyle(props, style, order)
     props.style = {};
   }
   var key;
-  var j;
-  var jlen;
   var styleKeys;
-  for (var i = 0, len = style.style.length; i < len; i++) {
+  for (let i = 0, len = style.style.length; i < len; i++) {
       styleKeys = keys(style.style[i]);
-      for (var j = 0, jlen = styleKeys.length; j < jlen; j++) {
+      for (let j = 0, jlen = styleKeys.length; j < jlen; j++) {
         key = styleKeys[j];
         props.style[key] = style.style[i][key];
       }

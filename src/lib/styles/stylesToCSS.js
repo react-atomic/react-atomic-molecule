@@ -4,15 +4,10 @@ import hyphenateStyleName from 'hyphenate-style-name';
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
 const unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
-let counter = 1;
 
 function buildRule(key, value) {
   if (null === value) {
     return '';
-  }
-  var toCSS = value.toCSS;
-  if (typeof toCSS === 'function') {
-    value = toCSS();
   }
   if (key === 'content' && !unquotedContentValueRegex.test(value)) {
     value = "'" + value.replace(/'/g, "\\'") + "'";
@@ -26,7 +21,7 @@ function buildRules(result, rules, selector) {
     return result;
   }
   var mycss = '';
-  var parentSelector='';
+  var parentSelector = '';
   if (Array.isArray(selector)) {
        parentSelector = selector[0].trim(); 
        selector.shift();
@@ -35,13 +30,12 @@ function buildRules(result, rules, selector) {
   }
   
   var styleKeys;
-  var styleKey;
   var value;
   for (let i = 0, ilen = rules.length; i < ilen; i++ ) {
       styleKeys = Object.keys(rules[i]);
       mycss += selector[i] + ' {\n';
       for (let j = 0, jlen = styleKeys.length; j < jlen; j++) {
-        styleKey = styleKeys[j];
+        let styleKey = styleKeys[j];
         value = rules[i][styleKey];
         mycss += buildRule(styleKey, value);
       }
@@ -51,14 +45,13 @@ function buildRules(result, rules, selector) {
   if (parentSelector) {
       var keyframesString = '@keyframes';
       if (0===parentSelector.indexOf(keyframesString)) {
-        result.css += parentSelector.replace(
-                keyframesString,
-                '@-webkit-keyframes'
-        ) + ' {\n'+ mycss+ '}\n';
-        result.css += parentSelector.replace(
-                keyframesString,
-                '@-moz-keyframes'
-        ) + ' {\n'+ mycss+ '}\n';
+        const browsers = ['webkit','moz'];
+        browsers.forEach((browser)=>{
+            result.css += parentSelector.replace(
+                    keyframesString,
+                    '@-'+browser+'-keyframes'
+            ) + ' {\n'+ mycss+ '}\n';
+        });
       }
       result.css += parentSelector+ ' {\n'+ mycss+ '}\n';
   } else {
@@ -69,7 +62,7 @@ function buildRules(result, rules, selector) {
 
 function replicateSelector(s) {
   return [
-    s,
+      s,
       s + (s + 1),
       s + (s + 1) + (s + 2),
       s + (s + 1) + (s + 2) + (s + 3),
@@ -83,37 +76,30 @@ function replicateSelector(s) {
 }
 
 function buildStyle(result, style, selector) {
-  if (!style.styleId) {
-    return;
-  }
-
-  if (!selector && result.styleIds[style.styleId]) {
-    return;
-  }
-
-  if(style.selector){
-      selector=style.selector;
-      if (Array.isArray(selector) && !selector[1]) {
-        selector[1] = replicateSelector('.' + style.styleId);
-      }
-  } else {
-      selector = replicateSelector('.' + style.styleId);
-  }
-  result.styleIds[style.styleId] = counter++; //for check already inject
-  buildRules(result, style.style, selector);
+    if (!style.styleId || result.styleIds[style.styleId]) {
+        return;
+    }
+    if (style.selector) {
+        selector=style.selector;
+        if (Array.isArray(selector) && !selector[1]) {
+            selector[1] = replicateSelector('.' + style.styleId);
+        }
+    } else {
+        selector = replicateSelector('.' + style.styleId);
+    }
+    result.styleIds[style.styleId] = true; //for check already inject
+    buildRules(result, style.style, selector);
 }
 
 function stylesToCSS(styles) {
-  if (!Array.isArray(styles)) {
-    styles = [styles];
-  }
-  var result = {css: '', styleIds: {}};
-  for (var i = 0, len = styles.length; i < len; i++) {
-    if(false !== styles[i].selector){
+    if (!Array.isArray(styles)) {
+        styles = [styles];
+    }
+    let result = {css: '', styleIds: {}};
+    for (let i = 0, len = styles.length; i < len; i++) {
         buildStyle(result, styles[i]);
     }
-  }
-  return result;
+    return result;
 }
 
 module.exports = stylesToCSS;
