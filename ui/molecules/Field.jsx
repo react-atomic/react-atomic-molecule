@@ -1,12 +1,13 @@
 /* jshint esnext: true */
 import React, {Component} from 'react'; 
 import {
+    assign,
     mixClass,
     SemanticUI,
 } from '../../src/index';
 
 const Field = (props) => {
-    const {fieldClassName, fieldStyles, label, labelStyles, styleOrder, ...others} = props;
+    const {fieldClassName, fieldStyles, label, labelStyles, style, styleOrder, ...others} = props;
     const isGroup = !props.atom; 
     const classes = mixClass(
         fieldClassName,
@@ -28,7 +29,11 @@ const Field = (props) => {
         thisFieldStyles = props.styles;
     } else {
         thisFieldStyles = fieldStyles;
-        input = <SemanticUI {...others} styleOrder={styleOrder} />;
+        input = <SemanticUI
+            {...others} 
+            style={assign({boxSizing:'border-box'},style)}
+            styleOrder={styleOrder}
+        />;
     }
     return (
         <SemanticUI

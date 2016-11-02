@@ -14,8 +14,8 @@ export Icon from '../ui/molecules/Icon';
 export { default as Item } from '../ui/molecules/item';
 export { default as Header } from '../ui/molecules/header';
 export { default as Image } from '../ui/molecules/image';
-export { default as InputUI } from '../ui/molecules/input_ui';
-export { default as InputBox } from '../ui/molecules/inputbox';
+export { default as SearchBox } from '../ui/molecules/SearchBox';
+export { default as InputBox } from '../ui/molecules/InputBox';
 export { default as List } from '../ui/molecules/list';
 export { default as Label } from '../ui/molecules/Label';
 export { default as Menu } from '../ui/molecules/menu';
@@ -25,6 +25,7 @@ export { default as Rail } from '../ui/molecules/rail';
 export { default as Sidebar } from '../ui/molecules/sidebar';
 export SemanticUI from '../ui/molecules/SemanticUI';
 export { default as Segment } from '../ui/molecules/segment';
+export Title from '../ui/molecules/Title';
 
 // libs
 export { default as assign } from 'object-assign';
