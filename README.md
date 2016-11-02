@@ -10,6 +10,7 @@ React Atomic Molecule
    * http://react-atomic.github.io/react-atomic-ui/
 
 ## Documentation:
+   * https://github.com/react-atomic/react-atomic-molecule/wiki
 ### Props
    * atom
    * styleOrder
