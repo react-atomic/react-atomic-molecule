@@ -14,7 +14,8 @@ const Phone = (props) =>
 
 Phone.defaultProps = {
     viewBox: '0 0 24 24',
-    atom: 'svg'
+    atom: 'svg',
+    width: '100%'
 };
 
 export default Phone;

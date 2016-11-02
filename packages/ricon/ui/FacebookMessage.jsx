@@ -12,7 +12,8 @@ const FBMessage = (props) => (
 
 FBMessage.defaultProps = {
     viewBox: '0 0 160 160',
-    atom: 'svg'
+    atom: 'svg',
+    width: '100%'
 };
 
 export default FBMessage;

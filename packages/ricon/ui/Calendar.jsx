@@ -12,7 +12,8 @@ const Calendar = (props) =>
 
 Calendar.defaultProps = {
     viewBox: '0 0 139 139',
-    atom: 'svg'
+    atom: 'svg',
+    width: '100%'
 };
 
 export default Calendar;

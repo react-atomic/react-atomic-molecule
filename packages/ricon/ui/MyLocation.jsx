@@ -47,10 +47,10 @@ const MyLocation = (props) =>
 };
 
 MyLocation.defaultProps = {
-    atom: 'svg',
+    type: 'fixed',
     viewBox: '0 0 24 24',
-    fill: '#000000',
-    type: 'fixed'
+    atom: 'svg',
+    width: '100%'
 };
 
 export default MyLocation;
