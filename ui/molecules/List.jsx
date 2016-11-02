@@ -1,4 +1,4 @@
-import React, {Component} from 'react'; 
+import React from 'react'; 
 import {
     assign,
     mixClass,
@@ -12,9 +12,7 @@ const renderChildren = (children, atom)=>{
             if (!child) {
                 return null;
             }
-            if( 'ul'=== atom || 
-                'ol'=== atom 
-              ) {
+            if ( 'ul'=== atom || 'ol'=== atom ) {
                 let clone = React.cloneElement(
                     child, 
                     assign(
@@ -26,7 +24,7 @@ const renderChildren = (children, atom)=>{
                     )
                 );
                 return clone;
-             }
+            }
             return child;
         }
     );

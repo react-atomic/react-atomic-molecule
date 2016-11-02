@@ -1,12 +1,13 @@
 import React from 'react'; 
 import {
+    assign,
     mixClass,
     SemanticUI
 } from '../../src/index';
 
 const Icon = (props) =>
 {
-    const {className, ...others} = props;
+    const {className, style, ...others} = props;
     const classes = mixClass (
         className,
         'icon'
@@ -17,6 +18,10 @@ const Icon = (props) =>
             ui={false}
             {...others}
             className={className}
+            style={assign(
+                {display: 'inline-block'},
+                style
+            )}
         />
     );
 }

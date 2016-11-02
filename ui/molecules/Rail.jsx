@@ -25,4 +25,3 @@ const Rail = (props) =>
 Rail.defaultProps = {left: true};
 
 export default Rail;
-

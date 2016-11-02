@@ -12,7 +12,7 @@
   "dependencies": {
     "classnames": "*",
     "exenv": "1.2.1",
-    "hyphenate-style-name": "1.0.0",
+    "hyphenate-style-name": "*",
     "object-assign": ">=4.0.1",
     "react-atomic-atom": "*"
   },
