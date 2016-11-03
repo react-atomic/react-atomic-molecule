@@ -1,5 +1,6 @@
 'use strict';
 import hyphenateStyleName from 'hyphenate-style-name';
+import CSSProperty from 'react/lib/CSSProperty';
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
@@ -9,6 +10,11 @@ function buildRule(key, value) {
   if (null === value) {
     return '';
   }
+
+  if (!CSSProperty.isUnitlessNumber[key] && typeof value === 'number') {
+    value += 'px';
+  }
+
   if (key === 'content' && !unquotedContentValueRegex.test(value)) {
     value = "'" + value.replace(/'/g, "\\'") + "'";
   }
