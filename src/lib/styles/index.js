@@ -27,9 +27,13 @@ const createStyle = (css, selector, styleId) =>
   if (!css) {
     return;
   }
+
   if ('undefined' === typeof styleId) {
     styleId = genStyleId();
+  } else if (store.registry[styleId]) {
+    return store.registry[styleId];
   }
+
   if (!isArray(css)) {
         css = [css];
   } 

@@ -93,7 +93,7 @@ function buildStyle(result, style, selector) {
     } else {
         selector = replicateSelector('.' + style.styleId);
     }
-    result.styleIds[style.styleId] = true; //for check already inject
+    result.styleIds[style.styleId] = style; //for check already inject
     buildRules(result, style.style, selector);
 }
 
