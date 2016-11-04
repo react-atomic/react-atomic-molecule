@@ -1,4 +1,4 @@
-import Store from './store.js';
+import store from './store.js';
 import ApplyStyle from './applyStyles';
 import stylesToCSS from './stylesToCSS';
 import {
@@ -22,7 +22,7 @@ const bindStyles = (props) => {
     if( 'undefined' !== typeof props.style ){
         myStyle=props.style;
     }
-    if('undefined'!==typeof props.styleOrder){
+    if('undefined' !== typeof props.styleOrder){
         order=props.styleOrder;
     }
     var newStyleProps = {
@@ -44,23 +44,30 @@ const bindStyles = (props) => {
 };
 
 const reInjectStyle = () => {
-    Store.newStyles=Store.styles;
+    store.newStyles = Object.values(store.registry);
     injectStyle();
 };
 
+const appendCss = (css) => {
+    let tag = document.createElement('style');
+    tag.innerHTML = css;
+    document.getElementsByTagName('head')[0].appendChild(tag);
+};
+
 const injectStyle = () => {
-    if (!Store.newStyles.length){
+    if (!store.newStyles.length){
       // We are in Node or Styles are already injected
       return null;
     }
-    var compiled = stylesToCSS(Store.newStyles);
-    Store.newStyles=[];
-    Store.registry=assign(Store.registry,compiled.styleIds);
+    const compiled = stylesToCSS(store.newStyles);
+    store.newStyles = [];
+    store.registry = assign(
+        store.registry,
+        compiled.styleIds
+    );
     if(compiled.css){
         if(executionEnvironment.canUseDOM){
-            var tag = document.createElement('style');
-            tag.innerHTML = compiled.css;
-            document.getElementsByTagName('head')[0].appendChild(tag);
+            appendCss(compiled.css);
         }else{
             console.log(compiled.css);
         }

@@ -1,6 +1,5 @@
 
 let stylesStore = {
-    styles:[],
     registry:[],
     newStyles:[],
     counter:0

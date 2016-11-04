@@ -56,8 +56,7 @@ const createStyle = (css, selector, styleId) =>
       }
   }
 
-  let styleDecl = new style(styles, selector, styleId);
-  store.styles.push(styleDecl);
+  const styleDecl = new style(styles, selector, styleId);
   store.newStyles.push(styleDecl);
   return styleDecl;
 }
