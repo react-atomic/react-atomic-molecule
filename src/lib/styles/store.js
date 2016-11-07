@@ -4,13 +4,17 @@ let stylesStore = {
     newStyles:[],
     counter:0
 };
+let g = null;
 
 if ('undefined' != typeof window) {
-    if (window.reactStylesStore) {
-        stylesStore = window.reactStylesStore;
-    } else {
-        window.reactStylesStore = stylesStore;
-    }
+    g = window;
+} else {
+    g = global;
+}
+if (g.reactStylesStore) {
+    stylesStore = g.reactStylesStore;
+} else {
+    g.reactStylesStore = stylesStore;
 }
 
 module.exports = stylesStore;
