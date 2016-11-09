@@ -5,13 +5,16 @@ import {
 } from 'react-atomic-molecule';
 
 let inject = {};
+let c = 0;
 
 const processCss = (css) =>
 {
     const keys = Object.keys(css);
     if (keys.length) {
         keys.forEach((key)=>{
-            reactStyle.apply( null, css[key] );
+            css[key].push('keyframe-'+c);
+            reactStyle.apply(null, css[key]);
+            c++;
         });
         injectStyle();
     }

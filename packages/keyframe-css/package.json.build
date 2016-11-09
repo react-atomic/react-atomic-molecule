@@ -1,6 +1,6 @@
 {
   "name": "keyframe-css",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "main": "./index.js",
   "description": "Keyframes CSS Centralized",
   "repository": "react-atomic/react-atomic-molecule",
