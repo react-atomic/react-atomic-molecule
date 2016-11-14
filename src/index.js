@@ -30,7 +30,7 @@ export Unsafe from '../ui/molecules/Unsafe';
 
 // libs
 export assign from 'object-assign';
-export mixClass from 'classnames';
+export {mixClass} from 'class-lib';
 export executionEnvironment from 'exenv';
 
 //styles

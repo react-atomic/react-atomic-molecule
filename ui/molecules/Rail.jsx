@@ -10,7 +10,7 @@ const Rail = (props) =>
     const {left, ...others} = props;
     const classes = mixClass (
         props.className,
-        'card',
+        'rail',
         {
             left: left
         }
