@@ -1,6 +1,6 @@
 'use strict';
 import hyphenateStyleName from 'hyphenate-style-name';
-import CSSProperty from 'react/lib/CSSProperty';
+import isUnitlessNumber from './cssUnitLessNumber';
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
@@ -11,7 +11,7 @@ function buildRule(key, value) {
     return '';
   }
 
-  if (!CSSProperty.isUnitlessNumber[key] && typeof value === 'number') {
+  if (!isUnitlessNumber[key] && typeof value === 'number') {
     value += 'px';
   }
 
