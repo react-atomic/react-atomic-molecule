@@ -3,10 +3,7 @@ import React from 'react';
 import * as Atoms from 'react-atomic-atom';
 
 import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
-import {
-    assign,
-    mixClass
-} from '../../src/index';
+import { mixClass } from '../../src/index';
 
 const getChildren = (render, props) =>
 {
@@ -115,7 +112,7 @@ const SemanticUI = (props) =>
     }
     // bindStyles need after inject
     const bindProps = bindStyles(props);
-    others = assign(others, bindProps); 
+    others = {...others, ...bindProps}; 
     if (others.className && ui) {
         others.className = mixClass(
             others.className,

@@ -39,22 +39,21 @@ const createStyle = (css, selector, styleId) =>
   } 
   let styles = [];
   let cssKeys;
-  let key;
-  for (let i=0, len=css.length; i < len; i++) { 
-      cssKeys = keys(css[i]);
+  css.forEach((one, i)=> {
+      cssKeys = keys(one);
       styles[i] = {};
-      for (let j = 0, jlen = cssKeys.length; j < jlen; j++) {
-        key = cssKeys[j];
-        if (isArray(css[i][key])) {
-            styles[i][Browser.webkit+ucfirst(key)] = 
-            styles[i][Browser.ms+ucfirst(key)]     = 
-            styles[i][Browser.moz+ucfirst(key)]    = 
-            styles[i][key]                         = css[i][key][0];
+      cssKeys.forEach((key)=>{
+        if (isArray(one[key])) {
+            let ucFirstKey = ucfirst(key);
+            styles[i][Browser.webkit + ucFirstKey] =
+            styles[i][Browser.ms + ucFirstKey]     =
+            styles[i][Browser.moz + ucFirstKey]    =
+            styles[i][key] = one[key][0];
         } else {
-            styles[i][key] = css[i][key];
+            styles[i][key] = one[key];
         }
-      }
-  }
+      });
+  });
 
   const styleDecl = new style(styles, selector, styleId);
   store.newStyles.push(styleDecl);
