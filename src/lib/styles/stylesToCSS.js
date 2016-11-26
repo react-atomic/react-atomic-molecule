@@ -6,6 +6,8 @@ import isUnitlessNumber from './cssUnitLessNumber';
 // including multiple space separated values.
 const unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
 
+const keys = Object.keys;
+
 function buildRule(key, value) {
   if (null === value) {
     return '';
@@ -23,7 +25,7 @@ function buildRule(key, value) {
 }
 
 function buildRules(result, rules, selector) {
-  if (Object.keys(rules).length === 0) {
+  if (keys(rules).length === 0) {
     return result;
   }
   var mycss = '';
@@ -37,16 +39,15 @@ function buildRules(result, rules, selector) {
   
   var styleKeys;
   var value;
-  for (let i = 0, ilen = rules.length; i < ilen; i++ ) {
-      styleKeys = Object.keys(rules[i]);
+
+  rules.forEach((rule, i)=>{
+      styleKeys = keys(rule);
       mycss += selector[i] + ' {\n';
-      for (let j = 0, jlen = styleKeys.length; j < jlen; j++) {
-        let styleKey = styleKeys[j];
-        value = rules[i][styleKey];
-        mycss += buildRule(styleKey, value);
-      }
+      styleKeys.forEach((styleKey)=>{
+          mycss += buildRule(styleKey, rule[styleKey]);
+      });
       mycss += '}\n';
-  }
+  });
 
   if (parentSelector) {
       var keyframesString = '@keyframes';
@@ -67,18 +68,11 @@ function buildRules(result, rules, selector) {
 }
 
 function replicateSelector(s) {
-  return [
-      s,
-      s + (s + 1),
-      s + (s + 1) + (s + 2),
-      s + (s + 1) + (s + 2) + (s + 3),
-      s + (s + 1) + (s + 2) + (s + 3) + (s + 4),
-      s + (s + 1) + (s + 2) + (s + 3) + (s + 4) + (s + 5),
-      s + (s + 1) + (s + 2) + (s + 3) + (s + 4) + (s + 5) + (s + 6),
-      s + (s + 1) + (s + 2) + (s + 3) + (s + 4) + (s + 5) + (s + 6) + (s + 7),
-      s + (s + 1) + (s + 2) + (s + 3) + (s + 4) + (s + 5) + (s + 6) + (s + 7) + (s + 8),
-      s + (s + 1) + (s + 2) + (s + 3) + (s + 4) + (s + 5) + (s + 6) + (s + 7) + (s + 8) + (s + 9)
-  ].join(',');
+    let a=[s];
+    for (let i=1; i < 10; i++ ) {
+        a[i] = a[(i-1)] + s + i;
+    }
+    return a.join(',');
 }
 
 function buildStyle(result, style, selector) {
@@ -102,9 +96,9 @@ function stylesToCSS(styles) {
         styles = [styles];
     }
     let result = {css: '', styleIds: {}};
-    for (let i = 0, len = styles.length; i < len; i++) {
-        buildStyle(result, styles[i]);
-    }
+    styles.forEach((style)=>{
+        buildStyle(result, style);
+    });
     return result;
 }
 

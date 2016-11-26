@@ -8,31 +8,28 @@ function applyClassName(props, style, order)
     if (!props.className) {
       props.className = '';
     }
-    for (var j = 0; j < order + 1; j++) {
-      props.className += ' ' + style.styleId + (j === 0 ? '' : j);
+    props.className += ' ' + style.styleId;
+    for (let j = 1; j <= order; j++) {
+      props.className += ' ' + style.styleId + j;
     }
     return order + 1;
 }
 
-function applyInlineStyle(props, style, order)
+function applyInlineStyle(props, styles, order)
 {
-  if (isArray(style.selector)) {
+    if (isArray(styles.selector)) {
         return order;
-  }
-  if (!props.style) {
-    props.style = {};
-  }
-  var key;
-  var styleKeys;
-  for (let i = 0, len = style.style.length; i < len; i++) {
-      styleKeys = keys(style.style[i]);
-      for (let j = 0, jlen = styleKeys.length; j < jlen; j++) {
-        key = styleKeys[j];
-        props.style[key] = style.style[i][key];
-      }
-  }
-
-  return order;
+    }
+    if (!props.style) {
+        props.style = {};
+    }
+    styles.style.forEach((one)=>{
+        let  styleKeys = keys(one);
+        styleKeys.forEach((key)=>{
+            props.style[key] = one[key];
+        });
+    });
+    return order;
 }
 
 function applyStyle(props, style, order)
@@ -53,9 +50,9 @@ function applyStyles(props, styles, order)
     order = 0;
   }
   if (isArray(styles)) {
-    for (var i = 0, len = styles.length; i < len; i++) {
-      order = applyStyle(props, styles[i], order);
-    }
+    styles.forEach((one)=>{
+        order = applyStyle(props, one, order);
+    });
   }
   else {
     applyStyle(props, styles, order);
