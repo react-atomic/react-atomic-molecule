@@ -25,7 +25,7 @@ const getChildren = (render, props) =>
 const SemanticUI = (props) =>
 {
     injectStyle();
-    let {atom, className, renderChildren, styles, styleOrder, ui, ...others} = props;
+    let {atom,  renderChildren, styles, styleOrder, ui, ...others} = props;
     let SemanticUI;
     switch (atom){
         case 'h1':
@@ -111,7 +111,10 @@ const SemanticUI = (props) =>
             break;
     }
     // bindStyles need after inject
-    const bindProps = bindStyles(props);
+    let bindProps = {};
+    if (styles) {
+        bindProps = bindStyles(props);
+    }
     others = {...others, ...bindProps}; 
     if (others.className && ui) {
         others.className = mixClass(
