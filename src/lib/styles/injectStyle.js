@@ -13,31 +13,23 @@ import {
  *  props.styleOrder
  */
 const bindStyles = (props) => {
-    var myClass;
-    var myStyle;
-    var order=0;
-    if( 'undefined' !== typeof props.className ){
-        myClass=props.className;
+    let {className, style, styles, styleOrder} = props;
+    if (!styleOrder) {
+        styleOrder = 0;
     }
-    if( 'undefined' !== typeof props.style ){
-        myStyle=props.style;
-    }
-    if('undefined' !== typeof props.styleOrder){
-        order=props.styleOrder;
-    }
-    var newStyleProps = {
-        className: myClass,
-        style: myStyle
+    let newStyleProps = {
+        className: className,
+        style: style
     };
     ApplyStyle(
         newStyleProps,
-        props.styles,
-        order
+        styles,
+        styleOrder
     );
-    if( !newStyleProps.className ){
+    if ( !newStyleProps.className ) {
         delete newStyleProps.className;
     }
-    if( !newStyleProps.style ){
+    if ( !newStyleProps.style ) {
         delete newStyleProps.style;
     }
     return newStyleProps;
