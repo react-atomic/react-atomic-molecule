@@ -21,6 +21,7 @@ export Label from '../ui/molecules/Label';
 export Menu from '../ui/molecules/Menu';
 export Message from '../ui/molecules/Message';
 export Meta from '../ui/molecules/Meta';
+export Progress from '../ui/molecules/Progress';
 export Rail from '../ui/molecules/Rail';
 export Ribbon from '../ui/molecules/Ribbon';
 export SemanticUI from '../ui/molecules/SemanticUI';
