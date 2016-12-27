@@ -7,14 +7,14 @@ import {
 
 const Message = (props) =>
 {
-    const {header, className, children, message, ...reset} = props;
+    const {header, className, children, messageType, ...reset} = props;
     const classes = mixClass(
         className,
         {
-            info: (message === 'info'),
-            error: (message === 'error'),
-            success: (message === 'success'),
-            warning: (message === 'warning')
+            info: (messageType === 'info'),
+            error: (messageType === 'error'),
+            success: (messageType === 'success'),
+            warning: (messageType === 'warning')
         },
         'message'
     );

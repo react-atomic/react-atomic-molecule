@@ -5,13 +5,13 @@ import {
     SemanticUI 
 } from '../../src/index';
 const Form = (props) => {
-    const {message, className, ...others} = props; 
+    const {messageType, className, ...others} = props; 
     const classes = mixClass(
         className,
         {
-            error: (message === 'error'),
-            success: (message === 'success'),
-            warning: (message === 'warning')
+            error: (messageType === 'error'),
+            success: (messageType === 'success'),
+            warning: (messageType === 'warning')
         },
         'form'
     );
