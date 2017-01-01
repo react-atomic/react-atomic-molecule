@@ -6,19 +6,26 @@ import {
 
 const Image = (props) =>
 {
+    const {alt, title, ui} = props;
     const classes = mixClass (
         props.className,
         {
-            image: props.ui
+            image: ui
         }
     );
+    
+    let thisAlt = alt;
+    if (!thisAlt) {
+        thisAlt = title;
+    }
+
     if (props.atom && 'img' !== props.atom) {
         return (
             <SemanticUI
                 {...props}
                 className={classes}
             >
-                <SemanticUI atom="img" src={props.src}/>
+                <SemanticUI atom="img" src={props.src} alt={thisAlt}/>
                 {props.children}
             </SemanticUI>
         );
@@ -26,6 +33,7 @@ const Image = (props) =>
         return (
           <SemanticUI atom="img"
             {...props} 
+            alt={thisAlt}
             className={classes} />
         );
     }
