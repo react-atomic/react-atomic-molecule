@@ -1,8 +1,10 @@
 /*jslint browser: true*/
 'use strict';
 
+import ucfirst from 'ucfirst';
 import style from './style';
 import store from './store';
+
 const isArray = Array.isArray;
 const keys    = Object.keys;
 const Browser = {
@@ -10,11 +12,6 @@ const Browser = {
     ms: 'ms',
     moz: 'Moz'
 };
-
-const ucfirst = (str)=>
-{
-    return str.charAt(0).toUpperCase() + str.substr(1);
-}
 
 const genStyleId = ()=>
 {

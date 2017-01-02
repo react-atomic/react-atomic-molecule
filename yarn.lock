@@ -1111,6 +1111,10 @@ generate-object-property@^1.1.0:
   dependencies:
     is-property "^1.0.0"
 
+get-object-value@*:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/get-object-value/-/get-object-value-0.0.3.tgz#3be4e6d8f36071fe60a921fcb515a5c29062a069"
+
 getpass@^0.1.1:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
@@ -1302,7 +1306,7 @@ is-number@^2.0.2, is-number@^2.1.0:
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
-  resolved "http://registry.npmjs.org/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
+  resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
 
 is-primitive@^2.0.0:
   version "2.0.0"
@@ -1616,8 +1620,8 @@ rc@~1.1.6:
     strip-json-comments "~1.0.4"
 
 react-atomic-atom@*:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-atomic-atom/-/react-atomic-atom-1.0.2.tgz#b13322adf38cad56013e79748755c24c020090b4"
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-atomic-atom/-/react-atomic-atom-1.0.3.tgz#9c2ff7368b30df839421ff850864373d37cd440b"
 
 react@^15.0.1:
   version "15.4.1"
@@ -1877,6 +1881,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
 ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
+
+ucfirst@*:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ucfirst/-/ucfirst-1.0.0.tgz#4e105b6448d05e264ecec435e0b919363c5f2f2f"
 
 uid-number@~0.0.6:
   version "0.0.6"

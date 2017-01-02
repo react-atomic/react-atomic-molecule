@@ -1,6 +1,8 @@
 /* jshint esnext: true */
 import React from 'react'; 
 import * as Atoms from 'react-atomic-atom';
+import get from 'get-object-value';
+import ucfirst from 'ucfirst';
 
 import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
 import { mixClass } from '../../src/index';
@@ -28,86 +30,20 @@ const SemanticUI = (props) =>
     let {atom,  renderChildren, styles, styleOrder, ui, ...others} = props;
     let SemanticUI;
     switch (atom){
-        case 'h1':
-            SemanticUI = Atoms.H1;
-            break;
-        case 'h2':
-            SemanticUI = Atoms.H2;
-            break;
-        case 'h3':
-            SemanticUI = Atoms.H3;
-            break;
-        case 'h4':
-            SemanticUI = Atoms.H4;
-            break;
-        case 'h5':
-            SemanticUI = Atoms.H5;
-            break;
-        case 'h6':
-            SemanticUI = Atoms.H6;
-            break;
-        case 'ol':
-            SemanticUI = Atoms.Ol;
-            break;
-        case 'ul':
-            SemanticUI = Atoms.Ul;
-            break;
-        case 'li':
-            SemanticUI = Atoms.Li;
-            break;
-        case 'nav':
-            SemanticUI = Atoms.Nav;
-            break;
-        case 'section':
-            SemanticUI = Atoms.Section;
-            break;
-        case 'dl':
-            SemanticUI = Atoms.Dl;
-            break;
-        case 'button':
-            SemanticUI = Atoms.Button;
-            break;
-        case 'form':
-            SemanticUI = Atoms.Form;
-            break;
         case 'input':
             SemanticUI = Atoms.Input;
             renderChildren=false;
-            break;
-        case 'label':
-            SemanticUI = Atoms.Label;
-            break;
-        case 'textarea':
-            SemanticUI = Atoms.Textarea;
             break;
         case 'img':
             SemanticUI = Atoms.Img;
             renderChildren=false;
             break;
-        case 'a':
-            SemanticUI = Atoms.A;
-            break;
-        case 'svg':
-            SemanticUI = Atoms.Svg;
-            break;
         case 'path':
             SemanticUI = Atoms.Path;
             ui = false;
             break;
-        case 'i':
-            SemanticUI = Atoms.I;
-            break;
-        case 'table':
-            SemanticUI = Atoms.Table;
-            break;
-        case 'th':
-            SemanticUI = Atoms.Th;
-            break;
-        case 'td':
-            SemanticUI = Atoms.Td;
-            break;
         default:
-            SemanticUI = Atoms.Div;
+            SemanticUI = get(Atoms, [ucfirst(atom)], Atoms.Div); 
             break;
     }
     // bindStyles need after inject
