@@ -29,6 +29,9 @@ const SemanticUI = (props) =>
     injectStyle();
     let {atom,  renderChildren, styles, styleOrder, ui, ...others} = props;
     let SemanticUI;
+    if (!atom) {
+        atom = '';
+    }
     switch (atom){
         case 'input':
             SemanticUI = Atoms.Input;
