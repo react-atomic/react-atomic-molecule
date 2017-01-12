@@ -9,7 +9,7 @@ const ChevronRight = (props) =>
 </SemanticUI>
 
 ChevronRight.defaultProps = {
-    viewBox: '0 0 16 16',
+    viewBox: '0 0 24 24',
     atom: 'svg',
     width: '100%'
 };
