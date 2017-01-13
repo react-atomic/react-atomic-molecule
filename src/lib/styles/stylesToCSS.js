@@ -21,7 +21,7 @@ function buildRule(key, value) {
     value = "'" + value.replace(/'/g, "\\'") + "'";
   }
   // TODO: escape value
-  return hyphenateStyleName(key) + ': ' + value + ';\n';
+  return hyphenateStyleName(key) + ': ' + value + ';';
 }
 
 function buildRules(result, rules, selector) {
@@ -46,7 +46,7 @@ function buildRules(result, rules, selector) {
       styleKeys.forEach((styleKey)=>{
           mycss += buildRule(styleKey, rule[styleKey]);
       });
-      mycss += '}\n';
+      mycss += '}\n\n';
   });
 
   if (parentSelector) {
