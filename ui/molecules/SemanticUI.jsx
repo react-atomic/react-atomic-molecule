@@ -27,7 +27,7 @@ const getChildren = (render, props) =>
 const SemanticUI = (props) =>
 {
     injectStyle();
-    let {atom,  renderChildren, styles, styleOrder, ui, ...others} = props;
+    let {atom, renderChildren, styles, styleOrder, ui, ...others} = props;
     let SemanticUI;
     if (!atom) {
         atom = '';
