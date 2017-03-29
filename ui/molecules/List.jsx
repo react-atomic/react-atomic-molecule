@@ -1,6 +1,5 @@
-import React from 'react'; 
+import React, {cloneElement} from 'react'; 
 import {
-    assign,
     mixClass,
     SemanticUI
 } from '../../src/index';
@@ -13,15 +12,11 @@ const renderChildren = (children, atom)=>{
                 return null;
             }
             if ( 'ul'=== atom || 'ol'=== atom ) {
-                let clone = React.cloneElement(
+                let clone = cloneElement(
                     child, 
-                    assign(
-                        {},
-                        child.props,
-                        {
-                            atom: 'li'
-                        }
-                    )
+                    {
+                        atom: 'li'
+                    }
                 );
                 return clone;
             }

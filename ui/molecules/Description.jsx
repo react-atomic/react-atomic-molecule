@@ -6,7 +6,7 @@ import {
 } from '../../src/index';
 
 const Description = (props) => {
-    const {children, className, ...others} = props;
+    const {children, className, lineAtom, ...others} = props;
     const classes = mixClass(
         className
         ,'description'
@@ -18,7 +18,7 @@ const Description = (props) => {
       >
         {
             (children && children.map) ? 
-            children.map((v, k)=> <SemanticUI key={k}>{v}</SemanticUI>) : 
+            children.map((v, k)=> <SemanticUI atom={lineAtom} key={k}>{v}</SemanticUI>) : 
             children
         }
       </SemanticUI>
