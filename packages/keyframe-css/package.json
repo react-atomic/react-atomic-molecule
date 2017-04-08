@@ -1,7 +1,5 @@
 {
-  "name": "keyframe-css-dev",
-  "version": "0.0.0",
-  "description": "Atomic Icon Sets",
+  "description": "keyframe lib",
   "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
     "reactjs"
