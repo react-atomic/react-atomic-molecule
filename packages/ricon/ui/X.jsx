@@ -1,6 +1,5 @@
 import React from 'react'; 
 import {
-    assign,
     lazyInject,
     mixClass,
     SemanticUI
@@ -28,11 +27,10 @@ const ICON_X = (props)=> {
         <SemanticUI
             className={classes}
             {...others}
-            style={assign(
-                { },
-                Styles.container,
-                style
-            )}
+            style={{
+                ...Styles.container,
+                ...style
+            }}
         >
             <SemanticUI
                 styles={injects.line}

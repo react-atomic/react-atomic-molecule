@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    assign,
     reactStyle
 } from 'react-atomic-molecule';
 import HamburgerIcon from './Hamburger';
@@ -14,21 +13,18 @@ const HamburgerTransform = (Styles) =>
         let styleLine2 = Styles.line;
         let styleLine3 = Styles.line;
         if (on) {
-            styleLine1 = assign(
-                {},
-                Styles.line,
-                Styles.line1
-            );
-            styleLine2 = assign(
-                {},
-                Styles.line,
-                Styles.line2
-            );
-            styleLine3 = assign(
-                {},
-                Styles.line,
-                Styles.line3
-            );
+            styleLine1 = {
+                ...Styles.line,
+                ...Styles.line1
+            };
+            styleLine2 = {
+                ...Styles.line,
+                ...Styles.line2
+            };
+            styleLine3 = {
+                ...Styles.line,
+                ...Styles.line3
+            };
         }
         return (
             <HamburgerIcon
