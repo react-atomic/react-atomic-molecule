@@ -1,7 +1,6 @@
 /* jshint esnext: true */
 import React from 'react'; 
 import {
-    assign,
     mixClass,
     SemanticUI,
 } from '../../src/index';
@@ -31,7 +30,7 @@ const Field = (props) => {
         thisFieldStyles = fieldStyles;
         input = <SemanticUI
             {...others} 
-            style={assign({boxSizing:'border-box'},style)}
+            style={{boxSizing:'border-box', ...style}}
             styleOrder={styleOrder}
         />;
     }

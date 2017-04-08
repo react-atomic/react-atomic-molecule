@@ -29,6 +29,7 @@ const Progress = (props) =>
             className={classes}
             styles={ 
                 reactStyle({
+                    fontSize: 0,
                     ...style
                 }, null, false)
             }

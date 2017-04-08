@@ -4,23 +4,19 @@ import React from 'react';
 import {
     Content,
     SemanticUI,
-    assign,
     mixClass
 } from '../../src/index';
 
 const Dimmer = (props) => {
-    const { opacity, zIndex, show, children, center, fullScreen, ...others } = props;
+    const { opacity, zIndex, show, style, children, center, fullScreen, ...others } = props;
     if (!show) {
         return null;
     }
-    let oStyle = assign(
-        {}, 
-        props.style,
-        {
-            opacity: opacity,
-            zIndex: zIndex
-        }
-    ); 
+    let oStyle = {
+        ...style,
+        opacity: opacity,
+        zIndex: zIndex
+    };
     let classes = mixClass(
         props.className,
         'transition visible active',
