@@ -1,11 +1,11 @@
-import React, {cloneElement} from 'react'; 
+import React, {Children, cloneElement} from 'react'; 
 import {
     mixClass,
     SemanticUI
 } from '../../src/index';
 
 const renderChildren = (children, atom)=>{
-    return React.Children.map(
+    return Children.map(
         children,
         (child) => {
             if (!child) {
@@ -28,25 +28,9 @@ const renderChildren = (children, atom)=>{
 const List = (props) => 
 {
     const {type, className, children, ...others} = props;
-    let typeClass;
-    switch (type) {
-        case 'segment':
-            typeClass = 'segments'; 
-            break;
-        case 'button':
-            typeClass = 'buttons'; 
-            break;
-        case 'card':
-            typeClass = 'cards'; 
-            break;
-        case 'item':
-            typeClass = 'items'; 
-            break;
-        case 'list':
-        default:
-            typeClass = 'list'; 
-            break;
-        
+    let typeClass = 'list';
+    if (type) {
+        typeClass = type;
     }
     let classes = mixClass (
         className,
