@@ -46,7 +46,7 @@ const SemanticUI = (props) =>
             ui = false;
             break;
         default:
-            SemanticUI = get(Atoms, [ucfirst(atom)], Atoms.Div); 
+            SemanticUI = get(Atoms, [ucfirst(atom)], ()=>Atoms.Div); 
             break;
     }
     // bindStyles need after inject
