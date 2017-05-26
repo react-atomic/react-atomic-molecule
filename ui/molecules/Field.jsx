@@ -1,12 +1,12 @@
 /* jshint esnext: true */
-import React from 'react'; 
+import React, {cloneElement} from 'react'; 
 import {
     mixClass,
     SemanticUI,
 } from '../../src/index';
 
 const Field = (props) => {
-    const {fieldClassName, fieldStyles, label, labelStyles, style, styleOrder, ...others} = props;
+    const {fieldClassName, fieldStyles, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;
     const isGroup = !props.atom; 
     const classes = mixClass(
         fieldClassName,
@@ -17,8 +17,18 @@ const Field = (props) => {
     );
     let oLabel = null;
     if (label) {
+        let labelStyle = {};
+        if (props.id) {
+            labelStyle = {cursor:'pointer'};
+        }
         oLabel = 
-            <SemanticUI atom="label" htmlFor={props.id} styles={labelStyles}>
+            <SemanticUI
+                atom="label"
+                key="label"
+                htmlFor={props.id}
+                style={labelStyle}
+                styles={labelStyles}
+            >
                 {label}
             </SemanticUI>;
     }
@@ -32,7 +42,19 @@ const Field = (props) => {
             {...others} 
             style={{boxSizing:'border-box', ...style}}
             styleOrder={styleOrder}
+            key="input"
         />;
+    }
+    let inputs = [
+        input,
+        oLabel,
+    ];
+    if (inputWrapper) {
+        inputs = cloneElement(
+            inputWrapper,
+            {},
+            inputs
+        );
     }
     return (
         <SemanticUI
@@ -40,8 +62,7 @@ const Field = (props) => {
             styles={thisFieldStyles}
             styleOrder={styleOrder}
         >
-            {oLabel}
-            {input}
+            {inputs}
             {props.children}
         </SemanticUI>
     );
