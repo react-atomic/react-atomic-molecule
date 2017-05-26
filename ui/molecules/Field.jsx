@@ -6,7 +6,7 @@ import {
 } from '../../src/index';
 
 const Field = (props) => {
-    const {fieldClassName, fieldStyles, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;
+    const {fieldClassName, fieldStyles, type, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;
     const isGroup = !props.atom; 
     const classes = mixClass(
         fieldClassName,
@@ -43,12 +43,21 @@ const Field = (props) => {
             style={{boxSizing:'border-box', ...style}}
             styleOrder={styleOrder}
             key="input"
+            type={type}
         />;
     }
-    let inputs = [
-        input,
-        oLabel,
-    ];
+    let inputs;
+    if ('checkbox'===type || 'radio'===type) { 
+        inputs = [
+            input,
+            oLabel,
+        ];
+    } else {
+        inputs = [
+            oLabel,
+            input,
+        ];
+    }
     if (inputWrapper) {
         inputs = cloneElement(
             inputWrapper,
