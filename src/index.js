@@ -30,7 +30,6 @@ export Title from '../ui/molecules/Title';
 export Unsafe from '../ui/molecules/Unsafe';
 
 // libs
-export assign from 'object-assign';
 export {mixClass} from 'class-lib';
 export executionEnvironment from 'exenv';
 

@@ -2,7 +2,6 @@ import store from './store.js';
 import ApplyStyle from './applyStyles';
 import stylesToCSS from './stylesToCSS';
 import {
-    assign,
     executionEnvironment
 } from '../../index';
 
@@ -53,10 +52,10 @@ const injectStyle = () => {
     }
     const compiled = stylesToCSS(store.newStyles);
     store.newStyles = [];
-    store.registry = assign(
-        store.registry,
-        compiled.styleIds
-    );
+    store.registry = { 
+        ...store.registry,
+        ...compiled.styleIds
+    };
     if(compiled.css){
         if(executionEnvironment.canUseDOM){
             appendCss(compiled.css);
