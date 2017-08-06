@@ -28,6 +28,8 @@ const ICON_X = (props)=> {
             className={classes}
             {...others}
             style={{
+                width: size,
+                height: size,
                 ...Styles.container,
                 ...style
             }}
