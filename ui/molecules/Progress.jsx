@@ -1,9 +1,7 @@
 import React from 'react'; 
-import {
-    mixClass,
-    reactStyle,
-    SemanticUI
-} from '../../src/index';
+import reactStyle from '../../src/lib/styles/index'; 
+import {mixClass} from 'class-lib';
+import SemanticUI from '../molecules/SemanticUI';
 
 const Progress = (props) =>
 {

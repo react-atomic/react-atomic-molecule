@@ -1,7 +1,5 @@
 import React from 'react'; 
-import {
-    SemanticUI
-} from '../../src/index';
+import SemanticUI from '../molecules/SemanticUI';
 
 const UnSafe = (props) =>
 {

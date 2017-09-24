@@ -3,7 +3,7 @@ export Avatar from '../ui/molecules/Avatar';
 export Button from '../ui/molecules/Button';
 export Card from '../ui/molecules/Card';
 export Content from '../ui/molecules/Content';
-export CircularImage from '../ui/molecules/CircularImage';
+export Circular from '../ui/molecules/Circular';
 export Description from '../ui/molecules/Description';
 export Divider from '../ui/molecules/Divider';
 export DividingHeader from '../ui/molecules/DividingHeader';

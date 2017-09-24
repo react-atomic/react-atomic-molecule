@@ -1,8 +1,6 @@
 import React from 'react'; 
-import {
-    mixClass,
-    Label
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import Label from '../molecules/Label';
 
 const Ribbon = (props) =>
 {

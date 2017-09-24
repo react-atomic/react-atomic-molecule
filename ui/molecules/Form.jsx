@@ -1,9 +1,8 @@
 /* jshint esnext: true */
 import React from 'react'; 
-import {
-    mixClass,
-    SemanticUI 
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import SemanticUI from '../molecules/SemanticUI';
+
 const Form = (props) => {
     const {messageType, className, ...others} = props; 
     const classes = mixClass(

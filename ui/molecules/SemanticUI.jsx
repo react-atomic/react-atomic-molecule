@@ -5,7 +5,7 @@ import get from 'get-object-value';
 import ucfirst from 'ucfirst';
 
 import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
-import { mixClass } from '../../src/index';
+import {mixClass} from 'class-lib';
 
 const getChildren = (render, props) =>
 {

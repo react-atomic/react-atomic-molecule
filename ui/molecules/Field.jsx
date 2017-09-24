@@ -1,9 +1,7 @@
 /* jshint esnext: true */
 import React, {cloneElement} from 'react'; 
-import {
-    mixClass,
-    SemanticUI,
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import SemanticUI from '../molecules/SemanticUI';
 
 const Field = (props) => {
     const {fieldClassName, fieldStyles, type, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;

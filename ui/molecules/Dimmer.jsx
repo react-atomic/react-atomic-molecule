@@ -1,11 +1,8 @@
 /* jshint esnext: true */
 import React from 'react'; 
-
-import {
-    Content,
-    SemanticUI,
-    mixClass
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import Content from '../molecules/Content';
+import SemanticUI from '../molecules/SemanticUI';
 
 const Dimmer = (props) => {
     const { opacity, zIndex, show, style, children, center, fullScreen, ...others } = props;

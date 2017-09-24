@@ -1,9 +1,7 @@
 import React from 'react'; 
-import {
-    mixClass,
-    SemanticUI,
-    Title
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import Title from '../molecules/Title';
+import SemanticUI from '../molecules/SemanticUI';
 
 const SearchBox = (props) =>
 {

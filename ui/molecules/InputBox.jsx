@@ -1,11 +1,9 @@
 /* jshint esnext: true */
 import React from 'react'; 
-import {
-    mixClass,
-    Button,
-    Label,
-    SemanticUI
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import SemanticUI from '../molecules/SemanticUI';
+import Button from '../molecules/Button';
+import Label from '../molecules/Label';
 
 const InputBox = (props) =>
 {

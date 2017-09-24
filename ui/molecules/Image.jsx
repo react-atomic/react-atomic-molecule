@@ -1,8 +1,6 @@
 import React from 'react'; 
-import {
-    mixClass,
-    SemanticUI
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import SemanticUI from '../molecules/SemanticUI';
 
 const Image = (props) =>
 {

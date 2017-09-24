@@ -1,9 +1,7 @@
 import React from 'react'; 
-import {
-    mixClass,
-    Icon,
-    SemanticUI
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import SemanticUI from '../molecules/SemanticUI';
+import Icon from '../molecules/Icon';
 
 const Button = (props) =>
 {

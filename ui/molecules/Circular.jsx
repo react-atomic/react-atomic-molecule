@@ -2,17 +2,15 @@ import React from 'react';
 import {mixClass} from 'class-lib';
 import SemanticUI from '../molecules/SemanticUI';
 
-const Card = (props) =>
+const Circular = (props) =>
 {
-    const classes = mixClass (
+    const classes = mixClass(
         props.className,
-        'card'
+        'circular'
     );
     return (
-      <SemanticUI {...props}
-        className={classes}
-      />
+        <SemanticUI {...props} className={classes} />
     );
 }
 
-export default Card;
+export default Circular;

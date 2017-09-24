@@ -1,9 +1,7 @@
 import React from 'react'; 
-import {
-    mixClass,
-    Header,
-    SemanticUI
-} from '../../src/index';
+import {mixClass} from 'class-lib';
+import Header from '../molecules/Header';
+import SemanticUI from '../molecules/SemanticUI';
 
 const Message = (props) =>
 {
