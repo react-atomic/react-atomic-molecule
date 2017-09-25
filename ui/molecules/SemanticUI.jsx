@@ -7,6 +7,8 @@ import ucfirst from 'ucfirst';
 import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
 import {mixClass} from 'class-lib';
 
+const keys = Object.keys;
+
 const getChildren = (render, props) =>
 {
     if(!render){
@@ -54,7 +56,9 @@ const SemanticUI = (props) =>
     if (styles) {
         bindProps = bindStyles(props);
     }
-    others = {...others, ...bindProps}; 
+    keys(bindProps).forEach(function(key){
+        others[key] =  bindProps[key];
+    });
     if (others.className && ui) {
         others.className = mixClass(
             others.className,

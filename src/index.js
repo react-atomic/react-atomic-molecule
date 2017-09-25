@@ -14,7 +14,6 @@ export Header from '../ui/molecules/Header';
 export Icon from '../ui/molecules/Icon';
 export Item from '../ui/molecules/Item';
 export Image from '../ui/molecules/Image';
-export SearchBox from '../ui/molecules/SearchBox';
 export InputBox from '../ui/molecules/InputBox';
 export List from '../ui/molecules/List';
 export Label from '../ui/molecules/Label';

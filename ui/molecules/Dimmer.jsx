@@ -9,11 +9,9 @@ const Dimmer = (props) => {
     if (!show) {
         return null;
     }
-    let oStyle = {
-        ...style,
-        opacity: opacity,
-        zIndex: zIndex
-    };
+    let newStyle = style;
+    newStyle.opacity = opacity;
+    newStyle.zIndex = zIndex;
     let classes = mixClass(
         props.className,
         'transition visible active',
@@ -31,12 +29,12 @@ const Dimmer = (props) => {
     } else {
         content = children;
     }
-
+    let newProps = others;
+    newProps.style = newStyle;
+    newProps.className = classes;
     return (
       <SemanticUI
-        {...others}
-        style={oStyle}
-        className={classes}
+        {...newProps}
       >
         {content}
       </SemanticUI>

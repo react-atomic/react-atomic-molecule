@@ -35,7 +35,7 @@ const InputBox = (props) =>
 }
 
 InputBox.defaultProps = {
-    button: 'Search'
+    button: 'Submit'
 };
 
 export default InputBox;
