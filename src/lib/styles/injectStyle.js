@@ -1,9 +1,8 @@
 import store from './store.js';
 import ApplyStyle from './applyStyles';
 import stylesToCSS from './stylesToCSS';
-import {
-    executionEnvironment
-} from '../../index';
+
+const doc = ('undefined' !== typeof document) ? document : null;
 
 /**
  *  props.className
@@ -40,9 +39,9 @@ const reInjectStyle = () => {
 };
 
 const appendCss = (css) => {
-    let tag = document.createElement('style');
+    let tag = doc.createElement('style');
     tag.innerHTML = css;
-    document.getElementsByTagName('head')[0].appendChild(tag);
+    doc.getElementsByTagName('head')[0].appendChild(tag);
 };
 
 const injectStyle = () => {
@@ -57,7 +56,7 @@ const injectStyle = () => {
         ...compiled.styleIds
     };
     if(compiled.css){
-        if(executionEnvironment.canUseDOM){
+        if(doc){
             appendCss(compiled.css);
         }else{
             console.log(compiled.css);

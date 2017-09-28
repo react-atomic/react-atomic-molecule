@@ -102,4 +102,4 @@ function stylesToCSS(styles) {
     return result;
 }
 
-module.exports = stylesToCSS;
+export default stylesToCSS;

@@ -17,4 +17,4 @@ if (g.reactStylesStore) {
     g.reactStylesStore = stylesStore;
 }
 
-module.exports = stylesStore;
+export default stylesStore;

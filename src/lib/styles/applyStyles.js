@@ -59,4 +59,4 @@ function applyStyles(props, styles, order)
   }
 }
 
-module.exports = applyStyles;
+export default applyStyles;

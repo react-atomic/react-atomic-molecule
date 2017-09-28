@@ -13,4 +13,4 @@ Style.prototype.isCompiled = function() {
     return registry && registry[this.styleId];
 };
 
-module.exports = Style;
+export default Style;
