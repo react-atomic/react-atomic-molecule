@@ -40,7 +40,7 @@ const createStyle = (css, selector, styleId) =>
       cssKeys = keys(one);
       styles[i] = {};
       cssKeys.forEach((key)=>{
-        if (isArray(one[key])) {
+        if (isArray(one[key]) && 1 === one[key].length) {
             let ucFirstKey = ucfirst(key);
             styles[i][Browser.webkit + ucFirstKey] =
             styles[i][Browser.ms + ucFirstKey]     =

@@ -7,6 +7,7 @@ import isUnitlessNumber from './cssUnitLessNumber';
 const unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
 
 const keys = Object.keys;
+const browsers = ['webkit','moz'];
 
 function buildRule(key, value) {
   if (null === value) {
@@ -44,7 +45,11 @@ function buildRules(result, rules, selector) {
       styleKeys = keys(rule);
       mycss += selector[i] + ' {\n';
       styleKeys.forEach((styleKey)=>{
-          mycss += buildRule(styleKey, rule[styleKey]);
+          if (rule[styleKey].map) {
+            mycss += rule[styleKey].map((item)=>buildRule(styleKey, item));
+          } else {
+            mycss += buildRule(styleKey, rule[styleKey]);
+          }
       });
       mycss += '}\n\n';
   });
@@ -52,7 +57,6 @@ function buildRules(result, rules, selector) {
   if (parentSelector) {
       var keyframesString = '@keyframes';
       if (0===parentSelector.indexOf(keyframesString)) {
-        const browsers = ['webkit','moz'];
         browsers.forEach((browser)=>{
             result.css += parentSelector.replace(
                     keyframesString,
