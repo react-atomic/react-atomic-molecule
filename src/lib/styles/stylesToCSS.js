@@ -45,8 +45,10 @@ function buildRules(result, rules, selector) {
       styleKeys = keys(rule);
       mycss += selector[i] + ' {\n';
       styleKeys.forEach((styleKey)=>{
-          if (rule[styleKey].map) {
-            mycss += rule[styleKey].map((item)=>buildRule(styleKey, item));
+          if (rule[styleKey].forEach) {
+            rule[styleKey].forEach((item)=>
+                mycss += buildRule(styleKey, item)
+            );
           } else {
             mycss += buildRule(styleKey, rule[styleKey]);
           }
