@@ -7,7 +7,7 @@ React Atomic Molecule
 
 ## Example Usage
    * Demo Url:
-   * http://react-atomic.github.io/react-atomic-ui/
+   * https://react-atomic-ui.js.org/ 
 
 ## Documentation:
    * More info https://github.com/react-atomic/react-atomic-molecule/wiki
