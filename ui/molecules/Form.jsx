@@ -7,11 +7,7 @@ const Form = (props) => {
     const {messageType, className, ...others} = props; 
     const classes = mixClass(
         className,
-        {
-            error: (messageType === 'error'),
-            success: (messageType === 'success'),
-            warning: (messageType === 'warning')
-        },
+        messageType,   
         'form'
     );
     return (

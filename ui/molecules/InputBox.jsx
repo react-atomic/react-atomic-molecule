@@ -7,9 +7,10 @@ import Label from '../molecules/Label';
 
 const InputBox = (props) =>
 {
-    const {button, buttonProps, children, leftLabel, rightLabel, ...others} = props;
+    const {button, buttonProps, className, children, messageType, leftLabel, rightLabel, ...others} = props;
     const classes = mixClass (
-        props.className,
+        className,
+        messageType,
         'input action',
         {
             labeled: leftLabel || rightLabel,
@@ -27,7 +28,7 @@ const InputBox = (props) =>
     return (
       <SemanticUI className={classes}>
         {thisLeftLabel}
-        <SemanticUI atom='input' {...others} ui={false}  />
+        <SemanticUI atom='input' {...others} ui={false} />
         {thisRightLabel}
         {children}
         <Button {...buttonProps}>{button}</Button>
