@@ -1,12 +1,17 @@
 'use strict';
 import reactStyle from './index'; 
 
+const isArray = Array.isArray;
+const keys    = Object.keys;
+
 const lazyInject = (injects, configs) => {
     if (!injects) {
         injects = {};
-        const keys = Object.keys(configs);
-        keys.forEach((key)=>{
+        keys(configs).forEach((key)=>{
             let item = configs[key];
+            if (!isArray(item)) {
+                item = [item];
+            }
             injects[key] = reactStyle.apply(
                 null,
                 item
