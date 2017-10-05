@@ -6,7 +6,8 @@ import isUnitlessNumber from './cssUnitLessNumber';
 // including multiple space separated values.
 const unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
 
-const keys = Object.keys;
+const isArray = Array.isArray;
+const keys    = Object.keys;
 const browsers = ['webkit','moz'];
 
 function buildRule(key, value) {
@@ -31,21 +32,17 @@ function buildRules(result, rules, selector) {
   }
   var mycss = '';
   var parentSelector = '';
-  if (Array.isArray(selector)) {
+  if (isArray(selector)) {
        parentSelector = selector[0].trim(); 
        selector.shift();
   } else {
        selector = [selector];
   }
-  
-  var styleKeys;
-  var value;
 
   rules.forEach((rule, i)=>{
-      styleKeys = keys(rule);
       mycss += selector[i] + ' {\n';
-      styleKeys.forEach((styleKey)=>{
-          if (rule[styleKey].forEach) {
+      keys(rule).forEach((styleKey)=>{
+          if (rule[styleKey] && rule[styleKey].forEach) {
             rule[styleKey].forEach((item)=>
                 mycss += buildRule(styleKey, item)
             );
@@ -87,7 +84,7 @@ function buildStyle(result, style, selector) {
     }
     if (style.selector) {
         selector=style.selector;
-        if (Array.isArray(selector) && !selector[1]) {
+        if (isArray(selector) && !selector[1]) {
             selector[1] = replicateSelector('.' + style.styleId);
         }
     } else {
@@ -98,7 +95,7 @@ function buildStyle(result, style, selector) {
 }
 
 function stylesToCSS(styles) {
-    if (!Array.isArray(styles)) {
+    if (!isArray(styles)) {
         styles = [styles];
     }
     let result = {css: '', styleIds: {}};
