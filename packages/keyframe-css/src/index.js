@@ -26,41 +26,44 @@ const getKeyframeCss = (key)=>
         return;
     }
     switch(key){
+        case 'candleInTheWind':
+            import('./candleInTheWind').then( css => processCss(css) );
+            break;
         case 'fadeIn':
-            require(['./fadeIn'], (css) => { processCss(css); });
+            import('./fadeIn').then( css => processCss(css) );
             break;
         case 'fadeInUp':
-            require(['./fadeInUp'], (css) => { processCss(css); });
+            import('./fadeInUp').then( css => processCss(css) );
             break;
         case 'fadeInRight':
-            require(['./fadeInRight'], (css) => { processCss(css); });
+            import('./fadeInRight').then( css => processCss(css) );
             break;
         case 'fadeInDown':
-            require(['./fadeInDown'], (css) => { processCss(css); });
+            import('./fadeInDown').then( css => processCss(css) );
             break;
         case 'fadeInLeft':
-            require(['./fadeInLeft'], (css) => { processCss(css); });
+            import('./fadeInLeft').then( css => processCss(css) );
             break;
         case 'fadeOut':
-            require(['./fadeOut'], (css) => { processCss(css); });
+            import('./fadeOut').then( css => processCss(css) );
             break;
         case 'fadeOutUp':
-            require(['./fadeOutUp'], (css) => { processCss(css); });
+            import('./fadeOutUp').then( css => processCss(css) );
             break;
         case 'fadeOutRight':
-            require(['./fadeOutRight'], (css) => { processCss(css); });
+            import('./fadeOutRight').then( css => processCss(css) );
             break;
         case 'fadeOutDown':
-            require(['./fadeOutDown'], (css) => { processCss(css); });
+            import('./fadeOutDown').then( css => processCss(css) );
             break;
         case 'fadeOutLeft':
-            require(['./fadeOutLeft'], (css) => { processCss(css); });
+            import('./fadeOutLeft').then( css => processCss(css) );
             break;
         case 'pulsate':
-            require(['./pulsate'], (css) => { processCss(css); });
+            import('./pulsate').then( css => processCss(css) );
             break;
         case 'spin':
-            require(['./spin'], (css) => { processCss(css); });
+            import('./spin').then( css => processCss(css) );
             break;
     }
     inject[key] = true; 
