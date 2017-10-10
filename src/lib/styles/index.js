@@ -4,6 +4,7 @@
 import ucfirst from 'ucfirst';
 import style from './style';
 import store from './store';
+import nToU from './cssNumberToUnit';
 
 const isArray = Array.isArray;
 const keys    = Object.keys;
@@ -45,9 +46,9 @@ const createStyle = (css, selector, styleId) =>
             styles[i][Browser.webkit + ucFirstKey] =
             styles[i][Browser.ms + ucFirstKey]     =
             styles[i][Browser.moz + ucFirstKey]    =
-            styles[i][key] = one[key][0];
+            styles[i][key] = nToU(key, one[key][0]);
         } else {
-            styles[i][key] = one[key];
+            styles[i][key] = nToU(key, one[key]);
         }
       });
   });

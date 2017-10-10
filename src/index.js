@@ -1,5 +1,4 @@
 // ui
-export {default as Avatar} from '../ui/molecules/Avatar';
 export {default as Button} from '../ui/molecules/Button';
 export {default as Card} from '../ui/molecules/Card';
 export {default as Content} from '../ui/molecules/Content';

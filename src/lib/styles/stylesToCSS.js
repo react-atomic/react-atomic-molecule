@@ -1,6 +1,5 @@
 'use strict';
 import hyphenateStyleName from 'hyphenate-style-name';
-import isUnitlessNumber from './cssUnitLessNumber';
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
@@ -13,10 +12,6 @@ const browsers = ['webkit','moz'];
 function buildRule(key, value) {
   if (null === value) {
     return '';
-  }
-
-  if (!isUnitlessNumber[key] && typeof value === 'number') {
-    value += 'px';
   }
 
   if (key === 'content' && !unquotedContentValueRegex.test(value)) {
