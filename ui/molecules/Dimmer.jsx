@@ -9,7 +9,7 @@ const Dimmer = (props) => {
     if (!show) {
         return null;
     }
-    let newStyle = style;
+    let newStyle = {...style};
     newStyle.opacity = opacity;
     newStyle.zIndex = zIndex;
     let classes = mixClass(
