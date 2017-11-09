@@ -35,6 +35,9 @@ const getKeyframeCss = (key)=>
         case 'fadeInUp':
             import('./fadeInUp').then( css => processCss(css) );
             break;
+        case 'fadeInUpBig':
+            import('./fadeInUpBig').then( css => processCss(css) );
+            break;
         case 'fadeInRight':
             import('./fadeInRight').then( css => processCss(css) );
             break;
