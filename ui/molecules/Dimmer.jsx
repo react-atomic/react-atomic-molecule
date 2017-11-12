@@ -5,19 +5,16 @@ import Content from '../molecules/Content';
 import SemanticUI from '../molecules/SemanticUI';
 
 const Dimmer = (props) => {
-    const { opacity, zIndex, show, style, children, center, fullScreen, ...others } = props;
+    const {className, show, children, center, isModal, ...others } = props;
     if (!show) {
         return null;
     }
-    let newStyle = {...style};
-    newStyle.opacity = opacity;
-    newStyle.zIndex = zIndex;
     let classes = mixClass(
-        props.className,
+        className,
         'transition visible active',
         {
-            dimmer: !fullScreen,
-            modal: fullScreen
+            dimmer: !isModal,
+            modal: isModal
         }
     );
 
@@ -29,12 +26,10 @@ const Dimmer = (props) => {
     } else {
         content = children;
     }
-    let newProps = others;
-    newProps.style = newStyle;
-    newProps.className = classes;
     return (
       <SemanticUI
-        {...newProps}
+        {...others}
+        className={classes}
       >
         {content}
       </SemanticUI>
@@ -43,7 +38,7 @@ const Dimmer = (props) => {
 
 Dimmer.defaultProps = {
     show: false,
-    fullScreen: false,
+    isModal: false,
     center: true
 };
 
