@@ -1,5 +1,5 @@
 import store from './store.js';
-import ApplyStyle from './applyStyles';
+import applyStyles from './applyStyles';
 import stylesToCSS from './stylesToCSS';
 
 const doc = ('undefined' !== typeof document) ? document : null;
@@ -10,19 +10,15 @@ const doc = ('undefined' !== typeof document) ? document : null;
  *  props.styles
  *  props.styleOrder
  */
-const bindStyles = (props) => {
-    let {className, style, styles, styleOrder} = props;
-    if (!styleOrder) {
-        styleOrder = 0;
-    }
-    let newStyleProps = {
-        className: className,
-        style: style
+const bindStyles = ({className, style, styles, styleOrder}) => {
+    const newStyleProps = {
+        className,
+        style
     };
-    ApplyStyle(
+    applyStyles(
         newStyleProps,
         styles,
-        styleOrder
+        (styleOrder) ? styleOrder : 0
     );
     if ( !newStyleProps.className ) {
         delete newStyleProps.className;

@@ -9,7 +9,7 @@ import {mixClass} from 'class-lib';
 
 const keys = Object.keys;
 
-const getChildren = (render, props) =>
+const getChildren = (render, children) =>
 {
     if(!render){
         return null;
@@ -19,46 +19,52 @@ const getChildren = (render, props) =>
      * Each child in an array or iterator should have a unique "key"
      */
     return React.Children.map(
-        props.children,
-        (child) => {
-            return child;
-        }
+        children,
+        c => c
     );
 };
 
-const SemanticUI = (props) =>
+const SemanticUI = ({atom, children, renderChildren, styles, styleOrder, ui, ...others}) =>
 {
     injectStyle();
-    let {atom, renderChildren, styles, styleOrder, ui, ...others} = props;
-    let SemanticUI;
-    if (!atom) {
-        atom = '';
-    }
+    const {className, style} = others;
+    let component;
     switch (atom){
         case 'input':
-            SemanticUI = Atoms.Input;
+            component = Atoms.Input;
             renderChildren=false;
             break;
         case 'img':
-            SemanticUI = Atoms.Img;
+            component = Atoms.Img;
             renderChildren=false;
             break;
         case 'path':
-            SemanticUI = Atoms.Path;
+            component = Atoms.Path;
             ui = false;
             break;
         default:
-            SemanticUI = get(Atoms, [ucfirst(atom)], ()=>Atoms.Div); 
+            if (!atom) { atom = ''; }
+            component = get(
+                Atoms,
+                [ucfirst(atom)],
+                ()=>Atoms.Div
+            ); 
             break;
     }
     // bindStyles need after inject
     let bindProps = {};
     if (styles) {
-        bindProps = bindStyles(props);
+        // Need avoid props pass by ref !!important!!
+        bindProps = bindStyles({
+            className,
+            style,
+            styles,
+            styleOrder,
+        });
     }
-    keys(bindProps).forEach(function(key){
-        others[key] =  bindProps[key];
-    });
+    keys(bindProps).forEach(
+        key => others[key] = bindProps[key]
+    );
     if (others.className && ui) {
         others.className = mixClass(
             others.className,
@@ -66,9 +72,9 @@ const SemanticUI = (props) =>
         );
     }
     return React.createElement (
-        SemanticUI,
+        component,
         others,
-        getChildren(renderChildren, props)
+        getChildren(renderChildren, children)
     );
 };
 

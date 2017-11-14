@@ -23,40 +23,38 @@ function applyInlineStyle(props, styles, order)
     if (!props.style) {
         props.style = {};
     }
-    styles.style.forEach((one)=>{
-        let  styleKeys = keys(one);
-        styleKeys.forEach((key)=>{
-            props.style[key] = one[key];
-        });
-    });
+    styles.style.forEach( one =>
+        keys(one).forEach( 
+            key => props.style[key] = one[key]
+        )
+    );
     return order;
 }
 
 function applyStyle(props, style, order)
 {
-  if (style === null || style === undefined || style === false) {
-    return order;
-  } 
-  if (style.isCompiled() && order < 10) {
+    if (style === null || style === undefined || style === false) {
+        return order;
+    } 
+    if (style.isCompiled() && order < 10) {
         return applyClassName(props, style, order);
-  } else {
+    } else {
         return applyInlineStyle(props, style, order);
-  }
+    }
 }
 
 function applyStyles(props, styles, order)
 {
-  if (order === undefined) {
-    order = 0;
-  }
-  if (isArray(styles)) {
-    styles.forEach((one)=>{
-        order = applyStyle(props, one, order);
-    });
-  }
-  else {
-    applyStyle(props, styles, order);
-  }
+    if (order === undefined) {
+        order = 0;
+    }
+    if (isArray(styles)) {
+        styles.forEach( one =>
+            order = applyStyle(props, one, order)
+        );
+    } else {
+        applyStyle(props, styles, order);
+    }
 }
 
 export default applyStyles;
