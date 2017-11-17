@@ -66,6 +66,7 @@ function buildRules(result, rules, selector) {
 }
 
 function replicateSelector(s) {
+    s = '.'+s;
     let a=[s];
     for (let i=1; i < 10; i++ ) {
         a[i] = a[(i-1)] + s + i;
@@ -78,12 +79,12 @@ function buildStyle(result, style, selector) {
         return;
     }
     if (style.selector) {
-        selector=style.selector;
+        selector = replicateSelector(style.selector);
         if (isArray(selector) && !selector[1]) {
-            selector[1] = replicateSelector('.' + style.styleId);
+            selector[1] = replicateSelector(style.styleId);
         }
     } else {
-        selector = replicateSelector('.' + style.styleId);
+        selector = replicateSelector(style.styleId);
     }
     result.styleIds[style.styleId] = style; //for check already inject
     buildRules(result, style.style, selector);
