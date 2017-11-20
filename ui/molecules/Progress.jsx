@@ -15,7 +15,7 @@ const Progress = (props) =>
     const {
         style: barStyle,
         ...otherBarProps
-    } = barProps;
+    } = barProps || {};
     const classes = mixClass (
         className,
         'progress'

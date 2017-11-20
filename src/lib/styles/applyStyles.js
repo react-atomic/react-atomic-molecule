@@ -8,9 +8,10 @@ function applyClassName(props, style, order)
     if (!props.className) {
       props.className = '';
     }
-    props.className += ' ' + style.selector;
+    const styleId = style.styleId;
+    props.className += ' ' + styleId;
     for (let j = 1; j <= order; j++) {
-      props.className += ' ' + style.selector + j;
+      props.className += ' ' + styleId + j;
     }
     return order + 1;
 }

@@ -74,20 +74,21 @@ function replicateSelector(s) {
     return a.join(',');
 }
 
-function buildStyle(result, style, selector) {
-    if (!style.styleId || result.styleIds[style.styleId]) {
+function buildStyle(result, oStyle) {
+    const styleId = oStyle.styleId;
+    if (!styleId || result.styleIds[styleId]) {
         return;
     }
-    if (style.selector) {
-        selector = replicateSelector(style.selector);
+    let selector = oStyle.selector;
+    if (selector) {
         if (isArray(selector) && !selector[1]) {
-            selector[1] = replicateSelector(style.styleId);
+            selector[1] = replicateSelector(styleId);
         }
     } else {
-        selector = replicateSelector(style.styleId);
+        selector = replicateSelector(styleId);
     }
-    result.styleIds[style.styleId] = style; //for check already inject
-    buildRules(result, style.style, selector);
+    result.styleIds[styleId] = oStyle; //for check already inject
+    buildRules(result, oStyle.style, selector);
 }
 
 function stylesToCSS(styles) {
