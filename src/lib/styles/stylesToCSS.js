@@ -22,7 +22,7 @@ function buildRule(key, value) {
 }
 
 function buildRules(result, rules, selector) {
-  if (keys(rules).length === 0) {
+  if (!rules.length) {
     return result;
   }
   var mycss = '';
