@@ -5,28 +5,34 @@ import {
     SemanticUI,
 } from 'react-atomic-molecule';
 import pulsate from 'keyframe-css/pulsate';
+import breath from 'keyframe-css/breath';
 
-const Pulse = (props) =>
-<SemanticUI style={Styles.pulse}>
-    <SemanticUI styles={[injects.pulsePoint, props.pointStyle]} />
-    <SemanticUI styles={[injects.pulseRing, props.ringStyle]} />
+const Pulse = ({style, pointStyle, ringStyle}) =>
+<SemanticUI style={style}>
+    <SemanticUI styles={[injects.pulsePoint, pointStyle]} />
+    <SemanticUI styles={[injects.pulseRing, ringStyle]} />
 </SemanticUI>
 
-const PulseIcon = (props) =>
+const PulseIcon = ({style, pointColor, pointRotateX, ringColor, animation}) =>
 {
-    let pointStyle=reactStyle({
-        background: props.pointColor,
-        transform: ['rotateX('+props.pointRotateX+'deg)']
+    const pointStyle = reactStyle({
+        background: pointColor,
+        transform: ['translate(-50%,-50%) rotateX('+ pointRotateX+ 'deg)']
     },null,false);
-    let ringStyle=reactStyle({
-        boxShadow: ['0 0 1px 2px '+props.ringColor]
+
+    const ringStyle = reactStyle({
+        boxShadow: ['0 0 1px 2px '+ ringColor],
+        animation: [animation+' 1s ease-out 1.1s infinite'],
     },null,false);
+
     injects = lazyInject (
         injects,
         InjectStyles
     );
+
     return (
         <Pulse
+            style={{...Styles.pulse, ...style}}
             pointStyle={pointStyle}
             ringStyle={ringStyle}
         />
@@ -36,7 +42,8 @@ const PulseIcon = (props) =>
 PulseIcon.defaultProps = {
     pointColor: 'rgba(5,80,255,0.9)',
     pointRotateX: 0,
-    ringColor: '#89849b'
+    ringColor: '#89849b',
+    animation: 'pulsate'
 };
 
 export default PulseIcon;
@@ -45,7 +52,9 @@ const Styles = {
     pulse: {
         position: 'relative',
         zIndex: 1,
-        display: 'inline-block'
+        display: 'inline-block',
+        width: 40,
+        height: 40,
     },
 };
 
@@ -53,25 +62,19 @@ let injects;
 const InjectStyles = {
     pulsePoint: [{
         borderRadius: ['50%'],
-        height: '14px',
-        width: '14px',
-        margin: '11px 0px 0px -12px',
+        height: 14,
+        width: 14,
         position: 'absolute',
-        top: '-10px',
-        left: '12px'
+        top: '50%',
+        left: '50%',
     }],
     pulseRing: [{
         borderRadius: ['50%'],
-        width: '40px',
-        height: '40px',
-        position: 'absolute',
-        margin: '-13px 0 0 -13px',
-        animation: ['pulsate 1s ease-out'],
-        animationIterationCount: ['infinite'],
+        height: '100%',
         opacity: 0,
         filter: 'alpha(opacity=0)',
         msFilter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)',
-        animationDelay: ['1.1s']
     }],
-    pulsate: pulsate.pulsate   
+    pulsateKeyframe: pulsate.pulsate, 
+    breathKeyframe: breath.breath
 };
