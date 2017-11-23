@@ -10,10 +10,12 @@ const Progress = (props) =>
         className,
         percent,
         style,
+        styles,
         ...others
     } = props;
     const {
         style: barStyle,
+        styles: barStyles,
         ...otherBarProps
     } = barProps || {};
     const classes = mixClass (
@@ -25,22 +27,24 @@ const Progress = (props) =>
         <SemanticUI
             {...others}
             className={classes}
-            styles={ 
+            styles={[
                 reactStyle({
                     fontSize: 0,
                     ...style
-                }, null, false)
-            }
+                }, null, false),
+                styles
+            ]}
         >
             <SemanticUI
                 className="bar"
                 {...otherBarProps}
-                styles={ 
+                styles={[ 
                     reactStyle({
                         width: percent+'%',
                         ...barStyle
-                    }, null, false)
-                }
+                    }, null, false),
+                    barStyles
+                ]}
             />
         </SemanticUI>
     );
