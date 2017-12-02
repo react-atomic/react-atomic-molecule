@@ -22,7 +22,8 @@ const PulseIcon = ({style, pointColor, pointRotateX, ringColor, animation}) =>
 
     const ringStyle = reactStyle({
         boxShadow: ['0 0 1px 2px '+ ringColor],
-        animation: [animation+' 1s ease-out 1.1s infinite'],
+        animation: [animation+' 1s ease-out'],
+        animationIterationCount: ['infinite']
     },null,false);
 
     injects = lazyInject (
