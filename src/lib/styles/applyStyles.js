@@ -37,6 +37,10 @@ function applyStyle(props, style, order)
     if (style === null || style === undefined || style === false) {
         return order;
     } 
+    if (!style.isCompiled) {
+        console.error('Not a style object', style);
+        console.trace();
+    }
     if (style.isCompiled() && order < 10) {
         return applyClassName(props, style, order);
     } else {
@@ -49,13 +53,12 @@ function applyStyles(props, styles, order)
     if (order === undefined) {
         order = 0;
     }
-    if (isArray(styles)) {
-        styles.forEach( one =>
-            order = applyStyle(props, one, order)
-        );
-    } else {
-        applyStyle(props, styles, order);
+    if (!isArray(styles)) {
+        styles = [styles];
     }
+    styles.forEach( one =>
+        order = applyStyle(props, one, order)
+    );
 }
 
 export default applyStyles;
