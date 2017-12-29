@@ -1,5 +1,6 @@
 'use strict';
 import reactStyle from './index'; 
+import injectStyle from './injectStyle';
 
 const isArray = Array.isArray;
 const keys    = Object.keys;
@@ -18,6 +19,7 @@ const lazyInject = (injects, configs) => {
             );
         });
     }
+    injectStyle();
     return injects;
 };
 
