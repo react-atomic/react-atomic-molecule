@@ -5,12 +5,13 @@ import SemanticUI from '../molecules/SemanticUI';
 
 const Rail = (props) =>
 {
-    const {left, ...others} = props;
+    const {attached, left, ...others} = props;
     const classes = mixClass (
         props.className,
         'rail',
         {
-            left: left
+            left,
+            attached
         }
     );
     return (
@@ -20,6 +21,9 @@ const Rail = (props) =>
     );
 }
 
-Rail.defaultProps = {left: true};
+Rail.defaultProps = {
+    attached: true,
+    left: true
+};
 
 export default Rail;
