@@ -8,10 +8,13 @@ const HamburgerTransform = (Styles) =>
 {
     const Transform = (props) =>
     {
-        const {on, ...others} = props;
+        const {on, right, ...others} = props;
         let styleLine1 = Styles.line;
         let styleLine2 = Styles.line;
         let styleLine3 = Styles.line;
+        if (right) {
+            others.transform = 'rotate(180)';
+        }
         if (on) {
             styleLine1 = {
                 ...Styles.line,
