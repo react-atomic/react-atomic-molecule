@@ -4,13 +4,14 @@ import {mixClass} from 'class-lib';
 import SemanticUI from '../molecules/SemanticUI';
 
 const Field = (props) => {
-    const {fieldClassName, fieldStyles, type, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;
-    const isGroup = !props.atom; 
+    const {fieldClassName, fieldStyles, children, inline, type, inputComponent, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;
+    const isGroup = !(props.atom || inputComponent);
     const classes = mixClass(
         fieldClassName,
         {
             field: !isGroup,
-            fields: isGroup
+            fields: isGroup,
+            inline: !!inline
         }
     );
     let oLabel = null;
@@ -36,13 +37,17 @@ const Field = (props) => {
         thisFieldStyles = props.styles;
     } else {
         thisFieldStyles = fieldStyles;
-        input = <SemanticUI
-            {...others} 
-            style={{boxSizing:'border-box', ...style}}
-            styleOrder={styleOrder}
-            key="input"
-            type={type}
-        />;
+        input = (inputComponent) ? inputComponent : <SemanticUI />;
+        input = cloneElement(input, { 
+            ...others,
+            style: {
+                boxSizing: 'border-box',
+                ...style
+            },
+            key: 'input',
+            styleOrder,
+            type,
+        });
     }
     let inputs;
     if ('checkbox'===type || 'radio'===type) { 
@@ -70,7 +75,7 @@ const Field = (props) => {
             styleOrder={styleOrder}
         >
             {inputs}
-            {props.children}
+            {children}
         </SemanticUI>
     );
 };
