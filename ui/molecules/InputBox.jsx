@@ -55,7 +55,6 @@ export default InputBox;
 
 const Styles = {
     rightLabel: {
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
+        borderRadius: 0,
     }
 };
