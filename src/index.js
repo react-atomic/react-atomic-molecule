@@ -34,6 +34,7 @@ export {mixClass} from 'class-lib';
 export {default as injectStyle} from './lib/styles/injectStyle';
 export {default as lazyInject} from './lib/styles/lazyInject';
 export {default as reactStyle} from './lib/styles/index';
+export {default as mergeStyleConfig} from './lib/styles/mergeStyleConfig';
 
 // config
 export {
