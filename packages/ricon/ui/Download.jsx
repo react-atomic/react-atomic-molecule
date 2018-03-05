@@ -1,9 +1,8 @@
 import React from 'react';
-
 import Svg from './Svg';
 import Path from './Path';
 
-const Downlod = props =>
+const Downlod = ({type, ...props}) =>
 <Svg {...props}>
     {(() => {
         let d;
