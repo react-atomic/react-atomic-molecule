@@ -20,9 +20,11 @@ const Dimmer = (props) => {
 
     let content;
     if (center) {
-        content = <Content style={{boxSizing: 'inherit'}}>
-            <div className="center">{children}</div>
-        </Content>;
+        content = (
+            <Content style={{boxSizing: 'inherit'}}>
+                {children}
+            </Content>
+        );
     } else {
         content = children;
     }
