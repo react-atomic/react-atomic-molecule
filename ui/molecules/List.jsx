@@ -16,7 +16,6 @@ Children.map(
                     atom: 'li'
                 }
             );
-            return clone;
         }
         return child;
     }
