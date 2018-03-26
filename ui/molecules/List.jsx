@@ -2,35 +2,34 @@ import React, {Children, cloneElement} from 'react';
 import {mixClass} from 'class-lib';
 import SemanticUI from '../molecules/SemanticUI';
 
-const renderChildren = (children, atom)=>{
-    return Children.map(
-        children,
-        (child) => {
-            if (!child) {
-                return null;
-            }
-            if ( 'ul'=== atom || 'ol'=== atom ) {
-                let clone = cloneElement(
-                    child, 
-                    {
-                        atom: 'li'
-                    }
-                );
-                return clone;
-            }
-            return child;
+const renderChildren = (children, atom)=>
+Children.map(
+    children,
+    child => {
+        if (!child) {
+            return null;
         }
-    );
-}
+        if ( 'ul'=== atom || 'ol'=== atom ) {
+            child = cloneElement(
+                child, 
+                {
+                    atom: 'li'
+                }
+            );
+            return clone;
+        }
+        return child;
+    }
+)
 
-const List = (props) => 
+const List = props => 
 {
     const {type, className, children, ...others} = props;
     let typeClass = 'list';
     if (type) {
         typeClass = type;
     }
-    let classes = mixClass (
+    const classes = mixClass (
         className,
         typeClass
     );
