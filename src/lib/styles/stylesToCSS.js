@@ -9,7 +9,8 @@ const isArray = Array.isArray;
 const keys    = Object.keys;
 const browsers = ['webkit','moz'];
 
-function buildRule(key, value) {
+const buildRule = (key, value) =>
+{
   if (null === value) {
     return '';
   }
@@ -17,16 +18,16 @@ function buildRule(key, value) {
   if (key === 'content' && !unquotedContentValueRegex.test(value)) {
     value = "'" + value.replace(/'/g, "\\'") + "'";
   }
-  // TODO: escape value
   return hyphenateStyleName(key) + ': ' + value + ';';
 }
 
-function buildRules(result, rules, selector) {
+const buildRules = (result, rules, selector) =>
+{
   if (!rules.length) {
     return result;
   }
-  var mycss = '';
-  var parentSelector = '';
+  let mycss = '';
+  let parentSelector = '';
   if (isArray(selector)) {
        parentSelector = selector[0].trim(); 
        selector.shift();
@@ -36,7 +37,7 @@ function buildRules(result, rules, selector) {
 
   rules.forEach((rule, i)=>{
       mycss += selector[i] + ' {\n';
-      keys(rule).forEach((styleKey)=>{
+      keys(rule).forEach( styleKey => {
           if (rule[styleKey] && rule[styleKey].forEach) {
             rule[styleKey].forEach((item)=>
                 mycss += buildRule(styleKey, item)
@@ -49,7 +50,7 @@ function buildRules(result, rules, selector) {
   });
 
   if (parentSelector) {
-      var keyframesString = '@keyframes';
+      const keyframesString = '@keyframes';
       if (0===parentSelector.indexOf(keyframesString)) {
         browsers.forEach((browser)=>{
             result.css += parentSelector.replace(
@@ -65,16 +66,18 @@ function buildRules(result, rules, selector) {
   return result;
 }
 
-function replicateSelector(s) {
+const replicateSelector = s =>
+{
     s = '.'+s;
-    let a=[s];
+    const a=[s];
     for (let i=1; i < 10; i++ ) {
         a[i] = a[(i-1)] + s + i;
     }
     return a.join(',');
 }
 
-function buildStyle(result, oStyle) {
+const buildStyle = (result, oStyle) =>
+{
     const styleId = oStyle.styleId;
     if (!styleId || result.styleIds[styleId]) {
         return;
@@ -91,11 +94,12 @@ function buildStyle(result, oStyle) {
     buildRules(result, oStyle.style, selector);
 }
 
-function stylesToCSS(styles) {
+const stylesToCSS = styles =>
+{
     if (!isArray(styles)) {
         styles = [styles];
     }
-    let result = {css: '', styleIds: {}};
+    const result = {css: '', styleIds: {}};
     styles.forEach((style)=>{
         buildStyle(result, style);
     });
