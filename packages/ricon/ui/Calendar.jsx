@@ -20,6 +20,6 @@ export default Calendar;
 const Styles = {
     label: {
         fontSize: '3.5rem',
-        fontWeight: 300,
+        fontWeight: 900,
     }
 };
