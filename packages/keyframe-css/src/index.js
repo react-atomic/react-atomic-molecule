@@ -1,4 +1,5 @@
 'use strict';
+import {getDefault} from 'get-object-value';
 import {
     reactStyle,
     injectStyle
@@ -7,11 +8,12 @@ import {
 let inject = {};
 let c = 0;
 
-const processCss = (css) =>
+const processCss = css =>
 {
+    css = getDefault(css);
     const keys = Object.keys(css);
     if (keys.length) {
-        keys.forEach((key)=>{
+        keys.forEach( key => {
             css[key].push('keyframe-'+c);
             reactStyle.apply(null, css[key]);
             c++;
@@ -20,7 +22,7 @@ const processCss = (css) =>
     }
 }
 
-const getKeyframeCss = (key)=>
+const getKeyframeCss = key =>
 {
     if (inject[key]) {
         return;
