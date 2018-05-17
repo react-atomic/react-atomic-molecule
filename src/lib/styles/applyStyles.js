@@ -34,12 +34,13 @@ function applyInlineStyle(props, styles, order)
 
 function applyStyle(props, style, order)
 {
-    if (style === null || style === undefined || style === false) {
+    if (!style) {
         return order;
     } 
     if (!style.isCompiled) {
         console.error('Not a style object', style);
         console.trace();
+        return order;
     }
     if (style.isCompiled() && order < 10) {
         return applyClassName(props, style, order);
@@ -50,7 +51,7 @@ function applyStyle(props, style, order)
 
 function applyStyles(props, styles, order)
 {
-    if (order === undefined) {
+    if (isNaN(order)) {
         order = 0;
     }
     if (!isArray(styles)) {

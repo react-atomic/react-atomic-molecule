@@ -4,7 +4,8 @@ import * as Atoms from 'react-atomic-atom';
 import get from 'get-object-value';
 import ucfirst from 'ucfirst';
 
-import injectStyle, {bindStyles} from '../../src/lib/styles/injectStyle';
+import injectStyle from '../../src/lib/styles/injectStyle';
+import bindStyles from '../../src/lib/styles/bindStyles';
 import {mixClass} from 'class-lib';
 
 const keys = Object.keys;
@@ -26,20 +27,19 @@ const getChildren = (render, children) =>
 
 const SemanticUI = ({atom, children, renderChildren, styles, styleOrder, ui, ...others}) =>
 {
-    injectStyle();
-    const {className, style} = others;
     let component;
-    switch (atom){
+    switch (atom) {
         case 'input':
             component = Atoms.Input;
-            renderChildren=false;
+            renderChildren = false;
             break;
         case 'img':
             component = Atoms.Img;
-            renderChildren=false;
+            renderChildren = false;
             break;
         case 'path':
             component = Atoms.Path;
+            renderChildren = false;
             ui = false;
             break;
         default:
@@ -51,10 +51,12 @@ const SemanticUI = ({atom, children, renderChildren, styles, styleOrder, ui, ...
             ); 
             break;
     }
+    const {className, style} = others;
     // bindStyles need after inject
     let bindProps = {};
     if (styles) {
         // Need avoid props pass by ref !!important!!
+        injectStyle();
         bindProps = bindStyles({
             className,
             style,
@@ -65,9 +67,9 @@ const SemanticUI = ({atom, children, renderChildren, styles, styleOrder, ui, ...
     keys(bindProps).forEach(
         key => others[key] = bindProps[key]
     );
-    if (others.className && ui) {
+    if (className && ui) {
         others.className = mixClass(
-            others.className,
+            className,
             'ui' 
         );
     }

@@ -1,40 +1,14 @@
 import store from './store.js';
-import applyStyles from './applyStyles';
 import stylesToCSS from './stylesToCSS';
 
 const doc = ('undefined' !== typeof document) ? document : null;
-
-/**
- *  props.className
- *  props.style
- *  props.styles
- *  props.styleOrder
- */
-const bindStyles = ({className, style, styles, styleOrder}) => {
-    const newStyleProps = {
-        className,
-        style
-    };
-    applyStyles(
-        newStyleProps,
-        styles,
-        (styleOrder) ? styleOrder : 0
-    );
-    if ( !newStyleProps.className ) {
-        delete newStyleProps.className;
-    }
-    if ( !newStyleProps.style ) {
-        delete newStyleProps.style;
-    }
-    return newStyleProps;
-};
 
 const reInjectStyle = () => {
     store.newStyles = Object.values(store.registry);
     injectStyle();
 };
 
-const appendCss = (css) => {
+const appendCss = css => {
     let tag = doc.createElement('style');
     tag.innerHTML = css;
     doc.getElementsByTagName('head')[0].appendChild(tag);
@@ -52,13 +26,13 @@ const injectStyle = () => {
         ...compiled.styleIds
     };
     if(compiled.css){
-        if(doc){
+        if (doc) {
             appendCss(compiled.css);
-        }else{
+        } else {
             console.log(compiled.css);
         }
     }
 };
 
-export {bindStyles, reInjectStyle};
+export {reInjectStyle};
 export default injectStyle;
