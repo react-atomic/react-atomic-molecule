@@ -3,7 +3,7 @@ import {
     SemanticUI
 } from 'react-atomic-molecule';
 
-const Path = props =>
-<SemanticUI atom="path" {...props} />
+const G = props =>
+<SemanticUI atom="g" {...props} />
 
-export default Path;
+export default G
