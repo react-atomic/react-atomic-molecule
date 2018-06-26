@@ -11,6 +11,7 @@ const File = ({children, background, shadowColor, labelBackground, labelColor, .
     <Path
         d="m8 2.4c-1.1046 0-2 0.9-2 2v8 4 6c0 1.1 0.8954 2 2 2h14c1.105 0 2-0.9 2-2v-6-4-4l-6-6h-10z"
         fill={background}
+        stroke={shadowColor}
     />
     <Path 
         d="m24 8.4-6-6v4c0 1.1 0.895 2 2 2h4z"
