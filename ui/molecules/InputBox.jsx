@@ -4,10 +4,12 @@ import {mixClass} from 'class-lib';
 import SemanticUI from '../molecules/SemanticUI';
 import Button from '../molecules/Button';
 import Label from '../molecules/Label';
+import Icon from '../molecules/Icon';
 
 const InputBox = (props) =>
 {
     const {
+        icon,
         button,
         buttonProps,
         className,
@@ -16,16 +18,20 @@ const InputBox = (props) =>
         leftLabel,
         rightLabel,
         style,
+        transparent,
         inputStyle,
         ...others
     } = props;
     const classes = mixClass (
         className,
         messageType,
-        'input action',
+        'input',
         {
             labeled: leftLabel || rightLabel,
-            right: rightLabel
+            right: rightLabel,
+            action: button && !icon,
+            icon,
+            transparent,
         }
     );
     let thisLeftLabel;
@@ -36,19 +42,26 @@ const InputBox = (props) =>
     if (rightLabel) {
         thisRightLabel = <Label style={Styles.rightLabel} className="basic">{rightLabel}</Label>;
     }
+    let thisButton = null
+    if (button) {
+        thisButton = <Button {...buttonProps}>{button}</Button>
+    }
+    if (icon) {
+        thisButton = <Icon style={Styles.icon}>{icon}</Icon>
+    }
     return (
       <SemanticUI className={classes} style={style}>
         {thisLeftLabel}
         <SemanticUI atom='input' {...others} style={inputStyle} ui={false} />
         {thisRightLabel}
         {children}
-        <Button {...buttonProps}>{button}</Button>
+        {thisButton} 
       </SemanticUI>
     );
 }
 
 InputBox.defaultProps = {
-    button: 'Submit'
+    button: 'Submit',
 };
 
 export default InputBox;
@@ -56,5 +69,12 @@ export default InputBox;
 const Styles = {
     rightLabel: {
         borderRadius: 0,
+    },
+    icon: {
+        width: '1.1em',
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        opacity: .5
     }
 };
