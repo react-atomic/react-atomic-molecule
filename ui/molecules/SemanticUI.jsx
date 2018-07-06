@@ -67,11 +67,12 @@ const SemanticUI = ({atom, children, renderChildren, styles, styleOrder, ui, ...
     keys(bindProps).forEach(
         key => others[key] = bindProps[key]
     );
-    if (className && ui) {
+    if (ui) {
+        // others.className maybe effect by bindProps, so use it here.
         others.className = mixClass(
-            className,
-            'ui' 
-        );
+            others.className,
+            'ui'
+        )
     }
     return React.createElement (
         component,
