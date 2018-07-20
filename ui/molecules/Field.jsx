@@ -4,7 +4,22 @@ import {mixClass} from 'class-lib';
 import SemanticUI from '../molecules/SemanticUI';
 
 const Field = (props) => {
-    const {className, fieldClassName, fieldStyles, children, inline, type, inputComponent, inputWrapper, label, labelStyles, style, styleOrder, ...others} = props;
+    const {
+        className,
+        fieldClassName,
+        fieldStyles,
+        children,
+        inline,
+        type,
+        inputComponent,
+        inputWrapper,
+        inputWrapperAttr,
+        label,
+        labelStyles,
+        style,
+        styleOrder,
+        ...others
+    } = props;
     const isGroup = !(props.atom || inputComponent);
     const classes = mixClass(
         fieldClassName,
@@ -78,7 +93,7 @@ const Field = (props) => {
     if (inputWrapper) {
         inputs = cloneElement(
             inputWrapper,
-            {},
+            inputWrapperAttr,
             inputs
         );
     }
