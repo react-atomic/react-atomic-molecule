@@ -1,65 +1,61 @@
-'use strict';
 
 const isArray = Array.isArray;
 const keys    = Object.keys;
 
-function applyClassName(props, style, order)
+const applyClassName = (props, order, oStyle) =>
 {
     if (!props.className) {
-      props.className = '';
+      props.className = ''
     }
-    const styleId = style.styleId;
-    props.className += ' ' + styleId;
+    const styleId = oStyle.styleId
+    props.className += ' ' + styleId
     for (let j = 1; j <= order; j++) {
-      props.className += ' ' + styleId + j;
+      props.className += ' ' + styleId + j
     }
-    return order + 1;
+    return order
 }
 
-function applyInlineStyle(props, styles, order)
+const applyInlineStyle = (props, order, oStyle) =>
 {
-    if (isArray(styles.selector)) {
-        return order;
+    if (isArray(oStyle.selector)) {
+        return order
     }
     if (!props.style) {
-        props.style = {};
+        props.style = {}
     }
-    styles.style.forEach( one =>
+    oStyle.style.forEach( one =>
         keys(one).forEach( 
             key => props.style[key] = one[key]
         )
-    );
-    return order;
+    )
+    return order
 }
 
-function applyStyle(props, style, order)
+const applyStyle = (props, order) => oStyle =>
 {
-    if (!style) {
-        return order;
+    if (!oStyle) {
+        return order
     } 
-    if (!style.isCompiled) {
-        console.error('Not a style object', style);
-        console.trace();
-        return order;
+    if (!oStyle.isCompiled) {
+        console.error('Not a style object', oStyle)
+        console.trace()
+        return order
     }
-    if (style.isCompiled() && order < 10) {
-        return applyClassName(props, style, order);
-    } else {
-        return applyInlineStyle(props, style, order);
-    }
+    return (oStyle.isCompiled() && order < 10) ?
+        applyClassName(props, order, oStyle) :
+        applyInlineStyle(props, order, oStyle)
 }
 
-function applyStyles(props, styles, order)
+const applyStyles = (props, styles, order) =>
 {
     if (isNaN(order)) {
-        order = 0;
+        order = 0
     }
     if (!isArray(styles)) {
-        styles = [styles];
+        styles = [styles]
     }
-    styles.forEach( one =>
-        order = applyStyle(props, one, order)
-    );
+    const apply = applyStyle(props, order)
+    styles.forEach( one => apply(one) )
 }
 
-export default applyStyles;
+export default applyStyles
