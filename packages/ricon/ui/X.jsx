@@ -7,12 +7,12 @@ import {
 
 let injects;
 
-const ICON_X = (props)=> {
+const ICON_X = props => {
     injects = lazyInject (
         injects,
         InjectStyles
     );
-    const {weight, size, className, color, style, ...others} = props;
+    const {position, weight, size, className, color, style, ...others} = props;
     const classes = mixClass(
         className
         ,'icon'
@@ -23,6 +23,13 @@ const ICON_X = (props)=> {
         height: size,
         background: color
     };
+    let containerStyle = Styles.container
+    if ('absolute' === position) {
+        containerStyle = {
+            ...containerStyle,
+            ...Styles.absolute
+        }
+    }
     return (
         <SemanticUI
             className={classes}
@@ -30,7 +37,7 @@ const ICON_X = (props)=> {
             style={{
                 width: size,
                 height: size,
-                ...Styles.container,
+                ...containerStyle,
                 ...style
             }}
         >
@@ -50,7 +57,8 @@ ICON_X.defaultProps = {
     style: {},
     size: '1rem',
     weight: '.2rem',
-    color: '#333'
+    color: '#333',
+    position: 'absolute',
 };
 
 export default ICON_X;
@@ -58,10 +66,13 @@ export default ICON_X;
 const Styles = {
     container: {
         background: 'transparent',
+        position: 'relative',
+        cursor:'pointer',
+    },
+    absolute: {
         position: 'absolute',
         top: '5px',
         right: '5px',
-        cursor:'pointer',
     }
 };
 

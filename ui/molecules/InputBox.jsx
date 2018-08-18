@@ -16,7 +16,9 @@ const InputBox = (props) =>
         children,
         messageType,
         leftLabel,
+        leftLabelProps,
         rightLabel,
+        rightLabelProps,
         style,
         transparent,
         inputStyle,
@@ -36,11 +38,19 @@ const InputBox = (props) =>
     );
     let thisLeftLabel;
     if (leftLabel) {
-        thisLeftLabel = <Label>{leftLabel}</Label>;
+        thisLeftLabel = <Label {...leftLabelProps}>{leftLabel}</Label>;
     }
     let thisRightLabel;
     if (rightLabel) {
-        thisRightLabel = <Label style={Styles.rightLabel} className="basic">{rightLabel}</Label>;
+        thisRightLabel = (
+            <Label
+                style={Styles.rightLabel}
+                className="basic"
+                {...rightLabelProps}
+            >
+                {rightLabel}
+            </Label>
+        )
     }
     let thisButton = null
     if (button) {
