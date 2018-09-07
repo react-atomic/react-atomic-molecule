@@ -1,4 +1,4 @@
-import isUnitlessNumber from './cssUnitLessNumber';
+import {isUnitlessNumber} from './cssUnitLessNumber';
 
 const cssUnitToNumber = (key, value) => {
     if (isUnitlessNumber[key]) {
