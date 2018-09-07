@@ -41,7 +41,7 @@
     "build": "npm run clean && npm run build:cjs && npm run build:es",
     "buildTest": "BABEL_ENV=build babel tests -d build/tests",
     "test": "npm run build && npm run buildTest && mocha 'build/tests/**/*.js' -r jsdom-global/register",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run test && npm run build"
   },
   "files": [
     "build",
