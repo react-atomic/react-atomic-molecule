@@ -70,7 +70,7 @@ const Field = (props) => {
         input = cloneElement(input, { 
             ...others,
             style: {
-                boxSizing: 'border-box',
+                boxSizing: 'inherit',
                 ...style
             },
             key: 'input',
