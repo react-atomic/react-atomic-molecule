@@ -8,8 +8,14 @@
             ],
             "plugins": [
               "add-module-exports",
-              "transform-react-constant-elements",
-              "system-import-transformer"
+              "system-import-transformer",
+              ["transform-runtime", {
+                "moduleName": "reshow-runtime",
+                "polyfill": false,
+                "regenerator": false
+                }
+              ],
+              "transform-react-constant-elements"
             ]
         },
         "es": {
@@ -19,6 +25,12 @@
               "stage-0"
             ],
             "plugins": [
+              ["transform-runtime", {
+                "moduleName": "reshow-runtime/es",
+                "polyfill": false,
+                "regenerator": false
+                }
+              ],
               "transform-react-constant-elements"
             ]
         }

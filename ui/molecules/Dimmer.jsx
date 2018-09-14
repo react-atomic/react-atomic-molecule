@@ -19,7 +19,7 @@ const Dimmer = (props) => {
     );
 
     let content;
-    if (center) {
+    if (center && content) {
         content = (
             <Content style={{boxSizing: 'inherit'}}>
                 {children}
@@ -41,7 +41,8 @@ const Dimmer = (props) => {
 Dimmer.defaultProps = {
     show: false,
     isModal: false,
-    center: true
+    center: true,
+    content: true // same with center attriube, just let user not confuse 
 };
 
 export default Dimmer; 
