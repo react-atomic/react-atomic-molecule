@@ -5,7 +5,7 @@ import Content from '../molecules/Content';
 import SemanticUI from '../molecules/SemanticUI';
 
 const Dimmer = (props) => {
-    const {className, show, children, center, isModal, ...others } = props;
+    const {className, show, children, center, content, isModal, ...others } = props;
     if (!show) {
         return null;
     }
@@ -18,22 +18,22 @@ const Dimmer = (props) => {
         }
     );
 
-    let content;
+    let child;
     if (center && content) {
-        content = (
+        child = (
             <Content style={{boxSizing: 'inherit'}}>
                 {children}
             </Content>
         );
     } else {
-        content = children;
+        child = children;
     }
     return (
       <SemanticUI
         {...others}
         className={classes}
       >
-        {content}
+        {child}
       </SemanticUI>
     );
 };
