@@ -18,12 +18,14 @@ const Field = (props) => {
         labelStyles,
         style,
         styleOrder,
+        required,
         ...others
     } = props;
     const isGroup = !(props.atom || inputComponent);
     const classes = mixClass(
         fieldClassName,
         {
+            required: !!required,
             field: !isGroup,
             fields: isGroup,
             inline: !!inline
@@ -76,6 +78,7 @@ const Field = (props) => {
             key: 'input',
             className: inputClasses,
             styleOrder,
+            required,
             type,
         }, inputChildren);
     }
