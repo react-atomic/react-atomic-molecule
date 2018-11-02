@@ -7,6 +7,7 @@ const Field = (props) => {
     const {
         className,
         fieldClassName,
+        fieldStyle,
         fieldStyles,
         children,
         inline,
@@ -50,10 +51,12 @@ const Field = (props) => {
             </SemanticUI>;
     }
     let input = null;
-    let thisFieldStyles = null;
+    let thisFieldStyles = fieldStyles;
+    let thisFieldStyle = fieldStyle;
     let thisChildren = children;
     if (isGroup) {
         thisFieldStyles = props.styles;
+        thisFieldStyle = props.style;
     } else {
         let inputChildren = null;
         const isSelect = 'select' === props.atom;
@@ -67,7 +70,6 @@ const Field = (props) => {
             thisChildren = null;
             inputChildren = children;
         }
-        thisFieldStyles = fieldStyles;
         input = (inputComponent) ? inputComponent : <SemanticUI />;
         input = cloneElement(input, { 
             ...others,
@@ -105,6 +107,7 @@ const Field = (props) => {
     return (
         <SemanticUI
             className={classes}
+            style={thisFieldStyle}
             styles={thisFieldStyles}
             styleOrder={styleOrder}
         >
