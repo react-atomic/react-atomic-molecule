@@ -20,6 +20,7 @@ const Field = props => {
     labelStyle,
     labelStyles,
     style,
+    styles,
     styleOrder,
     required,
     ...others
@@ -54,8 +55,12 @@ const Field = props => {
   let thisFieldStyle = fieldStyle;
   let thisChildren = children;
   if (isGroup) {
-    thisFieldStyles = props.styles;
-    thisFieldStyle = props.style;
+    if (!thisFieldStyles) {
+      thisFieldStyles = styles;
+    }
+    if (!thisFieldStyle) {
+      thisFieldStyle = style;
+    }
   } else {
     let inputChildren = null;
     const isSelect = 'select' === props.atom;
@@ -77,6 +82,7 @@ const Field = props => {
         },
         key: 'input',
         className: inputClasses,
+        styles,
         styleOrder,
         required,
         type,

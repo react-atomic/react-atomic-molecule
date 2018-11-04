@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/react-atomic/react-atomic-molecule.svg?branch=master)](https://travis-ci.org/react-atomic/react-atomic-molecule) 
+
 React Atomic Molecule 
 ===============
    * GIT
