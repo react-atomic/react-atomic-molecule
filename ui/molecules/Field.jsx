@@ -16,6 +16,7 @@ const Field = (props) => {
         inputWrapper,
         inputWrapperAttr,
         label,
+        labelStyle,
         labelStyles,
         style,
         styleOrder,
@@ -34,16 +35,16 @@ const Field = (props) => {
     );
     let oLabel = null;
     if (label) {
-        let labelStyle = {};
+        let thisLabelStyle = get(labelStyle, null, {}); 
         if (props.id) {
-            labelStyle = {cursor:'pointer'};
+            thisLabelStyle.cursor = 'pointer';
         }
         oLabel = 
             <SemanticUI
                 atom="label"
                 key="label"
                 htmlFor={props.id}
-                style={labelStyle}
+                style={thisLabelStyle}
                 styles={labelStyles}
                 styleOrder={styleOrder}
             >
