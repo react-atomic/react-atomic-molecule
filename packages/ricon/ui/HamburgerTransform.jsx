@@ -13,7 +13,7 @@ const HamburgerTransform = (Styles) =>
         let styleLine2 = Styles.line;
         let styleLine3 = Styles.line;
         if (right) {
-            others.transform = 'rotate(180)';
+            others.transform = 'translate(24, 24) rotate(180)';
         }
         if (on) {
             styleLine1 = {
