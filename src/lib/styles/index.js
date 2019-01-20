@@ -1,6 +1,3 @@
-/*jslint browser: true*/
-'use strict';
-
 import ucfirst from 'ucfirst';
 import style from './style';
 import store from './store';

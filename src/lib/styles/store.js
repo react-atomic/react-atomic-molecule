@@ -1,20 +1,20 @@
-
 let stylesStore = {
-    registry:[],
-    newStyles:[],
-    counter:0
+  registry: [],
+  newStyles: [],
+  mods: [],
+  counter: 0,
 };
 let g = null;
 
 if ('undefined' != typeof window) {
-    g = window;
+  g = window;
 } else {
-    g = global;
+  g = global;
 }
 if (g.reactStylesStore) {
-    stylesStore = g.reactStylesStore;
+  stylesStore = g.reactStylesStore;
 } else {
-    g.reactStylesStore = stylesStore;
+  g.reactStylesStore = stylesStore;
 }
 
 export default stylesStore;

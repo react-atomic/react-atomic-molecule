@@ -35,10 +35,7 @@ export {default as injectStyle} from './lib/styles/injectStyle';
 export {default as lazyInject} from './lib/styles/lazyInject';
 export {default as reactStyle} from './lib/styles/index';
 export {default as mergeStyleConfig} from './lib/styles/mergeStyleConfig';
+export {default as needCss} from './needCss';
 
 // config
-export {
-    min, 
-    max
-} from './config/styles/rwd';
-
+export {min, max} from './config/styles/rwd';
