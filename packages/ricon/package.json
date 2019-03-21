@@ -7,18 +7,14 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.7.5",
-    "babel-core": "^6.7.5",
-    "babel-plugin-add-module-exports": "^0.1.2",
-    "babel-plugin-transform-react-constant-elements": "^6.9.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
+    "@babel/cli": "^7.x",
     "react": "^16.x"
   },
   "scripts": {
-    "copy": "rm -rf build && BABEL_ENV=build babel ui -d build && cp package.json.build ./build/package.json && cp README.md ./build/",
-    "build": "npm run copy && cd build && yarn install",
+    "clean": "find ./build -name '*.*' | xargs rm -rf",
+    "copy": "cp package.json.build ./build/package.json && cp README.md ./build/",
+    "build:cjs": "BABEL_ENV=build babel ui -d build --root-mode upward",
+    "build": "npm run clean && npm run build:cjs && npm run copy && cd build && yarn install",
     "prepublish": "npm run build"
   }
 }

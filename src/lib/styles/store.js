@@ -11,6 +11,7 @@ if (g.reactStylesStore) {
   stylesStore = g.reactStylesStore = {
     registry: [],
     newStyles: [],
+    mods: [],
     counter: 0,
   };
 }
