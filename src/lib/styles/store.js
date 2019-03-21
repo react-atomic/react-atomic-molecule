@@ -1,20 +1,18 @@
+import {win} from 'win-doc';
 
-let stylesStore = {
-    registry:[],
-    newStyles:[],
-    counter:0
-};
-let g = null;
+let stylesStore;
 
-if ('undefined' != typeof window) {
-    g = window;
-} else {
-    g = global;
-}
+const oWin = win();
+const g = oWin ? oWin : global;
+
 if (g.reactStylesStore) {
-    stylesStore = g.reactStylesStore;
+  stylesStore = g.reactStylesStore;
 } else {
-    g.reactStylesStore = stylesStore;
+  stylesStore = g.reactStylesStore = {
+    registry: [],
+    newStyles: [],
+    counter: 0,
+  };
 }
 
 export default stylesStore;

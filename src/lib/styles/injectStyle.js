@@ -1,7 +1,6 @@
+import {doc} from 'win-doc';
 import store from './store.js';
 import stylesToCSS from './stylesToCSS';
-
-const doc = ('undefined' !== typeof document) ? document : null;
 
 const reInjectStyle = () => {
     store.newStyles = Object.values(store.registry);
@@ -9,9 +8,10 @@ const reInjectStyle = () => {
 };
 
 const appendCss = css => {
-    let tag = doc.createElement('style');
+    const oDoc = doc();
+    const tag = oDoc.createElement('style');
     tag.innerHTML = css;
-    doc.getElementsByTagName('head')[0].appendChild(tag);
+    oDoc.getElementsByTagName('head')[0].appendChild(tag);
 };
 
 const injectStyle = () => {
@@ -26,7 +26,7 @@ const injectStyle = () => {
         ...compiled.styleIds
     };
     if(compiled.css){
-        if (doc) {
+        if (doc()) {
             appendCss(compiled.css);
         } else {
             console.log(compiled.css);

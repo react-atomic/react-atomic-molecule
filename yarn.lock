@@ -2784,6 +2784,11 @@ wide-align@^1.1.0:
   dependencies:
     string-width "^1.0.2 || 2"
 
+win-doc@*:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/win-doc/-/win-doc-0.0.3.tgz#db9120caff7c22eb110286e1da4e1e1c49a5d72b"
+  integrity sha512-1NBd0aTNvN+nRYo8q+GFQQXPZiR1HRKIUEPswk1xKQ3vhmQB10YfXCZrjxB5rWpdaXTt1hhg5jOg6IZFrUn6Vg==
+
 wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"

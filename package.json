@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "1.4.11",
+  "version": "1.4.12",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
@@ -11,6 +11,7 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
+    "win-doc": "*",
     "class-lib": "*",
     "get-object-value": "*",
     "hyphenate-style-name": "*",
