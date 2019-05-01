@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "1.5.5",
+  "version": "1.5.7",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
@@ -16,6 +16,7 @@
     "hyphenate-style-name": "*",
     "react-atomic-atom": "*",
     "reshow-runtime": "*",
+    "reshow-constant": "*",
     "ucfirst": "*",
     "win-doc": "*"
   },
@@ -39,6 +40,9 @@
     "jsdom": "*",
     "jsdom-global": "*",
     "mocha": "*",
+    "enzyme": "*",
+    "enzyme-adapter-react-16": "*",
+    "react-test-renderer": "*",
     "preact": "*",
     "preact-compat": "*",
     "react": "^16.x"
