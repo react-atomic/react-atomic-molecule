@@ -78,6 +78,7 @@ const Field = props => {
         ...others,
         style: {
           boxSizing: 'inherit',
+          ...get(input, ['props', 'style']),
           ...style,
         },
         key: 'input',
