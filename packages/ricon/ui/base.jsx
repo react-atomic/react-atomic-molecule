@@ -1,14 +1,15 @@
-import React from 'react'
-import Svg from './Svg'
-import Path from './Path'
+import React from 'react';
+import Svg from './Svg';
+import Path from './Path';
 
 const base = displayName => d => {
-    const Element = props =>
+  const Element = ({type, ...props}) => (
     <Svg {...props} data-name={displayName}>
-        <Path d={d} />
+      <Path d={d[type] || d['_'] || d} />
     </Svg>
-    Element.displayName = displayName
-    return Element
-}
+  );
+  Element.displayName = displayName;
+  return Element;
+};
 
-export default base
+export default base;
