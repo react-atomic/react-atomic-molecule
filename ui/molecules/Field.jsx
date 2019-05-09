@@ -62,20 +62,25 @@ const Field = props => {
       thisFieldStyle = style;
     }
   } else {
-    let inputChildren = null;
     const isSelect = 'select' === props.atom;
+    input = inputComponent ? inputComponent : <SemanticUI />;
+    const inputProps = get(input, ['props'], {});
+    
+    // set inputChildren 
+    let inputChildren = inputProps.children || null;
     if (isSelect) {
       thisChildren = null;
       inputChildren = children;
     }
-    input = inputComponent ? inputComponent : <SemanticUI />;
+
     const inputClasses = mixClass(
       className,
-      get(input, ['props', 'className']),
+      inputProps.className,
       {
         dropdown: isSelect,
       },
     );
+
     input = cloneElement(
       input,
       {
