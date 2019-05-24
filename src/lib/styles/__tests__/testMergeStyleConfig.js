@@ -1,6 +1,4 @@
-import {
-    mergeStyleConfig
-} from '../../../../cjs/src/index';
+import mergeStyleConfig from '../mergeStyleConfig';
 
 import {expect} from 'chai';
 

@@ -5,9 +5,7 @@
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
   "repository": "react-atomic/react-atomic-molecule",
-  "keywords": [
-    "reactjs"
-  ],
+  "keywords": ["reactjs"],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
@@ -15,8 +13,8 @@
     "get-object-value": "*",
     "hyphenate-style-name": "*",
     "react-atomic-atom": "*",
-    "reshow-runtime": "*",
     "reshow-constant": "*",
+    "reshow-runtime": "*",
     "ucfirst": "*",
     "win-doc": "*"
   },
@@ -40,25 +38,21 @@
     "jsdom": "*",
     "jsdom-global": "*",
     "mocha": "*",
-    "enzyme": "*",
-    "enzyme-adapter-react-16": "*",
-    "react-test-renderer": "*",
     "preact": "*",
     "preact-compat": "*",
-    "react": "^16.x"
+    "enzyme": "*",
+    "enzyme-adapter-react-16": "*",
+    "react-dom": "^16.x",
+    "react": "^16.x",
+    "react-test-renderer": "*"
   },
   "scripts": {
     "clean": "find ./build -name '*.*' | xargs rm -rf",
     "build:cjs": "BABEL_ENV=build babel src -d build/cjs/src && BABEL_ENV=build babel ui -d build/cjs/ui",
     "build:es": "BABEL_ENV=es babel src -d build/es/src && BABEL_ENV=es babel ui -d build/es/ui",
-    "build:test": "BABEL_ENV=build babel tests -d build/tests",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
-    "test": "npm run build && npm run build:test && mocha 'build/tests/**/*.js' -r jsdom-global/register",
+    "test": "npm run build && mocha 'build/cjs/**/__tests__/*.js' -r jsdom-global/register",
     "prepublishOnly": "npm run test && npm run build"
   },
-  "files": [
-    "build",
-    "package.json",
-    "README.md"
-  ]
+  "files": ["build", "package.json", "README.md"]
 }

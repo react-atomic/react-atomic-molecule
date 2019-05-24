@@ -1,4 +1,4 @@
-import {build} from '../../cjs/src/index';
+import build from '../build';
 
 import React, {PureComponent, isValidElement} from 'react';
 
