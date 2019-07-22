@@ -26,7 +26,7 @@ const injectStyle = () => {
         ...compiled.styleIds
     };
     if(compiled.css){
-        if (doc()) {
+        if (doc().URL) {
             appendCss(compiled.css);
         } else {
             console.log(compiled.css);
