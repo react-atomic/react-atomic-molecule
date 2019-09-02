@@ -37,15 +37,15 @@
     "babel-plugin-transform-react-pure-class-to-function": "*",
     "babel-plugin-transform-react-remove-prop-types": "*",
     "chai": "*",
+    "enzyme": "*",
+    "enzyme-adapter-react-16": "*",
     "jsdom": "*",
     "jsdom-global": "*",
     "mocha": "*",
     "preact": "*",
     "preact-compat": "*",
-    "enzyme": "*",
-    "enzyme-adapter-react-16": "*",
-    "react-dom": "^16.x",
     "react": "^16.x",
+    "react-dom": "^16.x",
     "react-test-renderer": "*"
   },
   "scripts": {
