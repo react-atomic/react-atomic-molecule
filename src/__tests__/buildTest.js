@@ -65,4 +65,9 @@ describe('Test build', () => {
     const html = shallow(vDom).html();
     expect(html).to.equal('<div>bar3</div>');
   });
+
+  it('test with empty', () => {
+    const result = build()();
+    expect(result).to.be.null;
+  });
 });
