@@ -10,6 +10,7 @@ const Field = props => {
     fieldClassName,
     fieldStyle,
     fieldStyles,
+    fieldProps,
     children,
     inline,
     type,
@@ -65,21 +66,17 @@ const Field = props => {
     const isSelect = 'select' === props.atom;
     input = inputComponent ? inputComponent : <SemanticUI />;
     const inputProps = get(input, ['props'], {});
-    
-    // set inputChildren 
+
+    // set inputChildren
     let inputChildren = inputProps.children || null;
     if (isSelect) {
       thisChildren = null;
       inputChildren = children;
     }
 
-    const inputClasses = mixClass(
-      className,
-      inputProps.className,
-      {
-        dropdown: isSelect,
-      },
-    );
+    const inputClasses = mixClass(className, inputProps.className, {
+      dropdown: isSelect,
+    });
 
     input = cloneElement(
       input,
@@ -112,6 +109,7 @@ const Field = props => {
 
   return (
     <SemanticUI
+      {...fieldProps}
       className={classes}
       style={thisFieldStyle}
       styles={thisFieldStyles}
