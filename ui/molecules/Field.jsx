@@ -35,7 +35,7 @@ const Field = props => {
   });
   let oLabel = null;
   if (label) {
-    let thisLabelStyle = get(labelStyle, null, {});
+    const thisLabelStyle = {...get(labelStyle, null, {})};
     if (props.id) {
       thisLabelStyle.cursor = 'pointer';
     }
