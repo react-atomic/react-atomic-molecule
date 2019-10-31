@@ -16,20 +16,16 @@ describe('Test build', () => {
   });
 
   it('test function with error', () => {
-    const func = props => {
-      expect(props.foo).to.equal('bar111');
-    };
     const run = () => {
-      build(func)({foo: 'bar'});
+      build(props => {
+        expect(props.foo).to.equal('bar111');
+      })({foo: 'bar'});
     };
     expect(run).to.throw();
   });
 
   it('test function with return', () => {
-    const func = props => {
-      return props.foo;
-    };
-    const a = build(func)({foo: 'barbar'});
+    const a = build(props => props.foo)({foo: 'barbar'});
     expect(a).to.equal('barbar');
   });
 
@@ -94,12 +90,9 @@ describe('Test build', () => {
   });
 
   it('test with func and child', () => {
-    const func = (props, child) => {
-      return {props, child};
-    };
-    const result = build(func)({foo: 'bar'}, 'hello child');
-    expect(result.child).to.equal('hello child');
-    expect(result.props.foo).to.equal('bar');
+    const result = build(props => props)({foo: 'bar'}, 'hello child');
+    expect(result.children).to.equal('hello child');
+    expect(result.foo).to.equal('bar');
   });
 
   it('test with class and child', () => {
