@@ -8,21 +8,51 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({adapter: new Adapter()});
 
 describe('Test build', () => {
-  it('test with function', () => {
+  it('test function', () => {
     const func = props => {
       expect(props.foo).to.equal('bar');
     };
     build(func)({foo: 'bar'});
   });
 
-  it('test with function return', () => {
+  it('test function with error', () => {
+    const func = props => {
+      expect(props.foo).to.equal('bar111');
+    };
+    const run = () => {
+      build(func)({foo: 'bar'});
+    };
+    expect(run).to.throw();
+  });
+
+  it('test function with return', () => {
     const func = props => {
       return props.foo;
     };
     const a = build(func)({foo: 'barbar'});
+    expect(a).to.equal('barbar');
+  });
+
+  it('test with stateless function return', () => {
+    const func = props => <div {...props} />;
+    const a = build(func)({foo: 'barbar'});
     // will return react instance
     expect(a.props.foo).to.equal('barbar');
     expect(isValidElement(a)).to.be.true;
+  });
+
+  it('test function return another component', () => {
+    class FakeComponent extends PureComponent {
+      render() {
+        return <div>{this.props.foo}</div>;
+      }
+    }
+    const func = props => {
+      return <FakeComponent {...props} />;
+    };
+    const vDom = build(func)({foo: 'bar3'});
+    const html = shallow(vDom).html();
+    expect(html).to.equal('<div>bar3</div>');
   });
 
   it('test with component', () => {
@@ -41,9 +71,8 @@ describe('Test build', () => {
 
   it('test with class component', () => {
     class FakeComponent extends PureComponent {
-      render()
-      {
-        return (<div>{this.props.foo}</div>);
+      render() {
+        return <div>{this.props.foo}</div>;
       }
     }
     const vDom = build(FakeComponent)({foo: 'bar2'});
@@ -51,19 +80,37 @@ describe('Test build', () => {
     expect(html).to.equal('<div>bar2</div>');
   });
 
-  it('test function return another component', ()=>{
+  it('test with clone and child', () => {
     class FakeComponent extends PureComponent {
-      render()
-      {
-        return (<div>{this.props.foo}</div>);
+      render() {
+        const {comp, ...others} = this.props;
+        return build(comp)(others, 'bar');
       }
     }
-    const func = props => {
-      return <FakeComponent {...props} />
+    const html = shallow(
+      <FakeComponent id="foo" comp={<div>foo</div>} />,
+    ).html();
+    expect(html).to.equal('<div id="foo">bar</div>');
+  });
+
+  it('test with func and child', () => {
+    const func = (props, child) => {
+      return {props, child};
     };
-    const vDom = build(func)({foo: 'bar3'});
+    const result = build(func)({foo: 'bar'}, 'hello child');
+    expect(result.child).to.equal('hello child');
+    expect(result.props.foo).to.equal('bar');
+  });
+
+  it('test with class and child', () => {
+    class FakeComponent extends PureComponent {
+      render() {
+        return <div {...this.props} />;
+      }
+    }
+    const vDom = build(FakeComponent)({id: 'foo'}, 'hello');
     const html = shallow(vDom).html();
-    expect(html).to.equal('<div>bar3</div>');
+    expect(html).to.equal('<div id="foo">hello</div>');
   });
 
   it('test with empty', () => {
