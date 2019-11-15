@@ -1,11 +1,11 @@
-import build from '../build';
-
 import React, {PureComponent, isValidElement} from 'react';
 
 import {expect} from 'chai';
 import {shallow, mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({adapter: new Adapter()});
+
+import build from '../build';
 
 describe('Test build', () => {
   it('test function', () => {
@@ -93,6 +93,18 @@ describe('Test build', () => {
     const result = build(props => props)({foo: 'bar'}, 'hello child');
     expect(result.children).to.equal('hello child');
     expect(result.foo).to.equal('bar');
+  });
+
+  it('test with anonymous func and child', () => {
+    const child = [<div id="1" key="0" />, <div id="2" key="1" />];
+    const buildDom = build( ({children}) => <div id="root">{children}</div>)({}, child);
+    const html = shallow(<div>{buildDom}</div>).html();
+    const stateFunc = ({children}) => <div id="root">{children}</div>;
+    const stateFuncBuildDom = build(stateFunc)({}, child);
+    const stateFuncHtml = shallow(<div>{stateFuncBuildDom}</div>).html();
+    const expected = '<div><div id="root"><div id="1"></div><div id="2"></div></div></div>';
+    expect(html).to.equal(expected);
+    expect(stateFuncHtml).to.equal(expected);
   });
 
   it('test with class and child', () => {

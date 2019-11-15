@@ -37,11 +37,11 @@ const build = component => (props, child) => {
   if (!component) {
     return null;
   }
-  return (isValidElement(component) ? buildReact : buildFunc).apply(null, [
+  return (isValidElement(component) ? buildReact : buildFunc)(
     component,
     props,
     child,
-  ]);
+  );
 };
 
 export default build;
