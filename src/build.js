@@ -1,4 +1,4 @@
-import {isValidElement, cloneElement, createElement} from 'react';
+import {isValidElement, cloneElement, createElement, Children} from 'react';
 import {FUNCTION} from 'reshow-constant';
 import {removeEmpty} from 'array.merge';
 
@@ -37,11 +37,13 @@ const build = component => (props, child) => {
   if (!component) {
     return null;
   }
-  return (isValidElement(component) ? buildReact : buildFunc)(
-    component,
-    props,
-    child,
-  );
+
+  const run = comp =>
+    (isValidElement(comp) ? buildReact : buildFunc)(comp, props, child);
+
+  return component.map
+    ? Children.map(component.map(comp => run(comp)), c => c)
+    : run(component);
 };
 
 export default build;

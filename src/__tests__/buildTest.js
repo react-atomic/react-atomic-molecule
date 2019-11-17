@@ -1,4 +1,4 @@
-import React, {PureComponent, isValidElement} from 'react';
+import React, {PureComponent, isValidElement, Children} from 'react';
 
 import {expect} from 'chai';
 import {shallow, mount, configure} from 'enzyme';
@@ -97,12 +97,16 @@ describe('Test build', () => {
 
   it('test with anonymous func and child', () => {
     const child = [<div id="1" key="0" />, <div id="2" key="1" />];
-    const buildDom = build( ({children}) => <div id="root">{children}</div>)({}, child);
+    const buildDom = build(({children}) => <div id="root">{children}</div>)(
+      {},
+      child,
+    );
     const html = shallow(<div>{buildDom}</div>).html();
     const stateFunc = ({children}) => <div id="root">{children}</div>;
     const stateFuncBuildDom = build(stateFunc)({}, child);
     const stateFuncHtml = shallow(<div>{stateFuncBuildDom}</div>).html();
-    const expected = '<div><div id="root"><div id="1"></div><div id="2"></div></div></div>';
+    const expected =
+      '<div><div id="root"><div id="1"></div><div id="2"></div></div></div>';
     expect(html).to.equal(expected);
     expect(stateFuncHtml).to.equal(expected);
   });
@@ -121,5 +125,69 @@ describe('Test build', () => {
   it('test with empty', () => {
     const result = build()();
     expect(result).to.be.null;
+  });
+
+  it('test with multi children', () => {
+    const FakeDom = ({children}) => {
+      return <div>{build(children)({title: 'foo'})}</div>;
+    };
+    const vDom = (
+      <FakeDom>
+        <div>1</div>
+        <div>2</div>
+      </FakeDom>
+    );
+    const wrap = shallow(vDom);
+    expect(wrap.html()).to.equal(
+      '<div><div title="foo">1</div><div title="foo">2</div></div>',
+    );
+  });
+
+  it('test with multi function', () => {
+    const FakeDom = ({children}) => {
+      expect(Children.count(children)).to.equal(2);
+      return (
+        <div>
+          {build(children)({foo: <div>{'foo'}</div>, bar: <div>{'bar'}</div>})}
+        </div>
+      );
+    };
+    const vDom = (
+      <FakeDom>
+        {({foo}) => foo}
+        <div />
+        <div />
+        {({bar}) => bar}
+      </FakeDom>
+    );
+    const wrap = shallow(vDom);
+    expect(wrap.html()).to.equal(
+      '<div><div>foo</div><div foo="[object Object]" bar="[object Object]"></div><div foo="[object Object]" bar="[object Object]"></div><div>bar</div></div>',
+    );
+  });
+
+  it('test with multi Comp Def', () => {
+    const FakeDom = ({children}) => {
+      expect(Children.count(children)).to.equal(2);
+      return (
+        <div>
+          {build(children)({foo: <div>{'foo'}</div>, bar: <div>{'bar'}</div>})}
+        </div>
+      );
+    };
+    const A = ({foo}) => foo;
+    const B = ({bar}) => bar;
+    const vDom = (
+      <FakeDom>
+        {A}
+        <div />
+        <div />
+        {B}
+      </FakeDom>
+    );
+    const wrap = shallow(vDom);
+    expect(wrap.html()).to.equal(
+      '<div><div>foo</div><div foo="[object Object]" bar="[object Object]"></div><div foo="[object Object]" bar="[object Object]"></div><div>bar</div></div>',
+    );
   });
 });

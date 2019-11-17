@@ -1,5 +1,5 @@
 /* jshint esnext: true */
-import React from 'react';
+import React, {createElement, Children} from 'react';
 import * as Atoms from 'react-atomic-atom';
 import get from 'get-object-value';
 import ucfirst from 'ucfirst';
@@ -18,7 +18,7 @@ const getChildren = (render, children) => {
    * Hack for https://fb.me/react-warning-keys
    * Each child in an array or iterator should have a unique "key"
    */
-  return React.Children.map(children, c => c);
+  return Children.map(children, c => c);
 };
 
 const SemanticUI = ({
@@ -69,7 +69,7 @@ const SemanticUI = ({
     // others.className maybe effect by bindProps, so use it here.
     others.className = mixClass(others.className, 'ui');
   }
-  return React.createElement(
+  return createElement(
     component,
     others,
     getChildren(renderChildren, children),
