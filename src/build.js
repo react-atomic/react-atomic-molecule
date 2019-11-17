@@ -23,7 +23,7 @@ const buildFunc = (component, props, child) => {
 };
 
 const buildReact = (component, props, child) => {
-  const params = [component, removeEmpty(props, true)];
+  const params = [component, props];
   if (child != null) {
     params.push(child);
   }
@@ -37,6 +37,8 @@ const build = component => (props, child) => {
   if (!component) {
     return null;
   }
+
+  props = removeEmpty(props, true);
 
   const run = comp =>
     (isValidElement(comp) ? buildReact : buildFunc)(comp, props, child);
