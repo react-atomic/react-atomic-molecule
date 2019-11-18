@@ -3,6 +3,8 @@ import React, {cloneElement} from 'react';
 import {mixClass} from 'class-lib';
 import get from 'get-object-value';
 import SemanticUI from '../molecules/SemanticUI';
+import Message from '../molecules/Message';
+import Label from '../molecules/Label';
 
 const Field = props => {
   const {
@@ -24,6 +26,12 @@ const Field = props => {
     styles,
     styleOrder,
     required,
+    messageType,
+    messageHeader,
+    message,
+    topTip,
+    bottomTip,
+    rightTip,
     ...others
   } = props;
   const isGroup = !(props.atom || inputComponent);
@@ -32,6 +40,10 @@ const Field = props => {
     field: !isGroup,
     fields: isGroup,
     inline: !!inline,
+    info: messageType === 'info',
+    error: messageType === 'error',
+    success: messageType === 'success',
+    warning: messageType === 'warning',
   });
   let oLabel = null;
   if (label) {
@@ -97,14 +109,38 @@ const Field = props => {
       inputChildren,
     );
   }
+  let topTipEl;
+  if (topTip) {
+    topTipEl = (
+      <Label key="topTip" className="pointing below prompt">
+        {topTip}
+      </Label>
+    );
+  }
   let inputs;
   if ('checkbox' === type || 'radio' === type) {
-    inputs = [input, oLabel];
+    inputs = [topTipEl, input, oLabel];
   } else {
-    inputs = [oLabel, input];
+    inputs = [oLabel, topTipEl, input];
   }
   if (inputWrapper) {
     inputs = cloneElement(inputWrapper, inputWrapperAttr, inputs);
+  }
+  let messageEl;
+  let bottomTipEl;
+  let rightTipEl;
+  if (message) {
+    messageEl = (
+      <Message messageType={messageType} header={messageHeader}>
+        {message}
+      </Message>
+    );
+  }
+  if (bottomTip) {
+    bottomTipEl = <Label className="above pointing prompt">{bottomTip}</Label>;
+  }
+  if (rightTip) {
+    rightTipEl = <Label className="left pointing prompt">{rightTip}</Label>;
   }
 
   return (
@@ -115,6 +151,9 @@ const Field = props => {
       styles={thisFieldStyles}
       styleOrder={styleOrder}>
       {inputs}
+      {rightTipEl}
+      {bottomTipEl}
+      {messageEl}
       {thisChildren}
     </SemanticUI>
   );
