@@ -22,6 +22,7 @@ const Field = props => {
     label,
     labelStyle,
     labelStyles,
+    labelWrap,
     style,
     styles,
     styleOrder,
@@ -51,6 +52,9 @@ const Field = props => {
     if (props.id) {
       thisLabelStyle.cursor = 'pointer';
     }
+    if (labelWrap) {
+      thisLabelStyle.flex = '0 1 100%';
+    }
     oLabel = (
       <SemanticUI
         atom="label"
@@ -73,6 +77,9 @@ const Field = props => {
     }
     if (!thisFieldStyle) {
       thisFieldStyle = style;
+    }
+    if (label && labelWrap) {
+      thisFieldStyle.flexWrap = 'wrap';
     }
   } else {
     const isSelect = 'select' === props.atom;
