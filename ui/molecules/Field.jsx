@@ -28,7 +28,7 @@ const Field = props => {
     styleOrder,
     required,
     messageType,
-    messageHeader,
+    messageProps,
     message,
     topTip,
     bottomTip,
@@ -76,7 +76,7 @@ const Field = props => {
       thisFieldStyles = styles;
     }
     if (!thisFieldStyle) {
-      thisFieldStyle = style;
+      thisFieldStyle = style || {};
     }
     if (label && labelWrap) {
       thisFieldStyle.flexWrap = 'wrap';
@@ -138,7 +138,7 @@ const Field = props => {
   let rightTipEl;
   if (message) {
     messageEl = (
-      <Message messageType={messageType} header={messageHeader}>
+      <Message messageType={messageType} {...messageProps}>
         {message}
       </Message>
     );
