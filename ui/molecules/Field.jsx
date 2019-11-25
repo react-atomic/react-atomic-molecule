@@ -37,6 +37,7 @@ const Field = props => {
   } = props;
   const isGroup = !(props.atom || inputComponent);
   const classes = mixClass(fieldClassName, {
+    'label-wrap': labelWrap,
     required: !!required,
     field: !isGroup,
     fields: isGroup,
