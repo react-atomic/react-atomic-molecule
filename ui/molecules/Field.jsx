@@ -159,10 +159,10 @@ const Field = props => {
       styles={thisFieldStyles}
       styleOrder={styleOrder}>
       {inputs}
+      {thisChildren}
       {rightTipEl}
       {bottomTipEl}
       {messageEl}
-      {thisChildren}
     </SemanticUI>
   );
 };
