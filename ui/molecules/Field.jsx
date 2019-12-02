@@ -48,6 +48,7 @@ const Field = props => {
     warning: messageType === 'warning',
   });
   let oLabel = null;
+  let thisMessageProps = messageProps || {};
   if (label) {
     const thisLabelStyle = {...get(labelStyle, null, {})};
     if (props.id) {
@@ -55,9 +56,8 @@ const Field = props => {
     }
     if (labelWrap) {
       thisLabelStyle.flex = '0 1 100%';
-      messageProps = messageProps || {};
-      messageProps.style = {...messageProps.style};  
-      messageProps.style.flex = '0 1 100%'; 
+      thisMessageProps.style = {...thisMessageProps.style};
+      thisMessageProps.style.flex = '0 1 100%'; 
     }
     oLabel = (
       <SemanticUI
@@ -142,7 +142,7 @@ const Field = props => {
   let rightTipEl;
   if (message) {
     messageEl = (
-      <Message messageType={messageType} {...messageProps}>
+      <Message messageType={messageType} {...thisMessageProps}>
         {message}
       </Message>
     );
