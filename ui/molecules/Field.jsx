@@ -55,6 +55,8 @@ const Field = props => {
     }
     if (labelWrap) {
       thisLabelStyle.flex = '0 1 100%';
+      messageProps.style = {...messageProps.style};  
+      messageProps.style.flex = '0 1 100%'; 
     }
     oLabel = (
       <SemanticUI
