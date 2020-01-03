@@ -9,7 +9,7 @@ const Content = ({className, style, ...props}) => {
       ui={false}
       {...props}
       className={classes}
-      style={{...style, boxSizing: 'inherit'}}
+      style={{boxSizing: 'inherit', ...style}}
     />
   );
 };
