@@ -29,7 +29,7 @@ export {default as Unsafe} from '../ui/molecules/Unsafe';
 
 // libs
 export {mixClass} from 'class-lib';
-export {default as build} from './build';
+export {default as build} from 'reshow-build';
 
 //styles
 export {default as injectStyle} from './lib/styles/injectStyle';

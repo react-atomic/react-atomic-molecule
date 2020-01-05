@@ -18,6 +18,7 @@
     "react-atomic-atom": "*",
     "reshow-constant": "*",
     "reshow-runtime": "*",
+    "reshow-build": "*",
     "ucfirst": "*",
     "win-doc": "*"
   },
