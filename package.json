@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
@@ -13,12 +13,14 @@
   "dependencies": {
     "array.merge": "*",
     "class-lib": "*",
+    "create-el": "*",
+    "css-query-selector": "*",
     "get-object-value": "*",
     "hyphenate-style-name": "*",
     "react-atomic-atom": "*",
+    "reshow-build": "*",
     "reshow-constant": "*",
     "reshow-runtime": "*",
-    "reshow-build": "*",
     "ucfirst": "*",
     "win-doc": "*"
   },
@@ -55,7 +57,8 @@
     "build:cjs": "BABEL_ENV=build babel src -d build/cjs/src && BABEL_ENV=build babel ui -d build/cjs/ui",
     "build:es": "BABEL_ENV=es babel src -d build/es/src && BABEL_ENV=es babel ui -d build/es/ui",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
-    "test": "npm run build && mocha 'build/cjs/**/__tests__/*.js' -r jsdom-global/register",
+    "mocha": "mocha 'build/cjs/**/__tests__/*.js' -r jsdom-global/register",
+    "test": "npm run build && npm run mocha",
     "prepublishOnly": "npm run test"
   },
   "files": [
