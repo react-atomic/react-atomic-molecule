@@ -1,7 +1,6 @@
 import hyphenateStyleName from 'hyphenate-style-name';
 import get from 'get-object-value';
 
-
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
 const unquotedContentValueRegex = /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
@@ -22,11 +21,10 @@ const buildRule = (key, value) => {
 };
 
 const buildRules = (result, styleId, selector) => {
-  const rules = get(result.styleIds, [styleId, 'style'], []); 
+  const rules = get(result.styleIds, [styleId, 'style'], []);
   if (!rules.length) {
     return result;
   }
-  let mycss = '';
   let parentSelector;
   if (isArray(selector)) {
     parentSelector = selector[0].trim();
@@ -35,8 +33,10 @@ const buildRules = (result, styleId, selector) => {
     selector = [selector];
   }
 
+  const myRules = []; 
   rules.forEach((rule, i) => {
-    mycss += selector[i] + ' {\n';
+    let mycss='';
+    mycss += selector[i] + ' {';
     keys(rule).forEach(styleKey => {
       if (rule[styleKey] && rule[styleKey].forEach) {
         rule[styleKey].forEach(item => (mycss += buildRule(styleKey, item)));
@@ -44,27 +44,31 @@ const buildRules = (result, styleId, selector) => {
         mycss += buildRule(styleKey, rule[styleKey]);
       }
     });
-    mycss += '}\n\n';
+    mycss += '}';
+    myRules.push(mycss);
   });
+  let myRule = myRules.join('\n');
 
   if (parentSelector) {
+    const mycssArr = [parentSelector + ' {\n' + myRule + '\n}\n'];
     const keyframesString = '@keyframes';
     if (0 === parentSelector.indexOf(keyframesString)) {
       browsers.forEach(browser => {
-        mycss +=
+        mycssArr.push(
           parentSelector.replace(
             keyframesString,
             '@-' + browser + '-keyframes',
           ) +
-          ' {\n' +
-          mycss +
-          '}\n';
+            ' {\n' +
+            myRule +
+            '\n}\n',
+        );
       });
     }
-    mycss += parentSelector + ' {\n' + mycss + '}\n';
+    myRule = mycssArr.join('\n');
   }
-  result.cssArr[styleId] = mycss;
-  result.css += mycss;
+  result.cssArr[styleId] = myRule;
+  result.css += myRule;
   return result;
 };
 
