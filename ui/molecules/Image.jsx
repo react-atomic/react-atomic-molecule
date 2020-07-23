@@ -3,15 +3,15 @@ import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 
 const Image = props => {
-  const { alt, title, ui, imgProps } = props;
+  const {imgProps, ...otherProps} = props;
   const classes = mixClass(props.className, {
-    image: ui
+    image: props.ui
   });
-  const thisAlt = alt || title;
+  const thisAlt = props.alt || props.title;
 
   if (props.atom && "img" !== props.atom) {
     return (
-      <SemanticUI {...props} className={classes}>
+      <SemanticUI {...otherProps} className={classes}>
         <SemanticUI atom="img" src={props.src} alt={thisAlt} {...imgProps} />
         {props.children}
       </SemanticUI>
@@ -20,7 +20,7 @@ const Image = props => {
     return (
       <SemanticUI
         atom="img"
-        {...{ ...props, ...imgProps }}
+        {...{ ...otherProps, ...imgProps }}
         alt={thisAlt}
         className={classes}
       />
