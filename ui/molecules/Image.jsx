@@ -1,40 +1,31 @@
-import React from 'react'; 
-import {mixClass} from 'class-lib';
-import SemanticUI from '../molecules/SemanticUI';
+import React from "react";
+import { mixClass } from "class-lib";
+import SemanticUI from "../molecules/SemanticUI";
 
-const Image = (props) =>
-{
-    const {alt, title, ui} = props;
-    const classes = mixClass (
-        props.className,
-        {
-            image: ui
-        }
+const Image = props => {
+  const { alt, title, ui, imgProps } = props;
+  const classes = mixClass(props.className, {
+    image: ui
+  });
+  const thisAlt = alt || title;
+
+  if (props.atom && "img" !== props.atom) {
+    return (
+      <SemanticUI {...props} className={classes}>
+        <SemanticUI atom="img" src={props.src} alt={thisAlt} {...imgProps} />
+        {props.children}
+      </SemanticUI>
     );
-    
-    let thisAlt = alt;
-    if (!thisAlt) {
-        thisAlt = title;
-    }
-
-    if (props.atom && 'img' !== props.atom) {
-        return (
-            <SemanticUI
-                {...props}
-                className={classes}
-            >
-                <SemanticUI atom="img" src={props.src} alt={thisAlt}/>
-                {props.children}
-            </SemanticUI>
-        );
-    } else {
-        return (
-          <SemanticUI atom="img"
-            {...props} 
-            alt={thisAlt}
-            className={classes} />
-        );
-    }
-}
-Image.defaultProps = { ui: true };
+  } else {
+    return (
+      <SemanticUI
+        atom="img"
+        {...{ ...props, ...imgProps }}
+        alt={thisAlt}
+        className={classes}
+      />
+    );
+  }
+};
+Image.defaultProps = { ui: true, imgProps: { loading: "lazy" } };
 export default Image;
