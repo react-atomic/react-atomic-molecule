@@ -154,6 +154,12 @@ const Field = props => {
     rightTipEl = <Label className="left pointing prompt">{rightTip}</Label>;
   }
 
+  // init FieldStyle boxSizing
+  thisFieldStyle = thisFieldStyle || {};
+  if (!thisFieldStyle.boxSizing) {
+    thisFieldStyle.boxSizing = 'inherit'; 
+  }
+
   return (
     <SemanticUI
       {...fieldProps}
