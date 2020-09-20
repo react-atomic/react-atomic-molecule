@@ -1,6 +1,6 @@
 {
   "name": "keyframe-css",
-  "version": "0.0.14",
+  "version": "0.1.0",
   "main": "./index.js",
   "module": "./index.es.js",
   "description": "Keyframes CSS Centralized",
@@ -10,7 +10,9 @@
   ],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
-  "devDependencies": {
-    "react-atomic-molecule": "*"
+  "dependencies": {
+    "get-object-value": "*",
+    "react-atomic-molecule": "*",
+    "call-func": "*"
   }
 }
