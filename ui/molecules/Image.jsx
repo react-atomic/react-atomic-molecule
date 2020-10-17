@@ -2,10 +2,10 @@ import React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 
-const Image = props => {
-  const {imgProps, ...otherProps} = props;
+const Image = (props) => {
+  const { imgProps, ...otherProps } = props;
   const classes = mixClass(props.className, {
-    image: props.ui
+    image: props.ui,
   });
   const thisAlt = props.alt || props.title;
 

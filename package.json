@@ -46,8 +46,9 @@
     "jsdom": "*",
     "jsdom-global": "*",
     "mocha": "*",
-    "preact": "*",
-    "preact-compat": "*",
+    "prettier": "*",
+    "prettier-eslint": "*",
+    "prettier-eslint-cli": "*",
     "react": "^16.x",
     "react-dom": "^16.x",
     "react-test-renderer": "*"
@@ -59,6 +60,7 @@
     "build": "npm run clean && npm run build:cjs && npm run build:es",
     "mocha": "mocha 'build/cjs/**/__tests__/*.js' -r jsdom-global/register",
     "test": "npm run build && npm run mocha",
+    "format": "prettier-eslint --write 'src/**/*.js' 'ui/**/*.jsx'",
     "prepublishOnly": "npm run test"
   },
   "files": [

@@ -1,8 +1,8 @@
-import {doc} from 'win-doc';
-import store from './store.js';
-import stylesToCSS from './stylesToCSS';
-import {inject, create} from 'create-el';
-import query from 'css-query-selector';
+import { doc } from "win-doc";
+import store from "./store.js";
+import stylesToCSS from "./stylesToCSS";
+import { inject, create } from "create-el";
+import query from "css-query-selector";
 
 const reInjectStyle = () => {
   store.newStyles = Object.values(store.registry);
@@ -11,19 +11,19 @@ const reInjectStyle = () => {
 
 const keys = Object.keys;
 
-const appendCss = cssArr => {
-  keys(cssArr).forEach(key => {
-    const id = 'react-style-'+key;
-    let styleDom = query.one('#' + id);
+const appendCss = (cssArr) => {
+  keys(cssArr).forEach((key) => {
+    const id = "react-style-" + key;
+    let styleDom = query.one("#" + id);
     const css = cssArr[key];
     if (styleDom) {
       styleDom.innerHTML = css;
     } else {
-      styleDom = create('style')()({
+      styleDom = create("style")()({
         id,
         innerHTML: css,
       });
-      inject(() => doc().getElementsByTagName('head')[0])(styleDom);
+      inject(() => doc().getElementsByTagName("head")[0])(styleDom);
     }
   });
 };
@@ -48,5 +48,5 @@ const injectStyle = () => {
   }
 };
 
-export {reInjectStyle};
+export { reInjectStyle };
 export default injectStyle;

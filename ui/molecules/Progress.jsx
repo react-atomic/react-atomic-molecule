@@ -1,9 +1,9 @@
-import React from 'react';
-import reactStyle from '../../src/lib/styles/index';
-import {mixClass} from 'class-lib';
-import SemanticUI from '../molecules/SemanticUI';
+import React from "react";
+import reactStyle from "../../src/lib/styles/index";
+import { mixClass } from "class-lib";
+import SemanticUI from "../molecules/SemanticUI";
 
-const Progress = props => {
+const Progress = (props) => {
   const {
     barProps,
     children,
@@ -13,8 +13,9 @@ const Progress = props => {
     styles,
     ...others
   } = props;
-  const {style: barStyle, styles: barStyles, ...otherBarProps} = barProps || {};
-  const classes = mixClass(className, 'progress');
+  const { style: barStyle, styles: barStyles, ...otherBarProps } =
+    barProps || {};
+  const classes = mixClass(className, "progress");
 
   return (
     <SemanticUI
@@ -27,21 +28,22 @@ const Progress = props => {
             ...style,
           },
           null,
-          false,
+          false
         ),
         styles,
-      ]}>
+      ]}
+    >
       <SemanticUI
         className="bar"
         {...otherBarProps}
         styles={[
           reactStyle(
             {
-              width: percent + '%',
+              width: percent + "%",
               ...barStyle,
             },
             null,
-            false,
+            false
           ),
           barStyles,
         ]}

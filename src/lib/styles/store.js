@@ -1,4 +1,4 @@
-import {win} from 'win-doc';
+import { win } from "win-doc";
 
 let stylesStore;
 

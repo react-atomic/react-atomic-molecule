@@ -1,13 +1,13 @@
-import React from 'react';
-import {mixClass} from 'class-lib';
-import SemanticUI from '../molecules/SemanticUI';
+import React from "react";
+import { mixClass } from "class-lib";
+import SemanticUI from "../molecules/SemanticUI";
 
-const Unsafe = ({className, children, ...others}) => (
+const Unsafe = ({ className, children, ...others }) => (
   <SemanticUI
     {...others}
-    className={mixClass('us-html', className)}
+    className={mixClass("us-html", className)}
     dangerouslySetInnerHTML={{
-      __html: 'function' === typeof children ? children() : children,
+      __html: "function" === typeof children ? children() : children,
     }}
   />
 );

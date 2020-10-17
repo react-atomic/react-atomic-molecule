@@ -1,12 +1,12 @@
 /* jshint esnext: true */
-import React, {cloneElement} from 'react';
-import {mixClass} from 'class-lib';
-import get from 'get-object-value';
-import SemanticUI from '../molecules/SemanticUI';
-import Message from '../molecules/Message';
-import Label from '../molecules/Label';
+import React, { cloneElement } from "react";
+import { mixClass } from "class-lib";
+import get from "get-object-value";
+import SemanticUI from "../molecules/SemanticUI";
+import Message from "../molecules/Message";
+import Label from "../molecules/Label";
 
-const Field = props => {
+const Field = (props) => {
   const {
     className,
     fieldClassName,
@@ -37,27 +37,27 @@ const Field = props => {
   } = props;
   const isGroup = !(props.atom || inputComponent);
   const classes = mixClass(fieldClassName, {
-    'label-wrap': labelWrap,
+    "label-wrap": labelWrap,
     required: !!required,
     field: !isGroup,
     fields: isGroup,
     inline: !!inline,
-    info: messageType === 'info',
-    error: messageType === 'error',
-    success: messageType === 'success',
-    warning: messageType === 'warning',
+    info: messageType === "info",
+    error: messageType === "error",
+    success: messageType === "success",
+    warning: messageType === "warning",
   });
   let oLabel = null;
   let thisMessageProps = messageProps || {};
   if (label) {
-    const thisLabelStyle = {...get(labelStyle, null, {})};
+    const thisLabelStyle = { ...get(labelStyle, null, {}) };
     if (props.id) {
-      thisLabelStyle.cursor = 'pointer';
+      thisLabelStyle.cursor = "pointer";
     }
     if (labelWrap) {
-      thisLabelStyle.flex = '0 1 100%';
-      thisMessageProps.style = {...thisMessageProps.style};
-      thisMessageProps.style.flex = '0 1 100%'; 
+      thisLabelStyle.flex = "0 1 100%";
+      thisMessageProps.style = { ...thisMessageProps.style };
+      thisMessageProps.style.flex = "0 1 100%";
     }
     oLabel = (
       <SemanticUI
@@ -66,7 +66,8 @@ const Field = props => {
         htmlFor={props.id}
         style={thisLabelStyle}
         styles={labelStyles}
-        styleOrder={styleOrder}>
+        styleOrder={styleOrder}
+      >
         {label}
       </SemanticUI>
     );
@@ -83,12 +84,12 @@ const Field = props => {
       thisFieldStyle = style || {};
     }
     if (label && labelWrap) {
-      thisFieldStyle.flexWrap = 'wrap';
+      thisFieldStyle.flexWrap = "wrap";
     }
   } else {
-    const isSelect = 'select' === props.atom;
+    const isSelect = "select" === props.atom;
     input = inputComponent ? inputComponent : <SemanticUI />;
-    const inputProps = get(input, ['props'], {});
+    const inputProps = get(input, ["props"], {});
 
     // set inputChildren
     let inputChildren = inputProps.children || null;
@@ -106,18 +107,18 @@ const Field = props => {
       {
         ...others,
         style: {
-          boxSizing: 'inherit',
-          ...get(input, ['props', 'style']),
+          boxSizing: "inherit",
+          ...get(input, ["props", "style"]),
           ...style,
         },
-        key: 'input',
+        key: "input",
         className: inputClasses,
         styles,
         styleOrder,
         required,
         type,
       },
-      inputChildren,
+      inputChildren
     );
   }
   let topTipEl;
@@ -129,7 +130,7 @@ const Field = props => {
     );
   }
   let inputs;
-  if ('checkbox' === type || 'radio' === type) {
+  if ("checkbox" === type || "radio" === type) {
     inputs = [topTipEl, input, oLabel];
   } else {
     inputs = [oLabel, topTipEl, input];
@@ -157,7 +158,7 @@ const Field = props => {
   // init FieldStyle boxSizing
   thisFieldStyle = thisFieldStyle || {};
   if (!thisFieldStyle.boxSizing) {
-    thisFieldStyle.boxSizing = 'inherit'; 
+    thisFieldStyle.boxSizing = "inherit";
   }
 
   return (
@@ -166,7 +167,8 @@ const Field = props => {
       className={classes}
       style={thisFieldStyle}
       styles={thisFieldStyles}
-      styleOrder={styleOrder}>
+      styleOrder={styleOrder}
+    >
       {inputs}
       {thisChildren}
       {rightTipEl}
