@@ -1,64 +1,64 @@
-module.exports = function(api) {
+module.exports = function (api) {
   api.cache(true);
   return {
     env: {
-      build: {
+      cjs: {
         presets: [
           [
-            '@babel/preset-env',
+            "@babel/preset-env",
             {
-              targets: ['last 2 versions', 'ie >= 8'],
+              targets: ["last 2 versions", "ie >= 8"],
             },
           ],
-          '@babel/preset-react',
+          "@babel/preset-react",
         ],
         plugins: [
-          'add-module-exports',
-          'dynamic-import-node',
-          'transform-react-pure-class-to-function',
-          ['transform-react-remove-prop-types', {mode: 'wrap'}],
+          "add-module-exports",
+          "dynamic-import-node",
+          "transform-react-pure-class-to-function",
+          ["transform-react-remove-prop-types", { mode: "wrap" }],
           [
-            'reshow-transform-runtime',
+            "reshow-transform-runtime",
             {
               regenerator: false,
             },
           ],
-          '@babel/plugin-proposal-export-default-from',
-          '@babel/plugin-syntax-dynamic-import',
-          '@babel/plugin-transform-react-constant-elements',
-          '@babel/plugin-transform-object-assign',
-          '@babel/plugin-proposal-object-rest-spread',
-          '@babel/plugin-proposal-class-properties',
+          "@babel/plugin-proposal-export-default-from",
+          "@babel/plugin-syntax-dynamic-import",
+          "@babel/plugin-transform-react-constant-elements",
+          "@babel/plugin-transform-object-assign",
+          "@babel/plugin-proposal-object-rest-spread",
+          "@babel/plugin-proposal-class-properties",
         ],
       },
       es: {
         presets: [
           [
-            '@babel/preset-env',
+            "@babel/preset-env",
             {
               modules: false,
-              targets: ['last 2 versions', 'ie >= 8'],
+              targets: ["last 2 versions", "ie >= 8"],
             },
           ],
-          '@babel/preset-react',
+          "@babel/preset-react",
         ],
         plugins: [
-          'transform-react-pure-class-to-function',
-          ['transform-react-remove-prop-types', {mode: 'wrap'}],
+          "transform-react-pure-class-to-function",
+          ["transform-react-remove-prop-types", { mode: "wrap" }],
           [
-            'reshow-transform-runtime',
+            "reshow-transform-runtime",
             {
               regenerator: false,
               useESModules: true,
-              version: "7.5.0",
+              version: "7.9.0",
             },
           ],
-          '@babel/plugin-proposal-export-default-from',
-          '@babel/plugin-syntax-dynamic-import',
-          '@babel/plugin-transform-object-assign',
-          '@babel/plugin-transform-react-constant-elements',
-          '@babel/plugin-proposal-object-rest-spread',
-          '@babel/plugin-proposal-class-properties',
+          "@babel/plugin-proposal-export-default-from",
+          "@babel/plugin-syntax-dynamic-import",
+          "@babel/plugin-transform-object-assign",
+          "@babel/plugin-transform-react-constant-elements",
+          "@babel/plugin-proposal-object-rest-spread",
+          "@babel/plugin-proposal-class-properties",
         ],
       },
     },
