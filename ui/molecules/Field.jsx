@@ -67,6 +67,7 @@ const Field = (props) => {
         style={thisLabelStyle}
         styles={labelStyles}
         styleOrder={styleOrder}
+        title={label}
       >
         {label}
       </SemanticUI>

@@ -21,6 +21,7 @@ module.exports = function (api) {
             "reshow-transform-runtime",
             {
               regenerator: false,
+              version: "7.9.0",
             },
           ],
           "@babel/plugin-proposal-export-default-from",
