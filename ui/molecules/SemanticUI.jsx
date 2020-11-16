@@ -10,7 +10,8 @@ import { mixClass } from "class-lib";
 
 const keys = Object.keys;
 
-const getChildren = (render, children) => render && bindChildKey(children);
+const getChildren = (render, children) =>
+  render ? bindChildKey(children) : null;
 
 const SemanticUI = ({
   atom,

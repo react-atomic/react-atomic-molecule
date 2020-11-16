@@ -26,4 +26,10 @@ describe('Test SemaniticUI', () => {
     );
     expect(wrapper.html()).to.not.have.string('span');
   });
+  it('test render img', () => {
+    const wrapper = mount(
+      <SemanticUI atom="img" />,
+    );
+    expect(wrapper.html()).to.have.string('img');
+  });
 });
