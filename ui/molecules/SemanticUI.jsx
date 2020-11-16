@@ -1,25 +1,16 @@
-/* jshint esnext: true */
-import React, { createElement, Children } from "react";
+import React, { createElement } from "react";
 import * as Atoms from "react-atomic-atom";
 import get from "get-object-value";
 import ucfirst from "ucfirst";
 
 import injectStyle from "../../src/lib/styles/injectStyle";
 import bindStyles from "../../src/lib/styles/bindStyles";
+import { bindChildKey } from "../../src/getChildMapping";
 import { mixClass } from "class-lib";
 
 const keys = Object.keys;
 
-const getChildren = (render, children) => {
-  if (!render) {
-    return null;
-  }
-  /**
-   * Hack for https://fb.me/react-warning-keys
-   * Each child in an array or iterator should have a unique "key"
-   */
-  return Children.map(children, (c) => c);
-};
+const getChildren = (render, children) => render && bindChildKey(children);
 
 const SemanticUI = ({
   atom,
