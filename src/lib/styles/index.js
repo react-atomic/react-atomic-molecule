@@ -52,4 +52,4 @@ const createStyle = (css, selector, styleId) => {
   return styleDecl;
 };
 
-export default createStyle; // reactStyle('', '', '')
+export default createStyle; // reactStyle(css, selector, styleId)

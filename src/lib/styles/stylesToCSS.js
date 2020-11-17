@@ -10,7 +10,7 @@ const keys = Object.keys;
 const browsers = ["webkit", "moz"];
 
 const buildRule = (key, value) => {
-  if (null === value) {
+  if (null == value) {
     return "";
   }
 
@@ -36,6 +36,10 @@ const buildRules = (result, styleId, selector) => {
   const myRules = [];
   rules.forEach((rule, i) => {
     let mycss = "";
+    /**
+     * if selector[i] is array will conver to string here.
+     * Such [".foo", ".bar"] will conver to .foo,.bar
+     */
     mycss += selector[i] + " {";
     keys(rule).forEach((styleKey) => {
       if (rule[styleKey] && rule[styleKey].forEach) {
@@ -99,11 +103,11 @@ const buildStyle = (result, oStyle) => {
 };
 
 const stylesToCSS = (styles) => {
-  if (!isArray(styles)) {
+  if (!isArray(styles) && styles) {
     styles = [styles];
   }
   const result = { css: "", styleIds: {}, cssArr: {} };
-  styles.forEach((style) => buildStyle(result, style));
+  styles?.forEach((style) => buildStyle(result, style));
   return result;
 };
 

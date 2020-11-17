@@ -1,6 +1,6 @@
-import mergeStyleConfig from "../mergeStyleConfig";
-
 import { expect } from "chai";
+
+import mergeStyleConfig from "../mergeStyleConfig";
 
 describe("Test merge style config", () => {
   it("merge with nothing", () => {

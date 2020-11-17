@@ -31,8 +31,7 @@ const applyStyle = (props, order) => (oStyle) => {
     return order;
   }
   if (!oStyle.isCompiled) {
-    console.error("Not a style object", oStyle);
-    console.trace();
+    console.warn("Not a style object", oStyle);
     return order;
   }
   return oStyle.isCompiled() && order < 10
