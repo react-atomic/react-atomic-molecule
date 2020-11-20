@@ -1,4 +1,3 @@
-"use strict";
 import reactStyle from "./index";
 import injectStyle from "./injectStyle";
 

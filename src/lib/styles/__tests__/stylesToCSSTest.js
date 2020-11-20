@@ -13,9 +13,7 @@ describe("Test stylesToCSS", () => {
 
   it("basic test", () => {
     const acture = stylesToCSS();
-    expect(acture).to.deep.equal(
-      { css: "", styleIds: {}, cssArr: {} },
-    );
+    expect(acture).to.deep.equal({ css: "", styleIds: {}, cssArr: {} });
   });
 
   it("join selector test", () => {
@@ -24,10 +22,25 @@ describe("Test stylesToCSS", () => {
     expect(JSON.stringify(acture.cssArr)).to.have.string(".xxx,.yyy");
   });
 
-
   it("style only test", () => {
     const oReactStyle = reactStyle({ width: 100 });
     const acture = stylesToCSS(oReactStyle);
     expect(JSON.stringify(acture.cssArr)).to.have.string(".c1_,.c1_.c1_1,");
+  });
+
+  it("test keyframe", () => {
+    const oReactStyle = reactStyle(
+      [
+        {
+          transform: ["rotateZ(0deg)"],
+        },
+        {
+          transform: ["rotateZ(360deg)"],
+        },
+      ],
+      ["@keyframes spin", "0%", "100%"]
+    );
+    const acture = stylesToCSS(oReactStyle);
+    expect(JSON.stringify(acture.cssArr)).to.have.string("@keyframes spin");
   });
 });

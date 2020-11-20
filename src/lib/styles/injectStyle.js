@@ -34,6 +34,7 @@ const injectStyle = () => {
     return null;
   }
   const compiled = stylesToCSS(store.newStyles);
+  store.lastCompiled = compiled;
   store.newStyles = [];
   store.registry = {
     ...store.registry,
