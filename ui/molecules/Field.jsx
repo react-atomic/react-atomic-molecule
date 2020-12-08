@@ -82,8 +82,7 @@ const Field = (props) => {
       thisFieldStyles = styles;
     }
     if (!thisFieldStyle) {
-      thisFieldStyle = style || {};
-      thisFieldStyle = {...thisFieldStyle};
+      thisFieldStyle = {...style};
     } else {
       thisFieldStyle = {...thisFieldStyle};
     }
@@ -160,7 +159,6 @@ const Field = (props) => {
   }
 
   // init FieldStyle boxSizing
-  thisFieldStyle = thisFieldStyle || {};
   thisFieldStyle = {...thisFieldStyle};
   if (!thisFieldStyle.boxSizing) {
     thisFieldStyle.boxSizing = "inherit";
