@@ -83,6 +83,9 @@ const Field = (props) => {
     }
     if (!thisFieldStyle) {
       thisFieldStyle = style || {};
+      thisFieldStyle = {...thisFieldStyle};
+    } else {
+      thisFieldStyle = {...thisFieldStyle};
     }
     if (label && labelWrap) {
       thisFieldStyle.flexWrap = "wrap";
@@ -158,6 +161,7 @@ const Field = (props) => {
 
   // init FieldStyle boxSizing
   thisFieldStyle = thisFieldStyle || {};
+  thisFieldStyle = {...thisFieldStyle};
   if (!thisFieldStyle.boxSizing) {
     thisFieldStyle.boxSizing = "inherit";
   }
