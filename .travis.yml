@@ -3,4 +3,4 @@ node_js:
   - 10 
 env:
   - TEST_DIR=./
-script: cd $TEST_DIR; mocha --version; yarn --ignore-engines && npm t
+script: cd $TEST_DIR; yarn --ignore-engines; mocha --version; npm t
