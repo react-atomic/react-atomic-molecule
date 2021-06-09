@@ -24,7 +24,7 @@ const Progress = (props) => {
   } = barProps || {};
   const classes = mixClass(className, "progress");
   otherBarProps.children = barLabel ? (
-    <SemanticUI className="progress">{barLabel}</SemanticUI>
+    <SemanticUI className="progress" ui={false}>{barLabel}</SemanticUI>
   ) : (
     otherBarProps.children
   );
