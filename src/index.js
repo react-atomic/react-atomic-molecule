@@ -1,8 +1,9 @@
 // ui
 export { default as Button } from "../ui/molecules/Button";
 export { default as Card } from "../ui/molecules/Card";
-export { default as Content } from "../ui/molecules/Content";
 export { default as Circular } from "../ui/molecules/Circular";
+export { default as Content } from "../ui/molecules/Content";
+export { default as Column } from "../ui/molecules/Column";
 export { default as Description } from "../ui/molecules/Description";
 export { default as Divider } from "../ui/molecules/Divider";
 export { default as DividingHeader } from "../ui/molecules/DividingHeader";
@@ -22,6 +23,7 @@ export { default as Meta } from "../ui/molecules/Meta";
 export { default as Progress } from "../ui/molecules/Progress";
 export { default as Rail } from "../ui/molecules/Rail";
 export { default as Ribbon } from "../ui/molecules/Ribbon";
+export { default as Row } from "../ui/molecules/Row";
 export { default as SemanticUI } from "../ui/molecules/SemanticUI";
 export { default as Segment } from "../ui/molecules/Segment";
 export { default as Title } from "../ui/molecules/Title";
