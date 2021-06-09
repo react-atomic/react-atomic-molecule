@@ -16,7 +16,7 @@ const Progress = (props) => {
     styles,
     ...others
   } = props;
-  const thisLabel = label ? <Label>{label}</Label> : children;
+  const thisLabel = label ? <Label ui={false}>{label}</Label> : children;
   const {
     style: barStyle,
     styles: barStyles,
@@ -24,7 +24,7 @@ const Progress = (props) => {
   } = barProps || {};
   const classes = mixClass(className, "progress");
   otherBarProps.children = barLabel ? (
-    <Label>{barLabel}</Label>
+    <SemanticUI className="progress">{barLabel}</SemanticUI>
   ) : (
     otherBarProps.children
   );
@@ -37,6 +37,7 @@ const Progress = (props) => {
     >
       <SemanticUI
         className="bar"
+        ui={false}
         {...otherBarProps}
         styles={[
           reactStyle(
