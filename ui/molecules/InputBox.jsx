@@ -1,12 +1,16 @@
-/* jshint esnext: true */
-import React from "react";
+import React, { useEffect } from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Button from "../molecules/Button";
 import Label from "../molecules/Label";
 import Icon from "../molecules/Icon";
 
+import lazyInject from "../../src/lib/styles/lazyInject";
+
 const InputBox = (props) => {
+  useEffect(() => {
+    injects = lazyInject(injects, InjectStyles);
+  }, []);
   const {
     icon,
     button,
@@ -79,4 +83,15 @@ const Styles = {
     right: 0,
     opacity: 0.5,
   },
+};
+
+let injects;
+const InjectStyles = {
+  label: [
+    {
+      background: "transparent",
+      color: "inherit",
+    },
+    ".ui.transparent.inverted.input>.label",
+  ],
 };
