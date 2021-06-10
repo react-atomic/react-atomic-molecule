@@ -7,7 +7,9 @@ import Label from "../molecules/Label";
 const Progress = (props) => {
   const {
     label,
+    labelProps,
     barLabel,
+    barLabelProps,
     barProps,
     children,
     className,
@@ -16,7 +18,13 @@ const Progress = (props) => {
     styles,
     ...others
   } = props;
-  const thisLabel = label ? <Label ui={false}>{label}</Label> : children;
+  const thisLabel = label ? (
+    <Label ui={false} {...labelProps}>
+      {label}
+    </Label>
+  ) : (
+    children
+  );
   const {
     style: barStyle,
     styles: barStyles,
@@ -24,7 +32,9 @@ const Progress = (props) => {
   } = barProps || {};
   const classes = mixClass(className, "progress");
   otherBarProps.children = barLabel ? (
-    <SemanticUI className="progress" ui={false}>{barLabel}</SemanticUI>
+    <SemanticUI className="progress" ui={false} {...barLabelProps}>
+      {barLabel}
+    </SemanticUI>
   ) : (
     otherBarProps.children
   );
