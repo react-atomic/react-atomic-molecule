@@ -10,7 +10,7 @@ const InputBox = (props) => {
   const {
     icon,
     button,
-    buttonProps,
+    actionProps = {},
     className,
     children,
     messageType,
@@ -44,10 +44,13 @@ const InputBox = (props) => {
   }
   let thisButton = null;
   if (button) {
-    thisButton = <Button {...buttonProps}>{button}</Button>;
-  }
-  if (icon) {
-    thisButton = <Icon style={Styles.icon}>{icon}</Icon>;
+    thisButton = <Button {...actionProps}>{button}</Button>;
+  } else if (icon) {
+    thisButton = (
+      <Icon {...actionProps} style={{ ...Styles.icon, ...actionProps.style }}>
+        {icon}
+      </Icon>
+    );
   }
   return (
     <SemanticUI className={classes} style={style}>
@@ -71,7 +74,6 @@ const Styles = {
     borderRadius: 0,
   },
   icon: {
-    width: "1.1em",
     position: "absolute",
     top: 0,
     right: 0,
