@@ -53,4 +53,14 @@ describe("Test merge default value", () => {
       }};
       expect(actural).to.deep.equal(expected);
   });
+
+  it('merge with null', ()=>{
+      const o = null;
+      const actural = mergeDefaultValue(
+        o,
+        {foo: 'bar'}
+      ); 
+      const expected = {foo: 'bar'};
+      expect(actural).to.deep.equal(expected);
+  });
 });
