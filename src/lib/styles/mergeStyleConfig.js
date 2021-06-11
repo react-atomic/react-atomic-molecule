@@ -1,13 +1,9 @@
+import mergeDefaultValue from "../../mergeDefaultValue";
 const keys = Object.keys;
 
 const mergeStyleConfig = (styles, defaultStyles, injectStyles) => {
   if (defaultStyles) {
-    keys(defaultStyles).forEach(
-      (key) =>
-        (styles[key] = !styles[key]
-          ? defaultStyles[key]
-          : { ...defaultStyles[key], ...styles[key] })
-    );
+    mergeDefaultValue(styles, defaultStyles);
   }
   if (injectStyles) {
     keys(styles).forEach((key) => {
