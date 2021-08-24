@@ -7,12 +7,10 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.7.5",
-    "babel-core": "^6.7.5",
-    "react": "^16.x"
+    "@babel/cli": "^7.x"
   },
   "scripts": {
-    "clean": "find ./build | xargs rm -rf",
+    "clean": "find ./build -name '*.*' | xargs rm -rf",
     "build:cjs": "BABEL_ENV=build babel src -d build",
     "copy": "cp package.json.build ./build/package.json && cp README.md ./build/",
     "build": "npm run clean && npm run build:cjs && npm run copy && cd build && yarn install",
