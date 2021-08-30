@@ -34,10 +34,6 @@ export { mixClass } from "class-lib";
 export { default as build } from "reshow-build";
 export { default as getChildMapping } from "./getChildMapping";
 
-// hooks
-export { default as usePrevious } from "./hooks/usePrevious";
-export { default as useMounted } from "./hooks/useMounted";
-
 //styles
 export { default as injectStyle } from "./lib/styles/injectStyle";
 export { default as lazyInject } from "./lib/styles/lazyInject";
