@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
@@ -66,7 +66,7 @@
     "mochaFor": "mocha -r jsdom-global/register",
     "mocha": "npm run mochaFor -- 'build/cjs/**/__tests__/*.js'",
     "test": "npm run build && npm run mocha",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run format && npm run test"
   },
   "files": [
     "build",

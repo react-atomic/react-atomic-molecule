@@ -37,6 +37,7 @@ export { default as getChildMapping } from "./getChildMapping";
 //styles
 export { default as injectStyle } from "./lib/styles/injectStyle";
 export { default as lazyInject } from "./lib/styles/lazyInject";
+export { default as useLazyInject } from "./lib/styles/useLazyInject";
 export { default as reactStyle } from "./lib/styles/index";
 export { default as mergeStyleConfig } from "./lib/styles/mergeStyleConfig";
 export { default as mergeDefaultValue } from "./mergeDefaultValue";
@@ -44,4 +45,3 @@ export { default as needCss } from "./needCss";
 
 // config
 export { min, max } from "./config/styles/rwd";
-
