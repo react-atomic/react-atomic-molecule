@@ -1,13 +1,12 @@
 import hyphenateStyleName from "hyphenate-style-name";
 import get from "get-object-value";
+import { IS_ARRAY, KEYS } from "reshow-constant";
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
 const unquotedContentValueRegex =
   /^(normal|none|(\b(url\([^)]*\)|chapter_counter|attr\([^)]*\)|(no-)?(open|close)-quote|inherit)((\b\s*)|$|\s+))+)$/;
 
-const isArray = Array.isArray;
-const keys = Object.keys;
 const browsers = ["webkit", "moz"];
 
 const buildRule = (key, value) => {
@@ -27,7 +26,7 @@ const buildRules = (result, styleId, selector) => {
     return result;
   }
   let parentSelector;
-  if (isArray(selector)) {
+  if (IS_ARRAY(selector)) {
     parentSelector = selector[0].trim();
     selector.shift();
   } else {
@@ -42,7 +41,7 @@ const buildRules = (result, styleId, selector) => {
      * Such [".foo", ".bar"] will conver to .foo,.bar
      */
     mycss += selector[i] + " {";
-    keys(rule).forEach((styleKey) => {
+    KEYS(rule).forEach((styleKey) => {
       if (rule[styleKey] && rule[styleKey].forEach) {
         rule[styleKey].forEach((item) => (mycss += buildRule(styleKey, item)));
       } else {
@@ -93,7 +92,7 @@ const buildStyle = (result, oStyle) => {
   }
   let selector = oStyle.selector;
   if (selector) {
-    if (isArray(selector) && !selector[1]) {
+    if (IS_ARRAY(selector) && !selector[1]) {
       selector[1] = replicateSelector(styleId);
     }
   } else {
@@ -104,7 +103,7 @@ const buildStyle = (result, oStyle) => {
 };
 
 const stylesToCSS = (styles) => {
-  if (!isArray(styles) && styles) {
+  if (!IS_ARRAY(styles) && styles) {
     styles = [styles];
   }
   const result = { css: "", styleIds: {}, cssArr: {} };

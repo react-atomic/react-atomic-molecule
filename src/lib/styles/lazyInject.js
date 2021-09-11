@@ -1,15 +1,13 @@
+import { IS_ARRAY, KEYS } from "reshow-constant";
 import reactStyle from "./index";
 import injectStyle from "./injectStyle";
-
-const isArray = Array.isArray;
-const keys = Object.keys;
 
 const lazyInject = (injects, configs) => {
   if (!injects) {
     injects = {};
-    keys(configs).forEach((key) => {
+    KEYS(configs).forEach((key) => {
       let item = configs[key];
-      if (!isArray(item)) {
+      if (!IS_ARRAY(item)) {
         item = [item];
       }
       injects[key] = reactStyle.apply(null, item);

@@ -3,8 +3,8 @@ import style from "./style";
 import store from "./store";
 import nToU from "./cssNumberToUnit";
 
-const isArray = Array.isArray;
-const keys = Object.keys;
+import { IS_ARRAY, KEYS, UNDEFINED } from "reshow-constant";
+
 const Browser = {
   webkit: "Webkit",
   ms: "ms",
@@ -20,20 +20,20 @@ const createStyle = (css, selector, styleId) => {
   if (!css) {
     return;
   }
-  if ("undefined" === typeof styleId) {
+  if (UNDEFINED === typeof styleId) {
     styleId = genStyleId();
   } else if (store.registry[styleId]) {
     return store.registry[styleId];
   }
-  if (!isArray(css)) {
+  if (!IS_ARRAY(css)) {
     css = [css];
   }
 
-  let styles = [];
+  const styles = [];
   css.forEach((one, i) => {
     styles[i] = {};
-    keys(one).forEach((key) => {
-      if (isArray(one[key]) && 1 === one[key].length) {
+    KEYS(one).forEach((key) => {
+      if (IS_ARRAY(one[key]) && 1 === one[key].length) {
         const ucFirstKey = ucfirst(key);
         styles[i][Browser.webkit + ucFirstKey] =
           styles[i][Browser.ms + ucFirstKey] =

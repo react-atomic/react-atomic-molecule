@@ -1,22 +1,13 @@
 import { isUnitlessNumber } from "./cssUnitLessNumber";
+import { IS_ARRAY } from "reshow-constant";
 
-const cssUnitToNumber = (key, value) => {
+const appendPx = (v) => ("number" === typeof v ? v + "px" : v);
+
+const cssNumberToUnit = (key, value) => {
   if (isUnitlessNumber[key]) {
     return value;
   }
-  if (value && value.map) {
-    value.map((v) => {
-      if ("number" === typeof v) {
-        v += "px";
-      }
-      return v;
-    });
-  } else {
-    if ("number" === typeof value) {
-      value += "px";
-    }
-  }
-  return value;
+  return IS_ARRAY(value) ? value.map((v) => appendPx(v)) : appendPx(value);
 };
 
-export default cssUnitToNumber;
+export default cssNumberToUnit;

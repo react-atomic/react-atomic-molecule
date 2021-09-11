@@ -1,5 +1,4 @@
-const isArray = Array.isArray;
-const keys = Object.keys;
+import { IS_ARRAY, KEYS } from "reshow-constant";
 
 const applyClassName = (props, order, oStyle) => {
   if (!props.className) {
@@ -14,14 +13,14 @@ const applyClassName = (props, order, oStyle) => {
 };
 
 const applyInlineStyle = (props, order, oStyle) => {
-  if (isArray(oStyle.selector)) {
+  if (IS_ARRAY(oStyle.selector)) {
     return order;
   }
   if (!props.style) {
     props.style = {};
   }
   oStyle.style.forEach((one) =>
-    keys(one).forEach((key) => (props.style[key] = one[key]))
+    KEYS(one).forEach((key) => (props.style[key] = one[key]))
   );
   return order;
 };
@@ -43,7 +42,7 @@ const applyStyles = (props, styles, order) => {
   if (isNaN(order)) {
     order = 0;
   }
-  if (!isArray(styles)) {
+  if (!IS_ARRAY(styles)) {
     styles = [styles];
   }
   const apply = applyStyle(props, order);

@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "2.7.3",
+  "version": "2.8.0",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
@@ -40,18 +40,9 @@
     "babel-plugin-reshow-transform-runtime": "*",
     "babel-plugin-transform-react-pure-class-to-function": "*",
     "babel-plugin-transform-react-remove-prop-types": "*",
-    "chai": "*",
-    "enzyme": "*",
-    "enzyme-adapter-react-16": "*",
-    "jsdom": "*",
-    "jsdom-global": "*",
-    "mocha": "*",
-    "prettier": "*",
-    "prettier-eslint": "*",
-    "prettier-eslint-cli": "*",
+    "reshow-unit": "*",
     "react": "^16.x",
-    "react-dom": "^16.x",
-    "react-test-renderer": "*"
+    "react-dom": "^16.x"
   },
   "scripts": {
     "format": "prettier-eslint --write 'src/**/*.js' 'ui/**/*.jsx'",

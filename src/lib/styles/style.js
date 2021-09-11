@@ -1,5 +1,3 @@
-/*jslint browser: true*/
-"use strict";
 import store from "./store";
 
 function Style(style, selector, styleId) {
