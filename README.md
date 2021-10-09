@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/react-atomic/react-atomic-molecule.svg?branch=master)](https://travis-ci.org/react-atomic/react-atomic-molecule) 
+
+[![CircleCI](https://circleci.com/gh/react-atomic/react-atomic-molecule/tree/master.svg?style=svg)](https://circleci.com/gh/react-atomic/react-atomic-molecule/tree/master)
 
 React Atomic Molecule 
 ===============

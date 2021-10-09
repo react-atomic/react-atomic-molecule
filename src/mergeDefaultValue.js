@@ -1,14 +1,11 @@
-import {} from "reshow-constant";
+import { KEYS, IS_ARRAY } from "reshow-constant";
 
-const keys = Object.keys;
-
-const isArray = Array.isArray;
 const isObject = (val) =>
-  val != null && typeof val === "object" && isArray(val) === false;
+  val != null && typeof val === "object" && IS_ARRAY(val) === false;
 
 const mergeDefaultValue = (obj, defaultValue) => {
   obj = obj || {};
-  keys(defaultValue).forEach((key) => {
+  KEYS(defaultValue).forEach((key) => {
     obj[key] = isObject(defaultValue[key])
       ? {
           ...defaultValue[key],

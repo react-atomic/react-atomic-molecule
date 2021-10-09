@@ -1,6 +1,0 @@
-language: node_js
-node_js:
-  - 12
-env:
-  - TEST_DIR=./
-script: cd $TEST_DIR; yarn --ignore-engines; mocha --version; npm t
