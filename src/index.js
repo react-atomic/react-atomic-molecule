@@ -33,6 +33,7 @@ export { default as Unsafe } from "../ui/molecules/Unsafe";
 export { mixClass } from "class-lib";
 export { default as build } from "reshow-build";
 export { default as getChildMapping } from "./getChildMapping";
+export { default as mergeChildren } from "./mergeChildren";
 
 //styles
 export { default as injectStyle } from "./lib/styles/injectStyle";
