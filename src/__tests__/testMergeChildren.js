@@ -46,4 +46,15 @@ describe("Test merge default value", () => {
     const wrap = shallow(vDom);
     expect(wrap.html()).to.equal("<div><i></i></div>");
   });
+
+  it("test merge twice", () => {
+    const FakeDom = ({ children }) => (
+      <div>{mergeChildren(<i />, mergeChildren(<i />, children))}</div>
+    );
+
+    const vDom = <FakeDom />;
+    const wrap = shallow(vDom);
+
+    expect(wrap.html()).to.equal("<div><i></i><i></i></div>");
+  });
 });

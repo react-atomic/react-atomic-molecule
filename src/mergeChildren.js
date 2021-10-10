@@ -1,10 +1,12 @@
 import { Children } from "react";
+import build from "reshow-build";
 
 const mergeChildren = (vDom, children, isAppend) => {
+  const myDom = build(vDom)({ key: "merge" });
   if (isAppend) {
-    return [...(Children.map(children, (c) => c) || []), vDom];
+    return [...(Children.map(children, (c) => c) || []), myDom];
   } else {
-    return [vDom, ...(Children.map(children, (c) => c) || [])];
+    return [myDom, ...(Children.map(children, (c) => c) || [])];
   }
 };
 
