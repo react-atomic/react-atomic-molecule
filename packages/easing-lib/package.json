@@ -7,13 +7,17 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.x"
+    "@babel/cli": "^7.x",
+    "reshow-unit": "*"
   },
   "scripts": {
     "clean": "find ./build -name '*.*' | xargs rm -rf",
-    "build:cjs": "BABEL_ENV=build babel src -d build",
+    "build:cjs": "BABEL_ENV=cjs babel src -d build --root-mode upward",
     "copy": "cp package.json.build ./build/package.json && cp README.md ./build/",
-    "build": "npm run clean && npm run build:cjs && npm run copy && cd build && yarn install",
+    "build": "npm run clean && npm run build:cjs && npm run copy",
+    "mochaFor": "mocha -r jsdom-global/register",
+    "mocha": "npm run mochaFor -- 'build/**/__tests__/*.js'",
+    "test": "npm run build && npm run mocha",
     "prepublishOnly": "npm run build"
   }
 }
