@@ -1,7 +1,7 @@
 import callfunc from "call-func";
 import { win } from "win-doc";
 
-const EasingProcessor = ({ duration, isContinue, stop, cancel }) => {
+const aniTimer = ({ isContinue, done, cancel }, duration) => {
   let beginTimeStamp;
   const run = (timestamp) => {
     beginTimeStamp = beginTimeStamp || timestamp;
@@ -13,10 +13,10 @@ const EasingProcessor = ({ duration, isContinue, stop, cancel }) => {
         callfunc(cancel);
       }
     } else {
-      callfunc(stop);
+      callfunc(done);
     }
   };
   callfunc(win().requestAnimationFrame, [run]);
 };
 
-export default EasingProcessor;
+export default aniTimer;

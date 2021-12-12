@@ -1,7 +1,7 @@
 import { expect } from "chai";
-import EasingProcessor from "../EasingProcessor";
+import aniTimer from "../aniTimer";
 
-describe("Test EasingProcessor", () => {
+describe("Test aniTimer", () => {
   let keepRAF;
   before(() => {
     keepRAF = window.requestAnimationFrame;
@@ -16,10 +16,9 @@ describe("Test EasingProcessor", () => {
   });
 
   it("basic test", (done) => {
-    EasingProcessor({
-      duration: 5,
+    aniTimer({
       isContinue: () => true,
-      stop: () => done(),
-    });
+      done: () => done(),
+    }, 5);
   });
 });
