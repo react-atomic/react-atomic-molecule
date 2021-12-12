@@ -24,3 +24,6 @@ easing-lib
 
 * Demo
    * https://github.com/react-atomic/react-atomic-molecule/blob/master/packages/easing-lib/src/__tests__/easeOutQuartTest.js
+
+## Easings List
+https://easings.net/
