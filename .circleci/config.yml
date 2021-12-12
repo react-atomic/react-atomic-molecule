@@ -47,3 +47,4 @@ workflows:
             parameters:
               test-dir:
                 - "./"
+                - "packages/easing-lib"
