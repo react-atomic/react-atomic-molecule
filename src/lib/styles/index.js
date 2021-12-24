@@ -1,4 +1,4 @@
-import ucfirst from "ucfirst";
+import ucfirst from "../../ucfirst";
 import style from "./style";
 import store from "./store";
 import nToU from "./cssNumberToUnit";
