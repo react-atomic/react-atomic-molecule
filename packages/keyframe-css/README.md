@@ -2,8 +2,8 @@ Keyframes CSS Centralized
 ===
 
 * GIT
-   * https://github.com/react-atomic/react-atomic-molecule/tree/master/packages/keyframe-css
+   * https://github.com/react-atomic/react-atomic-molecule/tree/main/packages/keyframe-css
 * NPM
-   * https://npm.im/keyframe-css
+   * https://www.npmjs.com/package/keyframe-css 
 
 

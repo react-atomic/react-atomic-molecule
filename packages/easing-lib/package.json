@@ -1,10 +1,10 @@
 {
   "name": "easing-lib",
-  "version": "0.1.2",
+  "repository": "react-atomic/react-atomic-molecule",
   "description": "Easings Js Library",
+  "version": "0.1.2",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
-  "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
     "easing",
     "animation"
