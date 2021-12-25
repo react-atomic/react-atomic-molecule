@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-molecule",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
@@ -21,6 +21,7 @@
     "reshow-build": "*",
     "reshow-constant": "*",
     "reshow-runtime": "*",
+    "ucfirst-js": "*",
     "win-doc": "*"
   },
   "devDependencies": {
