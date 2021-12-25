@@ -32,7 +32,6 @@ export { default as Unsafe } from "../ui/molecules/Unsafe";
 // libs
 export { mixClass } from "class-lib";
 export { default as build } from "reshow-build";
-export { default as ucfirst } from "./ucfirst";
 export { default as getChildMapping } from "./getChildMapping";
 export { default as getDisplayName } from "./getDisplayName";
 export { default as mergeChildren } from "./mergeChildren";
