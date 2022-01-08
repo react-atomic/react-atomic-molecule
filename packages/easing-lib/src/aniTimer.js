@@ -13,6 +13,7 @@ const aniTimer = ({ isContinue, done, cancel }, duration) => {
         callfunc(cancel);
       }
     } else {
+      callfunc(isContinue, [duration]);
       callfunc(done);
     }
   };

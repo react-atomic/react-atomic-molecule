@@ -2,7 +2,7 @@
   "name": "easing-lib",
   "repository": "react-atomic/react-atomic-molecule",
   "description": "Easings Js Library",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
   "keywords": [
@@ -28,5 +28,10 @@
     "mocha": "npm run mochaFor -- 'build/cjs/**/__tests__/*.js'",
     "test": "npm run build && npm run mocha",
     "prepublishOnly": "npm run test"
-  }
+  },
+  "files": [
+    "build",
+    "package.json",
+    "README.md"
+  ]
 }
