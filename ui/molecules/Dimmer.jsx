@@ -6,13 +6,17 @@ import SemanticUI from "../molecules/SemanticUI";
 
 const Dimmer = (props) => {
   const {
+    show = false,
+    isModal = false,
+    /**
+     *  "center' and "content" are the same,  just let user not confuse.
+     *  So if you set any of it to false, will not show content.
+     */
+    center = true,
+    content = true,
     className,
-    show,
     children,
-    center,
-    content,
     contentStyle,
-    isModal,
     ...others
   } = props;
   if (!show) {
@@ -38,13 +42,6 @@ const Dimmer = (props) => {
       {child}
     </SemanticUI>
   );
-};
-
-Dimmer.defaultProps = {
-  show: false,
-  isModal: false,
-  center: true,
-  content: true, // same with center attriube, just let user not confuse
 };
 
 export default Dimmer;

@@ -4,7 +4,14 @@ import SemanticUI from "../molecules/SemanticUI";
 import Icon from "../molecules/Icon";
 
 const Button = (props) => {
-  const { className, children, icon, style, ...others } = props;
+  const {
+    type = "button",
+    className,
+    children,
+    icon,
+    style,
+    ...others
+  } = props;
   const classes = mixClass(className, "button");
   let thisIcon;
   let buttonWithIconStyle;
@@ -15,6 +22,7 @@ const Button = (props) => {
   return (
     <SemanticUI
       atom="button"
+      type={type}
       {...others}
       className={classes}
       style={{
@@ -26,10 +34,6 @@ const Button = (props) => {
       {children}
     </SemanticUI>
   );
-};
-
-Button.defaultProps = {
-  type: "button",
 };
 
 export default Button;

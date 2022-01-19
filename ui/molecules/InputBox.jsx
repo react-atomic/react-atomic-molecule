@@ -12,9 +12,9 @@ const InputBox = (props) => {
     injects = lazyInject(injects, InjectStyles);
   }, []);
   const {
-    icon,
-    button,
+    button = "Submit",
     actionProps = {},
+    icon,
     className,
     children,
     messageType,
@@ -65,10 +65,6 @@ const InputBox = (props) => {
       {thisButton}
     </SemanticUI>
   );
-};
-
-InputBox.defaultProps = {
-  button: "Submit",
 };
 
 export default InputBox;

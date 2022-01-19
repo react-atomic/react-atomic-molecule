@@ -3,7 +3,7 @@ import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 
 const Image = (props) => {
-  const { imgProps, ...otherProps } = props;
+  const { imgProps = { loading: "lazy" }, ...otherProps } = props;
   const classes = mixClass(props.className, {
     image: props.ui,
   });
@@ -27,5 +27,4 @@ const Image = (props) => {
     );
   }
 };
-Image.defaultProps = { ui: true, imgProps: { loading: "lazy" } };
 export default Image;
