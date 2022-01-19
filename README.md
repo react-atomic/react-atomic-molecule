@@ -20,6 +20,3 @@ React Atomic Molecule
    * styleOrder
    * styles
 
-## Known issue
-   * object-assign
-      * https://github.com/facebook/react/issues/6451
