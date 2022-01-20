@@ -3,10 +3,13 @@
 
 Reshow Atomic Molecule (React Component)
 ===============
-   * GIT
-      * https://github.com/react-atomic/react-atomic-molecule  
-   * NPM
-      * https://npm.im/react-atomic-molecule 
+Atomic design in React (molecule)
+
+## NPM
+https://www.npmjs.com/package/react-atomic-molecule
+
+## GIT
+https://github.com/react-atomic/react-atomic-molecule  
 
 ## Example Usage
    * Demo Url:
