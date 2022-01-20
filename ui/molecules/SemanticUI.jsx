@@ -56,7 +56,7 @@ const SemanticUI = ({
   }
   if (ui) {
     // others.className maybe effect by bindProps, so use it here.
-    others.className = className + " ui";
+    others.className = className ? className + " ui" : "ui";
   }
   return createElement(
     component,
