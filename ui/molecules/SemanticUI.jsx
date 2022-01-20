@@ -42,10 +42,10 @@ const SemanticUI = ({
       break;
   }
   // bindStyles need after inject
+  const { className = "", style } = others;
   if (styles) {
     // Need avoid props pass by ref !!important!!
     injectStyle();
-    const { className, style } = others;
     const bindProps = bindStyles({
       className,
       style,
@@ -56,7 +56,7 @@ const SemanticUI = ({
   }
   if (ui) {
     // others.className maybe effect by bindProps, so use it here.
-    others.className += " ui";
+    others.className = className + " ui";
   }
   return createElement(
     component,

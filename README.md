@@ -1,7 +1,7 @@
 
 [![CircleCI](https://circleci.com/gh/react-atomic/react-atomic-molecule/tree/main.svg?style=svg)](https://circleci.com/gh/react-atomic/react-atomic-molecule/tree/main)
 
-React Atomic Molecule 
+Reshow Atomic Molecule (React Component)
 ===============
    * GIT
       * https://github.com/react-atomic/react-atomic-molecule  
