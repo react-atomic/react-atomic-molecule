@@ -1,14 +1,12 @@
 import { IS_ARRAY, KEYS } from "reshow-constant";
 
 const applyClassName = (props, order, oStyle) => {
-  if (!props.className) {
-    props.className = "";
-  }
   const styleId = oStyle.styleId;
-  props.className += " " + styleId;
+  const arr = [styleId];
   for (let j = 1; j <= order; j++) {
-    props.className += " " + styleId + j;
+    arr.push(styleId + j);
   }
+  props.className = props.className ? " " : "" + arr.join(" ");
   return order;
 };
 

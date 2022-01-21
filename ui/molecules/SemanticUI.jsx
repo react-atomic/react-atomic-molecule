@@ -42,8 +42,8 @@ const SemanticUI = ({
       break;
   }
   // bindStyles need after inject
-  const { className = "", style } = others;
   if (styles) {
+    const { className, style } = others;
     // Need avoid props pass by ref !!important!!
     injectStyle();
     const bindProps = bindStyles({
@@ -55,8 +55,11 @@ const SemanticUI = ({
     KEYS(bindProps).forEach((key) => (others[key] = bindProps[key]));
   }
   if (ui) {
-    // others.className maybe effect by bindProps, so use it here.
-    others.className = className ? className + " ui" : "ui";
+    /**
+     * Need put after bindProps
+     *!!important!! others.className maybe effect by bindProps, so use it here.
+     */
+    others.className = others.className ? others.className + " ui" : "ui";
   }
   return createElement(
     component,
