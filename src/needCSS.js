@@ -37,9 +37,9 @@ const group = {
   default: cssMap,
 };
 
-const cdn ="https://cdn.jsdelivr.net";
+const cdn = "https://cdn.jsdelivr.net";
 
-const needCSS = (mod, groupKey="default") => {
+const needCSS = (mod, groupKey = "default") => {
   if (!win().__null) {
     return;
   }
