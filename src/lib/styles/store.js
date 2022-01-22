@@ -4,6 +4,7 @@ const oWin = win();
 const g = oWin ? oWin : global;
 
 const stylesStore = {
+  load: {},
   registry: {},
   newStyles: [],
   counter: 0,
