@@ -1,19 +1,14 @@
 import { win } from "win-doc";
 
-let stylesStore;
-
 const oWin = win();
 const g = oWin ? oWin : global;
 
-if (g.reactStylesStore) {
-  stylesStore = g.reactStylesStore;
-} else {
-  stylesStore = g.reactStylesStore = {
-    registry: [],
-    newStyles: [],
-    mods: [], // needCss
-    counter: 0,
-  };
-}
+const stylesStore = {
+  registry: {},
+  newStyles: [],
+  counter: 0,
+};
+
+g.reactStylesStore = stylesStore;
 
 export default stylesStore;

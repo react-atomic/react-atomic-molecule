@@ -31,10 +31,9 @@ const injectStyle = () => {
   const compiled = stylesToCSS(store.newStyles);
   store.lastCompiled = compiled;
   store.newStyles = [];
-  store.registry = {
-    ...store.registry,
-    ...compiled.styleIds,
-  };
+  KEYS(compiled.styleIds).forEach(
+    (key) => (store.registry[key] = compiled.styleIds[key])
+  );
   if (compiled.css) {
     if (doc().URL) {
       appendCss(compiled.cssArr);

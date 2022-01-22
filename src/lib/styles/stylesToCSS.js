@@ -1,6 +1,7 @@
 import hyphenateStyleName from "hyphenate-style-name";
 import get from "get-object-value";
 import { IS_ARRAY, KEYS } from "reshow-constant";
+import replicateSelector from "./replicateSelector";
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
@@ -74,15 +75,6 @@ const buildRules = (result, styleId, selector) => {
   result.cssArr[styleId] = myRule;
   result.css += myRule;
   return result;
-};
-
-const replicateSelector = (s) => {
-  s = "." + s;
-  const a = [s];
-  for (let i = 1; i < 10; i++) {
-    a[i] = a[i - 1] + s + i;
-  }
-  return a.join(",");
 };
 
 const buildStyle = (result, oStyle) => {

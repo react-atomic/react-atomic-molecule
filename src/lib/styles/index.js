@@ -1,5 +1,5 @@
 import ucfirst from "ucfirst-js";
-import style from "./style";
+import StyleObject from "./StyleObject";
 import store from "./store";
 import nToU from "./cssNumberToUnit";
 
@@ -46,7 +46,7 @@ const createStyle = (css, selector, styleId) => {
     });
   });
 
-  const styleDecl = new style(styles, selector, styleId);
+  const styleDecl = new StyleObject(styles, selector, styleId);
   store.newStyles.push(styleDecl);
   return styleDecl;
 };

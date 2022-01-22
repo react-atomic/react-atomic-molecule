@@ -6,13 +6,14 @@ const applyClassName = (props, order, oStyle) => {
   for (let j = 1; j <= order; j++) {
     arr.push(styleId + j);
   }
-  props.className = props.className ? " " : "" + arr.join(" ");
-  return order;
+  props.className =
+    (props.className ? props.className + " " : "") + arr.join(" ");
+  return props;
 };
 
 const applyInlineStyle = (props, order, oStyle) => {
   if (IS_ARRAY(oStyle.selector)) {
-    return order;
+    return props;
   }
   if (!props.style) {
     props.style = {};
@@ -20,16 +21,16 @@ const applyInlineStyle = (props, order, oStyle) => {
   oStyle.style.forEach((one) =>
     KEYS(one).forEach((key) => (props.style[key] = one[key]))
   );
-  return order;
+  return props;
 };
 
 const applyStyle = (props, order) => (oStyle) => {
   if (!oStyle) {
-    return order;
+    return props;
   }
   if (!oStyle.isCompiled) {
     console.warn("Not a style object", oStyle);
-    return order;
+    return props;
   }
   return oStyle.isCompiled() && order < 10
     ? applyClassName(props, order, oStyle)
@@ -44,7 +45,7 @@ const applyStyles = (props, styles, order) => {
     styles = [styles];
   }
   const apply = applyStyle(props, order);
-  styles.forEach((one) => apply(one));
+  return styles.map((one) => apply(one));
 };
 
 export default applyStyles;
