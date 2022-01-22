@@ -1,6 +1,7 @@
 import React, { Children, cloneElement } from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
+import { useCSS } from "../../src/needCSS";
 
 const renderChildren = (children, atom) =>
   Children.map(children, (child) => {
@@ -16,6 +17,7 @@ const renderChildren = (children, atom) =>
   });
 
 const List = (props) => {
+  useCSS(["list"], "semantic");
   const { type, className, children, ...others } = props;
   let typeClass = "list";
   if (type) {
@@ -28,4 +30,5 @@ const List = (props) => {
     </SemanticUI>
   );
 };
+
 export default List;

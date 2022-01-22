@@ -9,11 +9,15 @@ const semanticMap = {
   card: "/npm/semantic-ui-card@latest/card.min.css",
   checkbox: "/npm/semantic-ui-checkbox@latest/checkbox.min.css",
   dimmer: "/npm/semantic-ui-dimmer@latest/dimmer.min.css",
+  divider: "/npm/semantic-ui-divider@latest/divider.min.css",
   dropdown: "/npm/semantic-ui-dropdown@latest/dropdown.min.css",
   form: "/npm/semantic-ui-form@latest/form.min.css",
   header: "/npm/semantic-ui-header@latest/header.min.css",
   input: "/npm/semantic-ui-input@latest/input.min.css",
+  item: "/npm/semantic-ui-item@latest/item.min.css",
+  image: "/npm/semantic-ui-image@latest/image.min.css",
   label: "/npm/semantic-ui-label@latest/label.min.css",
+  list: "/npm/semantic-ui-list@latest/list.min.css",
   menu: "/npm/semantic-ui-menu@latest/menu.min.css",
   message: "/npm/semantic-ui-message@latest/message.min.css",
   modal: "/npm/semantic-ui-modal@latest/modal.min.css",
@@ -39,27 +43,29 @@ const group = {
 
 const cdn = "https://cdn.jsdelivr.net";
 
-const needCSS = (mod, groupKey = "default") => {
-  if (!win().__null) {
+const needCSS = (mods, groupKey = "default") => {
+  if (win().__null) {
     return;
   }
   const map = get(group, [groupKey], {});
-  let url = get(map, [mod]);
-  url = url ? cdn + url : mod;
-  if (url) {
-    if (store.load[url]) {
-      return;
-    } else {
-      store.load[url] = true;
-      css()()(url);
+  mods.forEach((mod) => {
+    let url = get(map, [mod]);
+    url = url ? cdn + url : mod;
+    if (url) {
+      if (store.load[url]) {
+        return;
+      } else {
+        store.load[url] = true;
+        css()()(url);
+      }
     }
-  }
+  });
 };
 
-const useCSS = (mod, groupKey) => {
+const useCSS = (mods, groupKey) => {
   useEffect(() => {
-    needCSS(mod, groupKey);
-  });
+    needCSS(mods, groupKey);
+  }, []);
 };
 
 export default needCSS;

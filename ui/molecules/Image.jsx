@@ -1,8 +1,10 @@
 import React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
+import { useCSS } from "../../src/needCSS";
 
 const Image = (props) => {
+  useCSS(["image"], "semantic");
   const { imgProps = { loading: "lazy" }, ...otherProps } = props;
   const classes = mixClass(props.className, {
     image: props.ui,

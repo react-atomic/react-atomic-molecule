@@ -3,8 +3,10 @@ import React from "react";
 import { mixClass } from "class-lib";
 import Content from "../molecules/Content";
 import SemanticUI from "../molecules/SemanticUI";
+import { useCSS } from "../../src/needCSS";
 
 const Dimmer = (props) => {
+  useCSS(["dimmer"], "semantic");
   const {
     show = false,
     isModal = false,

@@ -5,8 +5,10 @@ import get from "get-object-value";
 import SemanticUI from "../molecules/SemanticUI";
 import Message from "../molecules/Message";
 import Label from "../molecules/Label";
+import { useCSS } from "../../src/needCSS";
 
 const Field = (props) => {
+  useCSS(["input", "search", "form"], "semantic");
   const {
     className,
     fieldClassName,

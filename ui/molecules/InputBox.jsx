@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Button from "../molecules/Button";
 import Label from "../molecules/Label";
 import Icon from "../molecules/Icon";
-
-import lazyInject from "../../src/lib/styles/lazyInject";
+import { useCSS } from "../../src/needCSS";
+import useLazyInject from "../../src/lib/styles/useLazyInject";
 
 const InputBox = (props) => {
-  useEffect(() => {
-    injects = lazyInject(injects, InjectStyles);
-  }, []);
+  injects = useLazyInject(InjectStyles, injects);
+  useCSS(["input", "search", "form"], "semantic");
+
   const {
     button = "Submit",
     actionProps = {},
