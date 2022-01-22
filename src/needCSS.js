@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { css } from "create-el";
 import { win } from "win-doc";
 import get from "get-object-value";
@@ -38,7 +39,7 @@ const group = {
 
 const cdn ="https://cdn.jsdelivr.net";
 
-const needCss = (mod, groupKey="default") => {
+const needCSS = (mod, groupKey="default") => {
   if (!win().__null) {
     return;
   }
@@ -55,4 +56,11 @@ const needCss = (mod, groupKey="default") => {
   }
 };
 
-export default needCss;
+const useCSS = (mod, groupKey) => {
+  useEffect(() => {
+    needCSS(mod, groupKey);
+  });
+};
+
+export default needCSS;
+export { useCSS };

@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Icon from "../molecules/Icon";
+import {useCSS} from "../../src/needCSS";
 
 const Button = (props) => {
   const {
