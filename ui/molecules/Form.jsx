@@ -1,7 +1,7 @@
 import React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import { useCSS } from "../../src/needCSS";
+import useCSS from "../../src/useCSS";
 
 const Form = (props) => {
   useCSS(["input", "search", "form"], "semantic");

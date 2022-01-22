@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { css } from "create-el";
 import { win } from "win-doc";
 import get from "get-object-value";
-import store from "./lib/styles/store";
 
 const semanticMap = {
   button: "/npm/semantic-ui-button@latest/button.min.css",
@@ -42,6 +40,7 @@ const group = {
 };
 
 const cdn = "https://cdn.jsdelivr.net";
+const load = [];
 
 const needCSS = (mods, groupKey = "default") => {
   if (win().__null) {
@@ -52,21 +51,14 @@ const needCSS = (mods, groupKey = "default") => {
     let url = get(map, [mod]);
     url = url ? cdn + url : mod;
     if (url) {
-      if (store.load[url]) {
+      if (load[url]) {
         return;
       } else {
-        store.load[url] = true;
+        load[url] = true;
         css()()(url);
       }
     }
   });
 };
 
-const useCSS = (mods, groupKey) => {
-  useEffect(() => {
-    needCSS(mods, groupKey);
-  }, []);
-};
-
 export default needCSS;
-export { useCSS };

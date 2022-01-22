@@ -1,7 +1,7 @@
 import React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import { useCSS } from "../../src/needCSS";
+import useCSS from "../../src/useCSS";
 
 const Rail = (props) => {
   useCSS(["rail"], "semantic");

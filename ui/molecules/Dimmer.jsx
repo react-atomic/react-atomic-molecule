@@ -3,7 +3,7 @@ import React from "react";
 import { mixClass } from "class-lib";
 import Content from "../molecules/Content";
 import SemanticUI from "../molecules/SemanticUI";
-import { useCSS } from "../../src/needCSS";
+import useCSS from "../../src/useCSS";
 
 const Dimmer = (props) => {
   useCSS(["dimmer"], "semantic");
