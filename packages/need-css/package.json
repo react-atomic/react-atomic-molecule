@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "name": "need-css",
   "repository": {
     "type": "git",
@@ -13,8 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "create-el": "*",
-    "win-doc": "*",
-    "get-object-value": "*"
+    "get-object-value": "*",
+    "win-doc": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.x",

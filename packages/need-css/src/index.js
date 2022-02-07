@@ -2,30 +2,33 @@ import { css } from "create-el";
 import { win } from "win-doc";
 import get from "get-object-value";
 
+// https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/
+const SEMANTIC_VERSION = "/npm/semantic-ui@2.4.2/dist/components";
+
 const semanticMap = {
-  button: "/npm/semantic-ui-button@latest/button.min.css",
-  card: "/npm/semantic-ui-card@latest/card.min.css",
-  checkbox: "/npm/semantic-ui-checkbox@latest/checkbox.min.css",
-  dimmer: "/npm/semantic-ui-dimmer@latest/dimmer.min.css",
-  divider: "/npm/semantic-ui-divider@latest/divider.min.css",
-  dropdown: "/npm/semantic-ui-dropdown@latest/dropdown.min.css",
-  form: "/npm/semantic-ui-form@latest/form.min.css",
-  header: "/npm/semantic-ui-header@latest/header.min.css",
-  input: "/npm/semantic-ui-input@latest/input.min.css",
-  item: "/npm/semantic-ui-item@latest/item.min.css",
-  image: "/npm/semantic-ui-image@latest/image.min.css",
-  label: "/npm/semantic-ui-label@latest/label.min.css",
-  list: "/npm/semantic-ui-list@latest/list.min.css",
-  menu: "/npm/semantic-ui-menu@latest/menu.min.css",
-  message: "/npm/semantic-ui-message@latest/message.min.css",
-  modal: "/npm/semantic-ui-modal@latest/modal.min.css",
-  popup: "/npm/semantic-ui-popup@latest/popup.min.css",
-  progress: "/npm/semantic-ui-progress@latest/progress.min.css",
-  rail: "/npm/semantic-ui-rail@latest/rail.min.css",
-  segment: "/npm/semantic-ui-segment@latest/segment.min.css",
-  search: "/npm/semantic-ui-search@latest/search.min.css",
-  table: "/npm/semantic-ui-table@latest/table.min.css",
-  tab: "/npm/semantic-ui-tab@latest/tab.min.css",
+  button: `${SEMANTIC_VERSION}/button.min.css`,
+  card: `${SEMANTIC_VERSION}/card.min.css`,
+  checkbox: `${SEMANTIC_VERSION}/checkbox.min.css`,
+  dimmer: `${SEMANTIC_VERSION}/dimmer.min.css`,
+  divider: `${SEMANTIC_VERSION}/divider.min.css`,
+  dropdown: `${SEMANTIC_VERSION}/dropdown.min.css`,
+  form: `${SEMANTIC_VERSION}/form.min.css`,
+  header: `${SEMANTIC_VERSION}/header.min.css`,
+  image: `${SEMANTIC_VERSION}/image.min.css`,
+  input: `${SEMANTIC_VERSION}/input.min.css`,
+  item: `${SEMANTIC_VERSION}/item.min.css`,
+  label: `${SEMANTIC_VERSION}/label.min.css`,
+  list: `${SEMANTIC_VERSION}/list.min.css`,
+  menu: `${SEMANTIC_VERSION}/menu.min.css`,
+  message: `${SEMANTIC_VERSION}/message.min.css`,
+  modal: `${SEMANTIC_VERSION}/modal.min.css`,
+  popup: `${SEMANTIC_VERSION}/popup.min.css`,
+  progress: `${SEMANTIC_VERSION}/progress.min.css`,
+  rail: `${SEMANTIC_VERSION}/rail.min.css`,
+  search: `${SEMANTIC_VERSION}/search.min.css`,
+  segment: `${SEMANTIC_VERSION}/segment.min.css`,
+  tab: `${SEMANTIC_VERSION}/tab.min.css`,
+  table: `${SEMANTIC_VERSION}/table.min.css`,
 };
 
 const cssMap = {
