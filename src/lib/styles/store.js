@@ -1,7 +1,6 @@
 import { win } from "win-doc";
 
-const oWin = win();
-const g = oWin ? oWin : global;
+const g = win().__null ? global : win();
 
 /**
  * Assign value from g.reactStylesStore for sync npm link case
