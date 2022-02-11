@@ -1,35 +1,33 @@
-import React from 'react';
+import React from "react";
 
-import {expect} from 'chai';
-import {shallow, mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({adapter: new Adapter()});
+import { expect } from "chai";
+import { mount } from "reshow-unit";
 
-import SemanticUI from '../SemanticUI';
+import SemanticUI from "../SemanticUI";
 
-describe('Test SemaniticUI', () => {
-  it('basic test', () => {
-    const wrapper = mount(
-      <SemanticUI />,
-    );
-    expect(wrapper.html()).to.have.string('div');
+describe("Test SemaniticUI", () => {
+  it("basic test", () => {
+    const wrapper = mount(<SemanticUI />);
+    expect(wrapper.html()).to.have.string("div");
   });
-  it('test render children', () => {
+  it("test render children", () => {
     const wrapper = mount(
-      <SemanticUI><span /></SemanticUI>,
+      <SemanticUI>
+        <span />
+      </SemanticUI>
     );
-    expect(wrapper.html()).to.have.string('span');
+    expect(wrapper.html()).to.have.string("span");
   });
-  it('test not render children', () => {
+  it("test not render children", () => {
     const wrapper = mount(
-      <SemanticUI renderChildren={false}><span /></SemanticUI>,
+      <SemanticUI renderChildren={false}>
+        <span />
+      </SemanticUI>
     );
-    expect(wrapper.html()).to.not.have.string('span');
+    expect(wrapper.html()).to.not.have.string("span");
   });
-  it('test render img', () => {
-    const wrapper = mount(
-      <SemanticUI atom="img" />,
-    );
-    expect(wrapper.html()).to.have.string('img');
+  it("test render img", () => {
+    const wrapper = mount(<SemanticUI atom="img" />);
+    expect(wrapper.html()).to.have.string("img");
   });
 });

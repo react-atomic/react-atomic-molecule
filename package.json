@@ -1,11 +1,13 @@
 {
   "name": "react-atomic-molecule",
-  "version": "2.10.7",
+  "version": "2.10.8",
   "description": "Atomic design in React (molecules)",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.js",
   "repository": "react-atomic/react-atomic-molecule",
-  "keywords": ["reactjs"],
+  "keywords": [
+    "reactjs"
+  ],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
@@ -58,5 +60,9 @@
     "test": "npm run build && npm run mocha",
     "prepublishOnly": "npm run format && npm run test"
   },
-  "files": ["build", "package.json", "README.md"]
+  "files": [
+    "build",
+    "package.json",
+    "README.md"
+  ]
 }
