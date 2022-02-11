@@ -45,6 +45,12 @@ const group = {
 const cdn = "https://cdn.jsdelivr.net";
 const load = [];
 
+/**
+ * Clean bfcache for offline
+ */
+win().addEventListener &&
+  win().addEventListener("load", () => load.splice(0, load.length));
+
 const needCSS = (mods, groupKey = "default") => {
   if (win().__null) {
     return;
