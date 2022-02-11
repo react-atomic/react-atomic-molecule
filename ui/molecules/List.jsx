@@ -25,9 +25,18 @@ const renderChildren = (children, pAtom, horizontal) =>
 
 const List = (props) => {
   useCSS(["list"], "semantic");
-  const { className, children, horizontal, ...others } = props;
+
+  /**
+   * Why need type?
+   *
+   * List not the only type, such as segments.
+   * https://semantic-ui.com/elements/segment.html#raised-segments
+   *
+   */
+  const { type = "list", className, children, horizontal, ...others } = props;
+
   const atom = props.atom;
-  const classes = mixClass(className, "list", { horizontal });
+  const classes = mixClass(className, type, { horizontal });
   let child = renderChildren(children, atom, horizontal);
   if (atom === "table") {
     if (child) {
