@@ -34,7 +34,7 @@ const semanticMap = {
 const cssMap = {
   "fixed-data-table":
     "/npm/fixed-data-table-2@0.8.13/dist/fixed-data-table.min.css",
-  prismjs: "/npm/prismjs/themes/prism.min.css",
+  prism: "/npm/prismjs/themes/prism.min.css",
 };
 
 const group = {
