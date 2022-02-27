@@ -2,8 +2,8 @@ import { css } from "create-el";
 import { win } from "win-doc";
 import get from "get-object-value";
 
-// https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/
-const SEMANTIC_VERSION = "/npm/semantic-ui@2.4.2/dist/components";
+// https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/components/
+const SEMANTIC_VERSION = "/npm/fomantic-ui@2.8.8/dist/components";
 
 const semanticMap = {
   button: `${SEMANTIC_VERSION}/button.min.css`,
