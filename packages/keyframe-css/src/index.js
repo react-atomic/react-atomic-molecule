@@ -1,15 +1,16 @@
 import { getDefault } from "get-object-value";
 import { reactStyle, injectStyle } from "react-atomic-molecule";
 import callfunc from "call-func";
+import { KEYS } from "reshow-constant";
 
 const inject = {};
 let c = 0;
 
 const processCss = (cb) => (css) => {
   css = getDefault(css);
-  const keys = Object.keys(css);
-  if (keys.length) {
-    keys.forEach((key) => {
+  const cssKeys = KEYS(css);
+  if (cssKeys.length) {
+    cssKeys.forEach((key) => {
       css[key].push("keyframe-" + key + "-" + c);
       reactStyle.apply(null, css[key]);
       c++;

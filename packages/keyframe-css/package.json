@@ -1,9 +1,7 @@
 {
   "description": "keyframe lib",
   "repository": "react-atomic/react-atomic-molecule",
-  "keywords": [
-    "reactjs"
-  ],
+  "keywords": ["reactjs"],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "devDependencies": {
@@ -11,10 +9,10 @@
   },
   "scripts": {
     "clean": "find ./build -name '*.*' | xargs rm -rf",
-    "copy": "cp package.json.build ./build/package.json && cp README.md ./build/",
+    "copy": "cp package.build.json ./build/package.json && cp README.md ./build/",
     "build:cjs": "BABEL_ENV=build babel src -d build --root-mode upward",
     "build:es": "BABEL_ENV=es babel src/index.js -o build/index.es.js --root-mode upward",
-    "build": "npm run clean && npm run build:cjs && npm run build:es && npm run copy && cd build && yarn && npm i --package-lock-only",
+    "build": "npm run clean && npm run build:cjs && npm run build:es && npm run copy && cd build && yarn",
     "prepublishOnly": "npm run build"
   }
 }

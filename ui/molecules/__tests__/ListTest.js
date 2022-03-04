@@ -5,7 +5,7 @@ import { mount } from "reshow-unit";
 import List from "../List";
 import Item from "../Item";
 
-describe("Test SemaniticUI", () => {
+describe("Test List", () => {
   it("basic test", () => {
     const wrapper = mount(<List />);
     expect(wrapper.html()).to.have.string("list");
