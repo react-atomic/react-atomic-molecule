@@ -3,7 +3,7 @@ import { inject, create } from "create-el";
 import query from "css-query-selector";
 import { KEYS } from "reshow-constant";
 
-import store from "./store.js";
+import store from "./store";
 import stylesToCSS from "./stylesToCSS";
 
 const appendCss = (cssArr) => {

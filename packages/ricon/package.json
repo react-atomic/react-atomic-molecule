@@ -12,7 +12,7 @@
   },
   "scripts": {
     "clean": "find ./build -name '*.*' | xargs rm -rf",
-    "copy": "cp package.json.build ./build/package.json && cp README.md ./build/",
+    "copy": "cp package.build.json ./build/package.json && cp README.md ./build/",
     "build:cjs": "BABEL_ENV=cjs babel ui -d build --root-mode upward",
     "build": "npm run clean && npm run build:cjs && npm run copy && cd build && yarn install",
     "prepublish": "npm run build"

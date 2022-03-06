@@ -28,7 +28,7 @@ const buildRules = (result, styleId, selector) => {
   }
   let parentSelector;
   if (IS_ARRAY(selector)) {
-    parentSelector = selector[0].trim();
+    parentSelector = selector[0].trim ? selector[0].trim() : selector[0];
     selector.shift();
   } else {
     selector = [selector];

@@ -2,7 +2,7 @@ import { IS_ARRAY, KEYS } from "reshow-constant";
 import reactStyle from "./index";
 import injectStyle from "./injectStyle";
 
-const lazyInject = (injects, configs) => {
+const lazyInject = (configs, injects) => {
   if (!injects) {
     injects = {};
     KEYS(configs).forEach((key) => {
@@ -12,8 +12,8 @@ const lazyInject = (injects, configs) => {
       }
       injects[key] = reactStyle.apply(null, item);
     });
+    injectStyle();
   }
-  injectStyle();
   return injects;
 };
 

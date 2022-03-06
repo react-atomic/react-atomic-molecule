@@ -24,7 +24,7 @@ describe("Test lazyInject", () => {
         ["@keyframes spin", "0%", "100%"],
       ],
     };
-    injects = lazyInject(injects, InjectStyles);
+    injects = lazyInject(InjectStyles, injects);
     expect(JSON.stringify(store.lastCompiled.cssArr)).to.have.string(
       "@keyframes spin"
     );

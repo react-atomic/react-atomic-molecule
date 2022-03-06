@@ -5,7 +5,7 @@ const useLazyInject = (InjectStyles, injectStore) => {
   const injects = useRef();
   if (!injects.current) {
     if (!injectStore) {
-      injectStore = lazyInject(injects.current, InjectStyles);
+      injectStore = lazyInject(InjectStyles, injects.current);
     }
     injects.current = injectStore;
   }
