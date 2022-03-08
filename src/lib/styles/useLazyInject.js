@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import lazyInject from "./lazyInject";
 
 const useLazyInject = (InjectStyles, injectStore) => {

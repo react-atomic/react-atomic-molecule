@@ -1,6 +1,7 @@
 import { css } from "create-el";
 import { win } from "win-doc";
 import get from "get-object-value";
+import query from "css-query-selector";
 
 // https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/components/
 const SEMANTIC_VERSION = "/npm/fomantic-ui@2.8.8/dist/components";
@@ -52,9 +53,6 @@ win().addEventListener &&
   win().addEventListener("load", () => load.splice(0, load.length));
 
 const needCSS = (mods, groupKey = "default") => {
-  if (win().__null) {
-    return;
-  }
   const map = get(group, [groupKey], {});
   mods.forEach((mod) => {
     let url = get(map, [mod]);
@@ -64,7 +62,14 @@ const needCSS = (mods, groupKey = "default") => {
         return;
       } else {
         load[url] = true;
-        css()()(url);
+        if (win().__null) {
+          console.log(`<link rel="stylesheet" type="text/css" href="${url}">`);
+        } else {
+          const cssDom = query.one(`link[href="${url}"]`);
+          if (!cssDom) {
+            css()()(url);
+          }
+        }
       }
     }
   });
