@@ -13,7 +13,7 @@ describe("Test stylesToCSS", () => {
 
   it("basic test", () => {
     const acture = stylesToCSS();
-    expect(acture).to.deep.equal({ css: "", styleIds: {}, cssArr: {} });
+    expect(acture).to.deep.equal({ styleIds: [], objArr: {}, cssArr: {} });
   });
 
   it("join selector test", () => {

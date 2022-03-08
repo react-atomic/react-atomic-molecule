@@ -1,16 +1,22 @@
 import { doc } from "win-doc";
 import { inject, create } from "create-el";
 import query from "css-query-selector";
-import { KEYS } from "reshow-constant";
 
 import store from "./store";
 import stylesToCSS from "./stylesToCSS";
 
-const appendCss = (cssArr) => {
-  KEYS(cssArr).forEach((key) => {
+const appendCss = ({ styleIds, objArr, cssArr }) => {
+  styleIds.forEach((key) => {
+    store.registry[key] = objArr[key];
     const id = "react-style-" + key;
-    let styleDom = query.one("#" + id);
     const css = cssArr[key];
+
+    if (doc().__null) {
+      console.log(`<style id="${id}">${css}</style>`);
+      return;
+    }
+
+    let styleDom = query.one("#" + id);
     if (styleDom) {
       styleDom.innerHTML = css;
     } else {
@@ -31,15 +37,8 @@ const injectStyle = () => {
   const compiled = stylesToCSS(store.newStyles);
   store.lastCompiled = compiled;
   store.newStyles = [];
-  KEYS(compiled.styleIds).forEach(
-    (key) => (store.registry[key] = compiled.styleIds[key])
-  );
-  if (compiled.css) {
-    if (doc().URL) {
-      appendCss(compiled.cssArr);
-    } else {
-      console.log(compiled.css);
-    }
+  if (compiled.styleIds.length) {
+    appendCss(compiled);
   }
 };
 

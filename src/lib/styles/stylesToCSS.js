@@ -21,10 +21,9 @@ const buildRule = (key, value) => {
   return hyphenateStyleName(key) + ": " + value + ";";
 };
 
-const buildRules = (result, styleId, selector) => {
-  const rules = get(result.styleIds, [styleId, "style"], []);
-  if (!rules.length) {
-    return result;
+const buildRules = (rules = [], styleId, selector) => {
+  if (!rules || !rules.length) {
+    return;
   }
   let parentSelector;
   if (IS_ARRAY(selector)) {
@@ -72,14 +71,12 @@ const buildRules = (result, styleId, selector) => {
     }
     myRule = mycssArr.join("\n");
   }
-  result.cssArr[styleId] = myRule;
-  result.css += myRule;
-  return result;
+  return myRule;
 };
 
 const buildStyle = (result, oStyle) => {
   const { styleId } = oStyle;
-  if (!styleId || result.styleIds[styleId]) {
+  if (!styleId || result.cssArr[styleId]) {
     return;
   }
   let selector = oStyle.selector;
@@ -90,16 +87,17 @@ const buildStyle = (result, oStyle) => {
   } else {
     selector = replicateSelector(styleId);
   }
-  result.styleIds[styleId] = oStyle; //for check already inject
-  buildRules(result, styleId, selector);
+  result.objArr[styleId] = oStyle; //for check already inject
+  result.cssArr[styleId] = buildRules(oStyle.style, styleId, selector);
+  result.styleIds.push(styleId);
 };
 
 const stylesToCSS = (styles) => {
   if (!IS_ARRAY(styles) && styles) {
     styles = [styles];
   }
-  const result = { css: "", styleIds: {}, cssArr: {} };
-  styles?.forEach((style) => buildStyle(result, style));
+  const result = { styleIds: [], objArr: {}, cssArr: {} };
+  styles?.forEach((oStyle) => buildStyle(result, oStyle));
   return result;
 };
 
