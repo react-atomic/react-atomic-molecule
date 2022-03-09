@@ -10,7 +10,7 @@ const unquotedContentValueRegex =
 
 const browsers = ["webkit", "moz"];
 
-const buildRule = (key, value) => {
+const buildOneRule = (key, value) => {
   if (null == value) {
     return "";
   }
@@ -43,9 +43,11 @@ const buildRules = (rules = [], styleId, selector) => {
     mycss += selector[i] + " {";
     KEYS(rule).forEach((styleKey) => {
       if (rule[styleKey] && rule[styleKey].forEach) {
-        rule[styleKey].forEach((item) => (mycss += buildRule(styleKey, item)));
+        rule[styleKey].forEach(
+          (item) => (mycss += buildOneRule(styleKey, item))
+        );
       } else {
-        mycss += buildRule(styleKey, rule[styleKey]);
+        mycss += buildOneRule(styleKey, rule[styleKey]);
       }
     });
     mycss += "}";
@@ -59,13 +61,8 @@ const buildRules = (rules = [], styleId, selector) => {
     if (0 === parentSelector.indexOf(keyframesString)) {
       browsers.forEach((browser) => {
         mycssArr.push(
-          parentSelector.replace(
-            keyframesString,
-            "@-" + browser + "-keyframes"
-          ) +
-            " {\n" +
-            myRule +
-            "\n}\n"
+          parentSelector.replace(keyframesString, `@-${browser}-keyframes `) +
+            `{\n${myRule}\n}\n`
         );
       });
     }
@@ -93,11 +90,8 @@ const buildStyle = (result, oStyle) => {
 };
 
 const stylesToCSS = (styles) => {
-  if (!IS_ARRAY(styles) && styles) {
-    styles = [styles];
-  }
   const result = { styleIds: [], objArr: {}, cssArr: {} };
-  styles?.forEach((oStyle) => buildStyle(result, oStyle));
+  styles && styles.forEach((oStyle) => buildStyle(result, oStyle));
   return result;
 };
 

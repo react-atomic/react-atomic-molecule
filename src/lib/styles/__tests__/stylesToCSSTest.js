@@ -18,13 +18,13 @@ describe("Test stylesToCSS", () => {
 
   it("join selector test", () => {
     const oReactStyle = reactStyle({ width: 100 }, [min.md, [".xxx", ".yyy"]]);
-    const acture = stylesToCSS(oReactStyle);
+    const acture = stylesToCSS([oReactStyle]);
     expect(JSON.stringify(acture.cssArr)).to.have.string(".xxx,.yyy");
   });
 
   it("style only test", () => {
     const oReactStyle = reactStyle({ width: 100 });
-    const acture = stylesToCSS(oReactStyle);
+    const acture = stylesToCSS([oReactStyle]);
     expect(JSON.stringify(acture.cssArr)).to.have.string(".c1_,.c1_.c1_1,");
   });
 
@@ -40,7 +40,7 @@ describe("Test stylesToCSS", () => {
       ],
       ["@keyframes spin", "0%", "100%"]
     );
-    const acture = stylesToCSS(oReactStyle);
+    const acture = stylesToCSS([oReactStyle]);
     expect(JSON.stringify(acture.cssArr)).to.have.string("@keyframes spin");
   });
 });
