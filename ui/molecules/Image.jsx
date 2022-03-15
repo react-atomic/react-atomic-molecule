@@ -5,7 +5,7 @@ import useCSS from "../../src/useCSS";
 
 const Image = (props) => {
   useCSS(["image"], "semantic");
-  const { imgProps = { loading: "lazy" }, ...otherProps } = props;
+  const { loading = "lazy", imgProps, ...otherProps } = props;
   const classes = mixClass(props.className, {
     image: props.ui,
   });
@@ -14,7 +14,13 @@ const Image = (props) => {
   if (props.atom && "img" !== props.atom) {
     return (
       <SemanticUI {...otherProps} className={classes}>
-        <SemanticUI atom="img" src={props.src} alt={thisAlt} {...imgProps} />
+        <SemanticUI
+          atom="img"
+          src={props.src}
+          alt={thisAlt}
+          loading={loading}
+          {...imgProps}
+        />
         {props.children}
       </SemanticUI>
     );
@@ -22,6 +28,7 @@ const Image = (props) => {
     return (
       <SemanticUI
         atom="img"
+        loading={loading}
         {...{ ...otherProps, ...imgProps }}
         alt={thisAlt}
         className={classes}

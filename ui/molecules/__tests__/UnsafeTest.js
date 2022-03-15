@@ -4,7 +4,7 @@ import { mount } from "reshow-unit";
 import Unsafe from "../Unsafe";
 
 describe("Test Unsafe", () => {
-  it("test basic", () => {
+  it("basic test", () => {
     const wrapper = mount(<Unsafe />);
     expect(wrapper.html()).to.have.string("us-html");
   });
