@@ -1,22 +1,10 @@
-import React from "react";
-import {
-  useLazyInject,
-  Card,
-  Content,
-  SemanticUI,
-  Header,
-} from "react-atomic-molecule";
+import useLazyInject from "./useLazyInject";
+import SemanticUI from "./SemanticUI";
 
-const Pin = (props) => {
-  const { open, header, children, label, ...others } = props;
-  injects = useLazyInject(InjectStyles, injects);
-  let pinStyles = [injects.pin];
-  let pinContent = null;
-  if (open) {
-    pinStyles = [injects.pin, injects.pinOpen];
+/**
     let thisHeader = null;
     if (header) {
-      thisHeader = <Header style={Styles.header}>{header}</Header>;
+      thisHeader = <Header style={{marginLeft: 20}}>{header}</Header>;
     }
     pinContent = (
       <Card
@@ -30,15 +18,24 @@ const Pin = (props) => {
         </Content>
       </Card>
     );
+ */
+
+const Pin = ({open, content, label, ...props}) => {
+  injects = useLazyInject(InjectStyles, injects);
+  let pinStyles = [injects.pin];
+  let pinContent = null;
+  if (open) {
+    pinStyles = [injects.pin, injects.pinOpen];
+    pinContent = content;
   }
   const thisLabel = label ? (
-    <div style={Styles.label}>{label}</div>
+    <SemanticUI styles={injects.label}>{label}</SemanticUI>
   ) : (
-    <div style={Styles.point} />
+    <SemanticUI style={Styles.point} />
   );
 
   return (
-    <SemanticUI style={Styles.container} {...others}>
+    <SemanticUI style={Styles.container} {...props}>
       <SemanticUI styles={pinStyles}>{pinContent}</SemanticUI>
       {thisLabel}
     </SemanticUI>
@@ -53,14 +50,6 @@ const Styles = {
     position: "relative",
     display: "inline-block",
   },
-  header: {
-    marginLeft: "20px",
-  },
-  label: {
-    position: "absolute",
-    top: "7px",
-    left: "-16px",
-  },
   point: {
     width: "14px",
     height: "14px",
@@ -74,6 +63,14 @@ const Styles = {
 
 let injects;
 const InjectStyles = {
+  label: [
+    {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: ["translate(-50%, -50%)"],
+    },
+  ],
   pin: [
     {
       width: "30px",

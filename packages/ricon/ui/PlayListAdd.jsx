@@ -1,19 +1,9 @@
-import React from 'react';
-import {
-    SemanticUI
-} from 'react-atomic-molecule';
+import base from "./base";
 
-import Path from './Path';
-
-const PlayListAdd = props =>
-<SemanticUI {...props}>
-    <Path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z" />
-</SemanticUI>
-
-PlayListAdd.defaultProps = {
-    viewBox: '0 0 24 24',
-    atom: 'svg',
-    width: '100%'
+const PlayListAdd = (props) => {
+  const d =
+    "M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z";
+  return base("PlayListAdd", d)(props);
 };
 
 export default PlayListAdd;

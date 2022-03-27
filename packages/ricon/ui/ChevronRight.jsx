@@ -1,17 +1,8 @@
-import React from 'react';
-import {
-    SemanticUI
-} from 'react-atomic-molecule';
+import base from "./base";
 
-const ChevronRight = (props) =>
-<SemanticUI {...props}>
-    <SemanticUI atom="path" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-</SemanticUI>
+const ChevronRight = (props) => {
+  const d = "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z";
 
-ChevronRight.defaultProps = {
-    viewBox: '0 0 24 24',
-    atom: 'svg',
-    width: '100%'
+  return base("ChevronRight", d)(props);
 };
-
 export default ChevronRight;

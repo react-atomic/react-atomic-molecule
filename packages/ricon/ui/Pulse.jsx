@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { useLazyInject, reactStyle, SemanticUI } from "react-atomic-molecule";
 import pulsate from "keyframe-css/pulsate";
 import breath from "keyframe-css/breath";
+import reactStyle from "./reactStyle";
+import useLazyInject from "./useLazyInject";
+import SemanticUI from "./SemanticUI";
 
 const Pulse = ({ style, pointStyle, ringStyle }) => (
   <SemanticUI style={style}>
@@ -11,20 +12,19 @@ const Pulse = ({ style, pointStyle, ringStyle }) => (
 );
 
 const PulseIcon = ({
+  pointColor = "rgba(5,80,255,0.9)",
+  pointRotateX = 0,
+  ringColor = "#89849b",
+  animation = "pulsate",
   style,
-  pointColor,
-  pointRotateX,
-  ringColor,
-  animation,
 }) => {
-  injects = useLazyInject( InjectStyles, injects );
-
+  injects = useLazyInject(InjectStyles, injects);
   const pointStyle = reactStyle(
     {
       background: pointColor,
       transform: ["translate(-50%,-50%) rotateX(" + pointRotateX + "deg)"],
     },
-    null,
+    false,
     false
   );
 
@@ -34,7 +34,7 @@ const PulseIcon = ({
       animation: [animation + " 1s ease-out"],
       animationIterationCount: ["infinite"],
     },
-    null,
+    false,
     false
   );
 
@@ -45,13 +45,6 @@ const PulseIcon = ({
       ringStyle={ringStyle}
     />
   );
-};
-
-PulseIcon.defaultProps = {
-  pointColor: "rgba(5,80,255,0.9)",
-  pointRotateX: 0,
-  ringColor: "#89849b",
-  animation: "pulsate",
 };
 
 export default PulseIcon;

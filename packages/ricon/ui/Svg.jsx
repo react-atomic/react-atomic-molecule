@@ -1,13 +1,13 @@
-import React from 'react';
-import {SemanticUI} from 'react-atomic-molecule';
+import SemanticUI from "./SemanticUI";
 
-const Svg = props => <SemanticUI {...props} />;
-
-Svg.defaultProps = {
-  ui: false,
-  viewBox: '0 0 24 24',
-  atom: 'svg',
-  width: '100%',
-};
+const Svg = ({
+  ui = false,
+  viewBox = "0 0 24 24",
+  atom = "svg",
+  width = "100%",
+  ...props
+}) => (
+  <SemanticUI ui={ui} viewBox={viewBox} atom={atom} width={width} {...props} />
+);
 
 export default Svg;

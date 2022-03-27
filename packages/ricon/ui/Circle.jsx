@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-    SemanticUI
-} from 'react-atomic-molecule';
+import SemanticUI from "./SemanticUI";
 
-const Circle = props =>
-<SemanticUI atom="circle" {...props} />
+const Circle = (props) => <SemanticUI atom="circle" {...props} />;
 
-export default Circle
+export default Circle;

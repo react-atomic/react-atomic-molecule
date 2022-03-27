@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-    SemanticUI
-} from 'react-atomic-molecule';
+import SemanticUI from "./SemanticUI";
 
-const Polygon = props =>
-<SemanticUI atom="polygon" {...props} />
+const Polygon = (props) => <SemanticUI atom="polygon" {...props} />;
 
 export default Polygon;

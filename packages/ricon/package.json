@@ -1,4 +1,5 @@
 {
+  "private": true,
   "description": "Atomic Icon Sets",
   "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
@@ -11,10 +12,11 @@
     "react": "^16.x"
   },
   "scripts": {
-    "clean": "find ./build -name '*.*' | xargs rm -rf",
-    "copy": "cp package.build.json ./build/package.json && cp README.md ./build/",
+    "clean": "find ./build/* \\( ! -path \"*node_modules*\" \\) | xargs rm -rf",
+    "copy": "cp package.build.json ./build/package.json && cp yarn.build.lock ./build/yarn.lock && cp README.md ./build/",
     "build:cjs": "BABEL_ENV=cjs babel ui -d build --root-mode upward",
-    "build": "npm run clean && npm run build:cjs && npm run copy && cd build && yarn install",
-    "prepublish": "npm run build"
+    "build:dev": "npm run build:cjs && npm run copy && cd build && yarn && cp yarn.lock ../yarn.build.lock",
+    "build": "npm run clean && npm run build:dev",
+    "prepublishOnly": "echo should not publish && exit 1;"
   }
 }

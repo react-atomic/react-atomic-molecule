@@ -1,11 +1,17 @@
-import React from "react";
-import { useLazyInject, mixClass, SemanticUI } from "react-atomic-molecule";
+import SemanticUI from "./SemanticUI";
+import useLazyInject from "./useLazyInject";
+import mixClass from "./mixClass";
 
-let injects;
-
-const ICON_X = (props) => {
+const ICON_X = ({
+  position = "absolute",
+  weight = ".2rem",
+  size = "1rem",
+  color = "#333",
+  className,
+  style,
+  ...props
+}) => {
   injects = useLazyInject(InjectStyles, injects);
-  const { position, weight, size, className, color, style, ...others } = props;
   const classes = mixClass(className, "icon", "x");
   const lineStyle = {
     width: weight,
@@ -21,8 +27,8 @@ const ICON_X = (props) => {
   }
   return (
     <SemanticUI
+      {...props}
       className={classes}
-      {...others}
       style={{
         width: size,
         height: size,
@@ -36,13 +42,6 @@ const ICON_X = (props) => {
     </SemanticUI>
   );
 };
-ICON_X.defaultProps = {
-  style: {},
-  size: "1rem",
-  weight: ".2rem",
-  color: "#333",
-  position: "absolute",
-};
 
 export default ICON_X;
 
@@ -54,11 +53,12 @@ const Styles = {
   },
   absolute: {
     position: "absolute",
-    top: "5px",
-    right: "5px",
+    top: 5,
+    right: 5,
   },
 };
 
+let injects;
 const InjectStyles = {
   line: [
     {

@@ -10,7 +10,7 @@ module.exports = function (api) {
               targets: ["last 2 versions", "ie >= 8"],
             },
           ],
-          "@babel/preset-react",
+          ["@babel/preset-react", { runtime: "automatic" }],
         ],
         plugins: [
           "add-module-exports",
@@ -41,7 +41,7 @@ module.exports = function (api) {
               targets: ["last 2 versions", "ie >= 8"],
             },
           ],
-          "@babel/preset-react",
+          ["@babel/preset-react", { runtime: "automatic" }],
         ],
         plugins: [
           "transform-react-pure-class-to-function",

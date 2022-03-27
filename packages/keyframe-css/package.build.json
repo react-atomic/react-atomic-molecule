@@ -1,6 +1,6 @@
 {
   "name": "keyframe-css",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "./index.js",
   "module": "./index.es.js",
   "description": "Keyframes CSS Centralized",

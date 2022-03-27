@@ -1,21 +1,21 @@
-const aniName = 'pulsate';
+const aniName = "breath";
 const css = {
-  breath: [
+  [aniName]: [
     [
       {
-        transform: ['scale(1)'],
+        transform: ["scale(1)"],
       },
       {
         opacity: 0.7,
-        transform: ['scale(.75)'],
+        transform: ["scale(.75)"],
       },
       {
         opacity: 0.9,
-        transform: ['scale(1)'],
+        transform: ["scale(1)"],
       },
     ],
-    [`@keyframes ${aniName}`, '0%', '45%', '100%'],
+    [`@keyframes ${aniName}`, "0%", "45%", "100%"],
   ],
 };
 export default css;
-export {aniName};
+export { aniName };

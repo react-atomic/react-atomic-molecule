@@ -78,8 +78,11 @@ const buildStyle = (result, oStyle) => {
   }
   let selector = oStyle.selector;
   if (selector) {
-    if (IS_ARRAY(selector) && !selector[1]) {
-      selector[1] = replicateSelector(styleId);
+    if (IS_ARRAY(selector)) {
+      selector = selector.slice(0);
+      if (!selector[1]) {
+        selector[1] = replicateSelector(styleId);
+      }
     }
   } else {
     selector = replicateSelector(styleId);

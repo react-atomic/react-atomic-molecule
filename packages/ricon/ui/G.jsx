@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-    SemanticUI
-} from 'react-atomic-molecule';
+import SemanticUI from "./SemanticUI";
 
-const G = props =>
-<SemanticUI atom="g" {...props} />
+const G = (props) => <SemanticUI atom="g" {...props} />;
 
-export default G
+export default G;

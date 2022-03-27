@@ -1,10 +1,9 @@
-import React from "react";
 import Svg from "./Svg";
 import G from "./G";
-import CircleGraph from "./Circle";
-import { useLazyInject } from "react-atomic-molecule";
+import Circle from "./Circle";
+import useLazyInject from "./useLazyInject";
 
-const Circle = ({ rotate, delay, ...props }) => {
+const CircleAni = ({ rotate, delay, ...props }) => {
   if (rotate) {
     rotate = ` rotate(${rotate} 0 13)`;
   } else {
@@ -16,23 +15,23 @@ const Circle = ({ rotate, delay, ...props }) => {
   }
   return (
     <G transform={`translate(16, 3)${rotate}`}>
-      <CircleGraph r="3" style={circleStyle} styles={injects.loading} />
+      <Circle r="3" style={circleStyle} styles={injects.loading} />
     </G>
   );
 };
 
-const CircleLoading = (props) => {
+const CircleLoading = ({viewBox="0 0 32 32", ...props}) => {
   injects = useLazyInject(InjectStyles, injects);
   return (
-    <Svg {...props} viewBox="0 0 32 32">
-      <Circle />
-      <Circle rotate={45} delay={0.125} />
-      <Circle rotate={90} delay={0.25} />
-      <Circle rotate={135} delay={0.375} />
-      <Circle rotate={180} delay={0.5} />
-      <Circle rotate={225} delay={0.625} />
-      <Circle rotate={270} delay={0.75} />
-      <Circle rotate={315} delay={0.875} />
+    <Svg {...props} viewBox={viewBox}>
+      <CircleAni />
+      <CircleAni rotate={45} delay={0.125} />
+      <CircleAni rotate={90} delay={0.25} />
+      <CircleAni rotate={135} delay={0.375} />
+      <CircleAni rotate={180} delay={0.5} />
+      <CircleAni rotate={225} delay={0.625} />
+      <CircleAni rotate={270} delay={0.75} />
+      <CircleAni rotate={315} delay={0.875} />
     </Svg>
   );
 };
