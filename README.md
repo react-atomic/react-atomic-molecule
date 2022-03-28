@@ -5,15 +5,13 @@ Reshow Atomic Molecule (React Component)
 ===============
 Atomic design in React (molecule)
 
+* Live Demo: https://react-atomic-ui.js.org/
+
 ## NPM
 https://www.npmjs.com/package/react-atomic-molecule
 
 ## GIT
 https://github.com/react-atomic/react-atomic-molecule  
-
-## Example Usage
-   * Demo Url:
-   * https://react-atomic-ui.js.org/ 
 
 ## Documentation:
    * More info https://github.com/react-atomic/react-atomic-molecule/wiki
