@@ -1,4 +1,4 @@
-import React, { createElement } from "react";
+import { createElement } from "react";
 import * as Atoms from "react-atomic-atom";
 import get from "get-object-value";
 import ucfirst from "ucfirst-js";
@@ -9,7 +9,7 @@ import bindStyles from "../../src/lib/styles/bindStyles";
 import { bindChildKey } from "../../src/getChildMapping";
 
 const getChildren = (render, children) =>
-  render ? bindChildKey(children) : null;
+  render && children != null ? bindChildKey(children) : null;
 
 const SemanticUI = ({
   ui = true,

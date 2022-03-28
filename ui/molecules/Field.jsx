@@ -1,5 +1,4 @@
-/* jshint esnext: true */
-import React, { cloneElement } from "react";
+import { cloneElement } from "react";
 import { mixClass } from "class-lib";
 import get from "get-object-value";
 import SemanticUI from "../molecules/SemanticUI";

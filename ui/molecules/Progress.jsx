@@ -1,4 +1,3 @@
-import React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Label from "../molecules/Label";

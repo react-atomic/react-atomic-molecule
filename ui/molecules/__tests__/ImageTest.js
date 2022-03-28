@@ -18,7 +18,6 @@ describe("Test Image", () => {
   });
   it("img embedded in div not set loading", () => {
     const wrapper = mount(<Image atom="div" loading={null} />);
-    console.log(wrapper.html());
     expect(wrapper.html()).to.not.have.string(`loading="lazy"`);
   });
 });

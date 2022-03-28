@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Icon from "../molecules/Icon";

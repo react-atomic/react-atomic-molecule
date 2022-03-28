@@ -1,4 +1,3 @@
-import React from "react";
 import { mixClass } from "class-lib";
 import callfunc from "call-func";
 import SemanticUI from "../molecules/SemanticUI";

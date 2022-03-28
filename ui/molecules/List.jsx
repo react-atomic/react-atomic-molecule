@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from "react";
+import { Children, cloneElement } from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import useCSS from "../../src/useCSS";

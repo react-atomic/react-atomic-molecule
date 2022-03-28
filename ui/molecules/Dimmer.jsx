@@ -1,5 +1,3 @@
-/* jshint esnext: true */
-import React from "react";
 import { mixClass } from "class-lib";
 import Content from "../molecules/Content";
 import SemanticUI from "../molecules/SemanticUI";
