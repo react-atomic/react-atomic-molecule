@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.x",
-    "reshow-unit": "*"
+    "reshow-unit-dom": "*"
   },
   "scripts": {
     "clean": "find ./build -name '*.*' | xargs rm -rf",
