@@ -16,7 +16,7 @@ https://github.com/react-atomic/react-atomic-molecule
 ## Documentation:
    * More info https://github.com/react-atomic/react-atomic-molecule/wiki
 
-### Props
+### &lt;SemanticUI /> Props
    * atom
    * styleOrder
    * styles
