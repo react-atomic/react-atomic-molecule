@@ -1,21 +1,21 @@
 import React from "react";
 
 import { expect } from "chai";
-import { mount } from "reshow-unit";
+import { render } from "reshow-unit";
 import List from "../List";
 import Item from "../Item";
 
 describe("Test List", () => {
   it("basic test", () => {
-    const wrapper = mount(<List />);
+    const wrapper = render(<List />);
     expect(wrapper.html()).to.have.string("list");
   });
   it("test with table", () => {
-    const wrapper = mount(<List atom="table" />);
+    const wrapper = render(<List atom="table" />);
     expect(wrapper.html()).to.equal('<table class="list ui"></table>');
   });
   it("test with table item", () => {
-    const wrapper = mount(
+    const wrapper = render(
       <List atom="table">
         <Item />
         <Item />
@@ -26,7 +26,7 @@ describe("Test List", () => {
     );
   });
   it("test with table item and horizontal", () => {
-    const wrapper = mount(
+    const wrapper = render(
       <List atom="table" horizontal>
         <Item />
         <Item />

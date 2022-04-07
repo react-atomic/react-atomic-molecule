@@ -1,6 +1,6 @@
 import React from "react";
 import { expect } from "chai";
-import { mount, cleanIt } from "reshow-unit";
+import { render, cleanIt, waitFor } from "reshow-unit";
 
 import useLazyInject from "../useLazyInject";
 import styleStore from "../store";
@@ -20,18 +20,19 @@ describe("Test useLazyInject", () => {
     cleanIt();
     styleStore.newStyles = [];
   });
-  it("test useLazyInject", (done) => {
+
+  it("test useLazyInject", async () => {
     const VDom = (props) => {
       injects = useLazyInject(InjectStyles, injects);
       return <SemanticUI styles={injects?.test} />;
     };
-    const wrapper = mount(<VDom />);
-    setTimeout(() => {
-      expect(wrapper.html()).to.equal(`<div class="c2_ ui"></div>`);
+    const wrapper = render(<VDom />);
+    expect(wrapper.html()).to.equal(`<div class="c2_ ui"></div>`);
+
+    await waitFor(() => {
       expect(
         document.getElementsByTagName("style")[1].innerHTML
       ).to.have.string(`padding: 1px`);
-      done();
-    }, 30);
+    });
   });
 });

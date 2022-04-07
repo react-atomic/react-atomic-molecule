@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import React from "react";
 
-import { shallow } from "reshow-unit";
+import { render } from "reshow-unit";
 
 import mergeChildren from "../mergeChildren";
 
@@ -17,7 +17,8 @@ describe("Test merge default value", () => {
         <span />
       </FakeDom>
     );
-    const wrap = shallow(vDom);
+
+    const wrap = render(vDom);
     expect(wrap.html()).to.equal(
       "<div><i></i><span></span><span></span></div>"
     );
@@ -33,7 +34,8 @@ describe("Test merge default value", () => {
         <span />
       </FakeDom>
     );
-    const wrap = shallow(vDom);
+
+    const wrap = render(vDom);
     expect(wrap.html()).to.equal("<div><span></span><i></i></div>");
   });
 
@@ -42,8 +44,7 @@ describe("Test merge default value", () => {
       <div>{mergeChildren(<i key="i" />, children)}</div>
     );
 
-    const vDom = <FakeDom />;
-    const wrap = shallow(vDom);
+    const wrap = render(<FakeDom />);
     expect(wrap.html()).to.equal("<div><i></i></div>");
   });
 
@@ -52,9 +53,7 @@ describe("Test merge default value", () => {
       <div>{mergeChildren(<i />, mergeChildren(<i />, children))}</div>
     );
 
-    const vDom = <FakeDom />;
-    const wrap = shallow(vDom);
-
+    const wrap = render(<FakeDom />);
     expect(wrap.html()).to.equal("<div><i></i><i></i></div>");
   });
 });
