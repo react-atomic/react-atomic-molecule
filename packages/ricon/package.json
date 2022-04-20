@@ -12,10 +12,12 @@
     "react": "^16.x"
   },
   "scripts": {
+    "esm": "yo reshow:update-esm-export",
+    "esm:n": "yo reshow:update-esm-export -n",
     "clean": "find ./build/* \\( ! -path \"*node_modules*\" \\) | xargs rm -rf",
     "copy": "cp package.build.json ./build/package.json && cp yarn.build.lock ./build/yarn.lock && cp README.md ./build/",
     "build:cjs": "BABEL_ENV=cjs babel ui -d build --root-mode upward",
-    "build:dev": "npm run build:cjs && npm run copy && cd build && yarn && cp yarn.lock ../yarn.build.lock",
+    "build:dev": "npm run build:cjs && npm run copy && cd build && yarn && npm run syncpkg",
     "build": "npm run clean && npm run build:dev",
     "prepublishOnly": "echo should not publish && exit 1;"
   }

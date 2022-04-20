@@ -1,0 +1,5 @@
+exports_prependArr[]="./"
+exports_appendArr[]=".js"
+exports_srcArr[]="./ui"
+
+exports_pkgjson="package.build.json"
