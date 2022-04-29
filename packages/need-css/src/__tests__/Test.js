@@ -7,7 +7,7 @@ describe("Test need-css", () => {
     jsdom(null, { runScripts: "dangerously", resources: "usable" });
   });
   it("basic testt", (done) => {
-    needCSS(["prismjs"]);
+    needCSS(["prism"]);
     setTimeout(()=>{
       expect(document.getElementsByTagName("link").length).to.equal(1);
       done();

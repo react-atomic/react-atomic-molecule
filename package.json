@@ -1,5 +1,5 @@
 {
-  "version": "4.0.2",
+  "version": "4.0.3",
   "name": "react-atomic-molecule",
   "repository": {
     "type": "git",
@@ -10,12 +10,6 @@
     "react-atomic",
     "react-atomic-ui"
   ],
-  "main": "./build/cjs/src/index.js",
-  "module": "./build/es/src/index.js",
-  "exports": {
-    "require": "./build/cjs/src/index.js",
-    "import": "./build/es/src/index.mjs"
-  },
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
@@ -54,6 +48,12 @@
     "react-dom": "^18.x",
     "reshow-unit": "*"
   },
+  "exports": {
+    "require": "./build/cjs/src/index.js",
+    "import": "./build/es/src/index.mjs"
+  },
+  "main": "./build/cjs/src/index.js",
+  "module": "./build/es/src/index.mjs",
   "scripts": {
     "format": "prettier-eslint --write 'src/**/*.js' 'ui/**/*.jsx'",
     "clean": "find ./build -name '*.*' | xargs rm -rf",

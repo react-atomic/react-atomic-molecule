@@ -3,7 +3,7 @@ import SemanticUI from "../molecules/SemanticUI";
 import useCSS from "../../src/useCSS";
 
 const Segment = (props) => {
-  useCSS(["segment"], "semantic");
+  useCSS(["loader", "segment"], "semantic");
   const classes = mixClass(props.className, "segment");
   return <SemanticUI {...props} className={classes} />;
 };

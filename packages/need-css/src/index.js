@@ -20,6 +20,7 @@ const semanticMap = {
   item: `${SEMANTIC_VERSION}/item.min.css`,
   label: `${SEMANTIC_VERSION}/label.min.css`,
   list: `${SEMANTIC_VERSION}/list.min.css`,
+  loader: `${SEMANTIC_VERSION}/loader.min.css`,
   menu: `${SEMANTIC_VERSION}/menu.min.css`,
   message: `${SEMANTIC_VERSION}/message.min.css`,
   modal: `${SEMANTIC_VERSION}/modal.min.css`,

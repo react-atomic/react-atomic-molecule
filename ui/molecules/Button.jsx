@@ -5,7 +5,7 @@ import Icon from "../molecules/Icon";
 import useCSS from "../../src/useCSS";
 
 const Button = (props) => {
-  useCSS(["button"], "semantic");
+  useCSS(["button", "loader"], "semantic");
   const {
     type = "button",
     className,
