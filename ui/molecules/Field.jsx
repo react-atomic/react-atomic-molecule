@@ -35,7 +35,9 @@ const Field = (props) => {
     bottomTip,
     rightTip,
     ...others
-  } = props;
+  } = props || {};
+  const thisMessage = message ?? props["data-message"];
+  const thisMessageType = messageType ?? props["data-message-type"];
   const isGroup = !(props.atom || inputComponent);
   const classes = mixClass(fieldClassName, {
     "label-wrap": labelWrap,
@@ -43,10 +45,10 @@ const Field = (props) => {
     field: !isGroup,
     fields: isGroup,
     inline: !!inline,
-    info: messageType === "info",
-    error: messageType === "error",
-    success: messageType === "success",
-    warning: messageType === "warning",
+    info: thisMessageType === "info",
+    error: thisMessageType === "error",
+    success: thisMessageType === "success",
+    warning: thisMessageType === "warning",
   });
   let oLabel = null;
   let thisMessageProps = messageProps || {};
@@ -145,10 +147,10 @@ const Field = (props) => {
   let messageEl;
   let bottomTipEl;
   let rightTipEl;
-  if (message) {
+  if (thisMessage) {
     messageEl = (
-      <Message messageType={messageType} {...thisMessageProps}>
-        {message}
+      <Message messageType={thisMessageType} {...thisMessageProps}>
+        {thisMessage}
       </Message>
     );
   }
