@@ -1,20 +1,112 @@
 {
-  "private": true,
-  "description": "keyframe lib",
-  "repository": "react-atomic/react-atomic-molecule",
-  "keywords": ["reactjs"],
+  "version": "0.2.2",
+  "name": "keyframe-css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-atomic/react-atomic-molecule",
+    "directory": "packages/keyframe-css"
+  },
+  "homepage": "https://github.com/react-atomic/react-atomic-molecule/tree/main/packages/keyframe-css",
+  "description": "Keyframes CSS Centralized",
+  "keywords": [
+    "reactjs",
+    "keyframes"
+  ],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
+  "dependencies": {
+    "call-func": "*",
+    "get-object-value": "*",
+    "react-atomic-molecule": "*",
+    "reshow-constant": "*"
+  },
   "devDependencies": {
     "@babel/cli": "^7.x"
   },
   "scripts": {
+    "esm": "yo reshow:update-esm-export",
+    "esm:n": "yo reshow:update-esm-export -n",
     "clean": "find ./build/* \\( ! -path \"*node_modules*\" \\) | xargs rm -rf",
-    "copy": "cp package.build.json ./build/package.json && cp yarn.build.lock ./build/yarn.lock  && cp README.md ./build/",
-    "build:cjs": "BABEL_ENV=cjs babel src -d build --root-mode upward",
-    "build:es": "BABEL_ENV=es babel src/index.js -o build/index.es.js --root-mode upward",
-    "build:dev": "npm run build:cjs && npm run build:es && npm run copy && cd build && yarn && cp yarn.lock ../yarn.build.lock",
-    "build": "npm run clean && npm run build:dev",
-    "prepublishOnly": "echo should not publish && exit 1;"
+    "build:cjs": "BABEL_ENV=cjs babel src -d build/cjs/src --ignore /**/__tests__ --root-mode upward",
+    "build:es": "BABEL_ENV=es babel src -d build/es/src --out-file-extension .mjs --root-mode upward",
+    "build": "npm run clean && npm run build:cjs && npm run build:es",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "build",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./build/cjs/src/index.js",
+  "module": "./build/es/src/index.mjs",
+  "exports": {
+    "./breath": {
+      "require": "./build/cjs/src/breath.js",
+      "import": "./build/es/src/breath.mjs"
+    },
+    "./candleInTheWind": {
+      "require": "./build/cjs/src/candleInTheWind.js",
+      "import": "./build/es/src/candleInTheWind.mjs"
+    },
+    "./empty": {
+      "require": "./build/cjs/src/empty.js",
+      "import": "./build/es/src/empty.mjs"
+    },
+    "./fadeIn": {
+      "require": "./build/cjs/src/fadeIn.js",
+      "import": "./build/es/src/fadeIn.mjs"
+    },
+    "./fadeInDown": {
+      "require": "./build/cjs/src/fadeInDown.js",
+      "import": "./build/es/src/fadeInDown.mjs"
+    },
+    "./fadeInLeft": {
+      "require": "./build/cjs/src/fadeInLeft.js",
+      "import": "./build/es/src/fadeInLeft.mjs"
+    },
+    "./fadeInRight": {
+      "require": "./build/cjs/src/fadeInRight.js",
+      "import": "./build/es/src/fadeInRight.mjs"
+    },
+    "./fadeInUp": {
+      "require": "./build/cjs/src/fadeInUp.js",
+      "import": "./build/es/src/fadeInUp.mjs"
+    },
+    "./fadeInUpBig": {
+      "require": "./build/cjs/src/fadeInUpBig.js",
+      "import": "./build/es/src/fadeInUpBig.mjs"
+    },
+    "./fadeOut": {
+      "require": "./build/cjs/src/fadeOut.js",
+      "import": "./build/es/src/fadeOut.mjs"
+    },
+    "./fadeOutDown": {
+      "require": "./build/cjs/src/fadeOutDown.js",
+      "import": "./build/es/src/fadeOutDown.mjs"
+    },
+    "./fadeOutLeft": {
+      "require": "./build/cjs/src/fadeOutLeft.js",
+      "import": "./build/es/src/fadeOutLeft.mjs"
+    },
+    "./fadeOutRight": {
+      "require": "./build/cjs/src/fadeOutRight.js",
+      "import": "./build/es/src/fadeOutRight.mjs"
+    },
+    "./fadeOutUp": {
+      "require": "./build/cjs/src/fadeOutUp.js",
+      "import": "./build/es/src/fadeOutUp.mjs"
+    },
+    ".": {
+      "require": "./build/cjs/src/index.js",
+      "import": "./build/es/src/index.mjs"
+    },
+    "./pulsate": {
+      "require": "./build/cjs/src/pulsate.js",
+      "import": "./build/es/src/pulsate.mjs"
+    },
+    "./spin": {
+      "require": "./build/cjs/src/spin.js",
+      "import": "./build/es/src/spin.mjs"
+    }
   }
 }

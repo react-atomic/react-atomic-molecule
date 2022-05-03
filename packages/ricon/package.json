@@ -1,24 +1,328 @@
 {
-  "private": true,
+  "version": "0.4.0",
+  "name": "ricon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-atomic/react-atomic-molecule",
+    "directory": "packages/ricon"
+  },
+  "homepage": "https://github.com/react-atomic/react-atomic-molecule/tree/main/packages/ricon",
   "description": "Atomic Icon Sets",
-  "repository": "react-atomic/react-atomic-molecule",
   "keywords": [
     "reactjs"
   ],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
+  "dependencies": {
+    "keyframe-css": "*",
+    "react-atomic-molecule": "*",
+    "reshow-runtime": "*"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.x",
-    "react": "^16.x"
+    "@babel/cli": "^7.x"
   },
   "scripts": {
     "esm": "yo reshow:update-esm-export",
     "esm:n": "yo reshow:update-esm-export -n",
     "clean": "find ./build/* \\( ! -path \"*node_modules*\" \\) | xargs rm -rf",
-    "copy": "cp package.build.json ./build/package.json && cp yarn.build.lock ./build/yarn.lock && cp README.md ./build/",
-    "build:cjs": "BABEL_ENV=cjs babel ui -d build --root-mode upward",
-    "build:dev": "npm run build:cjs && npm run copy && cd build && yarn && npm run syncpkg",
-    "build": "npm run clean && npm run build:dev",
-    "prepublishOnly": "echo should not publish && exit 1;"
+    "build:cjs": "BABEL_ENV=cjs babel ui -d build/cjs/ui --ignore /**/__tests__ --root-mode upward",
+    "build:es": "BABEL_ENV=es babel ui -d build/es/ui --out-file-extension .mjs --root-mode upward",
+    "build": "npm run clean && npm run build:cjs && npm run build:es",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "build",
+    "package.json",
+    "README.md"
+  ],
+  "exports": {
+    "./AccessTime": {
+      "require": "./build/cjs/ui/AccessTime.js",
+      "import": "./build/es/ui/AccessTime.mjs"
+    },
+    "./Account": {
+      "require": "./build/cjs/ui/Account.js",
+      "import": "./build/es/ui/Account.mjs"
+    },
+    "./Add": {
+      "require": "./build/cjs/ui/Add.js",
+      "import": "./build/es/ui/Add.mjs"
+    },
+    "./ArrowPath": {
+      "require": "./build/cjs/ui/ArrowPath.js",
+      "import": "./build/es/ui/ArrowPath.mjs"
+    },
+    "./BarChart": {
+      "require": "./build/cjs/ui/BarChart.js",
+      "import": "./build/es/ui/BarChart.mjs"
+    },
+    "./Blur": {
+      "require": "./build/cjs/ui/Blur.js",
+      "import": "./build/es/ui/Blur.mjs"
+    },
+    "./Build": {
+      "require": "./build/cjs/ui/Build.js",
+      "import": "./build/es/ui/Build.mjs"
+    },
+    "./Calendar": {
+      "require": "./build/cjs/ui/Calendar.js",
+      "import": "./build/es/ui/Calendar.mjs"
+    },
+    "./ChevronRight": {
+      "require": "./build/cjs/ui/ChevronRight.js",
+      "import": "./build/es/ui/ChevronRight.mjs"
+    },
+    "./Circle": {
+      "require": "./build/cjs/ui/Circle.js",
+      "import": "./build/es/ui/Circle.mjs"
+    },
+    "./CircleLoading": {
+      "require": "./build/cjs/ui/CircleLoading.js",
+      "import": "./build/es/ui/CircleLoading.mjs"
+    },
+    "./Code": {
+      "require": "./build/cjs/ui/Code.js",
+      "import": "./build/es/ui/Code.mjs"
+    },
+    "./Dashboard": {
+      "require": "./build/cjs/ui/Dashboard.js",
+      "import": "./build/es/ui/Dashboard.mjs"
+    },
+    "./Delete": {
+      "require": "./build/cjs/ui/Delete.js",
+      "import": "./build/es/ui/Delete.mjs"
+    },
+    "./Description": {
+      "require": "./build/cjs/ui/Description.js",
+      "import": "./build/es/ui/Description.mjs"
+    },
+    "./Device": {
+      "require": "./build/cjs/ui/Device.js",
+      "import": "./build/es/ui/Device.mjs"
+    },
+    "./Download": {
+      "require": "./build/cjs/ui/Download.js",
+      "import": "./build/es/ui/Download.mjs"
+    },
+    "./Dropdown": {
+      "require": "./build/cjs/ui/Dropdown.js",
+      "import": "./build/es/ui/Dropdown.mjs"
+    },
+    "./Edit": {
+      "require": "./build/cjs/ui/Edit.js",
+      "import": "./build/es/ui/Edit.mjs"
+    },
+    "./Email": {
+      "require": "./build/cjs/ui/Email.js",
+      "import": "./build/es/ui/Email.mjs"
+    },
+    "./Error": {
+      "require": "./build/cjs/ui/Error.js",
+      "import": "./build/es/ui/Error.mjs"
+    },
+    "./Exit": {
+      "require": "./build/cjs/ui/Exit.js",
+      "import": "./build/es/ui/Exit.mjs"
+    },
+    "./Facebook": {
+      "require": "./build/cjs/ui/Facebook.js",
+      "import": "./build/es/ui/Facebook.mjs"
+    },
+    "./FacebookMessage": {
+      "require": "./build/cjs/ui/FacebookMessage.js",
+      "import": "./build/es/ui/FacebookMessage.mjs"
+    },
+    "./FeaturedPlayList": {
+      "require": "./build/cjs/ui/FeaturedPlayList.js",
+      "import": "./build/es/ui/FeaturedPlayList.mjs"
+    },
+    "./File": {
+      "require": "./build/cjs/ui/File.js",
+      "import": "./build/es/ui/File.mjs"
+    },
+    "./G": {
+      "require": "./build/cjs/ui/G.js",
+      "import": "./build/es/ui/G.mjs"
+    },
+    "./Git": {
+      "require": "./build/cjs/ui/Git.js",
+      "import": "./build/es/ui/Git.mjs"
+    },
+    "./Hamburger": {
+      "require": "./build/cjs/ui/Hamburger.js",
+      "import": "./build/es/ui/Hamburger.mjs"
+    },
+    "./HamburgerToArrow": {
+      "require": "./build/cjs/ui/HamburgerToArrow.js",
+      "import": "./build/es/ui/HamburgerToArrow.mjs"
+    },
+    "./HamburgerToX": {
+      "require": "./build/cjs/ui/HamburgerToX.js",
+      "import": "./build/es/ui/HamburgerToX.mjs"
+    },
+    "./HamburgerTransform": {
+      "require": "./build/cjs/ui/HamburgerTransform.js",
+      "import": "./build/es/ui/HamburgerTransform.mjs"
+    },
+    "./Help": {
+      "require": "./build/cjs/ui/Help.js",
+      "import": "./build/es/ui/Help.mjs"
+    },
+    "./Home": {
+      "require": "./build/cjs/ui/Home.js",
+      "import": "./build/es/ui/Home.mjs"
+    },
+    "./Link": {
+      "require": "./build/cjs/ui/Link.js",
+      "import": "./build/es/ui/Link.mjs"
+    },
+    "./Monetization": {
+      "require": "./build/cjs/ui/Monetization.js",
+      "import": "./build/es/ui/Monetization.mjs"
+    },
+    "./MyLocation": {
+      "require": "./build/cjs/ui/MyLocation.js",
+      "import": "./build/es/ui/MyLocation.mjs"
+    },
+    "./Notification": {
+      "require": "./build/cjs/ui/Notification.js",
+      "import": "./build/es/ui/Notification.mjs"
+    },
+    "./Npm": {
+      "require": "./build/cjs/ui/Npm.js",
+      "import": "./build/es/ui/Npm.mjs"
+    },
+    "./Path": {
+      "require": "./build/cjs/ui/Path.js",
+      "import": "./build/es/ui/Path.mjs"
+    },
+    "./Person": {
+      "require": "./build/cjs/ui/Person.js",
+      "import": "./build/es/ui/Person.mjs"
+    },
+    "./Phone": {
+      "require": "./build/cjs/ui/Phone.js",
+      "import": "./build/es/ui/Phone.mjs"
+    },
+    "./Pin": {
+      "require": "./build/cjs/ui/Pin.js",
+      "import": "./build/es/ui/Pin.mjs"
+    },
+    "./Play": {
+      "require": "./build/cjs/ui/Play.js",
+      "import": "./build/es/ui/Play.mjs"
+    },
+    "./PlayListAdd": {
+      "require": "./build/cjs/ui/PlayListAdd.js",
+      "import": "./build/es/ui/PlayListAdd.mjs"
+    },
+    "./Polygon": {
+      "require": "./build/cjs/ui/Polygon.js",
+      "import": "./build/es/ui/Polygon.mjs"
+    },
+    "./Pulse": {
+      "require": "./build/cjs/ui/Pulse.js",
+      "import": "./build/es/ui/Pulse.mjs"
+    },
+    "./Refresh": {
+      "require": "./build/cjs/ui/Refresh.js",
+      "import": "./build/es/ui/Refresh.mjs"
+    },
+    "./Reply": {
+      "require": "./build/cjs/ui/Reply.js",
+      "import": "./build/es/ui/Reply.mjs"
+    },
+    "./Search": {
+      "require": "./build/cjs/ui/Search.js",
+      "import": "./build/es/ui/Search.mjs"
+    },
+    "./SemanticUI": {
+      "require": "./build/cjs/ui/SemanticUI.js",
+      "import": "./build/es/ui/SemanticUI.mjs"
+    },
+    "./Settings": {
+      "require": "./build/cjs/ui/Settings.js",
+      "import": "./build/es/ui/Settings.mjs"
+    },
+    "./Shopee": {
+      "require": "./build/cjs/ui/Shopee.js",
+      "import": "./build/es/ui/Shopee.mjs"
+    },
+    "./ShoppingCart": {
+      "require": "./build/cjs/ui/ShoppingCart.js",
+      "import": "./build/es/ui/ShoppingCart.mjs"
+    },
+    "./Sort": {
+      "require": "./build/cjs/ui/Sort.js",
+      "import": "./build/es/ui/Sort.mjs"
+    },
+    "./Svg": {
+      "require": "./build/cjs/ui/Svg.js",
+      "import": "./build/es/ui/Svg.mjs"
+    },
+    "./Sync": {
+      "require": "./build/cjs/ui/Sync.js",
+      "import": "./build/es/ui/Sync.mjs"
+    },
+    "./Timer": {
+      "require": "./build/cjs/ui/Timer.js",
+      "import": "./build/es/ui/Timer.mjs"
+    },
+    "./TouchApp": {
+      "require": "./build/cjs/ui/TouchApp.js",
+      "import": "./build/es/ui/TouchApp.mjs"
+    },
+    "./VerifiedUser": {
+      "require": "./build/cjs/ui/VerifiedUser.js",
+      "import": "./build/es/ui/VerifiedUser.mjs"
+    },
+    "./Video": {
+      "require": "./build/cjs/ui/Video.js",
+      "import": "./build/es/ui/Video.mjs"
+    },
+    "./ViewModule": {
+      "require": "./build/cjs/ui/ViewModule.js",
+      "import": "./build/es/ui/ViewModule.mjs"
+    },
+    "./Visibility": {
+      "require": "./build/cjs/ui/Visibility.js",
+      "import": "./build/es/ui/Visibility.mjs"
+    },
+    "./Wallet": {
+      "require": "./build/cjs/ui/Wallet.js",
+      "import": "./build/es/ui/Wallet.mjs"
+    },
+    "./Warning": {
+      "require": "./build/cjs/ui/Warning.js",
+      "import": "./build/es/ui/Warning.mjs"
+    },
+    "./Wifi": {
+      "require": "./build/cjs/ui/Wifi.js",
+      "import": "./build/es/ui/Wifi.mjs"
+    },
+    "./X": {
+      "require": "./build/cjs/ui/X.js",
+      "import": "./build/es/ui/X.mjs"
+    },
+    "./ZoomIn": {
+      "require": "./build/cjs/ui/ZoomIn.js",
+      "import": "./build/es/ui/ZoomIn.mjs"
+    },
+    "./base": {
+      "require": "./build/cjs/ui/base.js",
+      "import": "./build/es/ui/base.mjs"
+    },
+    "./mixClass": {
+      "require": "./build/cjs/ui/mixClass.js",
+      "import": "./build/es/ui/mixClass.mjs"
+    },
+    "./reactStyle": {
+      "require": "./build/cjs/ui/reactStyle.js",
+      "import": "./build/es/ui/reactStyle.mjs"
+    },
+    "./useLazyInject": {
+      "require": "./build/cjs/ui/useLazyInject.js",
+      "import": "./build/es/ui/useLazyInject.mjs"
+    }
   }
 }

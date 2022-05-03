@@ -27,46 +27,46 @@ const getKeyframeCss = (key, cb) => {
   const callback = processCss(cb);
   switch (key) {
     case "candleInTheWind":
-      import("./candleInTheWind").then(callback);
+      import(`../../es/src/candleInTheWind.mjs`).then(callback);
       break;
     case "fadeIn":
-      import("./fadeIn").then(callback);
+      import(`../../es/src/fadeIn.mjs`).then(callback);
       break;
     case "fadeInUp":
-      import("./fadeInUp").then(callback);
+      import(`../../es/src/fadeInUp.mjs`).then(callback);
       break;
     case "fadeInUpBig":
-      import("./fadeInUpBig").then(callback);
+      import(`../../es/src/fadeInUpBig.mjs`).then(callback);
       break;
     case "fadeInRight":
-      import("./fadeInRight").then(callback);
+      import(`../../es/src/fadeInRight.mjs`).then(callback);
       break;
     case "fadeInDown":
-      import("./fadeInDown").then(callback);
+      import(`../../es/src/fadeInDown.mjs`).then(callback);
       break;
     case "fadeInLeft":
-      import("./fadeInLeft").then(callback);
+      import(`../../es/src/fadeInLeft.mjs`).then(callback);
       break;
     case "fadeOut":
-      import("./fadeOut").then(callback);
+      import(`../../es/src/fadeOut.mjs`).then(callback);
       break;
     case "fadeOutUp":
-      import("./fadeOutUp").then(callback);
+      import(`../../es/src/fadeOutUp.mjs`).then(callback);
       break;
     case "fadeOutRight":
-      import("./fadeOutRight").then(callback);
+      import(`../../es/src/fadeOutRight.mjs`).then(callback);
       break;
     case "fadeOutDown":
-      import("./fadeOutDown").then(callback);
+      import(`../../es/src/fadeOutDown.mjs`).then(callback);
       break;
     case "fadeOutLeft":
-      import("./fadeOutLeft").then(callback);
+      import(`../../es/src/fadeOutLeft.mjs`).then(callback);
       break;
     case "pulsate":
-      import("./pulsate").then(callback);
+      import(`../../es/src/pulsate.mjs`).then(callback);
       break;
     case "spin":
-      import("./spin").then(callback);
+      import(`../../es/src/spin.mjs`).then(callback);
       break;
   }
   inject[key] = true;
