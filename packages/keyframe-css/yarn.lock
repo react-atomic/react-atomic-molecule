@@ -38,7 +38,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.17.10.tgz#711dc726a492dfc8be8220028b1b92482362baab"
   integrity sha512-GZt/TCsG70Ms19gfZO1tM4CVnXsPgEPBCpJu+Qz3L0LUDsY5nZqFZglIoPC1kIYOtNBZlrnFT+klg12vFGZXrw==
 
-"@babel/core@^7.7.7", "@babel/core@^7.x":
+"@babel/core@*", "@babel/core@^7.7.7", "@babel/core@^7.x":
   version "7.17.10"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.10.tgz#74ef0fbf56b7dfc3f198fc2d927f4f03e12f4b05"
   integrity sha512-liKoppandF3ZcBnIYFjfSDHZLKdLHGJRkoWtG8zQyGJBQfIYobpnVGI5+pLBNtS6psFLDzyq8+h5HiVljW9PNA==
@@ -952,7 +952,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/template@^7.16.7":
+"@babel/template@*", "@babel/template@^7.16.7":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.16.7.tgz#8d126c8701fde4d66b264b3eba3d96f07666d155"
   integrity sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==
@@ -1004,9 +1004,9 @@
   integrity sha512-SfJxIxNVYLTsKwzB3MoOQ1yxf4w/E6MdkvTgrgAt1bfxjSrLUoHMKrDOykwN14q65waezZIdqDneUIPh4/sKxg==
 
 "@jridgewell/sourcemap-codec@^1.4.10":
-  version "1.4.11"
-  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.11.tgz#771a1d8d744eeb71b6adb35808e1a6c7b9b8c8ec"
-  integrity sha512-Fg32GrJo61m+VqYSdRSjRXMjQ06j8YIYfcTqndLYVAaHmroZHLJZCydsWBOTDqXS2v+mjxohBWEMfg97GXmYQg==
+  version "1.4.12"
+  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.12.tgz#7ed98f6fa525ffb7c56a2cbecb5f7bb91abd2baf"
+  integrity sha512-az/NhpIwP3K33ILr0T2bso+k2E/SLf8Yidd8mHl0n6sCQ4YdyC8qDhZA6kOPDNDBA56ZnIjngVl0U3jREA0BUA==
 
 "@jridgewell/trace-mapping@^0.3.8", "@jridgewell/trace-mapping@^0.3.9":
   version "0.3.9"
@@ -1054,13 +1054,6 @@ babel-helper-is-react-class@^1.0.0:
   resolved "https://registry.yarnpkg.com/babel-helper-is-react-class/-/babel-helper-is-react-class-1.0.0.tgz#ef6f3678b05c76dbdeedadead7af98c2724d8431"
   integrity sha1-7282eLBcdtve7a3q16+YwnJNhDE=
 
-babel-plugin-add-import-extension@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-add-import-extension/-/babel-plugin-add-import-extension-1.6.0.tgz#807ce65b38d4763797c1616cb4e8372da167cdd1"
-  integrity sha512-JVSQPMzNzN/S4wPRoKQ7+u8PlkV//BPUMnfWVbr63zcE+6yHdU2Mblz10Vf7qe+6Rmu4svF5jG7JxdcPi9VvKg==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.14.5"
-
 babel-plugin-add-module-exports@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-1.0.4.tgz#6caa4ddbe1f578c6a5264d4d3e6c8a2720a7ca2b"
@@ -1096,6 +1089,15 @@ babel-plugin-polyfill-regenerator@^0.3.0:
   integrity sha512-Y2B06tvgHYt1x0yz17jGkGeeMr5FeKUu+ASJ+N6nB5lQ8Dapfg42i0OVrf8PNGJ3zKL4A23snMi1IRwrqqND7A==
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.1"
+
+babel-plugin-reshow-import-extension@*:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-reshow-import-extension/-/babel-plugin-reshow-import-extension-0.0.3.tgz#9e71b73fc40bf78208db09f223119a7ad8993881"
+  integrity sha512-IDZLxWyLy0zmNe7HfQ3pbq/+cgglxwt/JibTbniYPClUNVYAY4Oqc6c7bxmijyVPxPgXZxDfbLlMvo5iASL6Jw==
+  dependencies:
+    "@babel/core" "*"
+    "@babel/template" "*"
+    reshow-runtime "*"
 
 babel-plugin-reshow-object-to-json-parse@*:
   version "0.0.9"
@@ -1178,9 +1180,9 @@ call-func@*:
     reshow-constant "*"
 
 caniuse-lite@^1.0.30001332:
-  version "1.0.30001334"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001334.tgz#892e9965b35285033fc2b8a8eff499fe02f13d8b"
-  integrity sha512-kbaCEBRRVSoeNs74sCuq92MJyGrMtjWVfhltoHUCW4t4pXFvGjUBrfo47weBRViHkiV3eBYyIsfl956NtHGazw==
+  version "1.0.30001335"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001335.tgz#899254a0b70579e5a957c32dced79f0727c61f2a"
+  integrity sha512-ddP1Tgm7z2iIxu6QTtbZUv6HJxSaV/PZeSrWFZtbY4JZ69tOeNhBCl3HyRQgeNZKE5AOn1kpV7fhljigy0Ty3w==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -1244,9 +1246,9 @@ convert-source-map@^1.1.0, convert-source-map@^1.7.0:
     safe-buffer "~5.1.1"
 
 core-js-compat@^3.21.0, core-js-compat@^3.22.1:
-  version "3.22.3"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.22.3.tgz#9b10d786052d042bc97ee8df9c0d1fb6a49c2005"
-  integrity sha512-wliMbvPI2idgFWpFe7UEyHMvu6HWgW8WA+HnDRtgzoSDYvXFMpoGX1H3tPDDXrcfUSyXafCLDd7hOeMQHEZxGw==
+  version "3.22.4"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.22.4.tgz#d700f451e50f1d7672dcad0ac85d910e6691e579"
+  integrity sha512-dIWcsszDezkFZrfm1cnB4f/J85gyhiCpxbgBdohWCDtSVuAaChTSpPV7ldOQf/Xds2U5xCIJZOK82G4ZPAIswA==
   dependencies:
     browserslist "^4.20.3"
     semver "7.0.0"
@@ -1286,9 +1288,9 @@ define-properties@^1.1.3:
     object-keys "^1.1.1"
 
 electron-to-chromium@^1.4.118:
-  version "1.4.129"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.129.tgz#c675793885721beefff99da50f57c6525c2cd238"
-  integrity sha512-GgtN6bsDtHdtXJtlMYZWGB/uOyjZWjmRDumXTas7dGBaB9zUyCjzHet1DY2KhyHN8R0GLbzZWqm4efeddqqyRQ==
+  version "1.4.134"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.134.tgz#9baca7a018ca489d8e81a00c7cfe15161da38568"
+  integrity sha512-OdD7M2no4Mi8PopfvoOuNcwYDJ2mNFxaBfurA6okG3fLBaMcFah9S+si84FhX+FIWLKkdaiHfl4A+5ep/gOVrg==
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -1570,9 +1572,9 @@ pify@^4.0.1:
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
 react-atomic-atom@*:
-  version "2.2.11"
-  resolved "https://registry.yarnpkg.com/react-atomic-atom/-/react-atomic-atom-2.2.11.tgz#4dad14d521f814a363fad0fac544b5e97df443b3"
-  integrity sha512-KNTN6uXy79aWHTi0IIWLjs3Da0Ik45ADk2hxS8g/jLGRrCbB4EcBVXER++bjOvWncvewf16aHjGPHFfjpmqsAg==
+  version "2.2.12"
+  resolved "https://registry.yarnpkg.com/react-atomic-atom/-/react-atomic-atom-2.2.12.tgz#7aea0abd24b84c6e20e84a57457c3fa65c7218a6"
+  integrity sha512-WorEEOobsdz5CWCof0PP7mELpiC9iEPboG4cBf4YY1Hc0vibzYdvIFV74QHWI8NYrCcha9laTFwuu5x1eAfsGQ==
   dependencies:
     "@babel/cli" "^7.x"
     "@babel/core" "^7.x"
@@ -1591,9 +1593,9 @@ react-atomic-atom@*:
     "@babel/plugin-transform-spread" "*"
     "@babel/preset-env" "*"
     "@babel/preset-react" "*"
-    babel-plugin-add-import-extension "1.6.0"
     babel-plugin-add-module-exports "1.0.4"
     babel-plugin-dynamic-import-node "2.3.3"
+    babel-plugin-reshow-import-extension "*"
     babel-plugin-reshow-object-to-json-parse "*"
     babel-plugin-reshow-transform-runtime "*"
     babel-plugin-transform-react-pure-class-to-function "1.0.1"
@@ -1690,9 +1692,9 @@ reshow-constant@*:
   integrity sha512-boZMA+BHvFXQuJJDud0lo+r8efSKWEiIzgtI3x/DPUWPcpLxq8pWqi/AQKpKqP0a/0sDzP5FvTd11G2oEBBqBw==
 
 reshow-runtime@*:
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/reshow-runtime/-/reshow-runtime-0.17.4.tgz#c525a214877e47c49ec00f44b083a725eb02a665"
-  integrity sha512-Zi+6bgnumU3ZTGAkbm48zIFCuLZeFCLaytOK6hwbaILGyFHQgIcArbsRv2uto3+oSWbYONrMnKr8F+YmBgAjyQ==
+  version "0.17.5"
+  resolved "https://registry.yarnpkg.com/reshow-runtime/-/reshow-runtime-0.17.5.tgz#4e20ac7951ee381fc7d34fb4d39b686818df6f11"
+  integrity sha512-go6i/dTuEuZdB9MoX2RiCyl1NglMGHV/zry+++MeVtSrrvHG0WDZy3wVTiYcvxpzskwwORA0iqmyOiGN1ljQXw==
   dependencies:
     regenerator-runtime "^0.13.4"
     reshow-constant "*"
