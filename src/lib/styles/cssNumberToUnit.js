@@ -1,7 +1,7 @@
 import { isUnitlessNumber } from "./cssUnitLessNumber";
-import { IS_ARRAY } from "reshow-constant";
+import { IS_ARRAY, NUMBER } from "reshow-constant";
 
-const appendPx = (v) => ("number" === typeof v ? v + "px" : v);
+const appendPx = (v) => (v && NUMBER === typeof v ? v + "px" : v);
 
 const cssNumberToUnit = (key, value) => {
   if (isUnitlessNumber[key]) {
