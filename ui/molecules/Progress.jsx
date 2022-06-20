@@ -40,10 +40,13 @@ const Progress = (props) => {
     otherBarProps.children
   );
 
+  const thisPercent = (percent ?? props["data-percent"]) * 1;
+
   return (
     <SemanticUI
       {...others}
       className={classes}
+      data-percent={thisPercent}
       styles={[reactStyle(style, null, false), styles]}
     >
       <SemanticUI
@@ -53,7 +56,7 @@ const Progress = (props) => {
         styles={[
           reactStyle(
             {
-              width: percent + "%",
+              width: thisPercent + "%",
               ...barStyle,
             },
             null,
