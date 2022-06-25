@@ -1,14 +1,24 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import lazyInject from "./lazyInject";
+import injectStyle from "./injectStyle";
+import cleanStyleTag from "./cleanStyleTag";
 
-const useLazyInject = (InjectStyles, injectStore) => {
+const useLazyInject = (InjectStyles, existsInjection) => {
   const injects = useRef();
   if (!injects.current) {
-    if (!injectStore) {
-      injectStore = lazyInject(InjectStyles, injects.current);
+    if (!existsInjection) {
+      existsInjection = lazyInject(InjectStyles, existsInjection);
+    } else {
+      injectStyle(existsInjection);
     }
-    injects.current = injectStore;
+    injects.current = existsInjection;
   }
+  useEffect(() => {
+    return () => {
+      cleanStyleTag(injects.current);
+      injects.current = null;
+    };
+  }, []);
   return injects.current;
 };
 

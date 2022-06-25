@@ -8,7 +8,6 @@ const g = win().__null ? global : win();
 const stylesStore = g.reactStylesStore
   ? g.reactStylesStore
   : {
-      load: {},
       registry: {},
       newStyles: [],
       counter: 0,

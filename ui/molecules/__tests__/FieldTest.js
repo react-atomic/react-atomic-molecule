@@ -6,7 +6,6 @@ import { render } from "reshow-unit";
 import Field from "../Field";
 
 describe("Test Field", () => {
-
   it("test disabled", () => {
     const wrapper = render(<Field />);
     expect(wrapper.html()).to.have.string("div");
@@ -27,7 +26,9 @@ describe("Test Field", () => {
   });
 
   it("not isGroup with fieldStyle", () => {
-    const wrapper = render(<Field atom="input" fieldStyle={{ padding: 333 }} />);
+    const wrapper = render(
+      <Field atom="input" fieldStyle={{ padding: 333 }} />
+    );
     expect(wrapper.html()).to.have.string(
       'style="padding: 333px; box-sizing: inherit;"'
     );
