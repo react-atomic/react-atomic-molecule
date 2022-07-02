@@ -1,21 +1,18 @@
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 
-const Icon = (props) => {
-  const { className, style, ...others } = props;
-  const classes = mixClass(className, "icon");
-  return (
-    <SemanticUI
-      atom="i"
-      ui={false}
-      {...others}
-      className={className}
-      style={{
-        display: "inline-block",
-        ...style,
-      }}
-    />
-  );
-};
+const Icon = ({ className, style, ...others }) => (
+  <SemanticUI
+    atom="i"
+    ui={false}
+    {...others}
+    className={mixClass(className, "icon")}
+    style={{
+      display: "inline-block",
+      width: 24,
+      ...style,
+    }}
+  />
+);
 
 export default Icon;
