@@ -4,7 +4,7 @@ import injectStyle from "./injectStyle";
 
 const lazyInject = (configs, injects) => {
   if (!injects) {
-    injects = {};
+    injects = Object.create(null);
     KEYS(configs).forEach((key) => {
       let item = configs[key];
       if (!IS_ARRAY(item)) {

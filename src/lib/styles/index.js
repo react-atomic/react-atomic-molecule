@@ -31,7 +31,7 @@ const createStyle = (css, selector, styleId) => {
 
   const styles = [];
   css.forEach((one, i) => {
-    styles[i] = {};
+    styles[i] = Object.create(null);
     KEYS(one).forEach((key) => {
       if (IS_ARRAY(one[key]) && 1 === one[key].length) {
         const ucFirstKey = ucfirst(key);

@@ -57,12 +57,14 @@ const buildRules = (rules = [], styleId, selector) => {
 
   if (parentSelector) {
     const mycssArr = [parentSelector + " {\n" + myRule + "\n}\n"];
-    const keyframesString = "@keyframes";
-    if (0 === parentSelector.indexOf(keyframesString)) {
+    const keyframesString = "keyframes";
+    if (1 === parentSelector.indexOf(keyframesString)) {
       browsers.forEach((browser) => {
         mycssArr.push(
-          parentSelector.replace(keyframesString, `@-${browser}-keyframes `) +
-            `{\n${myRule}\n}\n`
+          parentSelector.replace(
+            "@" + keyframesString,
+            `@-${browser}-${keyframesString}`
+          ) + `{\n${myRule}\n}\n`
         );
       });
     }
@@ -93,7 +95,11 @@ const buildStyle = (result, oStyle) => {
 };
 
 const stylesToCSS = (styles) => {
-  const result = { styleIds: [], objArr: {}, cssArr: {} };
+  const result = {
+    styleIds: [],
+    objArr: Object.create(null),
+    cssArr: Object.create(null),
+  };
   styles && styles.forEach((oStyle) => buildStyle(result, oStyle));
   return result;
 };

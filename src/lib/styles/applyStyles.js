@@ -16,7 +16,7 @@ const applyInlineStyle = (props, order, oStyle) => {
     return props;
   }
   if (!props.style) {
-    props.style = {};
+    props.style = Object.create(null);
   }
   oStyle.style.forEach((one) =>
     KEYS(one).forEach((key) => (props.style[key] = one[key]))

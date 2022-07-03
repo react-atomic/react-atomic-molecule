@@ -9,18 +9,18 @@ const useLazyInject = (InjectStyles, existsInjection) => {
     if (!injects.current) {
       if (!existsInjection) {
         existsInjection = lazyInject(InjectStyles, existsInjection);
-      } else {
-        injectStyle(existsInjection);
       }
       injects.current = existsInjection;
     }
   };
   resetInject();
   useEffect(() => {
-    resetInject();
+    if (!injects.current) {
+      resetInject();
+    }
+    injectStyle(injects.current);
     return () => {
       cleanStyleTag(injects.current);
-      injects.current = null;
     };
   }, []);
   return injects.current;

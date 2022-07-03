@@ -1,4 +1,4 @@
-import { doc } from "win-doc";
+import { hasWin } from "win-doc";
 import { inject, create } from "create-el";
 import query from "css-query-selector";
 import { KEYS } from "reshow-constant";
@@ -13,7 +13,7 @@ const appendCss = ({ styleIds, objArr, cssArr }) => {
     const id = getStyleTagId(key);
     const css = cssArr[key];
 
-    if (doc().__null) {
+    if (!hasWin()) {
       console.log(`<style id="${id}">${css}</style>`);
       return;
     }
@@ -26,7 +26,7 @@ const appendCss = ({ styleIds, objArr, cssArr }) => {
         id,
         innerHTML: css,
       });
-      inject(() => doc().getElementsByTagName("head")[0])(styleDom);
+      inject(() => query.one("head"))(styleDom);
     }
   });
 };

@@ -1,6 +1,6 @@
-import { win } from "win-doc";
+import { hasWin, win } from "win-doc";
 
-const g = win().__null ? global : win();
+const g = hasWin() ? win() : global;
 
 /**
  * Assign value from g.reactStylesStore for sync npm link case
@@ -8,7 +8,7 @@ const g = win().__null ? global : win();
 const stylesStore = g.reactStylesStore
   ? g.reactStylesStore
   : {
-      registry: {},
+      registry: Object.create(null),
       newStyles: [],
       counter: 0,
     };
