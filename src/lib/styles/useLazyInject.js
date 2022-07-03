@@ -5,15 +5,19 @@ import cleanStyleTag from "./cleanStyleTag";
 
 const useLazyInject = (InjectStyles, existsInjection) => {
   const injects = useRef();
-  if (!injects.current) {
-    if (!existsInjection) {
-      existsInjection = lazyInject(InjectStyles, existsInjection);
-    } else {
-      injectStyle(existsInjection);
+  const resetInject = () => {
+    if (!injects.current) {
+      if (!existsInjection) {
+        existsInjection = lazyInject(InjectStyles, existsInjection);
+      } else {
+        injectStyle(existsInjection);
+      }
+      injects.current = existsInjection;
     }
-    injects.current = existsInjection;
-  }
+  };
+  resetInject();
   useEffect(() => {
+    resetInject();
     return () => {
       cleanStyleTag(injects.current);
       injects.current = null;
