@@ -42,8 +42,6 @@ export default Button;
 
 const Styles = {
   icon: {
-    width: 25,
-    height: 25,
     left: 20,
     top: 7,
     fill: "#fff",
