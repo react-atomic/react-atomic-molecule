@@ -1,6 +1,6 @@
 import hyphenateStyleName from "hyphenate-style-name";
 import get from "get-object-value";
-import { IS_ARRAY, KEYS } from "reshow-constant";
+import { IS_ARRAY, KEYS, NEW_OBJ } from "reshow-constant";
 import replicateSelector from "./replicateSelector";
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
@@ -97,8 +97,8 @@ const buildStyle = (result, oStyle) => {
 const stylesToCSS = (styles) => {
   const result = {
     styleIds: [],
-    objArr: Object.create(null),
-    cssArr: Object.create(null),
+    objArr: NEW_OBJ(),
+    cssArr: NEW_OBJ(),
   };
   styles && styles.forEach((oStyle) => buildStyle(result, oStyle));
   return result;

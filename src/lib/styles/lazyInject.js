@@ -1,10 +1,10 @@
-import { IS_ARRAY, KEYS } from "reshow-constant";
+import { IS_ARRAY, KEYS, NEW_OBJ } from "reshow-constant";
 import reactStyle from "./index";
 import injectStyle from "./injectStyle";
 
 const lazyInject = (configs, injects) => {
   if (!injects) {
-    injects = Object.create(null);
+    injects = NEW_OBJ();
     KEYS(configs).forEach((key) => {
       let item = configs[key];
       if (!IS_ARRAY(item)) {

@@ -1,4 +1,5 @@
 import { hasWin, win } from "win-doc";
+import { NEW_OBJ } from "reshow-constant";
 
 const g = hasWin() ? win() : global;
 
@@ -8,7 +9,7 @@ const g = hasWin() ? win() : global;
 const stylesStore = g.reactStylesStore
   ? g.reactStylesStore
   : {
-      registry: Object.create(null),
+      registry: NEW_OBJ(),
       newStyles: [],
       counter: 0,
     };

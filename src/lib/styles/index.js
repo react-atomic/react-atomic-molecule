@@ -3,7 +3,7 @@ import StyleObject from "./StyleObject";
 import store from "./store";
 import nToU from "./cssNumberToUnit";
 
-import { IS_ARRAY, KEYS, UNDEFINED } from "reshow-constant";
+import { IS_ARRAY, KEYS, UNDEFINED, NEW_OBJ } from "reshow-constant";
 
 const Browser = {
   webkit: "Webkit",
@@ -31,7 +31,7 @@ const createStyle = (css, selector, styleId) => {
 
   const styles = [];
   css.forEach((one, i) => {
-    styles[i] = Object.create(null);
+    styles[i] = NEW_OBJ();
     KEYS(one).forEach((key) => {
       if (IS_ARRAY(one[key]) && 1 === one[key].length) {
         const ucFirstKey = ucfirst(key);
