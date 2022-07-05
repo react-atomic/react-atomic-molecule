@@ -46,5 +46,5 @@ export { default as mergeDefaultValue } from "./mergeDefaultValue";
 export { default as useCSS } from "./useCSS";
 
 // config
-export { min, max } from "./config/styles/rwd";
+export { min, max, pageWidth } from "./config/styles/rwd";
 export { default as boxSizingStyle } from "./config/styles/boxSizing";
