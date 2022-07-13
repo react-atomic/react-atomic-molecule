@@ -25,7 +25,7 @@ describe("Test stylesToCSS", () => {
   it("style only test", () => {
     const oReactStyle = reactStyle({ width: 100 });
     const acture = stylesToCSS([oReactStyle]);
-    expect(JSON.stringify(acture.cssArr)).to.have.string(".c1_,.c1_.c1_1,");
+    expect(JSON.stringify(acture.cssArr)).to.have.string(".c0_,.c0_.c0_1,");
   });
 
   it("test keyframe", () => {

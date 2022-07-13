@@ -2,6 +2,7 @@ import ucfirst from "ucfirst-js";
 import StyleObject from "./StyleObject";
 import store from "./store";
 import nToU from "./cssNumberToUnit";
+import genStyleId from "./genStyleId";
 
 import { IS_ARRAY, KEYS, UNDEFINED, NEW_OBJ } from "reshow-constant";
 
@@ -9,11 +10,6 @@ const Browser = {
   webkit: "Webkit",
   ms: "ms",
   moz: "Moz",
-};
-
-const genStyleId = () => {
-  store.counter += 1;
-  return "c" + store.counter + "_";
 };
 
 const createStyle = (css, selector, styleId) => {
