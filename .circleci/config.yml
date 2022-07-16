@@ -48,3 +48,5 @@ workflows:
               test-dir:
                 - "./"
                 - "packages/easing-lib"
+                - "packages/keyframe-css"
+                - "packages/need-css"

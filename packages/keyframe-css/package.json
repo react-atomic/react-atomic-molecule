@@ -1,5 +1,5 @@
 {
-  "version": "0.2.4",
+  "version": "0.2.5",
   "name": "keyframe-css",
   "repository": {
     "type": "git",
@@ -21,8 +21,11 @@
     "reshow-constant": "*"
   },
   "devDependencies": {
-    "@babel/cli": "^7.x"
+    "@babel/cli": "^7.x",
+    "reshow-unit-dom": "*"
   },
+  "main": "./build/cjs/src/index.js",
+  "module": "./build/es/src/index.mjs",
   "scripts": {
     "esm": "yo reshow:update-esm-export",
     "esm:n": "yo reshow:update-esm-export -n",
@@ -30,6 +33,9 @@
     "build:cjs": "BABEL_ENV=cjs babel src -d build/cjs/src --ignore /**/__tests__ --root-mode upward",
     "build:es": "BABEL_ENV=es babel src -d build/es/src --out-file-extension .mjs --root-mode upward",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
+    "mochaFor": "mocha -r global-jsdom/register",
+    "mocha": "npm run mochaFor -- 'build/es/**/__tests__/*.mjs'",
+    "test": "npm run build && npm run mocha",
     "prepublishOnly": "npm run build"
   },
   "files": [
@@ -37,8 +43,6 @@
     "package.json",
     "README.md"
   ],
-  "main": "./build/cjs/src/index.js",
-  "module": "./build/es/src/index.mjs",
   "exports": {
     "./breath": {
       "require": "./build/cjs/src/breath.js",

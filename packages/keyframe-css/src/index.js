@@ -1,9 +1,9 @@
 import { getDefault } from "get-object-value";
 import { reactStyle, injectStyle } from "react-atomic-molecule";
 import callfunc from "call-func";
-import { KEYS } from "reshow-constant";
+import { KEYS, NEW_OBJ } from "reshow-constant";
 
-const inject = {};
+const inject = NEW_OBJ();
 let c = 0;
 
 const processCss = (cb) => (css) => {
