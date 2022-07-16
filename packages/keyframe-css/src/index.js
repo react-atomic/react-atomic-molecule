@@ -15,9 +15,14 @@ const processCss = (cb) => (css) => {
       reactStyle.apply(null, css[key]);
       c++;
     });
-    injectStyle();
   }
   callfunc(cb);
+
+  /**
+   * cb may have new style,
+   * So always inject in last line.
+   */
+  injectStyle();
 };
 
 const getKeyframeCss = (key, cb) => {
