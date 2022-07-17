@@ -4,11 +4,12 @@ import SemanticUI from "../molecules/SemanticUI";
 
 const Column = ({
   component = SemanticUI,
+  pureUnitOne = true,
   ui = false,
   className,
   ...restProps
 }) => {
-  const classes = mixClass(className || "pure-u-1", "column");
+  const classes = mixClass(className, "column", { "pure-u-1": pureUnitOne });
   return build(component)({
     ...restProps,
     ui,
