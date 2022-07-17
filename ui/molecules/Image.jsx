@@ -1,10 +1,18 @@
 import { mixClass } from "class-lib";
+import build from "reshow-build";
 import SemanticUI from "../molecules/SemanticUI";
 import useCSS from "../../src/useCSS";
 
 const Image = (props) => {
   useCSS(["image"], "semantic");
-  const { loading = "lazy", src, imgProps, ...restProps } = props;
+  const {
+    component = SemanticUI,
+    loading = "lazy",
+    src,
+    imgProps,
+    prepend,
+    ...restProps
+  } = props;
   const classes = mixClass(props.className, {
     image: props.ui,
   });
@@ -19,16 +27,23 @@ const Image = (props) => {
   };
 
   if (props.atom && "img" !== props.atom) {
-    return (
-      <SemanticUI {...restProps} className={classes}>
+    return build(component)(
+      {
+        ...restProps,
+        className: classes,
+      },
+      <>
+        {prepend}
         <SemanticUI {...thisImgProps} />
         {props.children}
-      </SemanticUI>
+      </>
     );
   } else {
-    return (
-      <SemanticUI {...{ ...restProps, ...thisImgProps }} className={classes} />
-    );
+    return build(component)({
+      ...restProps,
+      ...thisImgProps,
+      className: classes,
+    });
   }
 };
 export default Image;
