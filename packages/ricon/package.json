@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.2",
   "name": "ricon",
   "repository": {
     "type": "git",
@@ -28,7 +28,10 @@
     "build:cjs": "BABEL_ENV=cjs babel ui -d build/cjs/ui --ignore /**/__tests__ --root-mode upward",
     "build:es": "BABEL_ENV=es babel ui -d build/es/ui --out-file-extension .mjs --root-mode upward",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
-    "prepublishOnly": "npm run build"
+    "mochaFor": "STRICT_MODE=on mocha -r global-jsdom/register",
+    "mocha": "npm run mochaFor -- 'build/es/**/__tests__/*.mjs'",
+    "test": "npm run build && npm run mocha",
+    "prepublishOnly": "npm run test"
   },
   "files": [
     "build",
@@ -147,6 +150,10 @@
     "./Git": {
       "require": "./build/cjs/ui/Git.js",
       "import": "./build/es/ui/Git.mjs"
+    },
+    "./GoToTop": {
+      "require": "./build/cjs/ui/GoToTop.js",
+      "import": "./build/es/ui/GoToTop.mjs"
     },
     "./Hamburger": {
       "require": "./build/cjs/ui/Hamburger.js",
