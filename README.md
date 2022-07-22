@@ -17,7 +17,7 @@ https://github.com/react-atomic/react-atomic-molecule
    * More info https://github.com/react-atomic/react-atomic-molecule/wiki
 
 ### &lt;SemanticUI /> Props
-   * [[refCb](https://github.com/react-atomic/react-atomic-molecule/blob/main/refCB.md)]
+   * [refCb](https://github.com/react-atomic/react-atomic-molecule/blob/main/refCB.md)
    * atom
    * styleOrder
    * styles
