@@ -11,23 +11,21 @@ const InputBox = (props) => {
   useCSS(["input", "search", "form"], "semantic");
 
   const {
-    button = "Submit",
+    button,
     actionProps = {},
     icon,
-    className,
     children,
     messageType,
     leftLabel,
     leftLabelProps,
     rightLabel,
     rightLabelProps,
-    style,
     transparent,
-    inputStyle,
-    inputClassName,
+    wrapStyle,
+    wrapClassName,
     ...others
   } = props;
-  const classes = mixClass(className, messageType, "input", {
+  const classes = mixClass(wrapClassName, messageType, "input", {
     labeled: leftLabel || rightLabel,
     right: rightLabel,
     action: button && !icon,
@@ -57,15 +55,9 @@ const InputBox = (props) => {
     );
   }
   return (
-    <SemanticUI className={classes} style={style}>
+    <SemanticUI className={classes} style={wrapStyle}>
       {thisLeftLabel}
-      <SemanticUI
-        atom="input"
-        ui={false}
-        {...others}
-        className={inputClassName}
-        style={inputStyle}
-      />
+      <SemanticUI atom="input" ui={false} {...others} />
       {thisRightLabel}
       {children}
       {thisButton}
