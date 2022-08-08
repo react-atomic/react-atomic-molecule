@@ -24,6 +24,7 @@ const InputBox = (props) => {
     style,
     transparent,
     inputStyle,
+    inputClassName,
     ...others
   } = props;
   const classes = mixClass(className, messageType, "input", {
@@ -58,7 +59,13 @@ const InputBox = (props) => {
   return (
     <SemanticUI className={classes} style={style}>
       {thisLeftLabel}
-      <SemanticUI atom="input" {...others} style={inputStyle} ui={false} />
+      <SemanticUI
+        atom="input"
+        ui={false}
+        {...others}
+        className={inputClassName}
+        style={inputStyle}
+      />
       {thisRightLabel}
       {children}
       {thisButton}
