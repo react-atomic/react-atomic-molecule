@@ -1,4 +1,5 @@
 import { mixClass } from "class-lib";
+import build from "reshow-build";
 import SemanticUI from "../molecules/SemanticUI";
 import Button from "../molecules/Button";
 import Label from "../molecules/Label";
@@ -11,8 +12,10 @@ const InputBox = (props) => {
   useCSS(["input", "search", "form"], "semantic");
 
   const {
-    button,
+    atom = "input",
     actionProps = {},
+    inputComponent = SemanticUI,
+    button,
     icon,
     children,
     messageType,
@@ -54,12 +57,27 @@ const InputBox = (props) => {
       </Icon>
     );
   }
+  let thisChildren;
+  let inputChildren;
+  if ("select" === atom) {
+    inputChildren = children;
+    thisChildren = null;
+  } else {
+    thisChildren = children;
+  }
   return (
     <SemanticUI className={classes} style={wrapStyle}>
       {thisLeftLabel}
-      <SemanticUI atom="input" ui={false} {...others} />
+      {build(inputComponent)(
+        {
+          atom,
+          ui: false,
+          ...others,
+        },
+        inputChildren
+      )}
       {thisRightLabel}
-      {children}
+      {thisChildren}
       {thisButton}
     </SemanticUI>
   );

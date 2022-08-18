@@ -16,6 +16,7 @@ describe("Test Field", () => {
     expect(wrapper.html()).to.have.string(
       'style="padding: 111px; box-sizing: inherit;"'
     );
+    expect(wrapper.html()).to.have.string("fields");
   });
 
   it("isGroup with fieldStyle", () => {
@@ -23,14 +24,16 @@ describe("Test Field", () => {
     expect(wrapper.html()).to.have.string(
       'style="padding: 222px; box-sizing: inherit;"'
     );
+    expect(wrapper.html()).to.have.string("fields");
   });
 
-  it("not isGroup with fieldStyle", () => {
+  it("is not Group with fieldStyle", () => {
     const wrapper = render(
       <Field atom="input" fieldStyle={{ padding: 333 }} />
     );
     expect(wrapper.html()).to.have.string(
       'style="padding: 333px; box-sizing: inherit;"'
     );
+    expect(wrapper.html()).to.have.string("field ");
   });
 });

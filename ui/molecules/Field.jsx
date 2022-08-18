@@ -1,5 +1,5 @@
-import { cloneElement } from "react";
 import { mixClass } from "class-lib";
+import build from "reshow-build";
 import get from "get-object-value";
 import SemanticUI from "../molecules/SemanticUI";
 import Message from "../molecules/Message";
@@ -17,7 +17,7 @@ const Field = (props) => {
     children,
     inline,
     type,
-    inputComponent,
+    inputComponent = SemanticUI,
     inputWrapper,
     inputWrapperAttr,
     label,
@@ -38,7 +38,12 @@ const Field = (props) => {
   } = props || {};
   const thisMessage = message ?? props["data-message"];
   const thisMessageType = messageType ?? props["data-message-type"];
-  const isGroup = !(props.atom || inputComponent);
+
+  /**
+   * isGroup need check with props to avoid default value.
+   */
+  const isGroup = !props.atom && !props.inputComponent;
+
   const classes = mixClass(fieldClassName, {
     "label-wrap": labelWrap,
     required: !!required,
@@ -94,8 +99,7 @@ const Field = (props) => {
     }
   } else {
     const isSelect = "select" === props.atom;
-    input = inputComponent ? inputComponent : <SemanticUI />;
-    const inputProps = get(input, ["props"], {});
+    const inputProps = get(inputComponent, ["props"], {});
 
     // set inputChildren
     let inputChildren = inputProps.children || null;
@@ -108,13 +112,12 @@ const Field = (props) => {
       dropdown: isSelect,
     });
 
-    input = cloneElement(
-      input,
+    input = build(inputComponent)(
       {
         ...others,
         style: {
           boxSizing: "inherit",
-          ...get(input, ["props", "style"]),
+          ...inputProps.style,
           ...style,
         },
         key: "input",
@@ -142,7 +145,7 @@ const Field = (props) => {
     inputs = [oLabel, topTipEl, input];
   }
   if (inputWrapper) {
-    inputs = cloneElement(inputWrapper, inputWrapperAttr, inputs);
+    inputs = build(inputWrapper)(inputWrapperAttr, inputs);
   }
   let messageEl;
   let bottomTipEl;
