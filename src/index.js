@@ -43,6 +43,7 @@ export { default as useLazyInject } from "./lib/styles/useLazyInject";
 export { default as reactStyle } from "./lib/styles/index";
 export { default as mergeStyleConfig } from "./lib/styles/mergeStyleConfig";
 export { default as mergeDefaultValue } from "./mergeDefaultValue";
+export { default as mergeRef } from "./mergeRef";
 export { default as useCSS } from "./useCSS";
 
 // config

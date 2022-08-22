@@ -5,8 +5,8 @@ import { render } from "reshow-unit";
 
 import mergeChildren from "../mergeChildren";
 
-describe("Test merge default value", () => {
-  it("basic test", () => {
+describe("Test mergeChildren", () => {
+  it("basic test (prepend)", () => {
     const FakeDom = ({ children }) => (
       <div>{mergeChildren(<i key="i" />, children)}</div>
     );
