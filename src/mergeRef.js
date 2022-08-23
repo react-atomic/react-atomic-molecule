@@ -8,14 +8,7 @@ const assignEl = (el, refCb) => {
   }
 };
 
-const mergeRef = (el, current, props) => {
-  const { refCb } = props || {};
-  if (refCb) {
-    assignEl(el, refCb);
-  }
-  if (current) {
-    assignEl(el, current);
-  }
-};
+const mergeRef = (el, refArr = []) =>
+  refArr.forEach((ref) => ref && assignEl(el, ref));
 
 export default mergeRef;

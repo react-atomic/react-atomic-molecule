@@ -18,7 +18,7 @@ describe("Test merge ref", () => {
     const Comp = (props) => {
       const lastEl = useRef();
       childRef = lastEl;
-      return <div ref={(el) => mergeRef(el, lastEl, props)} />;
+      return <div ref={(el) => mergeRef(el, [lastEl, props.refCb])} />;
     };
     const wrap = render(<CompRoot />, { instance: true });
     expect(wrap.instance().el().nodeName).to.equal("DIV");
@@ -27,7 +27,7 @@ describe("Test merge ref", () => {
 
   it("test callback", () => {
     class CompRoot extends PureComponent {
-      handleRefCb = (el) => mergeRef(el, (el) => (this.el = el), this.props);
+      handleRefCb = (el) => (this.el = el);
 
       render() {
         return <Comp refCb={this.handleRefCb} />;
@@ -36,7 +36,9 @@ describe("Test merge ref", () => {
     let childRef;
     const Comp = (props) => {
       return (
-        <span ref={(el) => mergeRef(el, (el) => (childRef = el), props)} />
+        <span
+          ref={(el) => mergeRef(el, [(el) => (childRef = el), props.refCb])}
+        />
       );
     };
     const wrap = render(<CompRoot />, { instance: true });
