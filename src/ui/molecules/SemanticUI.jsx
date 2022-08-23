@@ -3,9 +3,9 @@ import { html } from "react-atomic-atom";
 import get from "get-object-value";
 import { KEYS, HAS } from "reshow-constant";
 
-import injectStyle from "../../src/lib/styles/injectStyle";
-import bindStyles from "../../src/lib/styles/bindStyles";
-import { bindChildKey } from "../../src/getChildMapping";
+import injectStyle from "../../lib/styles/injectStyle";
+import bindStyles from "../../lib/styles/bindStyles";
+import { bindChildKey } from "../../getChildMapping";
 
 const getChildren = (render, children) =>
   render && children != null ? bindChildKey(children) : null;

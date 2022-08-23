@@ -4,7 +4,7 @@ import get from "get-object-value";
 import SemanticUI from "../molecules/SemanticUI";
 import Message from "../molecules/Message";
 import Label from "../molecules/Label";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 const Field = (props) => {
   useCSS(["input", "search", "form"], "semantic");

@@ -1,7 +1,7 @@
 import { mixClass } from "class-lib";
 import Header from "../molecules/Header";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 const Message = (props) => {
   useCSS(["message"], "semantic");

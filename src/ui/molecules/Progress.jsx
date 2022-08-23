@@ -1,8 +1,8 @@
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Label from "../molecules/Label";
-import reactStyle from "../../src/lib/styles/index";
-import useCSS from "../../src/useCSS";
+import reactStyle from "../../lib/styles/index";
+import useCSS from "../../useCSS";
 
 const Progress = (props) => {
   useCSS(["progress"], "semantic");

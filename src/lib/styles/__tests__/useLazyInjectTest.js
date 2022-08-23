@@ -4,7 +4,7 @@ import { render, cleanIt, waitFor } from "reshow-unit";
 
 import useLazyInject from "../useLazyInject";
 import styleStore from "../store";
-import SemanticUI from "../../../../ui/molecules/SemanticUI";
+import SemanticUI from "../../../ui/molecules/SemanticUI";
 
 describe("Test useLazyInject", () => {
   beforeEach(() => {

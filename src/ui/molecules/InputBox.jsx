@@ -4,8 +4,8 @@ import SemanticUI from "../molecules/SemanticUI";
 import Button from "../molecules/Button";
 import Label from "../molecules/Label";
 import Icon from "../molecules/Icon";
-import useCSS from "../../src/useCSS";
-import useLazyInject from "../../src/lib/styles/useLazyInject";
+import useCSS from "../../useCSS";
+import useLazyInject from "../../lib/styles/useLazyInject";
 
 const InputBox = (props) => {
   injects = useLazyInject(InjectStyles, injects);

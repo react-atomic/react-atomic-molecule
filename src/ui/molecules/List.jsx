@@ -1,7 +1,7 @@
 import { Children, cloneElement } from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 const renderChildren = (children, pAtom, horizontal) =>
   Children.map(children, (child) => {

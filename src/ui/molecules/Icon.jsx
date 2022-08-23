@@ -9,6 +9,7 @@ const Icon = ({ className, style, ...others }) => (
     className={mixClass(className, "icon")}
     style={{
       display: "inline-block",
+      verticalAlign: "inherit",
       width: 24,
       ...style,
     }}

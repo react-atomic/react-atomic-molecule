@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Icon from "../molecules/Icon";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 const Button = (props) => {
   useCSS(["button", "loader"], "semantic");

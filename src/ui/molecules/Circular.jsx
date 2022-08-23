@@ -1,6 +1,6 @@
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 /**
  * https://semantic-ui.com/elements/image.html#circular

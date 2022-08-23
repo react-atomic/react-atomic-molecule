@@ -1,7 +1,7 @@
 import { mixClass } from "class-lib";
 import build from "reshow-build";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 const Image = (props) => {
   useCSS(["image"], "semantic");

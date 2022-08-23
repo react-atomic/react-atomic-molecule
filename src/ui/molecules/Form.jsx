@@ -1,6 +1,6 @@
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../src/useCSS";
+import useCSS from "../../useCSS";
 
 const Form = (props) => {
   useCSS(["form", "input", "loader", "search"], "semantic");
