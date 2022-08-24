@@ -1,5 +1,5 @@
 {
-  "version": "0.4.4",
+  "version": "0.4.5",
   "name": "ricon",
   "repository": {
     "type": "git",
@@ -179,6 +179,10 @@
     "./Home": {
       "require": "./build/cjs/ui/Home.js",
       "import": "./build/es/ui/Home.mjs"
+    },
+    "./Lightbulb": {
+      "require": "./build/cjs/ui/Lightbulb.js",
+      "import": "./build/es/ui/Lightbulb.mjs"
     },
     "./Link": {
       "require": "./build/cjs/ui/Link.js",
