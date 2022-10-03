@@ -27,6 +27,8 @@ export { default as SemanticUI } from "./ui/molecules/SemanticUI";
 export { default as Segment } from "./ui/molecules/Segment";
 export { default as Title } from "./ui/molecules/Title";
 export { default as Unsafe } from "./ui/molecules/Unsafe";
+export { mixClass } from "class-lib";
+export { default as build } from "reshow-build";
 export { default as getChildMapping } from "./getChildMapping";
 export { default as getDisplayName } from "./getDisplayName";
 export { default as mergeChildren } from "./mergeChildren";
