@@ -1,3 +1,5 @@
+//@ts-check
+
 import { NEW_OBJ, KEYS } from "reshow-constant";
 
 /**
@@ -20,6 +22,15 @@ const pageWidth = {
   xxl: "120em",
 };
 
+/**
+ * @typedef PageWidth
+ * @type {any}
+ */
+
+/**
+ * @param {string} type
+ * @returns {PageWidth}
+ */
 const getConfig = (type) => {
   const next = NEW_OBJ();
   KEYS(pageWidth).forEach((key) => {

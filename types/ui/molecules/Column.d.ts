@@ -14,4 +14,4 @@ declare function Column({ component, pureUnitOne, ui, className, ...restProps }:
     pureUnitOne?: boolean;
     ui?: boolean;
     className: any;
-}): any;
+}): any[] | import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;

@@ -13,4 +13,4 @@ declare function Row({ component, ui, className, ...restProps }: {
     }) => import("react").DetailedReactHTMLElement<import("react").InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
     ui?: boolean;
     className: any;
-}): any;
+}): any[] | import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;

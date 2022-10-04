@@ -1,6 +1,11 @@
 import { KEYS } from "reshow-constant";
 import mergeDefaultValue from "../../mergeDefaultValue";
 
+/**
+ * @param {object} styles
+ * @param {object} defaultStyles
+ * @param {object} injectStyles
+ */
 const mergeStyleConfig = (styles, defaultStyles, injectStyles) => {
   if (defaultStyles) {
     mergeDefaultValue(styles, defaultStyles);

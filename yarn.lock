@@ -1496,9 +1496,9 @@ array.dedup@*:
   integrity sha512-l84ZpOclI/n/xvZqo1s3fLLgKQhDfm4tRxi+xVeWRzhJAKZuXJEt+B7SMcYrRImxTi/jA36rp/9xWf9QD6TEzQ==
 
 array.merge@*:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/array.merge/-/array.merge-0.1.4.tgz#4d7b2c13aa2ef59c1fd0029dc8294adcb80f70ab"
-  integrity sha512-Ya0hg6X2/s5CfdQo5ewO7NeWmjniMmfXt3AFdi1goCsUMp1Veci4ZQZdIS3PUpbfaqgRl+0iLLpDvyGwk6Di3A==
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/array.merge/-/array.merge-0.2.0.tgz#1ba26cb2e7ebc1e65a0b213082fd8168bde3a9e5"
+  integrity sha512-xH41b0/b+6RCZCdzD9j/ClEL3On3C3s3eLL4MSNCISUAJW0SXV58aP5Pzej9IcwRAsc0Of30Ju2VY+EGnIKlWw==
   dependencies:
     get-object-value "*"
     reshow-constant "*"
@@ -1697,9 +1697,9 @@ camelcase@^6.0.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001400:
-  version "1.0.30001414"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001414.tgz#5f1715e506e71860b4b07c50060ea6462217611e"
-  integrity sha512-t55jfSaWjCdocnFdKQoO+d2ct9C59UZg4dY3OnUlSZ447r8pUtIKdp0hpAzrGFultmTC+Us+KpKi4GZl/LXlFg==
+  version "1.0.30001415"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001415.tgz#fd7ea96e9e94c181a7f56e7571efb43d92b860cc"
+  integrity sha512-ER+PfgCJUe8BqunLGWd/1EY4g8AzQcsDAVzdtMGKVtQEmKAwaFfU6vb7EAVIqTMYsqxBorYZi2+22Iouj/y7GQ==
 
 chai@*:
   version "4.3.6"
@@ -2034,9 +2034,9 @@ domexception@^4.0.0:
     webidl-conversions "^7.0.0"
 
 electron-to-chromium@^1.4.251:
-  version "1.4.270"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.270.tgz#2c6ea409b45cdb5c3e0cb2c08cf6c0ba7e0f2c26"
-  integrity sha512-KNhIzgLiJmDDC444dj9vEOpZEgsV96ult9Iff98Vanumn+ShJHd5se8aX6KeVxdc0YQeqdrezBZv89rleDbvSg==
+  version "1.4.271"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.271.tgz#2d9f04f6a53c70e1bb1acfaae9c39f07ca40d290"
+  integrity sha512-BCPBtK07xR1/uY2HFDtl3wK2De66AW4MSiPlLrnPNxKC/Qhccxd59W73654S3y6Rb/k3hmuGJOBnhjfoutetXA==
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -2352,9 +2352,9 @@ get-intrinsic@^1.0.2, get-intrinsic@^1.1.1:
     has-symbols "^1.0.3"
 
 get-object-value@*:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/get-object-value/-/get-object-value-0.6.2.tgz#c253e52293a1b77cb3bfc54d7391d4d049e83727"
-  integrity sha512-wKGuJ7BYa/bcvIwLdqEdpVenU0rll6awuoVNiOlmJdRWvygWA/G/8omwDHBUaRboaLJbE6ZVefR9dZkHKok4WA==
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/get-object-value/-/get-object-value-0.6.3.tgz#3816861da9ec461bff177bde483de2c10ab1bd0d"
+  integrity sha512-Vs0zf0ezAvr9f9ByKnEb549A4LbJtFzF+azgO17iKv8dEygqQxh6GMv9QdEuICQ0tnVvxaWyp+TKHxK6Or5m+g==
   dependencies:
     call-func "*"
     reshow-constant "*"
@@ -3575,9 +3575,9 @@ requires-port@^1.0.0:
   integrity sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==
 
 reshow-build@*:
-  version "0.17.12"
-  resolved "https://registry.yarnpkg.com/reshow-build/-/reshow-build-0.17.12.tgz#5f9d9561fb77c0c8ffcea175a63f4ff4f00d00ef"
-  integrity sha512-agrg0bW3z99/aW7I+SSECHV7ZxAeFhYj3B9Xkx9T1pR6/hSJ7mh2yU87VACFvf5Yvh9N3hBmToumAl5dkoH/XA==
+  version "0.17.14"
+  resolved "https://registry.yarnpkg.com/reshow-build/-/reshow-build-0.17.14.tgz#f9e4811999c87be655ec526c4775c301ea8934e2"
+  integrity sha512-VWJwgXoBMlZBxYZp87jzedo+QDlXJQDBOmhn4wcDt6DdlHVC09LWC5Pw/c6uGUncU/HqhZ8d6YMkPauSUNf1ZQ==
   dependencies:
     array.merge "*"
     reshow-constant "*"
@@ -3729,9 +3729,9 @@ semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
 semver@^7.3.5, semver@^7.3.7:
-  version "7.3.7"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
-  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
+  version "7.3.8"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.8.tgz#07a78feafb3f7b32347d725e33de7e2a2df67798"
+  integrity sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==
   dependencies:
     lru-cache "^6.0.0"
 
