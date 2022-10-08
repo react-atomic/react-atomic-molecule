@@ -1,4 +1,4 @@
-const aniName = 'ani-name';
+const aniName = "ani-name";
 const css = {
   AniKey: [
     [
@@ -10,4 +10,4 @@ const css = {
   ],
 };
 export default css;
-export {aniName};
+export { aniName };
