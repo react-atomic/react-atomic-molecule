@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.1",
   "name": "keyframe-css",
   "repository": {
     "type": "git",
@@ -47,6 +47,10 @@
     "README.md"
   ],
   "exports": {
+    "./.index.js": {
+      "require": "./build/cjs/src/.index.js.js",
+      "import": "./build/es/src/.index.js.mjs"
+    },
     "./breath": {
       "require": "./build/cjs/src/breath.js",
       "import": "./build/es/src/breath.mjs"
@@ -98,6 +102,10 @@
     "./fadeOutUp": {
       "require": "./build/cjs/src/fadeOutUp.js",
       "import": "./build/es/src/fadeOutUp.mjs"
+    },
+    "./flip": {
+      "require": "./build/cjs/src/flip.js",
+      "import": "./build/es/src/flip.mjs"
     },
     ".": {
       "require": "./build/cjs/src/index.js",

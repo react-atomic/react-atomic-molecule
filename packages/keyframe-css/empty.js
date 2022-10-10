@@ -1,11 +1,11 @@
 const aniName = "ani-name";
 const css = {
-  AniKey: [
+  [aniName]: [
     [
       /*step*/
     ],
     [
-      /*@keyframes ${aniName}`, '0%', '50%', '100%'*/
+      /*`@keyframes ${aniName}`, '0%', '50%', '100%'*/
     ],
   ],
 };
