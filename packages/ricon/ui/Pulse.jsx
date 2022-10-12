@@ -16,7 +16,7 @@ const PulseIcon = ({
   pointRotateX = 0,
   ringColor = "#89849b",
   animation = "pulsate",
-  style,
+  style=null,
 }) => {
   injects = useLazyInject(InjectStyles, injects);
   const pointStyle = reactStyle(

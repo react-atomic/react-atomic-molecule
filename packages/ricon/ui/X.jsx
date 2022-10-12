@@ -7,8 +7,8 @@ const ICON_X = ({
   weight = ".2rem",
   size = "1rem",
   color = "#333",
-  className,
-  style,
+  className = null,
+  style = null,
   ...props
 }) => {
   injects = useLazyInject(InjectStyles, injects);

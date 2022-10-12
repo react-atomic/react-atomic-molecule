@@ -5,6 +5,6 @@ declare function ICON_X({ position, weight, size, color, className, style, ...pr
     weight?: string;
     size?: string;
     color?: string;
-    className: any;
-    style: any;
+    className?: any;
+    style?: any;
 }): JSX.Element;

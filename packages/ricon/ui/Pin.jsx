@@ -2,6 +2,7 @@ import useLazyInject from "./useLazyInject";
 import SemanticUI from "./SemanticUI";
 
 /**
+    const pinOpenBackground = "#c4c1cd";
     let thisHeader = null;
     if (header) {
       thisHeader = <Header style={{marginLeft: 20}}>{header}</Header>;
@@ -20,7 +21,7 @@ import SemanticUI from "./SemanticUI";
     );
  */
 
-const Pin = ({open, content, label, ...props}) => {
+const Pin = ({ open = null, content = null, label = null, ...props }) => {
   injects = useLazyInject(InjectStyles, injects);
   let pinStyles = [injects.pin];
   let pinContent = null;
@@ -44,7 +45,6 @@ const Pin = ({open, content, label, ...props}) => {
 
 export default Pin;
 
-const pinOpenBackground = "#c4c1cd";
 const Styles = {
   container: {
     position: "relative",

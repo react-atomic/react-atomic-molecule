@@ -2,7 +2,13 @@ import Svg from "./Svg";
 import Path from "./Path";
 import G from "./G";
 
-const Hamburger = ({ line1, line2, line3, transform, ...props }) => (
+const Hamburger = ({
+  line1 = null,
+  line2 = null,
+  line3 = null,
+  transform = null,
+  ...props
+}) => (
   <Svg {...props}>
     <G transform={transform}>
       <Path styles={line1} d="M3,6v2h18V6H3z" />

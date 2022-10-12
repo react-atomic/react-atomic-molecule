@@ -1,7 +1,7 @@
 import Svg from "./Svg";
 import ArrowPath from "./ArrowPath";
 
-const Dropdown = ({ type, ...props }) => {
+const Dropdown = ({ type=null, ...props }) => {
   let transform = null;
   switch (type) {
     case "up":

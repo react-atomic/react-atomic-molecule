@@ -1,7 +1,7 @@
 import Svg from "./Svg";
 import Path from "./Path";
 
-const Play = ({ fgColor, bgColor, ...props }) => (
+const Play = ({ fgColor=null, bgColor=null, ...props }) => (
   <Svg {...props}>
     <Path
       d="M12 20c4.41 0 8-3.59 8-8s-3.59-8-8-8-8 3.59-8 8 3.59 8 8 8zM10 7.5l6 4.5-6 4.5v-9z"

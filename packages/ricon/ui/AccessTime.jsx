@@ -1,7 +1,7 @@
 import Path from "./Path";
 import base from "./base";
 
-const AccessTime = ({ type, ...props }) => {
+const AccessTime = ({ type=null, ...props }) => {
   let d;
   switch (type) {
     case "update":
