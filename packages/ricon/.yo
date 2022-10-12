@@ -1,0 +1,8 @@
+exports_prependArr[]="./"
+exports_requirePrependArr[]="./build/cjs/ui/"
+exports_requireAppendArr[]=".js"
+exports_importPrependArr[]="./build/es/ui/"
+exports_importAppendArr[]=".mjs"
+exports_srcArr[]="./ui"
+
+exports_pkgjson="package.json"
