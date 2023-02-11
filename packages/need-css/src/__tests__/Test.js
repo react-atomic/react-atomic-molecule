@@ -11,6 +11,6 @@ describe("Test need-css", () => {
     setTimeout(()=>{
       expect(document.getElementsByTagName("link").length).to.equal(1);
       done();
-    }, 500); 
+    }, 500);
   });
 });
