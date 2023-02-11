@@ -15,14 +15,14 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
-    "call-func": "*",
-    "get-object-value": "*",
-    "react-atomic-molecule": "*",
-    "reshow-constant": "*"
+    "call-func": "^0.3.6",
+    "get-object-value": "^0.6.5",
+    "react-atomic-molecule": "^5.1.3",
+    "reshow-constant": "^0.17.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.x",
-    "reshow-unit-dom": "*"
+    "@babel/cli": "^7.20.7",
+    "reshow-unit-dom": "^0.2.0"
   },
   "exports": {
     "./.index.js": {

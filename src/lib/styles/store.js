@@ -1,7 +1,9 @@
+//@ts-check
+
 import { hasWin, win } from "win-doc";
 import { NEW_OBJ } from "reshow-constant";
 
-const g = hasWin() ? win() : global;
+const g = hasWin() ? win() : globalThis;
 
 /**
  * Assign value from g.reactStylesStore for sync npm link case

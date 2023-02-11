@@ -1,2 +1,7 @@
 export default useLazyInject;
-declare function useLazyInject(InjectStyles: any, existsInjection: any): undefined;
+/**
+ * @param {object} InjectStyles
+ * @param {object} existsInjection
+ * @returns {object}
+ */
+declare function useLazyInject(InjectStyles: object, existsInjection: object): object;

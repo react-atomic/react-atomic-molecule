@@ -1,2 +1,6 @@
 export default getStyleTagId;
-declare function getStyleTagId(key: any): string;
+/**
+ * @param {string} key
+ * @returns {string}
+ */
+declare function getStyleTagId(key: string): string;

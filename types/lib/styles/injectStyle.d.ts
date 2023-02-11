@@ -1,2 +1,10 @@
 export default injectStyle;
-declare function injectStyle(styles: any): any;
+export type CSSProps = {
+    styleIds: string[];
+    styleObjMap: object;
+    styleRuleMap: object;
+};
+/**
+ * @param {object} styles
+ */
+declare function injectStyle(styles: object): any;

@@ -1,6 +1,11 @@
 export default stylesToCSS;
-declare function stylesToCSS(styles: any): {
-    styleIds: any[];
-    objArr: object;
-    cssArr: object;
+export type CSSProps = {
+    styleIds: string[];
+    styleObjMap: object;
+    styleRuleMap: object;
 };
+/**
+ * @param {object[]} styles
+ * @returns {CSSProps}
+ */
+declare function stylesToCSS(styles: object[]): CSSProps;

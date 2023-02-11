@@ -1,3 +1,5 @@
+//@ts-check
+
 import { KEYS } from "reshow-constant";
 import mergeDefaultValue from "../../mergeDefaultValue";
 

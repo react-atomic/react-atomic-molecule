@@ -1,7 +1,14 @@
+//@ts-check
+
 import { IS_ARRAY, KEYS, NEW_OBJ } from "reshow-constant";
 import reactStyle from "./index";
 import injectStyle from "./injectStyle";
 
+/**
+ * @param {object} configs
+ * @param {object} injects
+ * @returns {injects}
+ */
 const lazyInject = (configs, injects) => {
   if (!injects) {
     injects = NEW_OBJ();

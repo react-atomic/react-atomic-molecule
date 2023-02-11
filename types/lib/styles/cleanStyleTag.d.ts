@@ -1,2 +1,5 @@
 export default cleanStyleTag;
-declare function cleanStyleTag(StyleMap: any): void;
+/**
+ * @param {object} StyleMap
+ */
+declare function cleanStyleTag(StyleMap: object): void;

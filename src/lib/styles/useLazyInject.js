@@ -1,3 +1,5 @@
+//@ts-check
+
 import { useRef, useEffect, useState } from "react";
 import { NEW_OBJ, OBJ_SIZE } from "reshow-constant";
 import lazyInject from "./lazyInject";
@@ -5,9 +7,15 @@ import injectStyle from "./injectStyle";
 import cleanStyleTag from "./cleanStyleTag";
 import genStyleId from "./genStyleId";
 
+/**
+ * @param {object} InjectStyles
+ * @param {object} existsInjection
+ * @returns {object}
+ */
 const useLazyInject = (InjectStyles, existsInjection) => {
   const [oid] = useState(() => genStyleId("o"));
   const injects = useRef();
+  const injectMounted = useRef(NEW_OBJ());
   const resetInject = () => {
     if (!injects.current) {
       if (!existsInjection) {
@@ -18,18 +26,16 @@ const useLazyInject = (InjectStyles, existsInjection) => {
   };
   resetInject();
   useEffect(() => {
-    if (!injects.current) {
+    if (!OBJ_SIZE(injects.current)) {
       resetInject();
     }
-    if (!injects.current._mounted) {
+    if (!OBJ_SIZE(injectMounted.current)) {
       injectStyle(injects.current);
-      injects.current._mounted = NEW_OBJ();
     }
-    injects.current._mounted[oid] = true;
+    injectMounted.current[oid] = true;
     return () => {
-      delete injects.current._mounted[oid];
-      if (!OBJ_SIZE(injects.current._mounted)) {
-        delete injects.current._mounted;
+      delete injectMounted.current[oid];
+      if (!OBJ_SIZE(injectMounted.current)) {
         cleanStyleTag(injects.current);
       }
     };

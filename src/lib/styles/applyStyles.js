@@ -1,5 +1,14 @@
-import { IS_ARRAY, KEYS } from "reshow-constant";
+//@ts-check
 
+import { IS_ARRAY, KEYS } from "reshow-constant";
+import StyleObject from "./StyleObject";
+
+/**
+ * @param {object} props
+ * @param {number} order
+ * @param {StyleObject} oStyle
+ * @returns {props}
+ */
 const applyClassName = (props, order, oStyle) => {
   const styleId = oStyle.styleId;
   const arr = [styleId];
@@ -11,32 +20,56 @@ const applyClassName = (props, order, oStyle) => {
   return props;
 };
 
-const applyInlineStyle = (props, order, oStyle) => {
+/**
+ * @param {object} props
+ * @param {StyleObject} oStyle
+ * @returns {props}
+ */
+const applyInlineStyle = (props, oStyle) => {
   if (IS_ARRAY(oStyle.selector)) {
     return props;
   }
   if (!props.style) {
     props.style = {};
   }
-  oStyle.style.forEach((one) =>
-    KEYS(one).forEach((key) => (props.style[key] = one[key]))
+  oStyle.styleRules.forEach(
+    /**
+     * @param {object} one
+     */
+    (one) => KEYS(one).forEach((key) => (props.style[key] = one[key]))
   );
   return props;
 };
 
-const applyStyle = (props, order) => (oStyle) => {
-  if (!oStyle) {
-    return props;
-  }
-  if (!oStyle.isCompiled) {
-    console.warn("Not a style object", oStyle);
-    return props;
-  }
-  return oStyle.isCompiled() && order < 10
-    ? applyClassName(props, order, oStyle)
-    : applyInlineStyle(props, order, oStyle);
-};
+/**
+ * @param {object} props
+ * @param {number} order
+ */
+const applyStyle =
+  (props, order) =>
+  /**
+   * @param {object} oStyle
+   * @returns {props}
+   */
+  (oStyle) => {
+    if (!oStyle) {
+      return props;
+    }
+    if (!oStyle.isCompiled) {
+      console.warn("Not a style object", oStyle);
+      return props;
+    }
+    return oStyle.isCompiled() && order < 10
+      ? applyClassName(props, order, oStyle)
+      : applyInlineStyle(props, oStyle);
+  };
 
+/**
+ * @param {object} props
+ * @param {StyleObject|StyleObject[]} styles
+ * @param {number} order
+ * @returns {props[]}
+ */
 const applyStyles = (props, styles, order) => {
   if (isNaN(order)) {
     order = 0;
@@ -44,8 +77,14 @@ const applyStyles = (props, styles, order) => {
   if (!IS_ARRAY(styles)) {
     styles = [styles];
   }
-  const apply = applyStyle(props, order);
-  return styles.map((one) => apply(one));
+  const doApply = applyStyle(props, order);
+  return styles.map(
+    /**
+     * @param {StyleObject} one
+     * @returns {props}
+     */
+    (one) => doApply(one)
+  );
 };
 
 export default applyStyles;

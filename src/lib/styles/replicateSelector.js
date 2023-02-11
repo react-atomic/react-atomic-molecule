@@ -1,3 +1,9 @@
+//@ts-check
+
+/**
+ * @param {string} s
+ * @returns {string}
+ */
 const replicateSelector = (s) => {
   s = "." + s;
   const a = [s];

@@ -15,12 +15,12 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
-    "call-func": "*",
-    "win-doc": "*"
+    "call-func": "^0.3.6",
+    "win-doc": "^0.3.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.x",
-    "reshow-unit-dom": "*"
+    "@babel/cli": "^7.20.7",
+    "reshow-unit-dom": "^0.2.0"
   },
   "exports": {
     "require": "./build/cjs/src/index.js",

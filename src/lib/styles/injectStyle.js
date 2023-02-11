@@ -1,3 +1,5 @@
+//@ts-check
+
 import { hasWin } from "win-doc";
 import { inject, create } from "create-el";
 import query from "css-query-selector";
@@ -7,11 +9,21 @@ import store from "./store";
 import stylesToCSS from "./stylesToCSS";
 import getStyleTagId from "./getStyleTagId";
 
-const appendCss = ({ styleIds, objArr, cssArr }) => {
+/**
+ * @typedef {object} CSSProps
+ * @property {string[]} styleIds
+ * @property {object} styleObjMap
+ * @property {object} styleRuleMap
+ */
+
+/**
+ * @param {CSSProps} props
+ */
+const appendCss = ({ styleIds, styleObjMap, styleRuleMap }) => {
   styleIds.forEach((key) => {
-    store.registry[key] = objArr[key];
+    store.registry[key] = styleObjMap[key];
     const id = getStyleTagId(key);
-    const css = cssArr[key];
+    const css = styleRuleMap[key];
 
     if (!hasWin()) {
       console.log(`<style id="${id}">${css}</style>`);
@@ -31,6 +43,9 @@ const appendCss = ({ styleIds, objArr, cssArr }) => {
   });
 };
 
+/**
+ * @param {object} styles
+ */
 const injectStyle = (styles) => {
   if (styles) {
     KEYS(styles).forEach((key) => store.newStyles.push(styles[key]));

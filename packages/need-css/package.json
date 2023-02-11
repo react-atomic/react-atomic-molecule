@@ -12,14 +12,14 @@
   "author": "Hill <hill@kimo.com>",
   "license": "ISC",
   "dependencies": {
-    "create-el": "*",
-    "css-query-selector": "*",
-    "get-object-value": "*",
-    "win-doc": "*"
+    "create-el": "^0.2.0",
+    "css-query-selector": "^0.4.0",
+    "get-object-value": "^0.6.5",
+    "win-doc": "^0.3.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.x",
-    "reshow-unit-dom": "*"
+    "@babel/cli": "^7.20.7",
+    "reshow-unit-dom": "^0.2.0"
   },
   "exports": {
     "require": "./build/cjs/src/index.js",

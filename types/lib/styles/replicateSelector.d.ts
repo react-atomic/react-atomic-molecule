@@ -1,2 +1,6 @@
 export default replicateSelector;
-declare function replicateSelector(s: any): string;
+/**
+ * @param {string} s
+ * @returns {string}
+ */
+declare function replicateSelector(s: string): string;

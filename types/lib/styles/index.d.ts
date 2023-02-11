@@ -1,2 +1,9 @@
 export default createStyle;
-declare function createStyle(css: any, selector: any, styleId: any): any;
+/**
+ * @param {object[]} css
+ * @param {string|string[]} selector
+ * @param {string} styleId
+ * @returns {StyleObject}
+ */
+declare function createStyle(css: object[], selector: string | string[], styleId: string): StyleObject;
+import StyleObject from "./StyleObject";

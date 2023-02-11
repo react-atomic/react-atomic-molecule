@@ -14,13 +14,13 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
-    "keyframe-css": "*",
-    "react-atomic-molecule": "*",
-    "reshow-runtime": "*"
+    "keyframe-css": "^0.3.1",
+    "react-atomic-molecule": "^5.1.3",
+    "reshow-runtime": "^0.17.15"
   },
   "devDependencies": {
-    "@babel/cli": "^7.x",
-    "reshow-unit": "*"
+    "@babel/cli": "^7.20.7",
+    "reshow-unit": "^0.17.29"
   },
   "exports": {
     "./AccessTime": {

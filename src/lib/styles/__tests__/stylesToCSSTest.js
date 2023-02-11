@@ -13,19 +13,25 @@ describe("Test stylesToCSS", () => {
 
   it("basic test", () => {
     const acture = stylesToCSS();
-    expect(acture).to.deep.equal({ styleIds: [], objArr: {}, cssArr: {} });
+    expect(acture).to.deep.equal({
+      styleIds: [],
+      styleObjMap: {},
+      styleRuleMap: {},
+    });
   });
 
   it("join selector test", () => {
     const oReactStyle = reactStyle({ width: 100 }, [min.md, [".xxx", ".yyy"]]);
     const acture = stylesToCSS([oReactStyle]);
-    expect(JSON.stringify(acture.cssArr)).to.have.string(".xxx,.yyy");
+    expect(JSON.stringify(acture.styleRuleMap)).to.have.string(".xxx,.yyy");
   });
 
   it("style only test", () => {
     const oReactStyle = reactStyle({ width: 100 });
     const acture = stylesToCSS([oReactStyle]);
-    expect(JSON.stringify(acture.cssArr)).to.have.string(".c0_,.c0_.c0_1,");
+    expect(JSON.stringify(acture.styleRuleMap)).to.have.string(
+      ".c0_,.c0_.c0_1,"
+    );
   });
 
   it("test keyframe", () => {
@@ -41,6 +47,8 @@ describe("Test stylesToCSS", () => {
       ["@keyframes spin", "0%", "100%"]
     );
     const acture = stylesToCSS([oReactStyle]);
-    expect(JSON.stringify(acture.cssArr)).to.have.string("@keyframes spin");
+    expect(JSON.stringify(acture.styleRuleMap)).to.have.string(
+      "@keyframes spin"
+    );
   });
 });

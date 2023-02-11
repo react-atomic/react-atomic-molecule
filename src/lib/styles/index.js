@@ -1,3 +1,5 @@
+//@ts-check
+
 import ucfirst from "ucfirst-js";
 import StyleObject from "./StyleObject";
 import store from "./store";
@@ -12,6 +14,12 @@ const Browser = {
   moz: "Moz",
 };
 
+/**
+ * @param {object[]} css
+ * @param {string|string[]} selector
+ * @param {string} styleId
+ * @returns {StyleObject}
+ */
 const createStyle = (css, selector, styleId) => {
   if (!css) {
     return;

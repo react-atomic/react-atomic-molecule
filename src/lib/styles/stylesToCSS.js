@@ -1,7 +1,16 @@
+//@ts-check
+
 import hyphenateStyleName from "hyphenate-style-name";
-import get from "get-object-value";
 import { IS_ARRAY, KEYS, NEW_OBJ } from "reshow-constant";
 import replicateSelector from "./replicateSelector";
+import StyleObject from "./StyleObject";
+
+/**
+ * @typedef {object} CSSProps
+ * @property {string[]} styleIds
+ * @property {object} styleObjMap
+ * @property {object} styleRuleMap
+ */
 
 // Follows syntax at https://developer.mozilla.org/en-US/docs/Web/CSS/content,
 // including multiple space separated values.
@@ -10,6 +19,10 @@ const unquotedContentValueRegex =
 
 const browsers = ["webkit", "moz"];
 
+/**
+ * @param {string} key
+ * @param {string} value
+ */
 const buildOneRule = (key, value) => {
   if (null == value) {
     return "";
@@ -21,7 +34,11 @@ const buildOneRule = (key, value) => {
   return hyphenateStyleName(key) + ": " + value + ";";
 };
 
-const buildRules = (rules = [], styleId, selector) => {
+/**
+ * @param {object[]} rules
+ * @param {(string|string[])} selector
+ */
+const buildRules = (rules = [], selector) => {
   if (!rules || !rules.length) {
     return;
   }
@@ -44,6 +61,9 @@ const buildRules = (rules = [], styleId, selector) => {
     KEYS(rule).forEach((styleKey) => {
       if (rule[styleKey] && rule[styleKey].forEach) {
         rule[styleKey].forEach(
+          /**
+           * @param {string} item
+           */
           (item) => (mycss += buildOneRule(styleKey, item))
         );
       } else {
@@ -73,9 +93,13 @@ const buildRules = (rules = [], styleId, selector) => {
   return myRule;
 };
 
+/**
+ * @param {CSSProps} result
+ * @param {StyleObject} oStyle
+ */
 const buildStyle = (result, oStyle) => {
   const { styleId } = oStyle;
-  if (!styleId || result.cssArr[styleId]) {
+  if (!styleId || result.styleRuleMap[styleId]) {
     return;
   }
   let selector = oStyle.selector;
@@ -89,16 +113,20 @@ const buildStyle = (result, oStyle) => {
   } else {
     selector = replicateSelector(styleId);
   }
-  result.objArr[styleId] = oStyle; //for check already inject
-  result.cssArr[styleId] = buildRules(oStyle.style, styleId, selector);
+  result.styleObjMap[styleId] = oStyle; //for check already inject
+  result.styleRuleMap[styleId] = buildRules(oStyle.styleRules, selector);
   result.styleIds.push(styleId);
 };
 
+/**
+ * @param {object[]} styles
+ * @returns {CSSProps}
+ */
 const stylesToCSS = (styles) => {
   const result = {
     styleIds: [],
-    objArr: NEW_OBJ(),
-    cssArr: NEW_OBJ(),
+    styleObjMap: NEW_OBJ(),
+    styleRuleMap: NEW_OBJ(),
   };
   styles && styles.forEach((oStyle) => buildStyle(result, oStyle));
   return result;

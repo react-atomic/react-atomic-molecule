@@ -1,2 +1,7 @@
 export default lazyInject;
-declare function lazyInject(configs: any, injects: any): any;
+/**
+ * @param {object} configs
+ * @param {object} injects
+ * @returns {injects}
+ */
+declare function lazyInject(configs: object, injects: object): any;
