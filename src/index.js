@@ -1,3 +1,4 @@
+// @ts-check
 // ui
 export { default as Button } from "./ui/molecules/Button";
 export { default as Card } from "./ui/molecules/Card";
@@ -31,7 +32,7 @@ export { default as Unsafe } from "./ui/molecules/Unsafe";
 
 // libs
 export { mixClass } from "class-lib";
-export { default as build } from "reshow-build";
+export { default as build, mergeRef } from "reshow-build";
 export { default as getChildMapping } from "./getChildMapping";
 export { default as getDisplayName } from "./getDisplayName";
 export { default as mergeChildren } from "./mergeChildren";
@@ -43,7 +44,6 @@ export { default as useLazyInject } from "./lib/styles/useLazyInject";
 export { default as reactStyle } from "./lib/styles/index";
 export { default as mergeStyleConfig } from "./lib/styles/mergeStyleConfig";
 export { default as mergeDefaultValue } from "./mergeDefaultValue";
-export { default as mergeRef } from "./mergeRef";
 export { default as useCSS } from "./useCSS";
 
 // config
