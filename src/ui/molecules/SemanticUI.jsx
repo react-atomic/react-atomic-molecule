@@ -1,3 +1,5 @@
+// @ts-check
+
 import { createElement } from "react";
 import { html } from "react-atomic-atom";
 import get from "get-object-value";
@@ -7,9 +9,22 @@ import injectStyle from "../../lib/styles/injectStyle";
 import bindStyles from "../../lib/styles/bindStyles";
 import { bindChildKey } from "../../getChildMapping";
 
+/**
+ * @param {boolean} render
+ * @param {import("react").ReactNode} children 
+ * @returns {React.ReactNode} 
+ */
 const getChildren = (render, children) =>
   render && children != null ? bindChildKey(children) : null;
 
+/**
+ * @typedef {object} UIProps
+ */
+
+/**
+ * @type React.FC<UIProps>
+ * @returns {React.ReactElement}
+ */
 const SemanticUI = ({
   ui = true,
   renderChildren = true,

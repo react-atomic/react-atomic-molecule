@@ -1,15 +1,12 @@
 {
-  "version": "5.1.5",
+  "version": "5.1.6",
   "name": "react-atomic-molecule",
   "repository": {
     "type": "git",
     "url": "https://github.com/react-atomic/react-atomic-molecule"
   },
   "description": "Atomic design in React (molecules)",
-  "keywords": [
-    "react-atomic",
-    "react-atomic-ui"
-  ],
+  "keywords": ["react-atomic", "react-atomic-ui"],
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
@@ -54,10 +51,5 @@
     "prepublishOnly": "npm run format && npm run test"
   },
   "types": "./types/index.d.ts",
-  "files": [
-    "types",
-    "build",
-    "package.json",
-    "README.md"
-  ]
+  "files": ["types", "build", "package.json", "README.md"]
 }

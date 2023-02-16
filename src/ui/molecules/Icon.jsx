@@ -1,3 +1,5 @@
+//@ts-check
+
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 
