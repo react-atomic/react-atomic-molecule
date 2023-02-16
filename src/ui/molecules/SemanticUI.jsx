@@ -11,14 +11,14 @@ import { bindChildKey } from "../../getChildMapping";
 
 /**
  * @param {boolean} render
- * @param {import("react").ReactNode} children 
- * @returns {React.ReactNode} 
+ * @param {import("react").ReactNode} children
+ * @returns {React.ReactNode}
  */
 const getChildren = (render, children) =>
   render && children != null ? bindChildKey(children) : null;
 
 /**
- * @typedef {object} UIProps
+ * @typedef {Object} UIProps
  */
 
 /**

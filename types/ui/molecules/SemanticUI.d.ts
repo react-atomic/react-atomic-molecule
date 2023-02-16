@@ -1,7 +1,7 @@
 export default SemanticUI;
-export type UIProps = object;
+export type UIProps = any;
 /**
- * @typedef {object} UIProps
+ * @typedef {Object} UIProps
  */
 /**
  * @type React.FC<UIProps>
