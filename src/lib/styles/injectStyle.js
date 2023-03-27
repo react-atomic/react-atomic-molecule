@@ -44,7 +44,7 @@ const appendCss = ({ styleIds, styleObjMap, styleRuleMap }) => {
 };
 
 /**
- * @param {object} styles
+ * @param {object} [styles]
  */
 const injectStyle = (styles) => {
   if (styles) {

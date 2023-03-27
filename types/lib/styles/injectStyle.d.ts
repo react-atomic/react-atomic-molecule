@@ -5,6 +5,6 @@ export type CSSProps = {
     styleRuleMap: object;
 };
 /**
- * @param {object} styles
+ * @param {object} [styles]
  */
-declare function injectStyle(styles: object): any;
+declare function injectStyle(styles?: object): any;
