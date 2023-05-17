@@ -1,9 +1,15 @@
+// @ts-check
+import * as React from "react";
 import { mixClass } from "class-lib";
+import { T_UNDEFINED } from "reshow-constant";
 import SemanticUI from "../molecules/SemanticUI";
 import Label from "../molecules/Label";
 import reactStyle from "../../lib/styles/index";
-import useCSS from "../../useCSS";
+import useCSS from "../../hooks/useCSS";
 
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
 const Progress = (props) => {
   useCSS(["progress"], "semantic");
   const {
@@ -47,7 +53,7 @@ const Progress = (props) => {
       {...others}
       className={classes}
       data-percent={thisPercent}
-      styles={[reactStyle(style, null, false), styles]}
+      styles={[reactStyle(style, T_UNDEFINED, false), styles]}
     >
       <SemanticUI
         className="bar"
@@ -59,7 +65,7 @@ const Progress = (props) => {
               width: thisPercent + "%",
               ...barStyle,
             },
-            null,
+            T_UNDEFINED,
             false
           ),
           barStyles,

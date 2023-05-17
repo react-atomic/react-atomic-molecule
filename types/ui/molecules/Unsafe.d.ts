@@ -3,4 +3,4 @@ declare function Unsafe({ className, children, ...others }: {
     [x: string]: any;
     className: any;
     children: any;
-}): JSX.Element;
+}): import("react/jsx-runtime").JSX.Element;

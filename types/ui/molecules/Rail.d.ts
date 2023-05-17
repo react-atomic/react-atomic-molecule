@@ -1,2 +1,8 @@
 export default Rail;
-declare function Rail(props: any): JSX.Element;
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
+declare function Rail(props: {
+    [key: string]: any;
+    className?: string;
+}): import("react/jsx-runtime").JSX.Element;

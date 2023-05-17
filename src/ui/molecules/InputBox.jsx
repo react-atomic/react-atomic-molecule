@@ -1,12 +1,18 @@
+// @ts-check
+
+import * as React from "react";
 import { mixClass } from "class-lib";
 import build from "reshow-build";
 import SemanticUI from "../molecules/SemanticUI";
 import Button from "../molecules/Button";
 import Label from "../molecules/Label";
 import Icon from "../molecules/Icon";
-import useCSS from "../../useCSS";
-import useLazyInject from "../../lib/styles/useLazyInject";
+import useCSS from "../../hooks/useCSS";
+import useLazyInject from "../../hooks/useLazyInject";
 
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
 const InputBox = (props) => {
   injects = useLazyInject(InjectStyles, injects);
   useCSS(["input", "search", "form"], "semantic");

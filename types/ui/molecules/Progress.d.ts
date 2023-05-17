@@ -1,2 +1,8 @@
 export default Progress;
-declare function Progress(props: any): JSX.Element;
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
+declare function Progress(props: {
+    [key: string]: any;
+    className?: string;
+}): import("react/jsx-runtime").JSX.Element;

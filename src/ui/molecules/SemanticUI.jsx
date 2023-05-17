@@ -17,13 +17,10 @@ import { bindChildKey } from "../../getChildMapping";
 const getChildren = (render, children) =>
   render && children != null ? bindChildKey(children) : null;
 
-/**
- * @typedef {Object} UIProps
- */
 
 /**
- * @type React.FC<UIProps>
- * @returns {React.ReactElement}
+ * @param {any} props
+ * @returns {React.ReactElement | null}
  */
 const SemanticUI = ({
   ui = true,

@@ -1,9 +1,14 @@
-import { useEffect } from "react";
+// @ts-check
+
+import * as React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Icon from "../molecules/Icon";
-import useCSS from "../../useCSS";
+import useCSS from "../../hooks/useCSS";
 
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
 const Button = (props) => {
   useCSS(["button", "loader"], "semantic");
   const {

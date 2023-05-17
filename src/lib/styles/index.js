@@ -6,7 +6,7 @@ import store from "./store";
 import nToU from "./cssNumberToUnit";
 import genStyleId from "./genStyleId";
 
-import { IS_ARRAY, KEYS, UNDEFINED, NEW_OBJ } from "reshow-constant";
+import { IS_ARRAY, KEYS, NEW_OBJ } from "reshow-constant";
 
 const Browser = {
   webkit: "Webkit",
@@ -16,18 +16,18 @@ const Browser = {
 
 /**
  * @param {any[]|any} css
- * @param {string|string[]} selector
- * @param {string} styleId
+ * @param {string|string[]} [selector]
+ * @param {string|boolean} [styleId]
  * @returns {StyleObject|undefined}
  */
 const createStyle = (css, selector, styleId) => {
   if (!css) {
     return;
   }
-  if (UNDEFINED === typeof styleId) {
-    styleId = genStyleId();
-  } else if (store.registry[styleId]) {
-    return store.registry[styleId];
+  const thisStyleId =
+    null == styleId ? genStyleId() : /** @type {string}*/ (styleId);
+  if (store.registry[thisStyleId]) {
+    return store.registry[thisStyleId];
   }
   if (!IS_ARRAY(css)) {
     css = [css];
@@ -56,8 +56,14 @@ const createStyle = (css, selector, styleId) => {
     }
   );
 
-  const styleDecl = new StyleObject(styles, selector, styleId);
-  store.newStyles.push(styleDecl);
+  let styleDecl;
+  if (thisStyleId) {
+    styleDecl = new StyleObject(styles, selector, thisStyleId);
+    store.newStyles.push(styleDecl);
+  } else {
+    // will not push to injectStyle queue
+    styleDecl = new StyleObject(styles);
+  }
   return styleDecl;
 };
 

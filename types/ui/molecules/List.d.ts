@@ -1,2 +1,8 @@
 export default List;
-declare function List(props: any): JSX.Element;
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
+declare function List(props: {
+    [key: string]: any;
+    className?: string;
+}): import("react/jsx-runtime").JSX.Element;

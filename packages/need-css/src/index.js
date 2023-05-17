@@ -1,5 +1,7 @@
+//@ts-check
+
 import { css } from "create-el";
-import { win } from "win-doc";
+import { win, hasWin } from "win-doc";
 import get from "get-object-value";
 import query from "css-query-selector";
 
@@ -53,6 +55,10 @@ const load = [];
 win().addEventListener &&
   win().addEventListener("load", () => load.splice(0, load.length));
 
+/**
+ * @param {string[]} mods
+ * @param {string} groupKey
+ */
 const needCSS = (mods, groupKey = "default") => {
   const map = get(group, [groupKey], {});
   mods.forEach((mod) => {
@@ -63,7 +69,7 @@ const needCSS = (mods, groupKey = "default") => {
         return;
       } else {
         load[url] = true;
-        if (win().__null) {
+        if (!hasWin()) {
           console.log(`<link rel="stylesheet" type="text/css" href="${url}">`);
         } else {
           const cssDom = query.one(`link[href="${url}"]`);

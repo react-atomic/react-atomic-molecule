@@ -1,2 +1,8 @@
 export default InputBox;
-declare function InputBox(props: any): JSX.Element;
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
+declare function InputBox(props: {
+    [key: string]: any;
+    className?: string;
+}): import("react/jsx-runtime").JSX.Element;

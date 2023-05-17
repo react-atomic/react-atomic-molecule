@@ -5,8 +5,8 @@ import store from "./store";
 class StyleObject {
   /**
    * @param {object[]} styleRules
-   * @param {string|string[]} selector
-   * @param {string} styleId
+   * @param {string|string[]} [selector]
+   * @param {string|boolean} [styleId]
    */
   constructor(styleRules, selector, styleId) {
     this.styleRules = styleRules;
@@ -19,7 +19,7 @@ class StyleObject {
    */
   isCompiled() {
     const registry = store.registry;
-    return registry && registry[this.styleId];
+    return registry && registry[/** @type {string}*/ (this.styleId)];
   }
 }
 

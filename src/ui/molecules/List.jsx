@@ -1,8 +1,17 @@
-import { Children, cloneElement } from "react";
+// @ts-check
+
+import * as React from "react";
+const {Children, cloneElement} = React;
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../useCSS";
+import useCSS from "../../hooks/useCSS";
 
+/**
+ * @param {React.ReactElement} children
+ * @param {string} pAtom
+ * @param {boolean} horizontal 
+ * @returns {any[]}
+ */
 const renderChildren = (children, pAtom, horizontal) =>
   Children.map(children, (child) => {
     if (!child) {
@@ -23,6 +32,9 @@ const renderChildren = (children, pAtom, horizontal) =>
     return child;
   });
 
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
 const List = (props) => {
   useCSS(["list"], "semantic");
 
@@ -37,6 +49,9 @@ const List = (props) => {
 
   const atom = props.atom;
   const classes = mixClass(className, type, { horizontal });
+  /**
+   * @type {any}
+   */
   let child = renderChildren(children, atom, horizontal);
   if (atom === "table") {
     if (child) {

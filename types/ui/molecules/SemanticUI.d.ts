@@ -1,10 +1,6 @@
 export default SemanticUI;
-export type UIProps = any;
 /**
- * @typedef {Object} UIProps
+ * @param {any} props
+ * @returns {React.ReactElement | null}
  */
-/**
- * @type React.FC<UIProps>
- * @returns {React.ReactElement}
- */
-declare const SemanticUI: React.FC<UIProps>;
+declare function SemanticUI({ ui, renderChildren, refCb, atom, children, styles, styleOrder, ...restProps }: any): React.ReactElement | null;

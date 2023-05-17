@@ -1,11 +1,17 @@
+// @ts-check
+
+import * as React from "react";
 import { mixClass } from "class-lib";
 import build from "reshow-build";
 import get from "get-object-value";
 import SemanticUI from "../molecules/SemanticUI";
 import Message from "../molecules/Message";
 import Label from "../molecules/Label";
-import useCSS from "../../useCSS";
+import useCSS from "../../hooks/useCSS";
 
+/**
+ * @param {{className?: string, [key: string]: any}} props
+ */
 const Field = (props) => {
   useCSS(["input", "search", "form"], "semantic");
   const {
@@ -58,7 +64,7 @@ const Field = (props) => {
   let oLabel = null;
   let thisMessageProps = messageProps || {};
   if (label) {
-    const thisLabelStyle = { ...get(labelStyle, null, {}) };
+    const thisLabelStyle = { ...(labelStyle ?? {}) };
     if (props.id) {
       thisLabelStyle.cursor = "pointer";
     }

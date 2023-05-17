@@ -3,4 +3,4 @@ declare function Icon({ className, style, ...others }: {
     [x: string]: any;
     className?: string;
     style?: {};
-}): JSX.Element;
+}): import("react/jsx-runtime").JSX.Element;

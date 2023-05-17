@@ -3,8 +3,8 @@ import { expect } from "chai";
 import { render, cleanIt, waitFor } from "reshow-unit";
 
 import useLazyInject from "../useLazyInject";
-import styleStore from "../store";
-import SemanticUI from "../../../ui/molecules/SemanticUI";
+import styleStore from "../../lib/styles/store";
+import SemanticUI from "../../ui/molecules/SemanticUI";
 
 describe("Test useLazyInject", () => {
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe("Test useLazyInject", () => {
   };
 
   it("test useLazyInject", async () => {
-    const VDom = (props) => {
+    const VDom = (_props) => {
       injects = useLazyInject(InjectStyles, injects);
       return <SemanticUI styles={injects.test} />;
     };

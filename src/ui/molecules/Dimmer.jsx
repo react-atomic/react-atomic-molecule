@@ -1,8 +1,22 @@
+// @ts-check
+import * as React from "react";
 import { mixClass } from "class-lib";
 import Content from "../molecules/Content";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../useCSS";
+import useCSS from "../../hooks/useCSS";
 
+/**
+ * @param {{
+ * className?: string,
+ * show?: boolean, 
+ * isModal?: boolean,
+ * center?: boolean,
+ * content?: boolean,
+ * children?: React.ReactNode,
+ * contentStyle?: React.CSSProperties,
+ * [key: string]: any
+ * }} props
+ */
 const Dimmer = (props) => {
   useCSS(["dimmer"], "semantic");
   const {

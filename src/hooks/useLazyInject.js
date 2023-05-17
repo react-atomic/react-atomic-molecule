@@ -2,10 +2,10 @@
 
 import { useRef, useEffect, useState } from "react";
 import { NEW_OBJ, OBJ_SIZE } from "reshow-constant";
-import lazyInject from "./lazyInject";
-import injectStyle from "./injectStyle";
-import cleanStyleTag from "./cleanStyleTag";
-import genStyleId from "./genStyleId";
+import lazyInject from "../lib/styles/lazyInject";
+import injectStyle from "../lib/styles/injectStyle";
+import cleanStyleTag from "../lib/styles/cleanStyleTag";
+import genStyleId from "../lib/styles/genStyleId";
 
 /**
  * @param {object} InjectStyles
@@ -14,6 +14,9 @@ import genStyleId from "./genStyleId";
  */
 const useLazyInject = (InjectStyles, existsInjection) => {
   const [oid] = useState(() => genStyleId("o"));
+  /**
+   * @type {any}
+   */
   const injects = useRef();
   const injectMounted = useRef(NEW_OBJ());
   const resetInject = () => {

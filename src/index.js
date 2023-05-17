@@ -40,11 +40,11 @@ export { default as mergeChildren } from "./mergeChildren";
 //styles
 export { default as injectStyle } from "./lib/styles/injectStyle";
 export { default as lazyInject } from "./lib/styles/lazyInject";
-export { default as useLazyInject } from "./lib/styles/useLazyInject";
 export { default as reactStyle } from "./lib/styles/index";
 export { default as mergeStyleConfig } from "./lib/styles/mergeStyleConfig";
 export { default as mergeDefaultValue } from "./mergeDefaultValue";
-export { default as useCSS } from "./useCSS";
+export { default as useLazyInject } from "./hooks/useLazyInject";
+export { default as useCSS } from "./hooks/useCSS";
 
 // config
 export { min, max, pageWidth } from "./config/styles/rwd";

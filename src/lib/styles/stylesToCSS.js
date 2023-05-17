@@ -44,7 +44,7 @@ const buildRules = (rules = [], selector) => {
   }
   let parentSelector;
   if (IS_ARRAY(selector)) {
-    parentSelector = selector[0].trim ? selector[0].trim() : selector[0];
+    parentSelector = selector[0].trim();
     selector.shift();
   } else {
     selector = [selector];
@@ -98,7 +98,7 @@ const buildRules = (rules = [], selector) => {
  * @param {StyleObject} oStyle
  */
 const buildStyle = (result, oStyle) => {
-  const { styleId } = oStyle;
+  const styleId = /** @type {string} */ (oStyle.styleId);
   if (!styleId || result.styleRuleMap[styleId]) {
     return;
   }

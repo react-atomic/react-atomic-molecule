@@ -13,7 +13,7 @@ const applyClassName = (props, order, oStyle) => {
   const styleId = oStyle.styleId;
   const arr = [styleId];
   for (let j = 1; j <= order; j++) {
-    arr.push(styleId + j);
+    arr.push(styleId + "" + j);
   }
   props.className =
     (props.className ? props.className + " " : "") + arr.join(" ");

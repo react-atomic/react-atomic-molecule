@@ -21,6 +21,9 @@ import applyStyles from "./applyStyles";
  * @returns {StyleProps}
  */
 const bindStyles = ({ className, style, styles, styleOrder }) => {
+  /**
+   * @type {{className?:string, style?: React.CSSProperties}}
+   */
   const newStyleProps = {
     className,
     style,
