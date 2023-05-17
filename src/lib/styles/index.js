@@ -15,10 +15,10 @@ const Browser = {
 };
 
 /**
- * @param {object[]} css
+ * @param {any[]|any} css
  * @param {string|string[]} selector
  * @param {string} styleId
- * @returns {StyleObject}
+ * @returns {StyleObject|undefined}
  */
 const createStyle = (css, selector, styleId) => {
   if (!css) {
@@ -34,21 +34,27 @@ const createStyle = (css, selector, styleId) => {
   }
 
   const styles = [];
-  css.forEach((one, i) => {
-    styles[i] = NEW_OBJ();
-    KEYS(one).forEach((key) => {
-      if (IS_ARRAY(one[key]) && 1 === one[key].length) {
-        const ucFirstKey = ucfirst(key);
-        styles[i][Browser.webkit + ucFirstKey] =
-          styles[i][Browser.ms + ucFirstKey] =
-          styles[i][Browser.moz + ucFirstKey] =
-          styles[i][key] =
-            nToU(key, one[key][0]);
-      } else {
-        styles[i][key] = nToU(key, one[key]);
-      }
-    });
-  });
+  css.forEach(
+    /**
+     * @param {any} one
+     * @param {number} i
+     */
+    (one, i) => {
+      styles[i] = NEW_OBJ();
+      KEYS(one).forEach((key) => {
+        if (IS_ARRAY(one[key]) && 1 === one[key].length) {
+          const ucFirstKey = ucfirst(key);
+          styles[i][Browser.webkit + ucFirstKey] =
+            styles[i][Browser.ms + ucFirstKey] =
+            styles[i][Browser.moz + ucFirstKey] =
+            styles[i][key] =
+              nToU(key, one[key][0]);
+        } else {
+          styles[i][key] = nToU(key, one[key]);
+        }
+      });
+    }
+  );
 
   const styleDecl = new StyleObject(styles, selector, styleId);
   store.newStyles.push(styleDecl);
