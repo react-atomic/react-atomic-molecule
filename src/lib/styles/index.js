@@ -16,7 +16,7 @@ const Browser = {
 
 /**
  * @param {any[]|any} css
- * @param {string|string[]} [selector]
+ * @param {string|string[]|boolean} [selector]
  * @param {string|boolean} [styleId]
  * @returns {StyleObject|undefined}
  */

@@ -5,12 +5,15 @@ import store from "./store";
 class StyleObject {
   /**
    * @param {object[]} styleRules
-   * @param {string|string[]} [selector]
+   * @param {string|string[]|boolean} [selector]
    * @param {string|boolean} [styleId]
    */
   constructor(styleRules, selector, styleId) {
     this.styleRules = styleRules;
-    this.selector = selector;
+    /**
+     * @type {string|string[]}
+     */
+    this.selector = /** @type string|string[]*/ (selector) || "";
     this.styleId = styleId;
   }
 
