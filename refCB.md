@@ -47,3 +47,5 @@ class MyInput extends Component
 ```
    * More refs https://facebook.github.io/react/docs/refs-and-the-dom.html
 
+## Merge Ref
+* https://github.com/react-atomic/reshow/blob/main/packages/reshow-build/src/mergeRef.js
