@@ -4,20 +4,18 @@ import * as React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
 import Icon from "../molecules/Icon";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
 const Button = (props) => {
-  useCSS(["button", "loader"], "semantic");
   const {
     type = "button",
     className,
     children,
     icon,
     style,
-    ...others
+    ...restProps
   } = props;
   const classes = mixClass(className, "button");
   let thisIcon;
@@ -30,7 +28,13 @@ const Button = (props) => {
     <SemanticUI
       atom="button"
       type={type}
-      {...others}
+      {...restProps}
+      cssList={[
+        {
+          cssModule: ["button", "loader"],
+          cssGroup: "semantic",
+        },
+      ]}
       className={classes}
       style={{
         ...buttonWithIconStyle,

@@ -2,7 +2,6 @@
 import * as React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{
@@ -13,13 +12,18 @@ import useCSS from "../../hooks/useCSS";
  * }} props
  */
 const Form = (props) => {
-  useCSS(["form", "input", "loader", "search"], "semantic");
-  const { messageType, style, className, ...others } = props;
+  const { messageType, style, className, ...restProps } = props;
   const classes = mixClass(className, messageType, "form");
   return (
     <SemanticUI
       atom="form"
-      {...others}
+      {...restProps}
+      cssList={[
+        {
+          cssModule: ["form", "input", "loader", "search"],
+          cssGroup: "semantic",
+        },
+      ]}
       className={classes}
       style={{ ...Styles.form, ...style }}
     />
@@ -28,6 +32,9 @@ const Form = (props) => {
 export default Form;
 
 const Styles = {
+  /**
+   * @type {React.CSSProperties}
+   */
   form: {
     boxSizing: "border-box",
   },

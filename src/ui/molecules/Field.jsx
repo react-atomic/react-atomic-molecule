@@ -7,13 +7,11 @@ import get from "get-object-value";
 import SemanticUI from "../molecules/SemanticUI";
 import Message from "../molecules/Message";
 import Label from "../molecules/Label";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
 const Field = (props) => {
-  useCSS(["input", "search", "form"], "semantic");
   const {
     className,
     fieldClassName,
@@ -40,7 +38,7 @@ const Field = (props) => {
     topTip,
     bottomTip,
     rightTip,
-    ...others
+    ...restProps
   } = props || {};
   const thisMessage = message ?? props["data-message"];
   const thisMessageType = messageType ?? props["data-message-type"];
@@ -120,7 +118,7 @@ const Field = (props) => {
 
     input = build(inputComponent)(
       {
-        ...others,
+        ...restProps,
         style: {
           boxSizing: "inherit",
           ...inputProps.style,
@@ -179,6 +177,12 @@ const Field = (props) => {
   return (
     <SemanticUI
       {...fieldProps}
+      cssList={[
+        {
+          cssModule: ["input", "search", "form"],
+          cssGroup: "semantic"
+        }
+      ]}
       className={classes}
       style={thisFieldStyle}
       styles={thisFieldStyles}

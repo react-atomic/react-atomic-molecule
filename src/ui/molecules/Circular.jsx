@@ -1,8 +1,8 @@
 // @ts-check
+
 import * as React from "react";
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @see https://semantic-ui.com/elements/image.html#circular
@@ -10,9 +10,14 @@ import useCSS from "../../hooks/useCSS";
  * @param {{className?: string, [key: string]: any}} props
  */
 const Circular = (props) => {
-  useCSS(["label", "image"], "semantic");
   const classes = mixClass(props.className, "circular");
-  return <SemanticUI {...props} className={classes} />;
+  return (
+    <SemanticUI
+      {...props}
+      cssList={[{ cssModule: ["label", "image"], cssGroup: "semantic" }]}
+      className={classes}
+    />
+  );
 };
 
 export default Circular;

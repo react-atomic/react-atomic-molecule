@@ -67,17 +67,17 @@ const applyStyle =
 /**
  * @param {object} props
  * @param {StyleObject|StyleObject[]} styles
- * @param {number} order
+ * @param {number} [order]
  * @returns {props[]}
  */
 const applyStyles = (props, styles, order) => {
-  if (isNaN(order)) {
+  if (isNaN(/**@type any*/ (order))) {
     order = 0;
   }
   if (!IS_ARRAY(styles)) {
     styles = [styles];
   }
-  const doApply = applyStyle(props, order);
+  const doApply = applyStyle(props, /**@type any*/ (order));
   return styles.map(
     /**
      * @param {StyleObject} one

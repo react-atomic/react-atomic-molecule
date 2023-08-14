@@ -7,7 +7,7 @@ import applyStyles from "./applyStyles";
  * @property {string} className
  * @property {object} style
  * @property {object|object[]} styles
- * @property {number} styleOrder
+ * @property {number} [styleOrder]
  */
 
 /**

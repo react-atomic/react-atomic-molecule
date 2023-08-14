@@ -8,6 +8,7 @@ import { KEYS, HAS } from "reshow-constant";
 import injectStyle from "../../lib/styles/injectStyle";
 import bindStyles from "../../lib/styles/bindStyles";
 import { bindChildKey } from "../../getChildMapping";
+import useCSSHook from "../../hooks/useCSS";
 
 /**
  * @param {boolean} render
@@ -17,14 +18,44 @@ import { bindChildKey } from "../../getChildMapping";
 const getChildren = (render, children) =>
   render && children != null ? bindChildKey(children) : null;
 
+class CSSType {
+  /**
+   * @type string[]
+   */
+  cssModule;
+  /**
+   * @type string
+   */
+  cssGroup;
+}
 
 /**
- * @param {any} props
+ * @typedef {object} SemanticUIProps
+ * @property {boolean=} ui
+ * @property {boolean=} renderChildren
+ * @property {Object<any, React.ReactNode>=} atoms
+ * @property {string=} atom
+ * @property {function=} useCSS
+ * @property {CSSType[]=} cssList
+ * @property {function=} refCb
+ * @property {React.ReactNode=} children
+ * @property {Object=} styles
+ * @property {number=} styleOrder
+ * @property {string=} className
+ * @property {React.CSSProperties=} style
+ * @property {React.RefObject|function=} ref
+ */
+
+/**
+ * @param {SemanticUIProps&React.HTMLProps} props
  * @returns {React.ReactElement | null}
  */
 const SemanticUI = ({
   ui = true,
   renderChildren = true,
+  atoms = html,
+  useCSS = useCSSHook,
+  cssList = [],
   refCb,
   atom,
   children,
@@ -32,8 +63,11 @@ const SemanticUI = ({
   styleOrder,
   ...restProps
 }) => {
-  const atoms = html;
-  atom = null != atom ? atom : atoms.default;
+  /**
+   * @type string
+   */
+  const nextAtom = null != atom ? atom : atoms.default;
+  cssList.forEach(({ cssModule, cssGroup }) => useCSS(cssModule, cssGroup));
   switch (atom) {
     case "null":
       return null;
@@ -55,7 +89,7 @@ const SemanticUI = ({
     injectStyle();
     // bindStyles need after inject
     const bindProps = bindStyles({
-      className,
+      /** @type any*/ className,
       style,
       styles,
       styleOrder,
@@ -72,9 +106,13 @@ const SemanticUI = ({
       : "ui";
   }
   if (refCb) {
-    restProps.ref = refCb;
+    restProps.ref = /**@type any*/ (refCb);
   }
-  return createElement(atom, restProps, getChildren(renderChildren, children));
+  return createElement(
+    nextAtom,
+    restProps,
+    getChildren(renderChildren, children)
+  );
 };
 
 export default SemanticUI;

@@ -3,7 +3,6 @@ import * as React from "react";
 import { mixClass } from "class-lib";
 import build from "reshow-build";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{
@@ -21,7 +20,6 @@ import useCSS from "../../hooks/useCSS";
  * }} props
  */
 const Image = (props) => {
-  useCSS(["image"], "semantic");
   const {
     component = SemanticUI,
     loading = "lazy",
@@ -43,13 +41,17 @@ const Image = (props) => {
     src,
     loading,
   };
+  restProps.className = classes;
+  restProps.cssList = [
+    {
+      cssModule: ["image"],
+      cssGroup: "semantic",
+    },
+  ];
 
   if (atom && "img" !== atom) {
     return build(component)(
-      {
-        ...restProps,
-        className: classes,
-      },
+      restProps,
       <>
         {prepend}
         <SemanticUI {...thisImgProps} />
@@ -60,7 +62,6 @@ const Image = (props) => {
     return build(component)({
       ...restProps,
       ...thisImgProps,
-      className: classes,
     });
   }
 };

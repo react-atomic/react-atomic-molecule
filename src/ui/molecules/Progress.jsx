@@ -5,13 +5,11 @@ import { T_UNDEFINED } from "reshow-constant";
 import SemanticUI from "../molecules/SemanticUI";
 import Label from "../molecules/Label";
 import reactStyle from "../../lib/styles/index";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
 const Progress = (props) => {
-  useCSS(["progress"], "semantic");
   const {
     label,
     labelProps,
@@ -23,7 +21,7 @@ const Progress = (props) => {
     percent,
     style,
     styles,
-    ...others
+    ...restProps
   } = props;
   const thisLabel = label ? (
     <Label ui={false} {...labelProps}>
@@ -35,22 +33,22 @@ const Progress = (props) => {
   const {
     style: barStyle,
     styles: barStyles,
-    ...otherBarProps
+    ...restBarProps
   } = barProps || {};
   const classes = mixClass(className, "progress");
-  otherBarProps.children = barLabel ? (
+  restBarProps.children = barLabel ? (
     <SemanticUI className="progress" ui={false} {...barLabelProps}>
       {barLabel}
     </SemanticUI>
   ) : (
-    otherBarProps.children
+    restBarProps.children
   );
 
   const thisPercent = (percent ?? props["data-percent"]) * 1;
 
   return (
     <SemanticUI
-      {...others}
+      {...restProps}
       className={classes}
       data-percent={thisPercent}
       styles={[reactStyle(style, T_UNDEFINED, false), styles]}
@@ -58,7 +56,13 @@ const Progress = (props) => {
       <SemanticUI
         className="bar"
         ui={false}
-        {...otherBarProps}
+        {...restBarProps}
+        cssList={[
+          {
+            cssModule: ["progress"],
+            cssGroup: "semantic",
+          },
+        ]}
         styles={[
           reactStyle(
             {

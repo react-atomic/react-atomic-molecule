@@ -2,9 +2,9 @@ import { mixClass } from "class-lib";
 import callfunc from "call-func";
 import SemanticUI from "../molecules/SemanticUI";
 
-const Unsafe = ({ className, children, ...others }) => (
+const Unsafe = ({ className, children, ...restProps }) => (
   <SemanticUI
-    {...others}
+    {...restProps}
     className={mixClass("us-html", className)}
     dangerouslySetInnerHTML={{
       __html: callfunc(children),

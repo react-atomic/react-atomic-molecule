@@ -2,6 +2,10 @@
 import { useRef } from "react";
 import needCSS from "need-css";
 
+/**
+ * @param {string[]} mods
+ * @param {string} groupKey
+ */
 const useCSS = (mods, groupKey) => {
   /**
    * @type {React.MutableRefObject<boolean | undefined>}

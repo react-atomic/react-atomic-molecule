@@ -3,12 +3,11 @@ import * as React from "react";
 import { mixClass } from "class-lib";
 import Content from "../molecules/Content";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{
  * className?: string,
- * show?: boolean, 
+ * show?: boolean,
  * isModal?: boolean,
  * center?: boolean,
  * content?: boolean,
@@ -18,7 +17,6 @@ import useCSS from "../../hooks/useCSS";
  * }} props
  */
 const Dimmer = (props) => {
-  useCSS(["dimmer"], "semantic");
   const {
     show = false,
     isModal = false,
@@ -31,7 +29,7 @@ const Dimmer = (props) => {
     className,
     children,
     contentStyle,
-    ...others
+    ...restProps
   } = props;
   if (!show) {
     return null;
@@ -52,7 +50,11 @@ const Dimmer = (props) => {
     child = children;
   }
   return (
-    <SemanticUI {...others} className={classes}>
+    <SemanticUI
+      {...restProps}
+      cssList={[{ cssModule: ["dimmer"], cssGroup: "semantic" }]}
+      className={classes}
+    >
       {child}
     </SemanticUI>
   );

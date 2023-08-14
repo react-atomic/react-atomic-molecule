@@ -3,14 +3,12 @@ import * as React from "react";
 import { mixClass } from "class-lib";
 import Header from "../molecules/Header";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
 const Message = (props) => {
-  useCSS(["message"], "semantic");
-  const { header, className, children, messageType, ...reset } = props;
+  const { header, className, children, messageType, ...restProps } = props;
   const classes = mixClass(
     className,
     {
@@ -26,7 +24,11 @@ const Message = (props) => {
     thisHeader = <Header>{header}</Header>;
   }
   return (
-    <SemanticUI {...reset} className={classes}>
+    <SemanticUI
+      {...restProps}
+      cssList={[{ cssModule: ["message"], cssGroup: "semantic" }]}
+      className={classes}
+    >
       {thisHeader}
       {children}
     </SemanticUI>

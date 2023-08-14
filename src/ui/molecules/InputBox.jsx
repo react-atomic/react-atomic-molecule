@@ -7,16 +7,11 @@ import SemanticUI from "../molecules/SemanticUI";
 import Button from "../molecules/Button";
 import Label from "../molecules/Label";
 import Icon from "../molecules/Icon";
-import useCSS from "../../hooks/useCSS";
-import useLazyInject from "../../hooks/useLazyInject";
 
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
 const InputBox = (props) => {
-  injects = useLazyInject(InjectStyles, injects);
-  useCSS(["input", "search", "form"], "semantic");
-
   const {
     atom = "input",
     actionProps = {},
@@ -32,7 +27,7 @@ const InputBox = (props) => {
     transparent,
     wrapStyle,
     wrapClassName,
-    ...others
+    ...restProps
   } = props;
   const classes = mixClass(wrapClassName, messageType, "input", {
     labeled: leftLabel || rightLabel,
@@ -43,12 +38,23 @@ const InputBox = (props) => {
   });
   let thisLeftLabel;
   if (leftLabel) {
-    thisLeftLabel = <Label {...leftLabelProps}>{leftLabel}</Label>;
+    thisLeftLabel = (
+      <Label style={Styles.label} {...leftLabelProps}>
+        {leftLabel}
+      </Label>
+    );
   }
   let thisRightLabel;
   if (rightLabel) {
     thisRightLabel = (
-      <Label style={Styles.rightLabel} className="basic" {...rightLabelProps}>
+      <Label
+        style={{
+          ...Styles.label,
+          ...Styles.rightLabel,
+        }}
+        className="basic"
+        {...rightLabelProps}
+      >
         {rightLabel}
       </Label>
     );
@@ -72,13 +78,22 @@ const InputBox = (props) => {
     thisChildren = children;
   }
   return (
-    <SemanticUI className={classes} style={wrapStyle}>
+    <SemanticUI
+      cssList={[
+        {
+          cssModule: ["input", "search", "form"],
+          cssGroup: "semantic",
+        },
+      ]}
+      className={classes}
+      style={wrapStyle}
+    >
       {thisLeftLabel}
       {build(inputComponent)(
         {
           atom,
           ui: false,
-          ...others,
+          ...restProps,
         },
         inputChildren
       )}
@@ -92,6 +107,10 @@ const InputBox = (props) => {
 export default InputBox;
 
 const Styles = {
+  label: {
+    background: "transparent",
+    color: "inherit",
+  },
   rightLabel: {
     borderRadius: 0,
   },
@@ -101,15 +120,4 @@ const Styles = {
     right: 0,
     opacity: 0.5,
   },
-};
-
-let injects;
-const InjectStyles = {
-  label: [
-    {
-      background: "transparent",
-      color: "inherit",
-    },
-    ".ui.transparent.inverted.input>.label",
-  ],
 };

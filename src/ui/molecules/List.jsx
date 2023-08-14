@@ -1,15 +1,14 @@
 // @ts-check
 
 import * as React from "react";
-const {Children, cloneElement} = React;
+const { Children, cloneElement } = React;
 import { mixClass } from "class-lib";
 import SemanticUI from "../molecules/SemanticUI";
-import useCSS from "../../hooks/useCSS";
 
 /**
  * @param {React.ReactElement} children
  * @param {string} pAtom
- * @param {boolean} horizontal 
+ * @param {boolean} horizontal
  * @returns {any[]}
  */
 const renderChildren = (children, pAtom, horizontal) =>
@@ -36,8 +35,6 @@ const renderChildren = (children, pAtom, horizontal) =>
  * @param {{className?: string, [key: string]: any}} props
  */
 const List = (props) => {
-  useCSS(["list"], "semantic");
-
   /**
    * Why need type?
    *
@@ -45,7 +42,7 @@ const List = (props) => {
    * https://semantic-ui.com/elements/segment.html#raised-segments
    *
    */
-  const { type = "list", className, children, horizontal, ...others } = props;
+  const { type = "list", className, children, horizontal, ...restProps } = props;
 
   const atom = props.atom;
   const classes = mixClass(className, type, { horizontal });
@@ -67,7 +64,11 @@ const List = (props) => {
     }
   }
   return (
-    <SemanticUI {...others} className={classes}>
+    <SemanticUI
+      {...restProps}
+      cssList={[{ cssModule: ["list"], cssGroup: "semantic" }]}
+      className={classes}
+    >
       {child}
     </SemanticUI>
   );

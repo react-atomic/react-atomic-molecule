@@ -3,7 +3,7 @@ export type StyleInputProps = {
     className: string;
     style: object;
     styles: object | object[];
-    styleOrder: number;
+    styleOrder?: number;
 };
 export type StyleProps = {
     className?: string;
@@ -14,7 +14,7 @@ export type StyleProps = {
  * @property {string} className
  * @property {object} style
  * @property {object|object[]} styles
- * @property {number} styleOrder
+ * @property {number} [styleOrder]
  */
 /**
  * @typedef {object} StyleProps
