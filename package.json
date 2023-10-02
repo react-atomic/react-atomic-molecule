@@ -1,5 +1,5 @@
 {
-  "version": "5.4.0",
+  "version": "5.5.0",
   "name": "react-atomic-molecule",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "get-object-value": "^0.6.5",
     "hyphenate-style-name": "^1.0.4",
     "need-css": "*",
-    "react-atomic-atom": "^3.0.3",
+    "react-atomic-atom": "*",
     "reshow-build": "^0.17.16",
     "reshow-constant": "^0.17.4",
     "reshow-runtime": "^0.17.15",
