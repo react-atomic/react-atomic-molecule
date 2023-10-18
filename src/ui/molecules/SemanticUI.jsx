@@ -67,7 +67,6 @@ const SemanticUI = ({
    * @type string
    */
   const nextAtom = null != atom ? atom : atoms.default;
-  cssList.forEach(({ cssModule, cssGroup }) => useCSS(cssModule, cssGroup));
   switch (atom) {
     case "null":
       return null;
@@ -97,6 +96,7 @@ const SemanticUI = ({
     KEYS(bindProps).forEach((key) => (restProps[key] = bindProps[key]));
   }
   if (ui) {
+    cssList.forEach(({ cssModule, cssGroup }) => useCSS(cssModule, cssGroup));
     /**
      * Need put after bindProps
      *!!important!! restProps.className maybe effect by bindProps, so use it here.
