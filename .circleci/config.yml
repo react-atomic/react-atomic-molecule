@@ -32,8 +32,7 @@ jobs:
       - run:
           name: Run YARN tests
           command: |
-            npm config set scripts-prepend-node-path auto \
-            && yarn --ignore-engines \
+            yarn --ignore-engines \
             && cd << parameters.test-dir >> \
             && yarn --ignore-engines \
             && grep -q '"test:report":' ./package.json \
