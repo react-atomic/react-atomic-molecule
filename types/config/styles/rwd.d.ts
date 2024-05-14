@@ -2,9 +2,9 @@ export type PageWidth = any;
 export const min: any;
 export const max: any;
 export namespace pageWidth {
-    const sm: string;
-    const md: string;
-    const lg: string;
-    const xl: string;
-    const xxl: string;
+    let sm: string;
+    let md: string;
+    let lg: string;
+    let xl: string;
+    let xxl: string;
 }

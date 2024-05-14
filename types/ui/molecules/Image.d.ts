@@ -15,8 +15,7 @@ export default Image;
  * }} props
  */
 declare function Image(props: {
-    [key: string]: any;
-    component?: any;
+    component?: React.ReactNode;
     loading?: string;
     src?: string;
     imgProps?: any;
@@ -26,5 +25,6 @@ declare function Image(props: {
     title?: string;
     atom?: string;
     children?: React.ReactNode | React.ReactNode[];
+    [key: string]: any;
 }): React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 import * as React from "react";

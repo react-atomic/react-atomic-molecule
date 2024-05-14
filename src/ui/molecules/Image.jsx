@@ -37,7 +37,6 @@ const Image = (props) => {
     ...imgProps,
     atom: "img",
     alt: thisAlt,
-    key: src,
     src,
     loading,
   };
@@ -54,7 +53,7 @@ const Image = (props) => {
       restProps,
       <>
         {prepend}
-        <SemanticUI {...thisImgProps} />
+        <SemanticUI {...thisImgProps} key={src} />
         {children}
       </>
     );
@@ -62,6 +61,7 @@ const Image = (props) => {
     return build(component)({
       ...restProps,
       ...thisImgProps,
+      key: src,
     });
   }
 };

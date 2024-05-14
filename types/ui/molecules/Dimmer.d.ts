@@ -12,13 +12,13 @@ export default Dimmer;
  * }} props
  */
 declare function Dimmer(props: {
-    [key: string]: any;
     className?: string;
     show?: boolean;
     isModal?: boolean;
     center?: boolean;
     content?: boolean;
-    children?: any;
+    children?: React.ReactNode;
     contentStyle?: React.CSSProperties;
+    [key: string]: any;
 }): import("react/jsx-runtime").JSX.Element;
 import * as React from "react";

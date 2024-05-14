@@ -1,9 +1,9 @@
 export default InjectStyles;
 declare namespace InjectStyles {
-    const defaultBody: (string | {
+    let defaultBody: (string | {
         margin: number;
     })[];
-    const globalBoxSizing: (string | {
+    let globalBoxSizing: (string | {
         boxSizing: string[];
     })[];
 }
