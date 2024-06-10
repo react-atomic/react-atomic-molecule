@@ -29,7 +29,7 @@
     "win-doc": "^0.3.2"
   },
   "devDependencies": {
-    "lerna": "^7.0.0",
+    "lerna": "^8.1.x",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reshow-unit": "*"
