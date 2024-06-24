@@ -32,7 +32,7 @@ describe("Test useLazyInject", () => {
 
     await waitFor(() => {
       expect(
-        document.getElementsByTagName("style")[0].innerHTML
+        document.getElementsByTagName("style")[0].innerHTML,
       ).to.have.string(`padding: 1px`);
     });
   });

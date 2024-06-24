@@ -20,7 +20,7 @@ describe("Test mergeChildren", () => {
 
     const wrap = render(vDom);
     expect(wrap.html()).to.equal(
-      "<div><i></i><span></span><span></span></div>"
+      "<div><i></i><span></span><span></span></div>",
     );
   });
 

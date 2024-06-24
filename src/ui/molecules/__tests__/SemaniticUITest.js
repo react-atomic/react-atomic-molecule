@@ -14,7 +14,7 @@ describe("Test SemaniticUI", () => {
     const wrapper = render(
       <SemanticUI>
         <span />
-      </SemanticUI>
+      </SemanticUI>,
     );
     expect(wrapper.html()).to.have.string("span");
   });
@@ -22,7 +22,7 @@ describe("Test SemaniticUI", () => {
     const wrapper = render(
       <SemanticUI renderChildren={false}>
         <span />
-      </SemanticUI>
+      </SemanticUI>,
     );
     expect(wrapper.html()).to.not.have.string("span");
   });

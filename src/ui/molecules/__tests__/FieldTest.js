@@ -14,7 +14,7 @@ describe("Test Field", () => {
   it("isGroup with style", () => {
     const wrapper = render(<Field style={{ padding: 111 }} />);
     expect(wrapper.html()).to.have.string(
-      'style="padding: 111px; box-sizing: inherit;"'
+      'style="padding: 111px; box-sizing: inherit;"',
     );
     expect(wrapper.html()).to.have.string("fields");
   });
@@ -22,17 +22,17 @@ describe("Test Field", () => {
   it("isGroup with fieldStyle", () => {
     const wrapper = render(<Field style={{ padding: 222 }} />);
     expect(wrapper.html()).to.have.string(
-      'style="padding: 222px; box-sizing: inherit;"'
+      'style="padding: 222px; box-sizing: inherit;"',
     );
     expect(wrapper.html()).to.have.string("fields");
   });
 
   it("is not Group with fieldStyle", () => {
     const wrapper = render(
-      <Field atom="input" fieldStyle={{ padding: 333 }} />
+      <Field atom="input" fieldStyle={{ padding: 333 }} />,
     );
     expect(wrapper.html()).to.have.string(
-      'style="padding: 333px; box-sizing: inherit;"'
+      'style="padding: 333px; box-sizing: inherit;"',
     );
     expect(wrapper.html()).to.have.string("field ");
   });

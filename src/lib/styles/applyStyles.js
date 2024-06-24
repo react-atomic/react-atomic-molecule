@@ -36,7 +36,7 @@ const applyInlineStyle = (props, oStyle) => {
     /**
      * @param {object} one
      */
-    (one) => KEYS(one).forEach((key) => (props.style[key] = one[key]))
+    (one) => KEYS(one).forEach((key) => (props.style[key] = one[key])),
   );
   return props;
 };
@@ -83,7 +83,7 @@ const applyStyles = (props, styles, order) => {
      * @param {StyleObject} one
      * @returns {props}
      */
-    (one) => doApply(one)
+    (one) => doApply(one),
   );
 };
 

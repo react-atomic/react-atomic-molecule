@@ -12,8 +12,8 @@ const mergeDefaultValue = (obj, defaultValue) => {
           ...obj[key],
         }
       : null != obj[key]
-      ? obj[key]
-      : defaultValue[key];
+        ? obj[key]
+        : defaultValue[key];
   });
 
   return obj;

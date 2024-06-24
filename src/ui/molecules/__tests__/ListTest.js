@@ -19,10 +19,10 @@ describe("Test List", () => {
       <List atom="table">
         <Item />
         <Item />
-      </List>
+      </List>,
     );
     expect(wrapper.html()).to.equal(
-      '<table class="list ui"><tbody><tr><td class="item ui"></td></tr><tr><td class="item ui"></td></tr></tbody></table>'
+      '<table class="list ui"><tbody><tr><td class="item ui"></td></tr><tr><td class="item ui"></td></tr></tbody></table>',
     );
   });
   it("test with table item and horizontal", () => {
@@ -30,10 +30,10 @@ describe("Test List", () => {
       <List atom="table" horizontal>
         <Item />
         <Item />
-      </List>
+      </List>,
     );
     expect(wrapper.html()).to.equal(
-      '<table class="list horizontal ui"><tbody><tr><td class="item ui"></td><td class="item ui"></td></tr></tbody></table>'
+      '<table class="list horizontal ui"><tbody><tr><td class="item ui"></td><td class="item ui"></td></tr></tbody></table>',
     );
   });
 });

@@ -79,6 +79,6 @@ const prefixes = ["Webkit", "ms", "Moz", "O"];
 // infinite loop, because it iterates over the newly added props too.
 KEYS(isUnitlessNumber).forEach((prop) =>
   prefixes.forEach(
-    (prefix) => (isUnitlessNumber[prefixKey(prefix, prop)] = T_TRUE)
-  )
+    (prefix) => (isUnitlessNumber[prefixKey(prefix, prop)] = T_TRUE),
+  ),
 );

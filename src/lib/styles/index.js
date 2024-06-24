@@ -53,7 +53,7 @@ const createStyle = (css, selector, styleId) => {
           styles[i][key] = nToU(key, one[key]);
         }
       });
-    }
+    },
   );
 
   let styleDecl;

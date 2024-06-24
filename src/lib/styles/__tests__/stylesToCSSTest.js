@@ -32,7 +32,7 @@ describe("Test stylesToCSS", () => {
     const oReactStyle = reactStyle({ width: 100 });
     const actual = stylesToCSS([oReactStyle]);
     expect(JSON.stringify(actual.styleRuleMap)).to.have.string(
-      ".c0_,.c0_.c0_1,"
+      ".c0_,.c0_.c0_1,",
     );
   });
 
@@ -46,11 +46,11 @@ describe("Test stylesToCSS", () => {
           transform: ["rotateZ(360deg)"],
         },
       ],
-      ["@keyframes spin", "0%", "100%"]
+      ["@keyframes spin", "0%", "100%"],
     );
     const actual = stylesToCSS([oReactStyle]);
     expect(JSON.stringify(actual.styleRuleMap)).to.have.string(
-      "@keyframes spin"
+      "@keyframes spin",
     );
   });
 });
