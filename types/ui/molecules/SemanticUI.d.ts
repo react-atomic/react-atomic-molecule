@@ -7,7 +7,7 @@ export type SemanticUIProps = {
     useCSS?: Function | undefined;
     cssList?: CSSType[] | undefined;
     refCb?: Function | undefined;
-    children?: any;
+    children?: React.ReactNode | undefined;
     styles?: any | undefined;
     styleOrder?: number | undefined;
     className?: string | undefined;
