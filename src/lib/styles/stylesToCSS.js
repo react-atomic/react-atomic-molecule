@@ -64,7 +64,7 @@ const buildRules = (rules = [], selector) => {
           /**
            * @param {string} item
            */
-          (item) => (mycss += buildOneRule(styleKey, item))
+          (item) => (mycss += buildOneRule(styleKey, item)),
         );
       } else {
         mycss += buildOneRule(styleKey, rule[styleKey]);
@@ -83,8 +83,8 @@ const buildRules = (rules = [], selector) => {
         mycssArr.push(
           parentSelector.replace(
             "@" + keyframesString,
-            `@-${browser}-${keyframesString}`
-          ) + `{\n${myRule}\n}\n`
+            `@-${browser}-${keyframesString}`,
+          ) + `{\n${myRule}\n}\n`,
         );
       });
     }
