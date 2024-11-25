@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "need-css",
   "repository": {
     "type": "git",
@@ -12,10 +12,10 @@
   "author": "Hill <hill@kimo.com>",
   "license": "ISC",
   "dependencies": {
-    "create-el": "^0.2.0",
-    "css-query-selector": "^0.4.0",
-    "get-object-value": "^0.6.5",
-    "win-doc": "^0.3.2"
+    "create-el": "*",
+    "css-query-selector": "*",
+    "get-object-value": "*",
+    "win-doc": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
