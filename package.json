@@ -1,5 +1,5 @@
 {
-  "version": "5.6.1",
+  "version": "5.6.2",
   "name": "react-atomic-molecule",
   "repository": {
     "type": "git",
@@ -16,17 +16,17 @@
     "array.merge": "^0.2.0",
     "call-func": "*",
     "class-lib": "*",
-    "create-el": "^0.2.0",
-    "css-query-selector": "^0.4.0",
-    "get-object-value": "^0.6.5",
+    "create-el": "*",
+    "css-query-selector": "*",
+    "get-object-value": "*",
     "hyphenate-style-name": "1.1.0",
     "need-css": "*",
     "react-atomic-atom": "*",
-    "reshow-build": "^0.17.16",
-    "reshow-constant": "^0.17.4",
-    "reshow-runtime": "^0.17.15",
-    "ucfirst-js": "^0.1.0",
-    "win-doc": "^0.3.2"
+    "reshow-build": "*",
+    "reshow-constant": "*",
+    "reshow-runtime": "*",
+    "ucfirst-js": "*",
+    "win-doc": "*"
   },
   "devDependencies": {
     "lerna": "^8.1.x",

@@ -2726,7 +2726,7 @@ cosmiconfig@9.0.0:
     js-yaml "^4.1.0"
     parse-json "^5.2.0"
 
-create-el@^0.2.0:
+create-el@*:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/create-el/-/create-el-0.2.6.tgz#52c6ac611abfa21e41efd598f451701d29e128d8"
   integrity sha512-qVh/oIhbNa3qvR6rCk4uHZ76kmkcGY+lu+8/G4C/Vrq9ahS6HtBKnz0twjbtLipSzuuCFNrV3OqdcPYZ6bc0mw==
@@ -2750,10 +2750,10 @@ crypt@0.0.2:
   resolved "https://registry.yarnpkg.com/crypt/-/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
   integrity sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==
 
-css-query-selector@^0.4.0:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/css-query-selector/-/css-query-selector-0.4.2.tgz#4380ee18a07015c4ba054836af32cf1d63e05513"
-  integrity sha512-EtRa+fPl5P5ApSIKYdNHfXVhNq66jkkULdyZfFBsZWaHNBP548JxoDRvuf1zU9NyACAoXFjWjNOss9kvM8xdUg==
+css-query-selector@*:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/css-query-selector/-/css-query-selector-0.5.2.tgz#e54a8b7dca4a70cc4d589352d18bcb774759c9bc"
+  integrity sha512-RHpxtoQbE8nxBtD5LyEsmDbBzqw9LKqaXBlvBFpennByIJI3qIEn82QSxYz0odZ2B3afHdtnUawVpovs6AX5Bw==
   dependencies:
     reshow-constant "*"
     reshow-runtime "*"
@@ -3487,15 +3487,6 @@ get-object-value@*:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/get-object-value/-/get-object-value-0.7.3.tgz#0731957f4a6306723f698233658b506eb8f3f677"
   integrity sha512-szNFVCdsMgZt923pjcn6NW13sooS2LfzZTHrATH0fCmRG9jm7fLUY3pTNEuuTINKzsMx9EWWgcUd2S8sowZYBw==
-  dependencies:
-    call-func "*"
-    reshow-constant "*"
-    reshow-runtime "*"
-
-get-object-value@^0.6.5:
-  version "0.6.9"
-  resolved "https://registry.yarnpkg.com/get-object-value/-/get-object-value-0.6.9.tgz#69c5a070c0cd98196db720dd71ba74077bfa2888"
-  integrity sha512-3fr9lkf3xxQ4yHUaJMuPwFrNldUlkzSb8qFzKM505ZIbTLy3F4OXZL6d0OBLS5W51am+d66kJFq3qq0RDYotdA==
   dependencies:
     call-func "*"
     reshow-constant "*"
@@ -5113,14 +5104,14 @@ natural-compare@^1.4.0:
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
 need-css@*:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/need-css/-/need-css-0.2.0.tgz#4d01b18a0c87ccefaac4e90c2091712a37426b61"
-  integrity sha512-ohdjH9aLoue4oa8YaRZaLdRKyuGaeELTklBEwPZE3okHucQbH1rHdnlgyXyfSnuXLUxVbXb/1N9kzd/CNZjY5w==
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/need-css/-/need-css-0.2.1.tgz#68f87ce409e31e7753d3b6ef514811fd55edc66b"
+  integrity sha512-CPA8RcDqUET7tPmNdWUuzkfrZ/chK94a27sNq/QycCXr7GD+UpkYwQkjIvD3Ri42F2O92i+xPh2Dqf2VHTZsUA==
   dependencies:
-    create-el "^0.2.0"
-    css-query-selector "^0.4.0"
-    get-object-value "^0.6.5"
-    win-doc "^0.3.2"
+    create-el "*"
+    css-query-selector "*"
+    get-object-value "*"
+    win-doc "*"
 
 negotiator@^0.6.3:
   version "0.6.4"
@@ -6222,20 +6213,12 @@ reshow-build@*:
     array.merge "*"
     reshow-constant "*"
 
-reshow-build@^0.17.16:
-  version "0.17.26"
-  resolved "https://registry.yarnpkg.com/reshow-build/-/reshow-build-0.17.26.tgz#a1614d5b77e43d3ffe4ea128d7e001420677bdbe"
-  integrity sha512-Zgyi1+lkfiThDAelsKhSWcUvjrGB22ms+Gi99QH107jT3vO8JIT/yObc0m6SuIY56g+nqHxbLFGmPs1DKHUkJQ==
-  dependencies:
-    array.merge "*"
-    reshow-constant "*"
-
-reshow-constant@*, reshow-constant@^0.17.4:
+reshow-constant@*:
   version "0.17.14"
   resolved "https://registry.yarnpkg.com/reshow-constant/-/reshow-constant-0.17.14.tgz#6a7b540bca8995f991861cfd25ba5e4f4e763260"
   integrity sha512-8cVlpvwA9CYN2ZYA7bThRN1EVOxsVR0U8iqCP7LQ2cDJEPdzR/E9+lx21EsaG5YId6WLgmvjdiestgw2IsKJYQ==
 
-reshow-runtime@*, reshow-runtime@^0.17.15:
+reshow-runtime@*:
   version "0.17.15"
   resolved "https://registry.yarnpkg.com/reshow-runtime/-/reshow-runtime-0.17.15.tgz#206f180747fde62c3335ca9b7b21001e938d31f8"
   integrity sha512-jhGSkf7H4mO1KaweNu6d6ZnPd4zdxcWVwL6D7wrmHBckQZgBDXT6MkV+ji1KCLI4wOFYsBptAeo64AEPiqv/kw==
@@ -6974,10 +6957,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.2.tgz#3169cf8c4c8a828cde53ba9ecb3d2b1d5dd67be6"
   integrity sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==
 
-ucfirst-js@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/ucfirst-js/-/ucfirst-js-0.1.1.tgz#67d16c403c132c99f8f5c9b995fcb753b6295879"
-  integrity sha512-O0/bNaya9KVoB2KEGPzSRaWfP6rUK3nzxAoR0G57rPbdcoowE1KMoycBprBH2O4jhY6kWpIojD3/0HLGcwfNbg==
+ucfirst-js@*:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ucfirst-js/-/ucfirst-js-0.2.0.tgz#3d2460557296e1171f374877be44cc1a135209b3"
+  integrity sha512-5Dh85gTPfbWTXKr66KptShXLgvZUGtsods1bM1oyvz5nrjCsyZ1Sz2rZLZW1MT5WHCIyysBrFKqik0kALbdH9A==
 
 uglify-js@^3.1.4:
   version "3.19.3"
@@ -7229,14 +7212,6 @@ win-doc@*:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/win-doc/-/win-doc-0.4.0.tgz#93aa91c879dedeff3c05f624eccc5135b6fda6fd"
   integrity sha512-klFUg9jeMep2Jx2iJlL6BSAW8KA55gOMbuX+9xPLiH0iuUQqMQNJKhMDgkpfaoTsHR3N4bK/DXlCKO9TXb6idw==
-  dependencies:
-    reshow-constant "*"
-    reshow-runtime "*"
-
-win-doc@^0.3.2:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/win-doc/-/win-doc-0.3.4.tgz#0312f18e7bc3840ebfcc50de5d9b6c4d8e40815a"
-  integrity sha512-HsSXPOZkRIZVuC295mSd7Z1XsdZ4DctqW+A0goEo/QZfixuhmoJc7QjkCBqCCo0dF1GBQd4FLmQEUtLd8oBbdA==
   dependencies:
     reshow-constant "*"
     reshow-runtime "*"
