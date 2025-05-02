@@ -20,5 +20,4 @@ declare function Dimmer(props: {
     children?: React.ReactNode;
     contentStyle?: React.CSSProperties;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
-import * as React from "react";
+}): any;

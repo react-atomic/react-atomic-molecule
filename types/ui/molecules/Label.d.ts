@@ -5,4 +5,4 @@ export default Label;
 declare function Label(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

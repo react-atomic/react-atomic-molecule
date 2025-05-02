@@ -5,4 +5,4 @@ export default Item;
 declare function Item(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

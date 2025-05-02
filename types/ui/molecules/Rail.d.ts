@@ -5,4 +5,4 @@ export default Rail;
 declare function Rail(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

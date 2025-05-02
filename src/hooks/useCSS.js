@@ -1,5 +1,7 @@
 //@ts-check
-import { useRef } from "react";
+
+import * as React from "react";
+const { useRef } = React;
 import needCSS from "need-css";
 
 /**
@@ -8,9 +10,9 @@ import needCSS from "need-css";
  */
 const useCSS = (mods, groupKey) => {
   /**
-   * @type {React.MutableRefObject<boolean | undefined>}
+   * @type {React.Ref<boolean | undefined>}
    */
-  const injects = useRef();
+  const injects = useRef(null);
   if (!injects.current) {
     injects.current = true;
     needCSS(mods, groupKey);

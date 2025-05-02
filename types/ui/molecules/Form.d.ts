@@ -12,5 +12,4 @@ declare function Form(props: {
     messageType?: "success" | "error" | "warning";
     style?: React.CSSProperties;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
-import * as React from "react";
+}): any;

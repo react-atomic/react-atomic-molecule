@@ -1,5 +1,6 @@
 // @ts-check
 
+import * as React from "react";
 import { createElement } from "react";
 import { html } from "react-atomic-atom";
 import get from "get-object-value";

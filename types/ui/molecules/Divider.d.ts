@@ -5,4 +5,4 @@ export default Divider;
 declare function Divider(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

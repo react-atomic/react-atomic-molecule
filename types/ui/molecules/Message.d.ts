@@ -5,4 +5,4 @@ export default Message;
 declare function Message(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

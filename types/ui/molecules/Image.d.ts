@@ -26,5 +26,4 @@ declare function Image(props: {
     atom?: string;
     children?: React.ReactNode | React.ReactNode[];
     [key: string]: any;
-}): React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-import * as React from "react";
+}): any;

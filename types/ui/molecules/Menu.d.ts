@@ -5,4 +5,4 @@ export default Menu;
 declare function Menu(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

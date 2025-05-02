@@ -5,4 +5,4 @@ export default Field;
 declare function Field(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

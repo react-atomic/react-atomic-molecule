@@ -5,4 +5,4 @@ export default InputBox;
 declare function InputBox(props: {
     className?: string;
     [key: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): any;

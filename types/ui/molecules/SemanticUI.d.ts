@@ -12,7 +12,7 @@ export type SemanticUIProps = {
     styleOrder?: number | undefined;
     className?: string | undefined;
     style?: React.CSSProperties | undefined;
-    ref?: (import("react").RefObject<any> | Function) | undefined;
+    ref?: (React.RefObject | Function) | undefined;
 };
 /**
  * @typedef {object} SemanticUIProps
@@ -34,7 +34,7 @@ export type SemanticUIProps = {
  * @param {SemanticUIProps&React.HTMLProps} props
  * @returns {React.ReactElement | null}
  */
-declare function SemanticUI({ ui, renderChildren, atoms, useCSS, cssList, refCb, atom, children, styles, styleOrder, ...restProps }: SemanticUIProps & import("react").HTMLProps<any>): React.ReactElement | null;
+declare function SemanticUI({ ui, renderChildren, atoms, useCSS, cssList, refCb, atom, children, styles, styleOrder, ...restProps }: SemanticUIProps & React.HTMLProps): React.ReactElement | null;
 declare class CSSType {
     /**
      * @type string[]
