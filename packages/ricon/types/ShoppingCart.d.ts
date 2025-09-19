@@ -1,2 +1,2 @@
 export default ShoppingCart;
-declare function ShoppingCart(props: any): JSX.Element;
+declare function ShoppingCart(props: any): any;

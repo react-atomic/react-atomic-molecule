@@ -5,4 +5,4 @@ declare function PulseIcon({ pointColor, pointRotateX, ringColor, animation, sty
     ringColor?: string;
     animation?: string;
     style?: any;
-}): JSX.Element;
+}): any;

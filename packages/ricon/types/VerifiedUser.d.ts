@@ -1,2 +1,2 @@
 export default VerifiedUser;
-declare function VerifiedUser(props: any): JSX.Element;
+declare function VerifiedUser(props: any): any;

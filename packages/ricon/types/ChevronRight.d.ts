@@ -1,2 +1,2 @@
 export default ChevronRight;
-declare function ChevronRight(props: any): JSX.Element;
+declare function ChevronRight(props: any): any;

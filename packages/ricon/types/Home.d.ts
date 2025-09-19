@@ -1,2 +1,2 @@
 export default Home;
-declare function Home(props: any): JSX.Element;
+declare function Home(props: any): any;

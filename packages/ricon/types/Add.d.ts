@@ -1,2 +1,2 @@
 export default Add;
-declare function Add(props: any): JSX.Element;
+declare function Add(props: any): any;

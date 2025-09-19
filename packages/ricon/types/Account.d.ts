@@ -1,2 +1,2 @@
 export default Account;
-declare function Account(props: any): JSX.Element;
+declare function Account(props: any): any;

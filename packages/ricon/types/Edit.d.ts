@@ -1,2 +1,2 @@
 export default Edit;
-declare function Edit(props: any): JSX.Element;
+declare function Edit(props: any): any;

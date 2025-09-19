@@ -1,2 +1,2 @@
 export default Blur;
-declare function Blur(props: any): JSX.Element;
+declare function Blur(props: any): any;

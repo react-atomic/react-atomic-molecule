@@ -1,2 +1,2 @@
 export default Device;
-declare function Device(props: any): JSX.Element;
+declare function Device(props: any): any;

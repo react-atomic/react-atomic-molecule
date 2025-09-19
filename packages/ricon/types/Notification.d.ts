@@ -1,2 +1,2 @@
 export default Notification;
-declare function Notification(props: any): JSX.Element;
+declare function Notification(props: any): any;

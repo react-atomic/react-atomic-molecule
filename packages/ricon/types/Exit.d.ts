@@ -1,2 +1,2 @@
 export default Exit;
-declare function Exit(props: any): JSX.Element;
+declare function Exit(props: any): any;

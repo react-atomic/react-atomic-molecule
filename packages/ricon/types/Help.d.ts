@@ -1,2 +1,2 @@
 export default Help;
-declare function Help(props: any): JSX.Element;
+declare function Help(props: any): any;

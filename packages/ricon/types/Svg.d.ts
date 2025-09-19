@@ -5,4 +5,4 @@ declare function Svg({ ui, viewBox, atom, width, ...props }: {
     viewBox?: string;
     atom?: string;
     width?: string;
-}): JSX.Element;
+}): any;

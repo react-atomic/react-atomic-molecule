@@ -1,2 +1,2 @@
 export default Visibility;
-declare function Visibility(props: any): JSX.Element;
+declare function Visibility(props: any): any;

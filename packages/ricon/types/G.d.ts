@@ -1,2 +1,2 @@
 export default G;
-declare function G(props: any): JSX.Element;
+declare function G(props: any): any;

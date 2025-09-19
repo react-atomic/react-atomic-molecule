@@ -1,2 +1,2 @@
 export default ZoomIn;
-declare function ZoomIn(props: any): JSX.Element;
+declare function ZoomIn(props: any): any;

@@ -1,2 +1,2 @@
 export default Refresh;
-declare function Refresh(props: any): JSX.Element;
+declare function Refresh(props: any): any;

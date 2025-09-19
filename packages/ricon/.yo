@@ -1,4 +1,6 @@
 exports_prependArr[]="./"
+exports_typesPrependArr[]="./types/"
+exports_typesAppendArr[]=".d.ts"
 exports_requirePrependArr[]="./build/cjs/ui/"
 exports_requireAppendArr[]=".js"
 exports_importPrependArr[]="./build/es/ui/"

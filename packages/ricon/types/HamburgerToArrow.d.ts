@@ -1,2 +1,2 @@
 export default HamburgerToArrow;
-declare function HamburgerToArrow(props: any): JSX.Element;
+declare function HamburgerToArrow(props: any): any;

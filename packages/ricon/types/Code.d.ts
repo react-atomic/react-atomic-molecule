@@ -1,2 +1,2 @@
 export default Code;
-declare function Code(props: any): JSX.Element;
+declare function Code(props: any): any;

@@ -1,2 +1,2 @@
 export default Facebook;
-declare function Facebook(props: any): JSX.Element;
+declare function Facebook(props: any): any;

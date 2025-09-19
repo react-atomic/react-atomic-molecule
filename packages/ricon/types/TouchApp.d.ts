@@ -1,2 +1,2 @@
 export default TouchApp;
-declare function TouchApp(props: any): JSX.Element;
+declare function TouchApp(props: any): any;

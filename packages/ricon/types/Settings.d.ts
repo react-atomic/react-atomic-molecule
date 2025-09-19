@@ -1,2 +1,2 @@
 export default Settings;
-declare function Settings(props: any): JSX.Element;
+declare function Settings(props: any): any;

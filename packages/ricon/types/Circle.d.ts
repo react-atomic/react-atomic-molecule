@@ -1,2 +1,2 @@
 export default Circle;
-declare function Circle(props: any): JSX.Element;
+declare function Circle(props: any): any;

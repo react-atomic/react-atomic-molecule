@@ -1,2 +1,2 @@
 export default Error;
-declare function Error(props: any): JSX.Element;
+declare function Error(props: any): any;

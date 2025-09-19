@@ -1,5 +1,5 @@
 {
-  "version": "0.5.3",
+  "version": "0.5.4",
   "name": "ricon",
   "repository": {
     "type": "git",
@@ -24,298 +24,372 @@
   },
   "exports": {
     "./AccessTime": {
+      "types": "./types/AccessTime.d.ts",
       "require": "./build/cjs/ui/AccessTime.js",
       "import": "./build/es/ui/AccessTime.mjs"
     },
     "./Account": {
+      "types": "./types/Account.d.ts",
       "require": "./build/cjs/ui/Account.js",
       "import": "./build/es/ui/Account.mjs"
     },
     "./Add": {
+      "types": "./types/Add.d.ts",
       "require": "./build/cjs/ui/Add.js",
       "import": "./build/es/ui/Add.mjs"
     },
     "./ArrowPath": {
+      "types": "./types/ArrowPath.d.ts",
       "require": "./build/cjs/ui/ArrowPath.js",
       "import": "./build/es/ui/ArrowPath.mjs"
     },
     "./BarChart": {
+      "types": "./types/BarChart.d.ts",
       "require": "./build/cjs/ui/BarChart.js",
       "import": "./build/es/ui/BarChart.mjs"
     },
     "./Blur": {
+      "types": "./types/Blur.d.ts",
       "require": "./build/cjs/ui/Blur.js",
       "import": "./build/es/ui/Blur.mjs"
     },
     "./Build": {
+      "types": "./types/Build.d.ts",
       "require": "./build/cjs/ui/Build.js",
       "import": "./build/es/ui/Build.mjs"
     },
     "./Calendar": {
+      "types": "./types/Calendar.d.ts",
       "require": "./build/cjs/ui/Calendar.js",
       "import": "./build/es/ui/Calendar.mjs"
     },
     "./ChevronRight": {
+      "types": "./types/ChevronRight.d.ts",
       "require": "./build/cjs/ui/ChevronRight.js",
       "import": "./build/es/ui/ChevronRight.mjs"
     },
     "./Circle": {
+      "types": "./types/Circle.d.ts",
       "require": "./build/cjs/ui/Circle.js",
       "import": "./build/es/ui/Circle.mjs"
     },
     "./CircleLoading": {
+      "types": "./types/CircleLoading.d.ts",
       "require": "./build/cjs/ui/CircleLoading.js",
       "import": "./build/es/ui/CircleLoading.mjs"
     },
     "./Code": {
+      "types": "./types/Code.d.ts",
       "require": "./build/cjs/ui/Code.js",
       "import": "./build/es/ui/Code.mjs"
     },
     "./Dashboard": {
+      "types": "./types/Dashboard.d.ts",
       "require": "./build/cjs/ui/Dashboard.js",
       "import": "./build/es/ui/Dashboard.mjs"
     },
     "./Delete": {
+      "types": "./types/Delete.d.ts",
       "require": "./build/cjs/ui/Delete.js",
       "import": "./build/es/ui/Delete.mjs"
     },
     "./Description": {
+      "types": "./types/Description.d.ts",
       "require": "./build/cjs/ui/Description.js",
       "import": "./build/es/ui/Description.mjs"
     },
     "./Device": {
+      "types": "./types/Device.d.ts",
       "require": "./build/cjs/ui/Device.js",
       "import": "./build/es/ui/Device.mjs"
     },
     "./Download": {
+      "types": "./types/Download.d.ts",
       "require": "./build/cjs/ui/Download.js",
       "import": "./build/es/ui/Download.mjs"
     },
     "./Dropdown": {
+      "types": "./types/Dropdown.d.ts",
       "require": "./build/cjs/ui/Dropdown.js",
       "import": "./build/es/ui/Dropdown.mjs"
     },
     "./Edit": {
+      "types": "./types/Edit.d.ts",
       "require": "./build/cjs/ui/Edit.js",
       "import": "./build/es/ui/Edit.mjs"
     },
     "./Email": {
+      "types": "./types/Email.d.ts",
       "require": "./build/cjs/ui/Email.js",
       "import": "./build/es/ui/Email.mjs"
     },
     "./Error": {
+      "types": "./types/Error.d.ts",
       "require": "./build/cjs/ui/Error.js",
       "import": "./build/es/ui/Error.mjs"
     },
     "./Exit": {
+      "types": "./types/Exit.d.ts",
       "require": "./build/cjs/ui/Exit.js",
       "import": "./build/es/ui/Exit.mjs"
     },
     "./Facebook": {
+      "types": "./types/Facebook.d.ts",
       "require": "./build/cjs/ui/Facebook.js",
       "import": "./build/es/ui/Facebook.mjs"
     },
     "./FacebookMessage": {
+      "types": "./types/FacebookMessage.d.ts",
       "require": "./build/cjs/ui/FacebookMessage.js",
       "import": "./build/es/ui/FacebookMessage.mjs"
     },
     "./FeaturedPlayList": {
+      "types": "./types/FeaturedPlayList.d.ts",
       "require": "./build/cjs/ui/FeaturedPlayList.js",
       "import": "./build/es/ui/FeaturedPlayList.mjs"
     },
     "./File": {
+      "types": "./types/File.d.ts",
       "require": "./build/cjs/ui/File.js",
       "import": "./build/es/ui/File.mjs"
     },
     "./G": {
+      "types": "./types/G.d.ts",
       "require": "./build/cjs/ui/G.js",
       "import": "./build/es/ui/G.mjs"
     },
     "./Git": {
+      "types": "./types/Git.d.ts",
       "require": "./build/cjs/ui/Git.js",
       "import": "./build/es/ui/Git.mjs"
     },
     "./GoToTop": {
+      "types": "./types/GoToTop.d.ts",
       "require": "./build/cjs/ui/GoToTop.js",
       "import": "./build/es/ui/GoToTop.mjs"
     },
     "./Hamburger": {
+      "types": "./types/Hamburger.d.ts",
       "require": "./build/cjs/ui/Hamburger.js",
       "import": "./build/es/ui/Hamburger.mjs"
     },
     "./HamburgerToArrow": {
+      "types": "./types/HamburgerToArrow.d.ts",
       "require": "./build/cjs/ui/HamburgerToArrow.js",
       "import": "./build/es/ui/HamburgerToArrow.mjs"
     },
     "./HamburgerToX": {
+      "types": "./types/HamburgerToX.d.ts",
       "require": "./build/cjs/ui/HamburgerToX.js",
       "import": "./build/es/ui/HamburgerToX.mjs"
     },
     "./HamburgerTransform": {
+      "types": "./types/HamburgerTransform.d.ts",
       "require": "./build/cjs/ui/HamburgerTransform.js",
       "import": "./build/es/ui/HamburgerTransform.mjs"
     },
     "./Help": {
+      "types": "./types/Help.d.ts",
       "require": "./build/cjs/ui/Help.js",
       "import": "./build/es/ui/Help.mjs"
     },
     "./Home": {
+      "types": "./types/Home.d.ts",
       "require": "./build/cjs/ui/Home.js",
       "import": "./build/es/ui/Home.mjs"
     },
     "./Lightbulb": {
+      "types": "./types/Lightbulb.d.ts",
       "require": "./build/cjs/ui/Lightbulb.js",
       "import": "./build/es/ui/Lightbulb.mjs"
     },
     "./Link": {
+      "types": "./types/Link.d.ts",
       "require": "./build/cjs/ui/Link.js",
       "import": "./build/es/ui/Link.mjs"
     },
     "./Monetization": {
+      "types": "./types/Monetization.d.ts",
       "require": "./build/cjs/ui/Monetization.js",
       "import": "./build/es/ui/Monetization.mjs"
     },
     "./MyLocation": {
+      "types": "./types/MyLocation.d.ts",
       "require": "./build/cjs/ui/MyLocation.js",
       "import": "./build/es/ui/MyLocation.mjs"
     },
     "./Notification": {
+      "types": "./types/Notification.d.ts",
       "require": "./build/cjs/ui/Notification.js",
       "import": "./build/es/ui/Notification.mjs"
     },
     "./Npm": {
+      "types": "./types/Npm.d.ts",
       "require": "./build/cjs/ui/Npm.js",
       "import": "./build/es/ui/Npm.mjs"
     },
     "./Path": {
+      "types": "./types/Path.d.ts",
       "require": "./build/cjs/ui/Path.js",
       "import": "./build/es/ui/Path.mjs"
     },
     "./Person": {
+      "types": "./types/Person.d.ts",
       "require": "./build/cjs/ui/Person.js",
       "import": "./build/es/ui/Person.mjs"
     },
     "./Phone": {
+      "types": "./types/Phone.d.ts",
       "require": "./build/cjs/ui/Phone.js",
       "import": "./build/es/ui/Phone.mjs"
     },
     "./Pin": {
+      "types": "./types/Pin.d.ts",
       "require": "./build/cjs/ui/Pin.js",
       "import": "./build/es/ui/Pin.mjs"
     },
     "./Play": {
+      "types": "./types/Play.d.ts",
       "require": "./build/cjs/ui/Play.js",
       "import": "./build/es/ui/Play.mjs"
     },
     "./PlayListAdd": {
+      "types": "./types/PlayListAdd.d.ts",
       "require": "./build/cjs/ui/PlayListAdd.js",
       "import": "./build/es/ui/PlayListAdd.mjs"
     },
     "./Polygon": {
+      "types": "./types/Polygon.d.ts",
       "require": "./build/cjs/ui/Polygon.js",
       "import": "./build/es/ui/Polygon.mjs"
     },
     "./Pulse": {
+      "types": "./types/Pulse.d.ts",
       "require": "./build/cjs/ui/Pulse.js",
       "import": "./build/es/ui/Pulse.mjs"
     },
     "./Refresh": {
+      "types": "./types/Refresh.d.ts",
       "require": "./build/cjs/ui/Refresh.js",
       "import": "./build/es/ui/Refresh.mjs"
     },
     "./Reply": {
+      "types": "./types/Reply.d.ts",
       "require": "./build/cjs/ui/Reply.js",
       "import": "./build/es/ui/Reply.mjs"
     },
     "./Search": {
+      "types": "./types/Search.d.ts",
       "require": "./build/cjs/ui/Search.js",
       "import": "./build/es/ui/Search.mjs"
     },
     "./SemanticUI": {
+      "types": "./types/SemanticUI.d.ts",
       "require": "./build/cjs/ui/SemanticUI.js",
       "import": "./build/es/ui/SemanticUI.mjs"
     },
     "./Settings": {
+      "types": "./types/Settings.d.ts",
       "require": "./build/cjs/ui/Settings.js",
       "import": "./build/es/ui/Settings.mjs"
     },
     "./Shopee": {
+      "types": "./types/Shopee.d.ts",
       "require": "./build/cjs/ui/Shopee.js",
       "import": "./build/es/ui/Shopee.mjs"
     },
     "./ShoppingCart": {
+      "types": "./types/ShoppingCart.d.ts",
       "require": "./build/cjs/ui/ShoppingCart.js",
       "import": "./build/es/ui/ShoppingCart.mjs"
     },
     "./Sort": {
+      "types": "./types/Sort.d.ts",
       "require": "./build/cjs/ui/Sort.js",
       "import": "./build/es/ui/Sort.mjs"
     },
     "./Svg": {
+      "types": "./types/Svg.d.ts",
       "require": "./build/cjs/ui/Svg.js",
       "import": "./build/es/ui/Svg.mjs"
     },
     "./Sync": {
+      "types": "./types/Sync.d.ts",
       "require": "./build/cjs/ui/Sync.js",
       "import": "./build/es/ui/Sync.mjs"
     },
     "./Timer": {
+      "types": "./types/Timer.d.ts",
       "require": "./build/cjs/ui/Timer.js",
       "import": "./build/es/ui/Timer.mjs"
     },
     "./TouchApp": {
+      "types": "./types/TouchApp.d.ts",
       "require": "./build/cjs/ui/TouchApp.js",
       "import": "./build/es/ui/TouchApp.mjs"
     },
     "./VerifiedUser": {
+      "types": "./types/VerifiedUser.d.ts",
       "require": "./build/cjs/ui/VerifiedUser.js",
       "import": "./build/es/ui/VerifiedUser.mjs"
     },
     "./Video": {
+      "types": "./types/Video.d.ts",
       "require": "./build/cjs/ui/Video.js",
       "import": "./build/es/ui/Video.mjs"
     },
     "./ViewModule": {
+      "types": "./types/ViewModule.d.ts",
       "require": "./build/cjs/ui/ViewModule.js",
       "import": "./build/es/ui/ViewModule.mjs"
     },
     "./Visibility": {
+      "types": "./types/Visibility.d.ts",
       "require": "./build/cjs/ui/Visibility.js",
       "import": "./build/es/ui/Visibility.mjs"
     },
     "./Wallet": {
+      "types": "./types/Wallet.d.ts",
       "require": "./build/cjs/ui/Wallet.js",
       "import": "./build/es/ui/Wallet.mjs"
     },
     "./Warning": {
+      "types": "./types/Warning.d.ts",
       "require": "./build/cjs/ui/Warning.js",
       "import": "./build/es/ui/Warning.mjs"
     },
     "./Wifi": {
+      "types": "./types/Wifi.d.ts",
       "require": "./build/cjs/ui/Wifi.js",
       "import": "./build/es/ui/Wifi.mjs"
     },
     "./X": {
+      "types": "./types/X.d.ts",
       "require": "./build/cjs/ui/X.js",
       "import": "./build/es/ui/X.mjs"
     },
     "./ZoomIn": {
+      "types": "./types/ZoomIn.d.ts",
       "require": "./build/cjs/ui/ZoomIn.js",
       "import": "./build/es/ui/ZoomIn.mjs"
     },
     "./base": {
+      "types": "./types/base.d.ts",
       "require": "./build/cjs/ui/base.js",
       "import": "./build/es/ui/base.mjs"
     },
     "./mixClass": {
+      "types": "./types/mixClass.d.ts",
       "require": "./build/cjs/ui/mixClass.js",
       "import": "./build/es/ui/mixClass.mjs"
     },
     "./reactStyle": {
+      "types": "./types/reactStyle.d.ts",
       "require": "./build/cjs/ui/reactStyle.js",
       "import": "./build/es/ui/reactStyle.mjs"
     },
     "./useLazyInject": {
+      "types": "./types/useLazyInject.d.ts",
       "require": "./build/cjs/ui/useLazyInject.js",
       "import": "./build/es/ui/useLazyInject.mjs"
     }

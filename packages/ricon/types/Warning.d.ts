@@ -1,2 +1,2 @@
 export default Warning;
-declare function Warning(props: any): JSX.Element;
+declare function Warning(props: any): any;

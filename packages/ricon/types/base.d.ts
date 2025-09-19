@@ -4,6 +4,6 @@ declare function base(displayName: any, d: any): {
         [x: string]: any;
         type?: any;
         children: any;
-    }): JSX.Element;
+    }): any;
     displayName: any;
 };

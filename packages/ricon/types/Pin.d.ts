@@ -23,4 +23,4 @@ declare function Pin({ open, content, label, ...props }: {
     open?: any;
     content?: any;
     label?: any;
-}): JSX.Element;
+}): any;

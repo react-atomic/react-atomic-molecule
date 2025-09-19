@@ -7,4 +7,4 @@ declare function File({ viewBox, background, shadowColor, labelBackground, label
     labelBackground?: string;
     labelColor?: string;
     children: any;
-}): JSX.Element;
+}): any;

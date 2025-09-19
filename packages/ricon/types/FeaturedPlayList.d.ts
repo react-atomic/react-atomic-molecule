@@ -1,2 +1,2 @@
 export default FeaturedPlayList;
-declare function FeaturedPlayList(props: any): JSX.Element;
+declare function FeaturedPlayList(props: any): any;
