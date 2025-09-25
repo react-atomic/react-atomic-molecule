@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const flip: (string[] | {
+    let flip: (string[] | {
         transform: string;
         animationTimingFunction: string;
     }[])[];

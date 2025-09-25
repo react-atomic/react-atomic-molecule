@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const pulsate: (string[] | ({
+    let pulsate: (string[] | ({
         transform: string[];
         opacity: number;
         filter: string;

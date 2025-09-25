@@ -80,7 +80,7 @@ const getKeyframeCss = (key, cb) => {
       import(`./spin`).then(callback);
       break;
     default:
-      console.warn("not supported");
+      console.warn(`not supported. [keyframe-css: ${key}]`);
       break;
   }
   inject[key] = true;

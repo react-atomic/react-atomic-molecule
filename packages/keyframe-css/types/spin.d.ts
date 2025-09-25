@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const spin: (string[] | {
+    let spin: (string[] | {
         transform: string[];
     }[])[];
 }

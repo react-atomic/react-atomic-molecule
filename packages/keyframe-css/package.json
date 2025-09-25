@@ -1,5 +1,5 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "name": "keyframe-css",
   "repository": {
     "type": "git",
@@ -25,75 +25,88 @@
     "reshow-unit-dom": "^0.2.0"
   },
   "exports": {
-    "./.index.js": {
-      "require": "./build/cjs/src/.index.js.js",
-      "import": "./build/es/src/.index.js.mjs"
-    },
     "./breath": {
+      "types": "./types/breath.d.ts",
       "require": "./build/cjs/src/breath.js",
       "import": "./build/es/src/breath.mjs"
     },
     "./candleInTheWind": {
+      "types": "./types/candleInTheWind.d.ts",
       "require": "./build/cjs/src/candleInTheWind.js",
       "import": "./build/es/src/candleInTheWind.mjs"
     },
     "./fadeIn": {
+      "types": "./types/fadeIn.d.ts",
       "require": "./build/cjs/src/fadeIn.js",
       "import": "./build/es/src/fadeIn.mjs"
     },
     "./fadeInDown": {
+      "types": "./types/fadeInDown.d.ts",
       "require": "./build/cjs/src/fadeInDown.js",
       "import": "./build/es/src/fadeInDown.mjs"
     },
     "./fadeInLeft": {
+      "types": "./types/fadeInLeft.d.ts",
       "require": "./build/cjs/src/fadeInLeft.js",
       "import": "./build/es/src/fadeInLeft.mjs"
     },
     "./fadeInRight": {
+      "types": "./types/fadeInRight.d.ts",
       "require": "./build/cjs/src/fadeInRight.js",
       "import": "./build/es/src/fadeInRight.mjs"
     },
     "./fadeInUp": {
+      "types": "./types/fadeInUp.d.ts",
       "require": "./build/cjs/src/fadeInUp.js",
       "import": "./build/es/src/fadeInUp.mjs"
     },
     "./fadeInUpBig": {
+      "types": "./types/fadeInUpBig.d.ts",
       "require": "./build/cjs/src/fadeInUpBig.js",
       "import": "./build/es/src/fadeInUpBig.mjs"
     },
     "./fadeOut": {
+      "types": "./types/fadeOut.d.ts",
       "require": "./build/cjs/src/fadeOut.js",
       "import": "./build/es/src/fadeOut.mjs"
     },
     "./fadeOutDown": {
+      "types": "./types/fadeOutDown.d.ts",
       "require": "./build/cjs/src/fadeOutDown.js",
       "import": "./build/es/src/fadeOutDown.mjs"
     },
     "./fadeOutLeft": {
+      "types": "./types/fadeOutLeft.d.ts",
       "require": "./build/cjs/src/fadeOutLeft.js",
       "import": "./build/es/src/fadeOutLeft.mjs"
     },
     "./fadeOutRight": {
+      "types": "./types/fadeOutRight.d.ts",
       "require": "./build/cjs/src/fadeOutRight.js",
       "import": "./build/es/src/fadeOutRight.mjs"
     },
     "./fadeOutUp": {
+      "types": "./types/fadeOutUp.d.ts",
       "require": "./build/cjs/src/fadeOutUp.js",
       "import": "./build/es/src/fadeOutUp.mjs"
     },
     "./flip": {
+      "types": "./types/flip.d.ts",
       "require": "./build/cjs/src/flip.js",
       "import": "./build/es/src/flip.mjs"
     },
     ".": {
+      "types": "./types/index.d.ts",
       "require": "./build/cjs/src/index.js",
       "import": "./build/es/src/index.mjs"
     },
     "./pulsate": {
+      "types": "./types/pulsate.d.ts",
       "require": "./build/cjs/src/pulsate.js",
       "import": "./build/es/src/pulsate.mjs"
     },
     "./spin": {
+      "types": "./types/spin.d.ts",
       "require": "./build/cjs/src/spin.js",
       "import": "./build/es/src/spin.mjs"
     }

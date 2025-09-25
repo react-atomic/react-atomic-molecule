@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const fadeOutLeft: (string[] | ({
+    let fadeOutLeft: (string[] | ({
         opacity: number;
         transform?: undefined;
     } | {

@@ -1,10 +1,10 @@
 export default css;
 declare namespace css {
-    const candleInTheWindCss: (string | {
+    let candleInTheWindCss: (string | {
         opacity: number;
         animationFillMode: string;
     })[];
-    const candleInTheWindKeyframes: (string[] | ({
+    let candleInTheWindKeyframes: (string[] | ({
         opacity: number;
         transform?: undefined;
     } | {

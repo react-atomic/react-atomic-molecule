@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const breath: (string[] | ({
+    let breath: (string[] | ({
         transform: string[];
         opacity?: undefined;
     } | {

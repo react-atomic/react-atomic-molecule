@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const fadeInUpBig: (string[] | {
+    let fadeInUpBig: (string[] | {
         opacity: number;
         transform: string[];
     }[])[];

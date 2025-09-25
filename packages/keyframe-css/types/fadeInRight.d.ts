@@ -1,6 +1,6 @@
 export default css;
 declare namespace css {
-    const fadeInRight: (string[] | {
+    let fadeInRight: (string[] | {
         opacity: number;
         transform: string[];
     }[])[];
