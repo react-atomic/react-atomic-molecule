@@ -1,2 +1,2 @@
+declare const mergeDefaultValue: (obj: any, defaultValue: any) => any;
 export default mergeDefaultValue;
-declare function mergeDefaultValue(obj: any, defaultValue: any): any;

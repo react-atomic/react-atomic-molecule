@@ -1,45 +1,53 @@
-export namespace isUnitlessNumber {
-    export { T_TRUE as animationIterationCount };
-    export { T_TRUE as borderImageOutset };
-    export { T_TRUE as borderImageSlice };
-    export { T_TRUE as borderImageWidth };
-    export { T_TRUE as boxFlex };
-    export { T_TRUE as boxFlexGroup };
-    export { T_TRUE as boxOrdinalGroup };
-    export { T_TRUE as columnCount };
-    export { T_TRUE as columns };
-    export { T_TRUE as flex };
-    export { T_TRUE as flexGrow };
-    export { T_TRUE as flexPositive };
-    export { T_TRUE as flexShrink };
-    export { T_TRUE as flexNegative };
-    export { T_TRUE as flexOrder };
-    export { T_TRUE as gridArea };
-    export { T_TRUE as gridRow };
-    export { T_TRUE as gridRowEnd };
-    export { T_TRUE as gridRowSpan };
-    export { T_TRUE as gridRowStart };
-    export { T_TRUE as gridColumn };
-    export { T_TRUE as gridColumnEnd };
-    export { T_TRUE as gridColumnSpan };
-    export { T_TRUE as gridColumnStart };
-    export { T_TRUE as fontWeight };
-    export { T_TRUE as lineClamp };
-    export { T_TRUE as lineHeight };
-    export { T_TRUE as opacity };
-    export { T_TRUE as order };
-    export { T_TRUE as orphans };
-    export { T_TRUE as tabSize };
-    export { T_TRUE as widows };
-    export { T_TRUE as zIndex };
-    export { T_TRUE as zoom };
-    export { T_TRUE as fillOpacity };
-    export { T_TRUE as floodOpacity };
-    export { T_TRUE as stopOpacity };
-    export { T_TRUE as strokeDasharray };
-    export { T_TRUE as strokeDashoffset };
-    export { T_TRUE as strokeMiterlimit };
-    export { T_TRUE as strokeOpacity };
-    export { T_TRUE as strokeWidth };
-}
-import { T_TRUE } from "reshow-constant";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+/**
+ * CSS properties which accept numbers but are not in units of "px".
+ */
+export declare const isUnitlessNumber: {
+    animationIterationCount: true;
+    borderImageOutset: true;
+    borderImageSlice: true;
+    borderImageWidth: true;
+    boxFlex: true;
+    boxFlexGroup: true;
+    boxOrdinalGroup: true;
+    columnCount: true;
+    columns: true;
+    flex: true;
+    flexGrow: true;
+    flexPositive: true;
+    flexShrink: true;
+    flexNegative: true;
+    flexOrder: true;
+    gridArea: true;
+    gridRow: true;
+    gridRowEnd: true;
+    gridRowSpan: true;
+    gridRowStart: true;
+    gridColumn: true;
+    gridColumnEnd: true;
+    gridColumnSpan: true;
+    gridColumnStart: true;
+    fontWeight: true;
+    lineClamp: true;
+    lineHeight: true;
+    opacity: true;
+    order: true;
+    orphans: true;
+    tabSize: true;
+    widows: true;
+    zIndex: true;
+    zoom: true;
+    fillOpacity: true;
+    floodOpacity: true;
+    stopOpacity: true;
+    strokeDasharray: true;
+    strokeDashoffset: true;
+    strokeMiterlimit: true;
+    strokeOpacity: true;
+    strokeWidth: true;
+};

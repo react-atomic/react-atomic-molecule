@@ -29,7 +29,7 @@ describe("Test Image", () => {
       />,
     );
     expect(wrapper.html()).to.equal(
-      `<picture class="ui"><source media="(min-width:650px)" srcset="foo1.jpg"><img src="foo2.jpg" loading="lazy" class="ui"><source media="(min-width:465px)" srcset="foo3.jpg"></picture>`,
+      `<picture class="ui"><source media="(min-width:650px)" srcset="foo1.jpg"><img loading="lazy" class="ui" src="foo2.jpg"><source media="(min-width:465px)" srcset="foo3.jpg"></picture>`,
     );
   });
 });

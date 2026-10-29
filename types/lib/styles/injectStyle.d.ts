@@ -1,4 +1,3 @@
-export default injectStyle;
 export type CSSProps = {
     styleIds: string[];
     styleObjMap: object;
@@ -7,4 +6,5 @@ export type CSSProps = {
 /**
  * @param {object} [styles]
  */
-declare function injectStyle(styles?: object): any;
+declare const injectStyle: (styles?: object) => null | undefined;
+export default injectStyle;

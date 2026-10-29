@@ -1,8 +1,9 @@
-export default Card;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function Card(props: {
+declare const Card: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Card;

@@ -1,5 +1,5 @@
-export default cleanStyleTag;
 /**
  * @param {object} StyleMap
  */
-declare function cleanStyleTag(StyleMap: object): void;
+declare const cleanStyleTag: (StyleMap: object) => void;
+export default cleanStyleTag;

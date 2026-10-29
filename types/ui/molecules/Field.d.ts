@@ -1,8 +1,9 @@
-export default Field;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function Field(props: {
+declare const Field: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Field;

@@ -1,4 +1,4 @@
-export default Image;
+import * as React from "react";
 /**
  * @param {{
  *   component?: React.ReactNode,
@@ -14,7 +14,7 @@ export default Image;
  *   [key: string]: any
  * }} props
  */
-declare function Image(props: {
+declare const Image: (props: {
     component?: React.ReactNode;
     loading?: string;
     src?: string;
@@ -26,4 +26,5 @@ declare function Image(props: {
     atom?: string;
     children?: React.ReactNode | React.ReactNode[];
     [key: string]: any;
-}): any;
+}) => React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | null;
+export default Image;

@@ -1,4 +1,4 @@
-export default Form;
+import * as React from "react";
 /**
  * @param {{
  *   className?: string,
@@ -7,9 +7,10 @@ export default Form;
  *   [key: string]: any
  * }} props
  */
-declare function Form(props: {
+declare const Form: (props: {
     className?: string;
     messageType?: "success" | "error" | "warning";
     style?: React.CSSProperties;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Form;

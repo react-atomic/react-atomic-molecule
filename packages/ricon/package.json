@@ -19,8 +19,9 @@
     "reshow-runtime": "^0.17.15"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "reshow-unit": "^0.17.29"
+    "@babel/cli": "^8.0.6",
+    "reshow-unit": "^0.17.29",
+    "typescript": "^5.9.3"
   },
   "exports": {
     "./AccessTime": {
@@ -400,7 +401,7 @@
     "clean": "find ./build ./types -name '*.*' | xargs rm -rf",
     "build:cjs": "BABEL_ENV=cjs babel ui -d build/cjs/ui --ignore /**/__tests__ --root-mode upward",
     "build:es": "BABEL_ENV=es babel ui -d build/es/ui --out-file-extension .mjs --root-mode upward",
-    "build:type": "npx -p typescript tsc ui/*.jsx --jsx react-jsx --declaration --allowJs --emitDeclarationOnly --skipLibCheck --declarationDir types",
+    "build:type": "tsc ui/*.jsx --jsx react-jsx --declaration --allowJs --emitDeclarationOnly --skipLibCheck --declarationDir types",
     "build": "npm run clean && npm run build:cjs && npm run build:es && npm run build:type",
     "mochaFor": "STRICT_MODE=on mocha -r global-jsdom/register",
     "mocha": "npm run mochaFor -- 'build/es/**/__tests__/*.mjs'",

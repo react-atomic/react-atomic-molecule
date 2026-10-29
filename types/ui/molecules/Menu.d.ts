@@ -1,8 +1,9 @@
-export default Menu;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function Menu(props: {
+declare const Menu: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Menu;

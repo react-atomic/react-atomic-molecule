@@ -1,4 +1,4 @@
-export default Content;
+import * as React from "react";
 /**
  * @param {{
  * className?: string,
@@ -6,8 +6,9 @@ export default Content;
  * [key: string]: any
  * }} props
  */
-declare function Content({ className, style, ...props }: {
+declare const Content: ({ className, style, ...props }: {
     className?: string;
     style?: React.CSSProperties;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Content;

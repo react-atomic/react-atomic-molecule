@@ -1,8 +1,9 @@
-export default Progress;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function Progress(props: {
+declare const Progress: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Progress;

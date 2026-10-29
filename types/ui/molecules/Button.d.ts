@@ -1,8 +1,9 @@
-export default Button;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function Button(props: {
+declare const Button: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Button;

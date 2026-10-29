@@ -1,2 +1,2 @@
+declare const Description: (props: any) => import("react").JSX.Element;
 export default Description;
-declare function Description(props: any): any;

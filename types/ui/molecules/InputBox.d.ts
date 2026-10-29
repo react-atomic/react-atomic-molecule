@@ -1,8 +1,9 @@
-export default InputBox;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function InputBox(props: {
+declare const InputBox: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default InputBox;

@@ -17,7 +17,7 @@ const useLazyInject = (InjectStyles, existsInjection) => {
   /**
    * @type {any}
    */
-  const injects = useRef();
+  const injects = useRef(null);
   const injectMounted = useRef(NEW_OBJ());
   const resetInject = () => {
     if (!injects.current) {

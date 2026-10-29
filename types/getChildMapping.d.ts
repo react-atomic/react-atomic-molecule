@@ -1,3 +1,4 @@
+declare const bindChildKey: (children: any) => any;
+declare const getChildMapping: (children: any, mapFn: any) => {};
 export default getChildMapping;
-declare function getChildMapping(children: any, mapFn: any): {};
-export function bindChildKey(children: any): any;
+export { bindChildKey };

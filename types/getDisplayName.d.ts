@@ -1,2 +1,2 @@
+declare const getDisplayName: (el: any) => any;
 export default getDisplayName;
-declare function getDisplayName(el: any): any;

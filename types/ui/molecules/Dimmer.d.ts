@@ -1,4 +1,4 @@
-export default Dimmer;
+import * as React from "react";
 /**
  * @param {{
  * className?: string,
@@ -11,7 +11,7 @@ export default Dimmer;
  * [key: string]: any
  * }} props
  */
-declare function Dimmer(props: {
+declare const Dimmer: (props: {
     className?: string;
     show?: boolean;
     isModal?: boolean;
@@ -20,4 +20,5 @@ declare function Dimmer(props: {
     children?: React.ReactNode;
     contentStyle?: React.CSSProperties;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element | null;
+export default Dimmer;

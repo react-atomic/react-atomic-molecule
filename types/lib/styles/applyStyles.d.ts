@@ -1,9 +1,9 @@
-export default applyStyles;
+import StyleObject from "./StyleObject";
 /**
  * @param {object} props
  * @param {StyleObject|StyleObject[]} styles
  * @param {number} [order]
  * @returns {props[]}
  */
-declare function applyStyles(props: object, styles: StyleObject | StyleObject[], order?: number): any[];
-import StyleObject from "./StyleObject";
+declare const applyStyles: (props: object, styles: StyleObject | StyleObject[], order?: number) => props[];
+export default applyStyles;

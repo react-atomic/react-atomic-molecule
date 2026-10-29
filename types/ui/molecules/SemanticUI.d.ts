@@ -1,4 +1,14 @@
-export default SemanticUI;
+import * as React from "react";
+declare class CSSType {
+    /**
+     * @type string[]
+     */
+    cssModule: string[];
+    /**
+     * @type string
+     */
+    cssGroup: string;
+}
 export type SemanticUIProps = {
     ui?: boolean | undefined;
     renderChildren?: boolean | undefined;
@@ -8,11 +18,11 @@ export type SemanticUIProps = {
     cssList?: CSSType[] | undefined;
     refCb?: Function | undefined;
     children?: React.ReactNode | undefined;
-    styles?: any | undefined;
+    styles?: Object | undefined;
     styleOrder?: number | undefined;
     className?: string | undefined;
     style?: React.CSSProperties | undefined;
-    ref?: (React.RefObject | Function) | undefined;
+    ref?: (React.RefObject<any> | Function) | undefined;
 };
 /**
  * @typedef {object} SemanticUIProps
@@ -34,14 +44,5 @@ export type SemanticUIProps = {
  * @param {SemanticUIProps&React.HTMLProps} props
  * @returns {React.ReactElement | null}
  */
-declare function SemanticUI({ ui, renderChildren, atoms, useCSS, cssList, refCb, atom, children, styles, styleOrder, ...restProps }: SemanticUIProps & React.HTMLProps): React.ReactElement | null;
-declare class CSSType {
-    /**
-     * @type string[]
-     */
-    cssModule: string[];
-    /**
-     * @type string
-     */
-    cssGroup: string;
-}
+declare const SemanticUI: ({ ui, renderChildren, atoms, useCSS, cssList, refCb, atom, children, styles, styleOrder, ...restProps }: SemanticUIProps & React.HTMLProps<any>) => React.ReactElement | null;
+export default SemanticUI;

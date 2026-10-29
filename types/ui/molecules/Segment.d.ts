@@ -1,8 +1,9 @@
-export default Segment;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function Segment(props: {
+declare const Segment: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default Segment;

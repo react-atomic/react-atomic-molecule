@@ -1,6 +1,6 @@
-export default getStyleTagId;
 /**
  * @param {string} key
  * @returns {string}
  */
-declare function getStyleTagId(key: string): string;
+declare const getStyleTagId: (key: string) => string;
+export default getStyleTagId;

@@ -1,6 +1,6 @@
-export default replicateSelector;
 /**
  * @param {string} s
  * @returns {string}
  */
-declare function replicateSelector(s: string): string;
+declare const replicateSelector: (s: string) => string;
+export default replicateSelector;

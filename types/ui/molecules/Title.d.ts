@@ -1,2 +1,2 @@
+declare const Title: (props: any) => import("react").JSX.Element;
 export default Title;
-declare function Title(props: any): any;

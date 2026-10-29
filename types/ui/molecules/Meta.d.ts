@@ -1,2 +1,2 @@
+declare const Meta: (props: any) => import("react").JSX.Element;
 export default Meta;
-declare function Meta(props: any): any;

@@ -1,4 +1,3 @@
-export default stylesToCSS;
 export type CSSProps = {
     styleIds: string[];
     styleObjMap: object;
@@ -8,4 +7,5 @@ export type CSSProps = {
  * @param {object[]} styles
  * @returns {CSSProps}
  */
-declare function stylesToCSS(styles: object[]): CSSProps;
+declare const stylesToCSS: (styles: object[]) => CSSProps;
+export default stylesToCSS;

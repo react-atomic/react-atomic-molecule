@@ -1,6 +1,6 @@
-export default Unsafe;
-declare function Unsafe({ className, children, ...restProps }: {
+declare const Unsafe: ({ className, children, ...restProps }: {
     [x: string]: any;
-    className?: string;
     children: any;
-}): any;
+    className?: string | undefined;
+}) => import("react").JSX.Element;
+export default Unsafe;

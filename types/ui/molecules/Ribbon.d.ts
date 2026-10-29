@@ -1,2 +1,2 @@
+declare const Ribbon: (props: any) => import("react").JSX.Element;
 export default Ribbon;
-declare function Ribbon(props: any): any;

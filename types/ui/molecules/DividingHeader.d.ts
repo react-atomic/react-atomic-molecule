@@ -1,8 +1,9 @@
-export default DividingHeader;
+import * as React from "react";
 /**
  * @param {{className?: string, [key: string]: any}} props
  */
-declare function DividingHeader(props: {
+declare const DividingHeader: (props: {
     className?: string;
     [key: string]: any;
-}): any;
+}) => React.JSX.Element;
+export default DividingHeader;

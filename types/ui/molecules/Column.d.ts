@@ -1,8 +1,9 @@
-export default Column;
-declare function Column({ component, pureUnitOne, ui, className, ...restProps }: {
+import SemanticUI from "../molecules/SemanticUI";
+declare const Column: ({ component, pureUnitOne, ui, className, ...restProps }: {
     [x: string]: any;
-    component?: ({ ui, renderChildren, atoms, useCSS, cssList, refCb, atom, children, styles, styleOrder, ...restProps }: SemanticUIProps & React.HTMLProps) => React.ReactElement | null;
-    pureUnitOne?: boolean;
-    ui?: boolean;
     className: any;
-}): any;
+    component?: typeof SemanticUI | undefined;
+    pureUnitOne?: boolean | undefined;
+    ui?: boolean | undefined;
+}) => import("react").ReactElement<unknown, string | import("react").JSXElementConstructor<any>> | null;
+export default Column;

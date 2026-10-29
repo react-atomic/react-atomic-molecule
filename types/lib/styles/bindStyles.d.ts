@@ -1,4 +1,3 @@
-export default bindStyles;
 export type StyleInputProps = {
     className: string;
     style: object;
@@ -25,4 +24,5 @@ export type StyleProps = {
  * @param {StyleInputProps} props
  * @returns {StyleProps}
  */
-declare function bindStyles({ className, style, styles, styleOrder }: StyleInputProps): StyleProps;
+declare const bindStyles: ({ className, style, styles, styleOrder }: StyleInputProps) => StyleProps;
+export default bindStyles;
