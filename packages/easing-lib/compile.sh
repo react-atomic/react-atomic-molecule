@@ -11,15 +11,14 @@ killBy(){
 
 stop(){
     DIR="$( cd "$(dirname "$0")" ; pwd -P )"
-    killBy ${DIR}/node_modules/.bin/babel 
-    killBy ${DIR}/node_modules/.bin/mocha 
+    killBy ${DIR}/node_modules/.bin/babel
 }
 
 watchTest () {
-    stop 
+    stop
     echo "Watch Test mode"
-    npm run build:cjs -- --watch &
-    npm run mocha -- --watch &
+    npm run build:es -- --watch &
+    bun test --watch &
 }
 
 case "$1" in

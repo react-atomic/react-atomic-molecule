@@ -1,11 +1,10 @@
-import {expect} from 'chai';
+import { describe, it, expect } from "bun:test";
 
 import aniCal from "../easeInExpo";
 
-
-describe('Test easeInExpo', () => {
-  it("basic test", ()=>{
-    const start = 0; 
+describe("Test easeInExpo", () => {
+  it("basic test", () => {
+    const start = 0;
     const to = 100;
     const duration = 5;
     const actual1 = aniCal(1, start, to, duration).toFixed(2);
@@ -14,6 +13,12 @@ describe('Test easeInExpo', () => {
     const actual4 = aniCal(4, start, to, duration).toFixed(2);
     const actual5 = aniCal(5, start, to, duration).toFixed(2);
 
-    expect({actual1: "0.39", actual2: "1.56", actual3: "6.25", actual4: "25.00", actual5: "100.00"}).to.deep.equal({actual1, actual2, actual3, actual4, actual5});
+    expect({actual1, actual2, actual3, actual4, actual5}).toEqual({
+      actual1: "0.39",
+      actual2: "1.56",
+      actual3: "6.25",
+      actual4: "25.00",
+      actual5: "100.00",
+    });
   });
 });

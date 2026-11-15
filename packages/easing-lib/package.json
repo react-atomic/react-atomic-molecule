@@ -15,18 +15,20 @@
   "author": "Hill <hill@kimo.com>",
   "license": "MIT",
   "dependencies": {
-    "call-func": "^0.3.6",
-    "win-doc": "^0.3.2"
+    "call-func": "^0.3.12",
+    "win-doc": "^0.3.4"
   },
   "devDependencies": {
-    "@babel/cli": "^8.0.6",
-    "reshow-unit-dom": "^0.2.0",
+    "@babel/cli": "^8.1.0",
+    "@happy-dom/global-registrator": "^21.0.4",
     "typescript": "^5.9.3"
   },
   "exports": {
+    "types": "./types/index.d.ts",
     "require": "./build/cjs/src/index.js",
     "import": "./build/es/src/index.mjs"
   },
+  "types": "./types/index.d.ts",
   "main": "./build/cjs/src/index.js",
   "module": "./build/es/src/index.mjs",
   "scripts": {
@@ -35,12 +37,9 @@
     "build:es": "BABEL_ENV=es babel src -d build/es/src --out-file-extension .mjs --root-mode upward",
     "build:type": "tsc src/*.js --declaration --allowJs --emitDeclarationOnly --skipLibCheck --declarationDir types",
     "build": "npm run clean && npm run build:cjs && npm run build:es && npm run build:type",
-    "mochaFor": "mocha -r global-jsdom/register",
-    "mocha": "npm run mochaFor -- 'build/es/**/__tests__/*.mjs'",
-    "test": "npm run build && npm run mocha",
-    "prepublishOnly": "npm run test"
+    "test": "npm run build && bun test",
+    "prepublishOnly": "npm t"
   },
-  "types": "./types/index.d.ts",
   "files": [
     "types",
     "build",
