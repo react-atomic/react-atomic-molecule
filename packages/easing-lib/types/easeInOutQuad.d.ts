@@ -1,2 +1,9 @@
 export default easeInOutQuad;
-declare function easeInOutQuad(t: any, b: any, c: any, d: any): any;
+/**
+ * @param {number} t Current time
+ * @param {number} b Beginning value
+ * @param {number} c Change in value
+ * @param {number} d Duration
+ * @returns {number}
+ */
+declare function easeInOutQuad(t: number, b: number, c: number, d: number): number;
